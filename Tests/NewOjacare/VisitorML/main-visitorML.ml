@@ -1,11 +1,10 @@
 open Formule
 open Format
 
+let _ =
 let visiteurml = 
     object (self)
-      inherit _stub_jVisiteurML
       val buf = Buffer.create 80
-
 
       method visite_cst cst = 
 	  Buffer.add_string buf (if cst#valeur () then "true" else "false")
@@ -16,33 +15,36 @@ let visiteurml =
       method visite_non non = 
 	let sf = non#sous_formule () in
 	  Buffer.add_string buf "!(";
-	  sf#accepte (self :> jVisiteur);
+	  sf#accepte self ;
 	  Buffer.add_string buf ")"
 	    
       method visite_et et = 
 	let fg = et#sous_formule_g ()
 	and fd = et#sous_formule_d () in
 	  Buffer.add_string buf "(";
-	  fg#accepte (self :> jVisiteur);
+	  fg#accepte self ;
 	  Buffer.add_string buf " ^ "; 
-	  fd#accepte (self :> jVisiteur);
+	  fd#accepte self ;
 	  Buffer.add_string buf ")";
 	  
       method visite_ou ou = 
 	let fg = ou#sous_formule_g ()
 	and fd = ou#sous_formule_d () in
 	  Buffer.add_string buf "(";
-	  fg#accepte (self :> jVisiteur);
+	  fg#accepte self ;
 	  Buffer.add_string buf " v "; 
-	  fd#accepte (self :> jVisiteur);
+	  fd#accepte self;
 	  Buffer.add_string buf ")";
 
       method get_res () =
 	let s = Buffer.contents buf in
 	  Buffer.reset buf;
 	  s
-
-    end)
+    end
+in 
+let cb = new _stub_jVisiteurML visiteurml
+in
+()
 
 (*
 let visiteur_ml = 

@@ -434,37 +434,26 @@ and _capsule_jMainJava (jni_ref : _jni_jMainJava) =
     then raise (Null_object "fr/upmc/infop6/mlo/MainJava")
     else ()
   in object (self) method _get_jni_jMainJava = jni_ref end
+
 and virtual _souche_jVisiteurML =
-    fun (jni_ref : _jni_jVisiteurML) ->
+    fun jni_ref ->
       let _ =
          if Java.is_null jni_ref
-	 then raise (Null_object "fr/upmc/infop6/mlo/jVisiteur")
+	 then raise (Null_object "fr/upmc/infop6/mlo/VisiteurML")
 	 else () 
       in object (self)
-          method _stub_get_res = JavaString.of_string (self#get_res ())
-          method _stub_visite_var =
-            fun (_p0 : _jni_jVar) ->
-              let _p0 : jVar = new _capsule_jVar _p0 in self#visite_var _p0
-          method _stub_visite_ou =
-            fun (_p0 : _jni_jOu) ->
-              let _p0 : jOu = new _capsule_jOu _p0 in self#visite_ou _p0
-          method _stub_visite_et =
-            fun (_p0 : _jni_jEt) ->
-              let _p0 : jEt = new _capsule_jEt _p0 in self#visite_et _p0
-          method _stub_visite_non =
-            fun (_p0 : _jni_jNon) ->
-              let _p0 : jNon = new _capsule_jNon _p0 in self#visite_non _p0
-          method _stub_visite_cst =
-            fun (_p0 : _jni_jConstante) ->
-              let _p0 : jConstante = new _capsule_jConstante _p0
-              in self#visite_cst _p0
-          method virtual get_res : unit -> string
-          method virtual visite_var : jVar -> unit
-          method virtual visite_ou : jOu -> unit
-          method virtual visite_et : jEt -> unit
-          method virtual visite_non : jNon -> unit
-          method virtual visite_cst : jConstante -> unit
-          method _get_jni_jVisiteurML = jni_ref
+          method get_res = JavaString.to_string (Java.call "fr.upmc.infop6.mlo.VisiteurML.get_res()" jni_ref )
+          method visite_var =
+            fun (_p0 : _jni_jVar) -> (Java.call "fr.upmc.infop6.mlo.Visiteur.visite(fr.upmc.infop6.mlo.Var)" jni_ref _p0)
+          method visite_ou =
+            fun (_p0 : _jni_jOu) -> (Java.call "fr.upmc.infop6.mlo.Visiteur.visite(fr.upmc.infop6.mlo.Ou)" jni_ref _p0)
+          method visite_et =
+            fun (_p0 : _jni_jEt) -> (Java.call "fr.upmc.infop6.mlo.Visiteur.visite(fr.upmc.infop6.mlo.Et)" jni_ref _p0)
+          method visite_non =
+            fun (_p0 : _jni_jNon) -> (Java.call "fr.upmc.infop6.mlo.Visiteur.visite(fr.upmc.infop6.mlo.Non)" jni_ref _p0)
+          method visite_cst =
+            fun (_p0 : _jni_jConstante) -> (Java.call "fr.upmc.infop6.mlo.Visiteur.visite(fr.upmc.infop6.mlo.Constante)" jni_ref _p0)
+          method _get_jni_jVisiteurML =( jni_ref:> _jni_jVisiteurML)
           method _get_jni_jVisiteur = (jni_ref :> _jni_jVisiteur)
         end
 let jFormule_of_top (o : top) : jFormule =
@@ -549,12 +538,11 @@ class visiteurTS () =
   let java_obj = Java.make "fr.upmc.infop6.mlo.VisiteurTS()" ()
   in object (self) inherit _capsule_jVisiteurTS java_obj end;;
 
-class virtual _stub_jVisiteurML =
-  let java_obj = Java.make "callback'fr'upmc'infop6'mlo'VisiteurML" this in
-  Java.proxy "fr.upmc.infop6.mlo.VisiteurML" (
+class _stub_jVisiteurML =
+  fun (obj) -> 
     object (self)
-      inherit _souche_jVisiteurML java_obj
-    end;;
+      inherit _souche_jVisiteurML (Java.proxy "fr.upmc.infop6.mlo.VisiteurML" (obj))
+    end
 
 let fr_upmc_infop6_mlo_jMainJava__main =
     fun (_p0 : jMainML) ->

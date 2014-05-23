@@ -1,0 +1,10 @@
+package mypack;
+
+public class ClassTest {
+    String toString(){
+        return "javablop";
+    }
+    void display(){
+	System.out.println  this.toString();
+    }
+}

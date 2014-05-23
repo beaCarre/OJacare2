@@ -94,22 +94,16 @@ class non : jFormule -> jNon;;
 class et : jFormule -> jFormule -> jEt;;
 class ou : jFormule -> jFormule -> jOu;;
 class visiteurTS : unit -> jVisiteurTS;;
-class virtual _stub_jVisiteurML :
-  unit ->
+class _stub_jVisiteurML :
+  _jni_jVisiteurML ->
     object
       method _get_jni_jVisiteur : _jni_jVisiteur
       method _get_jni_jVisiteurML : _jni_jVisiteurML
-      method _stub_get_res : java'lang'String java_instance
-      method _stub_visite_var : _jni_jVar  -> unit
-      method _stub_visite_ou : _jni_jOu -> unit
-      method _stub_visite_et : _jni_jEt  -> unit
-      method _stub_visite_non : _jni_jNon -> unit
-      method _stub_visite_cst : _jni_jConstante -> unit
-      method virtual get_res : unit -> string
-      method virtual visite_var : jVar -> unit
-      method virtual visite_ou : jOu -> unit
-      method virtual visite_et : jEt -> unit
-      method virtual visite_non : jNon -> unit
-      method virtual visite_cst : jConstante -> unit
+      method get_res : java'lang'String java_instance
+      method visite_var : _jni_jVar  -> unit
+      method visite_ou : _jni_jOu -> unit
+      method visite_et : _jni_jEt  -> unit
+      method visite_non : _jni_jNon -> unit
+      method visite_cst : _jni_jConstante -> unit
     end;;
 val fr_upmc_infop6_mlo_jMainJava__main : jMainML -> unit;;

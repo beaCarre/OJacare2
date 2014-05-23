@@ -1,9 +1,8 @@
 package callback.mypack;
 import fr.inria.caml.camljava.*;
 
-class ColoredPoint extends mypack.ColoredPoint {
+interface ColoredPoint {
 
-  private Callback cb;
   public ColoredPoint(fr.inria.caml.camljava.Callback cb, int _p0, int _p1, String _p2   ) {
      super(_p0, _p1, _p2  );
      this.cb = cb;

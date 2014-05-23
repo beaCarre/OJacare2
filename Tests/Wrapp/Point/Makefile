@@ -1,3 +1,6 @@
+PACK=
+NAME=
+MAIN=
 
 #HOME
 #JAVA_PATH=/usr/lib/jvm/java-7-oracle
@@ -10,22 +13,22 @@ JAVA=$(JAVA_PATH)/bin/java
 JAVAC=$(JAVA_PATH)/bin/javac
 OCAMLJAVA=ocamljava -java-extensions javalib.cmja
 
-CP=-annot -cp $(JAVA_PATH)/lib/ct.sym -cp mypack
+CP=-annot -cp $(JAVA_PATH)/lib/ct.sym -cp $(PACK)
 
 default: clean compile run
 
 compile:
-	$(JAVAC) mypack/*.java
-	$(OCAMLJAVA) $(CP) -c p.mli
-	$(OCAMLJAVA) $(CP) -c p.ml
-	$(OCAMLJAVA) $(CP) -c main.ml
-	$(OCAMLJAVA) p.cmj main.cmj
+	$(JAVAC) $(PACK)/*.java
+	$(OCAMLJAVA) $(CP) -c $(NAME).mli
+	$(OCAMLJAVA) $(CP) -c $(NAME).ml
+	$(OCAMLJAVA) $(CP) -c $(MAIN).ml
+	$(OCAMLJAVA) $(NAME).cmj $(MAIN).cmj
 
 run:
 	$(JAVA) -cp camlprog.jar:. pack.ocamljavaMain
 
 clean:
-	rm -f camlprog.jar *.cm* *.jo mypack/*.class *.annot
+	rm -f camlprog.jar *.cm* *.jo $(PACK)/*.class *.annot
 
 
 .PHONY: default compile run clean

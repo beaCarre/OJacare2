@@ -1,0 +1,6 @@
+package mypack;
+
+class ClassTest {
+  [name classTest] <init> ();
+  string toString();
+}

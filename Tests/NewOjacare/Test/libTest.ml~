@@ -1,0 +1,7 @@
+let _ =
+
+class test =
+  Java.proxy "mypack.Test" 
+    (
+    object
+      method display () =

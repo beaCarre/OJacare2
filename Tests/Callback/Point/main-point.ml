@@ -73,7 +73,7 @@ class ml_colored_point x y c  =
   end;;
 
 display "Creation d'un point callback cb1 = (5,6) blue ";;
-let cb1 = new ml_colored_point 5 6 "blue";;
+let cb1 = Java.proxy "mypack.Colored" (ml_colored_point 5 6 "blue");;
 display "OK\n";;
 
 display "Envoi cb1#getColor : ";;
