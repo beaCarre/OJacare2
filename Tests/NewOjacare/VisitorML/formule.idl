@@ -1,0 +1,68 @@
+package fr.upmc.infop6.mlo;
+
+abstract class Formule {
+  abstract void accepte(Visiteur v);
+}
+
+class Constante extends Formule {
+  [name constante] <init>(boolean cst);
+  boolean valeur();
+  void accepte(Visiteur v);
+}
+
+class Var extends Formule {
+  [name var] <init>(string nom);
+  string ident();
+  void accepte(Visiteur v);
+}
+
+class Non extends Formule {
+  [name non] <init>(Formule sf);
+  Formule sous_formule();
+  void accepte(Visiteur v);  
+}
+
+abstract class OpBin extends Formule {
+  Formule sous_formule_g();
+  Formule sous_formule_d();
+}
+
+class Et extends OpBin {
+  [name et] <init>(Formule fg, Formule fd);
+  void accepte(Visiteur v);
+}
+
+class Ou extends OpBin {
+  [name ou] <init>(Formule fg, Formule fd);
+  void accepte(Visiteur v);
+}
+
+interface Visiteur {
+  [name visite_cst] void visite(Constante c);
+  [name visite_non] void visite(Non n);
+  [name visite_et] void visite(Et e);
+  [name visite_ou] void visite(Ou o );
+  [name visite_var] void visite(Var v );
+}
+
+class VisiteurTS implements Visiteur {
+  [name visiteurTS] <init>();
+  string get_res();
+  [name visite_cst] void visite(Constante c);
+  [name visite_non] void visite(Non n);
+  [name visite_et] void visite(Et e);
+  [name visite_ou] void visite(Ou o );
+  [name visite_var] void visite(Var v );
+}
+
+ interface VisiteurML implements Visiteur {
+  string get_res();
+}
+
+ interface MainML {
+  VisiteurML cree_visiteur();
+}
+
+class MainJava {
+  static void main(MainML);
+}

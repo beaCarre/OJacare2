@@ -1,0 +1,1 @@
+les champs sont passés "public"

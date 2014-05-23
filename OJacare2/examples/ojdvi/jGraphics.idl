@@ -1,0 +1,53 @@
+package java.awt;
+
+class Image { }
+
+package mypack;
+
+[name ml_dvi, callback] interface MlDvi {
+  void run(string, GrView, GrControler);
+}
+
+class DviFrame {
+  static void main(MlDvi);
+}
+
+class GrView {
+
+  static final int transp;
+
+  int width;
+  int height;
+
+  void init(int,int);
+  void clear();
+  void close();
+
+  void setColor(int);
+  void fillRect(int, int, int, int);
+  void drawImage(java.awt.Image, int, int);
+  java.awt.Image makeImage(int[],int,int);
+
+}
+
+class CamlEvent {
+
+  static final int KEY_PRESSED_MASK ;
+  static final int BUTTON_DOWN_MASK ;
+  static final int BUTTON_UP_MASK ;
+  static final int MOUSE_MOTION_MASK ;
+
+  final int mouse_x;
+  final int mouse_y;
+  final boolean button;
+  final boolean keypressed;
+  final char key;
+
+}
+
+interface GrControler {
+
+  CamlEvent waitBlockingNextEvent(int);
+  CamlEvent pollNextEvent(int);
+  
+}

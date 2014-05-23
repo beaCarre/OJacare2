@@ -1,0 +1,621 @@
+diff --exclude=CVS -c -N -r camljava-0.3/Makefile camljava/Makefile
+*** camljava-0.3/Makefile	Thu Feb 20 14:42:40 2003
+--- camljava/Makefile	Mon Jul 19 13:10:23 2004
+***************
+*** 1,6 ****
+--- 1,9 ----
+  all:
+  	cd lib; $(MAKE) all
+  
++ opt:
++ 	cd lib; $(MAKE) opt
++ 
+  install:
+  	cd lib; $(MAKE) install
+  
+diff --exclude=CVS -c -N -r camljava-0.3/Makefile.config.mingw camljava/Makefile.config.mingw
+*** camljava-0.3/Makefile.config.mingw	Thu Jan  1 01:00:00 1970
+--- camljava/Makefile.config.mingw	Mon Jul 19 13:10:23 2004
+***************
+*** 0 ****
+--- 1,33 ----
++ ################### C compiler ########################
++ 
++ # C compiler to use
++ CC=gcc -mno-cygwin
++ 
++ # Flags for $(CC)
++ CFLAGS=-O -g -Wall -Wno-unused -mms-bitfields
++ 
++ ################### Java compiler #####################
++ 
++ # Java compiler to use
++ JAVAC=javac -g
++ 
++ ################### JNI interface #####################
++ 
++ ## Defaults are set for Sun's JDK 1.2.2 under Linux.  
++ ## For other platforms, adjust as required and tell us about it.
++ 
++ # Home location for the JDK.  Only used for setting other variables below. 
++ JDKHOME=C:/Program\ Files/Java/j2sdk1.4.2_04
++ 
++ # Where to find the JNI include files (for compiling the OCaml-JNI C stubs)
++ JNIINCLUDES=-I$(JDKHOME)/include -I$(JDKHOME)/include/win32
++ 
++ # The library to link with to get the JNI
++ JNILIBS=-ljvm
++ JNIPATH=$(JDKHOME)/jre/bin/client/jvm.dll
++ 
++ # Additional link-time options to pass to $(CC) when linking with $(JNILIBS)
++ JNILIBOPTS=-Wl,-rpath,`ocamlc -where`/camljava
++ 	
++ 
++ JNISTUBSOPTIONS=
+diff --exclude=CVS -c -N -r camljava-0.3/Makefile.config.msvc camljava/Makefile.config.msvc
+*** camljava-0.3/Makefile.config.msvc	Thu Feb 20 14:42:40 2003
+--- camljava/Makefile.config.msvc	Mon Jul 19 13:10:23 2004
+***************
+*** 9,15 ****
+  ################### Java compiler #####################
+  
+  # Java compiler to use
+! JAVAC=javac -g
+  
+  ################### JNI interface #####################
+  
+--- 9,15 ----
+  ################### Java compiler #####################
+  
+  # Java compiler to use
+! JAVAC=javac
+  
+  ################### JNI interface #####################
+  
+diff --exclude=CVS -c -N -r camljava-0.3/Makefile.config.osx camljava/Makefile.config.osx
+*** camljava-0.3/Makefile.config.osx	Thu Jan  1 01:00:00 1970
+--- camljava/Makefile.config.osx	Wed Nov 16 16:14:08 2005
+***************
+*** 0 ****
+--- 1,25 ----
++ ################### C compiler ########################
++ 
++ # C compiler to use
++ CC=gcc
++ 
++ # Flags for $(CC)
++ CFLAGS=-O -Wall
++ 
++ ################### Java compiler #####################
++ 
++ # Java compiler to use
++ JAVAC=javac
++ 
++ ################### JNI interface #####################
++ 
++ ## Defaults are set for MacOS X 10.2
++ 
++ # Where to find the JNI include files (for compiling the OCaml-JNI C stubs)
++ JNIINCLUDES=-I/System/Library/Frameworks/JavaVM.framework/Versions/CurrenCurrentt/Headers
++ 
++ # The library to link with to get the JNI
++ JNILIBS=-framework JavaVM
++ 
++ # Additional link-time options to pass to $(CC) when linking with $(JNILIBS)
++ JNILIBOPTS=
+diff --exclude=CVS -c -N -r camljava-0.3/Makefile.mingw camljava/Makefile.mingw
+*** camljava-0.3/Makefile.mingw	Thu Jan  1 01:00:00 1970
+--- camljava/Makefile.mingw	Mon Jul 19 13:10:23 2004
+***************
+*** 0 ****
+--- 1,17 ----
++ MK=$(MAKE) -f Makefile.mingw
++ 
++ all:
++ 	cd lib; $(MK) all
++ 
++ opt:
++ 	cd lib; $(MK) opt
++ 
++ install:
++ 	cd lib; $(MK) install
++ 
++ tst:
++ 	cd test; $(MK) 
++ 
++ clean:
++ 	cd lib; $(MK)  clean
++ 	cd test; $(MK) clean
+diff --exclude=CVS -c -N -r camljava-0.3/Makefile.msvc camljava/Makefile.msvc
+*** camljava-0.3/Makefile.msvc	Thu Feb 20 14:42:40 2003
+--- camljava/Makefile.msvc	Mon Jul 19 13:10:23 2004
+***************
+*** 3,8 ****
+--- 3,11 ----
+  all:
+  	cd lib; $(MK) all
+  
++ opt:
++ 	cd lib; $(MK) opt
++ 
+  install:
+  	cd lib; $(MK) install
+  
+diff --exclude=CVS -c -N -r camljava-0.3/Makefile.osx camljava/Makefile.osx
+*** camljava-0.3/Makefile.osx	Thu Jan  1 01:00:00 1970
+--- camljava/Makefile.osx	Mon Jul 19 13:10:23 2004
+***************
+*** 0 ****
+--- 1,17 ----
++ MK=$(MAKE) -f Makefile.osx
++ 
++ all:
++ 	cd lib; $(MK) all
++ 
++ opt:
++ 	cd lib; $(MK) opt
++ 
++ install:
++ 	cd lib; $(MK) install
++ 
++ tst:
++ 	cd test; $(MK)
++ 
++ clean:
++ 	cd lib; $(MK) clean
++ 	cd test; $(MK) clean
+diff --exclude=CVS -c -N -r camljava-0.3/lib/Makefile camljava/lib/Makefile
+*** camljava-0.3/lib/Makefile	Thu Jun 21 13:46:05 2001
+--- camljava/lib/Makefile	Mon Jul 19 13:10:24 2004
+***************
+*** 6,17 ****
+  OCAMLLIB=`ocamlc -where`
+  CAMLJAVALIB=$(OCAMLLIB)/camljava
+  
+! all: jni.cma jni.cmxa javaclasses
+  
+  install:
+  	mkdir -p $(CAMLJAVALIB)
+! 	cp jni.cma jni.cmi jni.cmxa jni.a libcamljni.a jni.mli $(CAMLJAVALIB)
+  	jar cf $(CAMLJAVALIB)/camljava.jar fr/inria/caml/camljava/*.class
+  
+  jni.cma: jni.cmo libcamljni.a
+  	$(OCAMLC) -linkall -a -o jni.cma -custom jni.cmo \
+--- 6,20 ----
+  OCAMLLIB=`ocamlc -where`
+  CAMLJAVALIB=$(OCAMLLIB)/camljava
+  
+! all: jni.cma javaclasses
+! opt: jni.cmxa javaclasses
+  
+  install:
+  	mkdir -p $(CAMLJAVALIB)
+! 	if test -f jni.cmxa; then cp jni.cmxa jni.a $(CAMLJAVALIB); fi
+! 	cp jni.cma jni.cmi libcamljni.a jni.mli $(CAMLJAVALIB)
+  	jar cf $(CAMLJAVALIB)/camljava.jar fr/inria/caml/camljava/*.class
++ 	cp ../Makefile.config $(CAMLJAVALIB)
+  
+  jni.cma: jni.cmo libcamljni.a
+  	$(OCAMLC) -linkall -a -o jni.cma -custom jni.cmo \
+diff --exclude=CVS -c -N -r camljava-0.3/lib/Makefile.mingw camljava/lib/Makefile.mingw
+*** camljava-0.3/lib/Makefile.mingw	Thu Jan  1 01:00:00 1970
+--- camljava/lib/Makefile.mingw	Mon Jul 19 13:10:24 2004
+***************
+*** 0 ****
+--- 1,75 ----
++ include ../Makefile.config.mingw
++ 
++ OCAMLC=ocamlc -g
++ OCAMLOPT=ocamlopt
++ OCAMLDEP=ocamldep
++ OCAMLLIB=`ocamlc -where`
++ CAMLJAVALIB=$(OCAMLLIB)/camljava
++ 
++ all: libjvm.dll.a jni.cma javaclasses
++ opt: libjvm.dll.a jni.cmxa javaclasses
++ 
++ install:
++ 	mkdir -p $(CAMLJAVALIB)
++ 	if test -f jni.cmxa; then cp jni.cmxa jni.a; fi
++ 	cp jni.cma jni.cmi libcamljni.a jni.mli libjvm.dll.a $(CAMLJAVALIB)
++ 	jar cf $(CAMLJAVALIB)/camljava.jar fr/inria/caml/camljava/*.class
++ 
++ jni.cma: jni.cmo libcamljni.a
++ 	$(OCAMLC) -linkall -a -o jni.cma -custom jni.cmo \
++             -ccopt "$(JNILIBOPTS)" -cclib -lcamljni -cclib "$(JNILIBS)"
++ 
++ jni.cmxa: jni.cmx libcamljni.a
++ 	$(OCAMLOPT) -linkall -a -o jni.cmxa jni.cmx \
++             -ccopt "$(JNILIBOPTS)" -cclib -lcamljni -cclib "$(JNILIBS)"
++ 
++ libcamljni.a: jnistubs.o
++ 	rm -f libcamljni.a
++ 	ar rcs libcamljni.a jnistubs.o
++ 
++ 
++ libjvm.dll.a: jvm.def
++ 	dlltool --input-def jvm.def --kill-at --dllname $(JNIPATH) --output-lib libjvm.dll.a
++ 
++ clean::
++ 	rm -f libcamljni.a
++ 
++ jni.ml: jni.mlp jni.mli ../Makefile.config
++ 	rm -f jni.ml
++ 	sed -e 's|%PATH%|'$(CAMLJAVALIB)/camljava.jar'|' \
++                 jni.mlp > jni.ml
++ 	chmod -w jni.ml
++ 
++ clean::
++ 	rm -f jni.ml
++ 
++ beforedepend:: jni.ml
++ 
++ javaclasses:
++ 	$(JAVAC) fr/inria/caml/camljava/*.java
++ 
++ clean::
++ 	rm -f fr/inria/caml/camljava/*.class
++ 
++ clean::
++ 	rm -f *.cm? *.[oa]
++ 
++ .SUFFIXES: .ml .mli .cmo .cmi .cmx
++ 
++ .c.o:
++ 	$(CC) -c $(CFLAGS) $(JNIINCLUDES) -I$(OCAMLLIB) $*.c
++ 
++ .ml.cmo:
++ 	$(OCAMLC) -c $*.ml
++ 
++ .ml.cmx:
++ 	$(OCAMLOPT) -c $*.ml
++ 
++ .mli.cmi:
++ 	$(OCAMLC) -c $*.mli
++ 
++ depend: beforedepend
++ 	$(OCAMLDEP) *.mli *.ml > .depend
++ 
++ include .depend
++ 
+diff --exclude=CVS -c -N -r camljava-0.3/lib/Makefile.msvc camljava/lib/Makefile.msvc
+*** camljava-0.3/lib/Makefile.msvc	Thu Feb 20 14:42:40 2003
+--- camljava/lib/Makefile.msvc	Mon Jul 19 13:10:24 2004
+***************
+*** 6,17 ****
+  OCAMLLIB=`ocamlc -where`
+  CAMLJAVALIB=$(OCAMLLIB)/camljava
+  
+! all: jni.cma jni.cmxa javaclasses
+  
+  install:
+  	mkdir -p $(CAMLJAVALIB)
+! 	cp jni.cma jni.cmi jni.cmxa jni.lib libcamljni.lib jni.mli $(CAMLJAVALIB)
+  	jar cf $(CAMLJAVALIB)/camljava.jar fr/inria/caml/camljava/*.class
+  
+  jni.cma: jni.cmo libcamljni.lib
+  	$(OCAMLC) -linkall -a -o jni.cma -custom jni.cmo \
+--- 6,20 ----
+  OCAMLLIB=`ocamlc -where`
+  CAMLJAVALIB=$(OCAMLLIB)/camljava
+  
+! all: jni.cma javaclasses
+! opt: jni.cmxa javaclasses
+  
+  install:
+  	mkdir -p $(CAMLJAVALIB)
+! 	if test -f jni.cmxa; then cp jni.cmxa jni.lib $(CAMLJAVALIB); fi
+! 	cp jni.cma jni.cmi libcamljni.lib jni.mli $(CAMLJAVALIB)
+  	jar cf $(CAMLJAVALIB)/camljava.jar fr/inria/caml/camljava/*.class
++ 	cp ../Makefile.config.msvc $(CAMLJAVALIB)/Makefile.config
+  
+  jni.cma: jni.cmo libcamljni.lib
+  	$(OCAMLC) -linkall -a -o jni.cma -custom jni.cmo \
+diff --exclude=CVS -c -N -r camljava-0.3/lib/Makefile.osx camljava/lib/Makefile.osx
+*** camljava-0.3/lib/Makefile.osx	Thu Jan  1 01:00:00 1970
+--- camljava/lib/Makefile.osx	Wed Nov 16 16:16:37 2005
+***************
+*** 0 ****
+--- 1,74 ----
++ include ../Makefile.config.osx
++ 
++ OCAMLC=ocamlc.opt -g
++ OCAMLOPT=ocamlopt
++ OCAMLDEP=ocamldep
++ OCAMLLIB=`ocamlc -where`
++ CAMLJAVALIB=$(OCAMLLIB)/camljava
++ 
++ all: jni.cma javaclasses
++ opt: jni.cmxa javaclasses
++ 
++ install:
++ 	mkdir -p $(CAMLJAVALIB)
++ 	if test -f jni.cmxa; then cp jni.cmxa jni.a $(CAMLJAVALIB); fi
++ 	cp jni.cma jni.cmi libcamljni.a jni.mli $(CAMLJAVALIB)
++ 	jar cf $(CAMLJAVALIB)/camljava.jar fr/inria/caml/camljava/*.class
++ 	ranlib $(CAMLJAVALIB)/libcamljni.a 
++ 	if test -f jni.a; then ranlib $(CAMLJAVALIB)/jni.a; fi
++ 	cp ../Makefile.config.osx $(CAMLJAVALIB)/Makefile.config
++ 
++ jni.cma: jni.cmo libcamljni.a
++ 	$(OCAMLC) -linkall -a -o jni.cma -custom jni.cmo \
++             -ccopt "$(JNILIBOPTS)" -cclib -lcamljni -cclib "$(JNILIBS)"
++ 
++ jni.cmxa: jni.cmx libcamljni.a
++ 	$(OCAMLOPT) -linkall -a -o jni.cmxa jni.cmx \
++             -ccopt "$(JNILIBOPTS)" -cclib -lcamljni -cclib "$(JNILIBS)"
++ 
++ libcamljni.a: jnistubs.o
++ 	rm -f libcamljni.a
++ 	ar rcs libcamljni.a jnistubs.o
++ 
++ clean::
++ 	rm -f libcamljni.a
++ 
++ jni.ml: jni.mlp jni.mli ../Makefile.config
++ 	rm -f jni.ml
++ 	sed -e 's|%PATH%|'$(CAMLJAVALIB)/camljava.jar'|' \
++                 jni.mlp > jni.ml
++ 	chmod -w jni.ml
++ 
++ clean::
++ 	rm -f jni.ml
++ 
++ beforedepend:: jni.ml
++ 
++ javaclasses:
++ 	$(JAVAC) fr/inria/caml/camljava/*.java
++ 
++ clean::
++ 	rm -f fr/inria/caml/camljava/*.class
++ 
++ clean::
++ 	rm -f *.cm? *.[oa]
++ 
++ .SUFFIXES: .ml .mli .cmo .cmi .cmx
++ 
++ .c.o:
++ 	$(CC) -c $(CFLAGS) $(JNIINCLUDES) -I$(OCAMLLIB) $*.c
++ 
++ .ml.cmo:
++ 	$(OCAMLC) -c $*.ml
++ 
++ .ml.cmx:
++ 	$(OCAMLOPT) -c $*.ml
++ 
++ .mli.cmi:
++ 	$(OCAMLC) -c $*.mli
++ 
++ depend: beforedepend
++ 	$(OCAMLDEP) *.mli *.ml > .depend
++ 
++ include .depend
++ 
+Binary files camljava-0.3/lib/jni.cmxa and camljava/lib/jni.cmxa differ
+diff --exclude=CVS -c -N -r camljava-0.3/lib/jni.mli camljava/lib/jni.mli
+*** camljava-0.3/lib/jni.mli	Tue Jun  5 14:19:55 2001
+--- camljava/lib/jni.mli	Mon Jul 19 13:10:24 2004
+***************
+*** 10,16 ****
+  (*                                                                     *)
+  (***********************************************************************)
+  
+! (* $Id: jni.mli,v 1.1 2001/06/05 12:19:55 xleroy Exp $ *)
+  
+  (* Low-level Java interface (JNI level) *)
+  
+--- 10,16 ----
+  (*                                                                     *)
+  (***********************************************************************)
+  
+! (* $Id: jni.mli,v 1.1.1.1 2004/07/19 11:10:24 henry Exp $ *)
+  
+  (* Low-level Java interface (JNI level) *)
+  
+diff --exclude=CVS -c -N -r camljava-0.3/lib/jni.mlp camljava/lib/jni.mlp
+*** camljava-0.3/lib/jni.mlp	Thu Feb 20 14:42:40 2003
+--- camljava/lib/jni.mlp	Mon Jul 19 13:10:24 2004
+***************
+*** 10,16 ****
+  (*                                                                     *)
+  (***********************************************************************)
+  
+! (* $Id: jni.mlp,v 1.3 2003/02/20 13:42:40 xleroy Exp $ *)
+  
+  (* Low-level Java interface (JNI level) *)
+  
+--- 10,16 ----
+  (*                                                                     *)
+  (***********************************************************************)
+  
+! (* $Id: jni.mlp,v 1.1.1.1 2004/07/19 11:10:24 henry Exp $ *)
+  
+  (* Low-level Java interface (JNI level) *)
+  
+***************
+*** 24,34 ****
+        "Unix" -> ":"
+      | "Win32" -> ";"
+      | _ -> assert false in
+    let path =
+      try
+!       Sys.getenv "CLASSPATH" ^ sep ^ libpath
+      with Not_found ->
+!       libpath in
+    init path;
+    at_exit shutdown
+  
+--- 24,35 ----
+        "Unix" -> ":"
+      | "Win32" -> ";"
+      | _ -> assert false in
++   let path = libpath ^ sep ^ "." in
+    let path =
+      try
+!       Sys.getenv "CLASSPATH" ^ sep ^ path
+      with Not_found ->
+!       path in
+    init path;
+    at_exit shutdown
+  
+diff --exclude=CVS -c -N -r camljava-0.3/lib/jnistubs.c camljava/lib/jnistubs.c
+*** camljava-0.3/lib/jnistubs.c	Thu Jul  8 16:02:53 2004
+--- camljava/lib/jnistubs.c	Mon Jul 19 13:10:24 2004
+***************
+*** 14,19 ****
+--- 14,37 ----
+  #define Val_jboolean(b) ((b) == JNI_FALSE ? Val_false : Val_true)
+  #define Jboolean_val(v) (Val_bool(v) ? JNI_TRUE : JNI_FALSE)
+  
++ /**********Threading *************/
++ 
++ static JNIEnv * g_jenv;
++ 
++ void init_threading() {
++   g_jenv = jenv;
++ }
++ 
++ void camljava_check_main_thread() {
++   if(jenv != g_jenv) {
++     fprintf(stderr,"Pas de callback depuis un thread autre que le thread principal pour l'instant !!!\n");
++     fflush(stderr);
++     // lever une exception Java serait mieux    
++     exit(2);
++   }
++   return;
++ }
++ 
+  /************ Wrapping of Java objects as Caml values *************/
+  
+  #define JObject(v) (*((jobject *) Data_custom_val(v)))
+***************
+*** 680,685 ****
+--- 698,704 ----
+    retcode = JNI_CreateJavaVM(&jvm, (void **) &jenv, &vm_args);
+    stat_free(classpath);
+    if (retcode < 0) failwith("Java.init");
++   init_threading(); // Ajout O'Jacare
+    return Val_unit;
+  }
+  
+***************
+*** 780,785 ****
+--- 799,807 ----
+  
+    savedenv = jenv;
+    jenv = env;
++ 
++   camljava_check_main_thread(); // Ajout O'Jacare
++ 
+    if (!caml_classes_initialized) {
+      if (init_caml_classes(env) == -1) return -1;
+      caml_classes_initialized = 1;
+***************
+*** 822,829 ****
+        else if ((*env)->IsInstanceOf(env, arg, caml_double))
+          carg = copy_double((*env)->GetDoubleField(env, arg,
+                                                  caml_double_contents));
+!       else if ((*env)->IsInstanceOf(env, arg, java_lang_string))
+!         carg = extract_java_string(env, (jstring) arg);
+        else
+          carg = alloc_jobject(arg);
+        cargs[i] = carg;
+--- 844,851 ----
+        else if ((*env)->IsInstanceOf(env, arg, caml_double))
+          carg = copy_double((*env)->GetDoubleField(env, arg,
+                                                  caml_double_contents));
+!       /*      else if ((*env)->IsInstanceOf(env, arg, java_lang_string))
+! 	      carg = extract_java_string(env, (jstring) arg); */
+        else
+          carg = alloc_jobject(arg);
+        cargs[i] = carg;
+diff --exclude=CVS -c -N -r camljava-0.3/lib/jvm.def camljava/lib/jvm.def
+*** camljava-0.3/lib/jvm.def	Thu Jan  1 01:00:00 1970
+--- camljava/lib/jvm.def	Mon Jul 19 13:10:24 2004
+***************
+*** 0 ****
+--- 1,4 ----
++ EXPORTS
++ JNI_CreateJavaVM@12
++ JNI_GetDefaultJavaVMInitArgs@4
++ JNI_GetCreatedJavaVMs@12
+diff --exclude=CVS -c -N -r camljava-0.3/test/Makefile camljava/test/Makefile
+*** camljava-0.3/test/Makefile	Tue Jun  5 16:01:15 2001
+--- camljava/test/Makefile	Mon Jul 19 13:10:25 2004
+***************
+*** 17,20 ****
+  	$(JAVAC) -classpath $(CAMLJAVA):. $*.java
+  
+  clean::
+! 	rm -f *.cm?
+--- 17,20 ----
+  	$(JAVAC) -classpath $(CAMLJAVA):. $*.java
+  
+  clean::
+! 	rm -f *.cm? *.class
+diff --exclude=CVS -c -N -r camljava-0.3/test/Makefile.mingw camljava/test/Makefile.mingw
+*** camljava-0.3/test/Makefile.mingw	Thu Jan  1 01:00:00 1970
+--- camljava/test/Makefile.mingw	Mon Jul 19 13:10:25 2004
+***************
+*** 0 ****
+--- 1,20 ----
++ include ../Makefile.config.mingw
++ 
++ CAMLJAVA=`ocamlc -where`/camljava/camljava.jar
++ 
++ all: jnitest Test.class Testcb.class
++ 	./jnitest
++ 
++ jnitest: jnitest.ml
++ 	ocamlc -ccopt -g -o jnitest -I +camljava jni.cma jnitest.ml 
++ 
++ clean::
++ 	rm -f jnitest.exe
++ 
++ .SUFFIXES: .java .class
++ 
++ .java.class:
++ 	$(JAVAC) -classpath "$(CAMLJAVA);." $*.java
++ 
++ clean::
++ 	rm -f *.cm? 
+diff --exclude=CVS -c -N -r camljava-0.3/test/Makefile.msvc camljava/test/Makefile.msvc
+*** camljava-0.3/test/Makefile.msvc	Thu Feb 20 14:42:40 2003
+--- camljava/test/Makefile.msvc	Mon Jul 19 13:10:25 2004
+***************
+*** 17,20 ****
+  	$(JAVAC) -classpath "$(CAMLJAVA);." $*.java
+  
+  clean::
+! 	rm -f *.cm?
+--- 17,20 ----
+  	$(JAVAC) -classpath "$(CAMLJAVA);." $*.java
+  
+  clean::
+! 	rm -f *.cm? *.class
+diff --exclude=CVS -c -N -r camljava-0.3/test/Makefile.osx camljava/test/Makefile.osx
+*** camljava-0.3/test/Makefile.osx	Thu Jan  1 01:00:00 1970
+--- camljava/test/Makefile.osx	Mon Jul 19 13:10:25 2004
+***************
+*** 0 ****
+--- 1,20 ----
++ include ../Makefile.config.osx
++ 
++ CAMLJAVA=`ocamlc -where`/camljava/camljava.jar
++ 
++ all: jnitest Test.class Testcb.class
++ 	./jnitest
++ 
++ jnitest: jnitest.ml
++ 	ocamlc -ccopt -g -o jnitest -I +camljava jni.cma jnitest.ml
++ 
++ clean::
++ 	rm -f jnitest
++ 
++ .SUFFIXES: .java .class
++ 
++ .java.class:
++ 	$(JAVAC) -classpath $(CAMLJAVA):. $*.java
++ 
++ clean::
++ 	rm -f *.cm? *.class

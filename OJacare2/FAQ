@@ -1,0 +1,27 @@
+FAQ - O'Jacare
+--------------
+
+Q: Mon programme quitte immédiatement sur une exception non rattrapée, ... ?
+R: Vérifier si votre CLASSPATH est correct et si les classes de l'IDL
+   correspondent bien aux classes Java disponible à l'exécution. 
+-> Attention par défaut le CLASSPATH ne contient pas le répertoire courant.
+
+Q: Les classes Java engendrées par ojacare ne compilent pas, ... ?
+R: le fichier camljava.jar doit se trouver dans votre BOOTCLASSPATH.
+Q: Il y est. Je vous envoie un rapport de bug ?
+R: Oui, merci.
+
+Q: Mon programme se termine sur une exception non rattrapée et
+   judicieusement nommée Exception, sans plus d'information, ... ?
+R: C'est une exception Java.
+Q: Et ensuite ?
+R: Vous pouvez les tracer, en modifiant le fichier lib/jnistubs.c de camljava.
+   Recherchez la ligne "(*jenv)->ExceptionDescribe(jenv);"
+Q: Ce n'est pas pratique!
+R: D'autres questions ? 
+
+-------------------------------------------------------------------------------
+N'hésitez pas à contacter les auteurs conjointement :
+Gregoire.Henry@pps.jussieu.fr et Emmanuel.Chailloux@pps.jussieu.fr
+
+$Id: FAQ,v 1.1 2003/10/26 16:37:04 henry Exp $

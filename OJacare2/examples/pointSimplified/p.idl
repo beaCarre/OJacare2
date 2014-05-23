@@ -1,0 +1,17 @@
+package mypack;
+
+
+class Point {
+
+  void mVOID ();
+  boolean mBOOLEAN (boolean);
+  byte mBYTE (byte);
+  char mCHAR (char);
+  short mSHORT (short);
+  int mINT (int);
+  long mLONG(long);
+  float mFLOAT(float);
+  double mDOUBLE(double);
+  string mSTRING(string);
+  Point mPOINT(Point);  
+}

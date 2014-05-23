@@ -1,0 +1,55 @@
+type _jni_jPoint = Jni.obj;;
+
+class type jPoint =
+  object inherit JniHierarchy.top method _get_jni_jPoint : _jni_jPoint end;;
+
+
+let __jni_obj_of_jni_jPoint (java_obj : _jni_jPoint) =
+  (Obj.magic : _jni_jPoint -> Jni.obj) java_obj;;
+
+
+let __jni_jPoint_of_jni_obj =
+  let clazz =
+    try Jni.find_class "mypack/Point"
+    with | _ -> failwith "Class not found : mypack.Point."
+  in
+    fun (java_obj : Jni.obj) ->
+      if not (Jni.is_instance_of java_obj clazz)
+      then failwith "``cast error'' : jPoint (mypack/Point)"
+      else (Obj.magic java_obj : _jni_jPoint);;
+
+let _alloc_jPoint =
+  let clazz = Jni.find_class "mypack/Point"
+  in fun () -> (Jni.alloc_object clazz : _jni_jPoint);;
+
+class _capsule_jPoint =
+  let clazz = Jni.find_class "mypack/Point"
+  in
+    fun (jni_ref : _jni_jPoint) ->
+      let _ =
+        if Jni.is_null jni_ref
+        then raise (JniHierarchy.Null_object "mypack/Point")
+        else ()
+      in
+        object (self)
+          method _get_jni_jPoint = jni_ref
+          inherit JniHierarchy.top jni_ref
+        end;;
+
+let jPoint_of_top (o : JniHierarchy.top) : jPoint =
+  new _capsule_jPoint (__jni_jPoint_of_jni_obj o#_get_jniobj);;
+
+let _instance_of_jPoint =
+  let clazz = Jni.find_class "mypack/Point"
+  in fun (o : JniHierarchy.top) -> Jni.is_instance_of o#_get_jniobj clazz;;
+
+let _new_jArray_jPoint size =
+  let java_obj = Jni.new_object_array size (Jni.find_class "mypack/Point")
+  in
+    new JniArray._Array Jni.get_object_array_element Jni.
+      set_object_array_element (fun jniobj -> new _capsule_jPoint jniobj)
+      (fun obj -> obj#_get_jni_jPoint) java_obj;;
+
+let jArray_init_jPoint size f =
+  let a = _new_jArray_jPoint size
+  in (for i = 0 to pred size do a#set i (f i) done; a);;

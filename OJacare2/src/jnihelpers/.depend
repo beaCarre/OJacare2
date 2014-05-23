@@ -1,0 +1,6 @@
+jniArray.cmi: jniHierarchy.cmi
+jniHierarchy.cmi:
+jniArray.cmo: jniHierarchy.cmi jniArray.cmi
+jniArray.cmx: jniHierarchy.cmx jniArray.cmi
+jniHierarchy.cmo: jniHierarchy.cmi
+jniHierarchy.cmx: jniHierarchy.cmi

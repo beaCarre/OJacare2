@@ -1,0 +1,72 @@
+O'Jacare
+An object-oriented interface between O'Caml and Java
+------------------------------------------------------------------------------
+$Date: 2004/03/23 22:32:16 $
+
+
+------------------------------------------------------------------------------
+Principle
+------------------------------------------------------------------------------
+O'Jacare is a code generator to help in interoperability between Java and 
+O'Caml through their object model. O'Jacare defines a simple IDL for Java's 
+classes and interfaces descriptions.  For communications from Java to O'Caml 
+it owns a callback mechanism. So, you can override in O'Caml a method 
+defined in Java.  The implementation is based an each language low-level 
+interfaces with C (JNI for Java and external for O'Caml) and uses an extended 
+version of the camljava library.  
+O'Jacare generates all needed wrapper classes and enables static 
+typechecking in both world.
+
+Web-site:
+  http://www.pps.jussieu.fr/~henry/ojacare/
+
+O'Caml: 
+  http://caml.inria.fr/
+
+Java:   
+  http://java.sun.com/
+
+
+------------------------------------------------------------------------------
+Installation
+------------------------------------------------------------------------------
+See INSTALL.camljava and INSTALL
+
+
+------------------------------------------------------------------------------
+Usage
+------------------------------------------------------------------------------
+O'Jacaré's IDL have a syntax similar to Java syntax.
+The command line tool 'ojacare' take an idl file in argument.
+It generate an Caml module (named as the idl file), 
+and some Java classes, in a package named callback.
+This generated code, depends on the 'camljava' library,
+but users could now see a Java object as a Caml object.
+The callback mechanism allow to subclass in Caml a class implemented in Java.
+
+
+------------------------------------------------------------------------------
+Examples
+------------------------------------------------------------------------------
+See README in directory examples/
+
+
+------------------------------------------------------------------------------
+Documentation
+------------------------------------------------------------------------------
+See directory doc/ or website for up-to-date documentation.
+(http://www.pps.jussieu.fr/~henry/ojacare/documentation.en.html)
+
+
+------------------------------------------------------------------------------
+Knowns bugs
+------------------------------------------------------------------------------
+- Callback object are never dealocated.
+- Communication take place only in principal thread
+
+License: See file LICENSE
+-------------------------------------------------------------------------------
+Contact:
+Gregoire.Henry@pps.jussieu.fr and Emmanuel.Chailloux@pps.jussieu.fr
+
+$Id: README,v 1.5 2004/03/23 22:32:16 henry Exp $

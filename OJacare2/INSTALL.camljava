@@ -1,0 +1,94 @@
+                  Installing 'camljava' for use with O'Jacare
+                  ------------------------------------------- 
+
+1- Download the library 'camljava' from:
+
+   	    http://pauillac.inria.fr/~xleroy/software.html#camljava
+   
+2- Uncompress it to the top directory.
+
+   	    tar -xzf camljava-0.3.tar.gz
+
+3- Apply our patch. From the top directory, do:
+
+	    patch -p0 < camljava-0.3.diff
+
+4- On Unix (except MacOS X), edit __ camljava-0.3/Makefile.config __
+   to define parameters depending on your Java installation.  
+   As distributed, the library is set up for
+   Sun's JDK version 1.2.2 on a Linux x86 platform 
+
+   On MacOS X, edit __ camljava-0.3/Makefile.config.osx __
+   to define parameters depending on your Java installation.  
+   As distributed, the library is set up for
+   Apple's JDK version 1.3.1 on Jaguar or Panther.
+
+   On Windows with MinGW from cygwin (see README.win32 in O'Caml distribution)
+   edit __ camljava-0.3/Makefile.config.mingw __
+   to define parameters depending on your Java installation.  
+   As distributed, the library is set up for ...
+   
+5- From the 'camljava-0.3' directory, do:
+
+* on MacOS X:
+	make -f Makefile.osx
+
+* on others Unix:
+      	make
+
+* on Windows with MinGW:
+        make -f Makefile.mingw
+
+This build the library with bytecode compiler.
+
+6- (Optionnal) If you have a native compiler, you can do:
+
+* on MacOS X:
+	make -f Makefile.osx opt
+
+* on others Unix:
+      	make opt
+
+* on Windows with MinGW:
+        make -f Makefile.mingw opt
+
+This build the library with native compiler.
+
+7- You can now install 'camljava'.
+
+From the 'camljava-0.3' directory, become superuser and do:
+
+* on MacOS X:
+	make -f Makefile.osx install
+
+* on others Unix:
+      	make install
+
+* on Windows with MinGW:
+        make -f Makefile.mingw install
+
+8- You can give it a test now. From 'camljava-0.2' directory, do:
+
+* on MacOS X:
+	make -f Makefile.osx tst
+
+* on others Unix:
+      	make tst
+
+* on Windows with MinGW:
+        make -f Makefile.mingw tst
+
+This compile and execute a program called 'jnitest'. 
+It's execution must be self-explanatory.
+
+9- Installation is complete. Time to clean up. From the 'camljava-0.2'
+directory, do:
+
+* on MacOS X:
+	make -f Makefile.osx clean
+
+* on others Unix:
+      	make clean
+
+* on Windows with MinGW:
+        make -f Makefile.mingw clean

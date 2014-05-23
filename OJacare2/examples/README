@@ -1,0 +1,52 @@
+Examples for O'Jacare
+---------------------
+
+
+-----------------------------------------------------------------------------
+Notes
+-----------------------------------------------------------------------------
+
+Don't forget to install O'Jacare before running this examples.
+Adjust __ Makefile.config __ to your installation.
+
+Each examples are build with the generic Makefile installed with O'Jacare.
+In each folder, you can do:
+   
+	make byte		# build the bytecode application
+	make run-byte		# execute it
+
+	make opt		# build the native application
+	make run-opt		# execute it
+
+	make toplevel		# build a toplevel bind with camljava
+	make run-toplevel	# launch it
+
+Executable name are usually the same as the folder.
+Entry points are usually: main-$(FOLDERNAME).ml
+Custom toplevel are usually: ocaml-$(FOLDERNAME)
+
+-----------------------------------------------------------------------------
+Description
+-----------------------------------------------------------------------------
+
+* point: classical in-heritance and late-binding example
+
+* rectangle: multiple in-heritance in O'Caml from encapsulated Java class
+
+* observer: Design-patterns
+   - Model in Java <-> Observer in O'Caml
+   - How to simulate _main_ in Java with static method
+
+* visitorML: Design-patterns
+   - Model in Java <-> Visitor in O'Caml
+
+* visitorJava:  
+   - Visit with Java a recursive O'Caml value
+
+* ojDvi: a DVI viewer
+   - based on mldvi from Alexandre Miquel
+      -> http://pauillac.inria.fr/~miquel/
+   - minimalist GUI with AWT
+
+* awt: let's _try_ building an GUI interactively from toplevel
+

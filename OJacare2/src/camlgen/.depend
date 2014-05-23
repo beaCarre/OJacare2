@@ -1,0 +1,32 @@
+idl_camlgen.cmi: ../check/cidl.cmi
+mlClass.cmi: ../check/cidl.cmi
+mlGen.cmi: ../check/cidl.cmi
+mlInit.cmi: ../check/cidl.cmi
+mlMethod.cmi: ../check/cidl.cmi
+mlType.cmi: ../check/cidl.cmi
+idl_camlgen.cmo: mlMethod.cmi mlInit.cmi mlGen.cmi mlClass.cmi \
+    ../check/cidl.cmi idl_camlgen.cmi
+idl_camlgen.cmx: mlMethod.cmx mlInit.cmx mlGen.cmx mlClass.cmx \
+    ../check/cidl.cmi idl_camlgen.cmi
+mlClass.cmo: p4helper.cmo mlMethod.cmi mlGen.cmi ../check/ident.cmi \
+    ../check/cidl.cmi mlClass.cmi
+mlClass.cmx: p4helper.cmx mlMethod.cmx mlGen.cmx ../check/ident.cmx \
+    ../check/cidl.cmi mlClass.cmi
+mlField.cmo: ../check/cidl.cmi
+mlField.cmx: ../check/cidl.cmi
+mlGen.cmo: p4helper.cmo mlType.cmi ../check/ident.cmi ../check/cidl.cmi \
+    mlGen.cmi
+mlGen.cmx: p4helper.cmx mlType.cmx ../check/ident.cmx ../check/cidl.cmi \
+    mlGen.cmi
+mlInit.cmo: ../common/utilities.cmi p4helper.cmo mlType.cmi mlMethod.cmi \
+    mlGen.cmi ../check/ident.cmi ../check/cidl.cmi mlInit.cmi
+mlInit.cmx: ../common/utilities.cmx p4helper.cmx mlType.cmx mlMethod.cmx \
+    mlGen.cmx ../check/ident.cmx ../check/cidl.cmi mlInit.cmi
+mlMethod.cmo: ../common/utilities.cmi p4helper.cmo mlType.cmi mlGen.cmi \
+    ../check/ident.cmi ../check/cidl.cmi mlMethod.cmi
+mlMethod.cmx: ../common/utilities.cmx p4helper.cmx mlType.cmx mlGen.cmx \
+    ../check/ident.cmx ../check/cidl.cmi mlMethod.cmi
+mlType.cmo: ../check/ident.cmi ../check/cidl.cmi mlType.cmi
+mlType.cmx: ../check/ident.cmx ../check/cidl.cmi mlType.cmi
+p4helper.cmo:
+p4helper.cmx:

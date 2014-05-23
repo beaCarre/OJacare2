@@ -1,0 +1,30 @@
+package mypack;
+
+[callback] interface MlMain {
+  Observer createObserver(string);
+}
+
+class JavaMain {
+  static void main(string[], MlMain);
+}
+
+[callback] interface Observer {
+  void update(Subject);
+}
+
+abstract class Subject {
+  void attach(Observer);
+  void detach(Observer);
+  void notifyObservers();
+}
+
+class ConcreteSubject extends Subject {
+  Data getState();
+  string toString();
+}
+
+class Data {
+  final int x;
+  final float y;
+}
+

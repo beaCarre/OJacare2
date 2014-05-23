@@ -1,0 +1,11 @@
+'ojDvi' depends on 'mlDvi' by Alexandre Miquel.
+
+Download it here :
+
+   http://pauillac.inria.fr/~miquel/mldvi-1.0.tar.gz
+
+Uncompress it in this directory:
+
+   tar xzf mldvi-1.0.tar.gz
+
+--

@@ -1,0 +1,6 @@
+This O'Jacare is based on the original version found at http://www.pps.univ-paris-diderot.fr/~henry/ojacare/index.en.html,
+
+with the following modifications by jun.furuse@gmail.com:
+
+- Port to the new CamlP4 (>= 3.10)
+- Use of ocamlfind to compile with camljava

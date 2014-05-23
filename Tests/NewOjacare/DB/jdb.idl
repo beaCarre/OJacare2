@@ -1,0 +1,5 @@
+package mypack;
+
+class FrameDB {
+  [name frameDB] <init> (string, [array]string, [array,array]string);
+}

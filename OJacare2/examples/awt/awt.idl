@@ -1,0 +1,42 @@
+package java.awt.event;
+
+class ActionEvent {
+
+  [name action_event]<init> (top,int,string);
+
+  top getSource();
+
+}
+
+[callback] interface ActionListener {
+
+  void actionPerformed(ActionEvent);
+
+}
+
+package java.awt;
+
+class Component {
+
+}
+
+class Frame extends Component {
+  
+  [name frame] <init>(string);
+
+  void pack();
+  void show();
+  void dispose();
+
+  Component add(Component);
+
+}
+
+class Button extends Component {
+
+  [name button]<init>(string);
+
+  void addActionListener(java.awt.event.ActionListener);
+  void setLabel(string);
+
+}

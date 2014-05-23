@@ -1,0 +1,61 @@
+                    Installing O'Jacare on a Unix machine
+                    -------------------------------------
+
+PREREQUISITES
+
+* The O'Caml distribution (3.06 or newer recommended)
+  URL: http://caml.inria.fr/
+
+* A Java SDK : O'Jacare have been tested with the JDK from Sun (1.4.2)
+  URL : http://java.sun.com/
+  Reporst with others JVM and JNI implemetations are welcome.
+
+INSTALLATION INSTRUCTIONS
+
+1- Install the 'camljava' library from Xavier Leroy, with our patch.
+   See INSTALL.camljava for furthers instructions.
+
+2- Adjust the file 'Makefile.config' to your needs :
+    * where to find O'Caml and the camljava library
+    * where to install O'Jacare
+
+3- From the top directory, do:
+
+         make -C src depend
+         make -C src byte
+	 make -C src opt	# only if you build the native O'Caml compiler
+
+This build the O'Jacare code generator, and helpers library.
+
+4- You can now install O'Jacare. This will create the following commands 
+(in the binary directory as set in Makefile.config) :
+
+         ojacare       		the code generator
+
+This will create the following library (in the library directory as set in 
+Makefile.config)
+
+	 jnihelpers.cma		some module used by code generated with ojacare
+	 jnihelpers.cmxa		
+	 jnihelpers.a		
+
+	 Makefile.include	a makefile to help building with O'Jacare
+
+From the top directory, become superuser and do:
+
+        umask 022       # make sure to give read & execute permission to all
+        make -C src install
+
+5- To make some test, see directory examples/
+
+6- Installation is complete. Time to clean up. From the toplevel
+directory, do "make -C src clean".
+
+COMMON PROBLEMS:
+
+* The Makefiles use the "include" directive, which is not supported by
+all versions of make. Use GNU make if this is a problem.
+
+* The Makefiles assume that make execute commands by calling /bin/sh. They
+won't work if /bin/csh is called instead. You may have to unset the SHELL
+environment variable, or set it to /bin/sh.

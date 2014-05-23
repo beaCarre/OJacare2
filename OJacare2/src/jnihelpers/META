@@ -1,0 +1,7 @@
+name="ojacare"
+version="20051116"
+description="An object-oriented interface between O'Caml and Java"
+requires="camljava"
+archive(byte)="jnihelpers.cma"
+archive(native)="jnihelpers.cmxa"
+linkopts = ""

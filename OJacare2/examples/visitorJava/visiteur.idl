@@ -1,0 +1,18 @@
+package fr.upmc.infop6.mlo;
+
+[callback] interface Formule {
+  void accepte(Visiteur v);
+}
+
+[callback] interface Visiteur {
+    void visite_cst(boolean b);
+    void visite_non(Formule sf);
+    void visite_et(Formule fg, Formule fd);
+    void visite_ou(Formule fg, Formule fd);
+    void visite_var(string nom);
+}
+
+class VisiteurTS implements Visiteur {
+  [name visiteurTS]<init>();
+  string get_res();
+}

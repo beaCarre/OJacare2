@@ -1,0 +1,104 @@
+# generic minimal Makefile for O'Jacare
+
+### Specific to your application
+
+# EXEC      = Nom de l'éxécutable (et du main = main-$(EXEC).ml)
+# IDL       = Liste des fichiers IDL
+# MLINCDIRS = Liste des répertoires contenant les modules et bibliotèques Caml utilisées
+# MODULES   = Liste des modules Caml 
+# LIBRARIES = Liste des bibliothèques Caml à inclure à l'édition de lien
+# CLIBS     = Liste des bibliothèques C à inclure à l'édition de lien
+# CLASS     = Liste des classes Java à compiler
+# CBCLASS   = Liste des classes Java ayant l'attribut callback 
+
+### Adjust to your installation
+
+OCAMLC      = ocamlfind ocamlc
+OCAMLOPT    = ocamlfind ocamlopt
+# OCAMLMKLIB  = ocamlmklib
+# OCAMLLEX    = ocamllex
+# OCAMLYACC   = ocamlyacc
+# OCAMLDEP    = ocamldep 
+OCAMLMKTOP  = ocamlfind ocamlmktop
+
+# OJACARE     = ojacare
+# OJACAREDIR  = $(shell $(OCAMLC) -where)/ojacare
+# CAMLJAVADIR = $(shell $(OCAMLC) -where)/camljava
+
+include $(CAMLJAVADIR)/Makefile.config
+
+PACKAGES      = -package camljava,ojacare
+
+CMI_OBJS      = $(addsuffix .cmi, $(IDL))
+CMO_OBJS      = $(addsuffix .cmo, $(IDL)) $(addsuffix .cmo, $(MODULES))
+CMX_OBJS      = $(addsuffix .cmx, $(IDL)) $(addsuffix .cmx, $(MODULES))
+CMA_OBJS      = $(addsuffix .cma, $(LIBRARIES)) 
+CMXA_OBJS     = $(addsuffix .cmxa, $(LIBRARIES))
+CLASS_FILES   = $(addsuffix .class, $(CLASS))
+CBCLASS_FILES = $(addsuffix .class,$(addprefix callback/,$(CBCLASS)))
+IDL_FILES     = $(addsuffix .idl, $(IDL))
+
+BYTE_OBJS = $(CMA_OBJS) $(CMO_OBJS)
+OPT_OBJS  = $(CMXA_OBJS) $(CMX_OBJS)
+
+INCLUDES  = $(PACKAGES) $(addprefix -I , $(MLINCDIRS))
+LINK_OPTS = -linkpkg $(addprefix -ccopt -L, $(CLIBDIRS)) \
+	    $(addprefix -cclib -l, $(CLIBS))
+
+all: byte opt toplevel
+byte: $(CLASS_FILES) $(CBCLASS_FILES) $(EXEC)
+opt: $(CLASS_FILES) $(CBCLASS_FILES) $(EXEC).opt
+toplevel: ocaml-$(EXEC)
+
+# Exécutable
+$(EXEC): $(CMI_OBJS) $(CMO_OBJS) main-$(EXEC).cmo
+	$(OCAMLC) -o $@ $(INCLUDES) $(LINK_OPTS) $(CMA_OBJS) $(CMO_OBJS) main-$(EXEC).cmo
+$(EXEC).opt: $(CMI_OBJS) $(CMX_OBJS) main-$(EXEC).cmx
+	$(OCAMLOPT) -o $@ $(INCLUDES) $(LINK_OPTS) $(CMXA_OBJS) $(CMX_OBJS) main-$(EXEC).cmx
+
+.PHONY: run-byte run-opt
+run-byte: $(CLASS_FILES) $(CBCLASS_FILES) $(EXEC)
+	./$(EXEC)
+run-opt: $(CLASS_FILES) $(CBCLASS_FILES) $(EXEC).opt
+	./$(EXEC).opt
+partialclean::
+	rm -f $(EXEC) $(EXEC).opt
+
+# Toplevel
+ocaml-$(EXEC): $(CMO_OBJS) $(CLASS_FILES) $(CBCLASS_FILES)
+	$(OCAMLMKTOP) -o $@ $(INCLUDES) $(LINK_OPTS) $(CMA_OBJS) $(CMO_OBJS) 
+.PHONY: run-toplevel
+run-toplevel:
+	./ocaml-$(EXEC)
+partialclean::
+	rm -f ocaml-$(EXEC)
+
+# Règles générales
+.SUFFIXES: .idl .ml
+.idl.ml: 
+	$(OJACARE) $<
+.idl.mli: 
+	$(OJACARE) $<
+$(CBCLASS_FILES:.class=.java) : $(IDL_FILES)
+	$(foreach file,$(IDL_FILES),$(OJACARE) $(file);)
+clean:: partialclean
+	rm -rf callback/ $(CLASS_FILES) 
+
+.SUFFIXES: .ml .mli .java .cmo .cmi .cmx .class
+.mli.cmi:
+	$(OCAMLC) -c $(INCLUDES) $<
+.ml.cmo:
+	$(OCAMLC) -c $(INCLUDES) $<
+.ml.cmx:
+	$(OCAMLOPT) -c $(INCLUDES) $< 
+.java.class:
+	CLASSPATH=`pwd`:$(CAMLJAVADIR)/camljava.jar $(JAVAC) $<
+
+$(addsuffix .cmo,$(IDL)): $(addsuffix .cmi,$(IDL))
+$(addsuffix .cmx,$(IDL)): $(addsuffix .cmi,$(IDL))
+main-$(EXEC).cmo $(addsuffix .cmo, $(MODULES)): $(addsuffix .cmi, $(IDL))
+main-$(EXEC).cmx $(addsuffix .cmx, $(MODULES)): $(addsuffix .cmi, $(IDL))
+
+partialclean:: 
+	rm -f *.cm[iox] *.[so] *~ *.annot
+	rm -rf $(IDL_FILES:.idl=.mli) $(IDL_FILES:.idl=.ml)

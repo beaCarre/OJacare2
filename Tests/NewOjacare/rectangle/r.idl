@@ -1,0 +1,17 @@
+package mypack;
+
+class Point {
+  [name point] <init> (int, int);
+}
+
+class RectangleGr { 
+  [name rect_graph] <init> (Point, Point);
+  [name compute_perimeter] int computePerimeter();
+  string toString();
+}
+
+class RectangleGeo {
+  [name rect_geo] <init> (Point, Point);
+  [name compute_area] int computeArea();
+  string toString();
+}  

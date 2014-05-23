@@ -1,0 +1,39 @@
+$Id: CHANGELOG,v 1.8 2004/03/27 19:24:54 henry Exp $
+
+2005-11-16
+BUG: Compatibilete avec ocaml-3.08.4 suite a la correction du bug #3607 d'ocaml
+     
+
+2004-03-27
+BUG: main: les fichier .ml et .mli sont effacés avant d'être réécrit.
+BUG: les attributs final et abstract était involontairement ignorée lorqu'il était utilisées en conjonction avec static.
+
+2004-03-19
+ADD: fichier Makefile générique minimal pour O'Jacare : Makefile.include
+CHANGE: fichier INSTALL, et méthode de compilation
+CHANGE: message d'erreur explicite lorqu'au chargement les classes Java 
+        ne correspondent pas à l'IDL
+BUG: classe héritant d'une interface : 
+     	    les méthodes hérités de l'interface en sont plus "abstraite" ...
+
+2004-03-11
+BUG: héritage des interfaces 'callback' qui empechait la compilation 
+     du code généré (le mli masquait les accesseur aux références JNI héritées)
+
+2004-03-08
+BUG: Le parser ne correspondait pas à la syntaxe du papier LMO'2004 :
+      - invertion annotations-modifiers dans la déclaration d'une classe
+      - les identificateurs (optionnelles) des argument des méthodes n'était pas acceptés
+
+2003-10-22
+ADD: Exemple d'héritage multiple : rectangle 
+ADD: Exemple d'application complète : jDvi (une visionneuse DVI)
+CHANGE: Le nom par défaut donné au méthode static est préfixé par l'alias 
+	nom de classe caml, et non plus celui Java.
+BUG: La signature Java était incorrect dans le code caml généré pour 
+     l'accès au champs statique
+BUG: Il manquait le constructeur au Stub Java généré pour les interfaces
+
+2003-10-18
+première version
+

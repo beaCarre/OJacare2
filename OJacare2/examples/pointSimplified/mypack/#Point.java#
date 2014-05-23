@@ -1,0 +1,10 @@
+//	$Id: Point.java,v 1.1.1.1 2003/10/19 22:57:41 henry Exp $
+
+package mypack;
+
+public class Point {
+    
+    Point (boolean b, byte by, char c, short sh, int i, long l, float f, double d, String s) {
+    }
+
+}

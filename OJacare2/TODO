@@ -1,0 +1,16 @@
+TODO - O'Jacare
+---------------
+
+- Implémenter un mécanisme d'import dans les fichiers .idl.
+- Gérer les exceptions dans l'IDL ?
+- Réfléchir à un patch à proposer pour la gestion des threads dans camljava.
+- Voir la réutisabilité avec C# et .Net grâce à ocamil (http://www.pps.jussieu.fr/~montela/ocamil/)
+
+- Code engendré : Remplacer les multiples classes utilisateurs par un 
+                    constructeur avec des variants
+- rÃ©integrer le générateur de fichier IDL, par introspection Java.
+
+- Makefile générique : problème de dépendence
+
+- warning lorsque deux classes ont le meme nom ...
+

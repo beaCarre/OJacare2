@@ -1,0 +1,13 @@
+package src;
+
+class Model {
+  [name model] <init> ();
+}
+
+class View {
+  [name view] <init>(Model);
+}
+
+class Controller{
+  [name controller]<init>(Model,View);
+}

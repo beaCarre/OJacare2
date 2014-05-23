@@ -1,0 +1,49 @@
+package mypack;
+
+class Point {
+ 
+  int x;
+  int y; 
+  
+  [name default_point] <init> ();
+  [name point] <init> (int,int);
+  
+  void moveto(int,int);
+  void rmoveto(int,int);
+  string toString();
+  void display();
+  double distance();
+  boolean eq(Point);
+
+  static void main(string [] arg);
+
+}
+
+interface Colored {
+
+  string getColor();
+  void setColor(string);
+
+}
+
+[callback] class ColoredPoint extends Point implements Colored {
+
+  [name default_colored_point] <init> ();
+  [name colored_point] <init> (int,int,string);
+
+  [name eq_colored_point] boolean eq(ColoredPoint);
+
+  static void main(string [] arg);
+
+}
+
+class Cloud {
+  
+  [name empty_cloud] <init> ();
+
+  void addPoint(Point);
+  string toString();
+
+  static void main(string [] arg);
+
+}
