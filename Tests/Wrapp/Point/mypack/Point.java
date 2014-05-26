@@ -4,8 +4,8 @@ package mypack;
 
 public class Point {
   
-    int x;
-    int y;
+    public int x;
+    public int y;
     
     public Point() { 
 	this.x = 0;

@@ -15,7 +15,6 @@ class Point {
   double distance();
   boolean eq(Point);
 
-  static void main(string [] arg);
 
 }
 
@@ -26,14 +25,12 @@ interface Colored {
 
 }
 
-[callback] class ColoredPoint extends Point implements Colored {
+class ColoredPoint extends Point implements Colored {
 
   [name default_colored_point] <init> ();
   [name colored_point] <init> (int,int,string);
 
   [name eq_colored_point] boolean eq(ColoredPoint);
-
-  static void main(string [] arg);
 
 }
 
@@ -43,7 +40,5 @@ class Cloud {
 
   void addPoint(Point);
   string toString();
-
-  static void main(string [] arg);
 
 }

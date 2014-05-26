@@ -2,7 +2,7 @@ package mypack;
 
 public interface Colored {
 
-  String getColor();
-  void setColor(String c);
+  public String getColor();
+  public void setColor(String c);
 
 }

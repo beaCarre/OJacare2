@@ -1,6 +1,0 @@
-package mypack;
-
-public interface Ijava {
-    String toString();
-    void display();
-}

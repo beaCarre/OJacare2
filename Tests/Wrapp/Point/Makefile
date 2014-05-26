@@ -1,6 +1,6 @@
-PACK=
-NAME=
-MAIN=
+PACK=mypack
+NAME=p
+MAIN=main-point
 
 #HOME
 #JAVA_PATH=/usr/lib/jvm/java-7-oracle
@@ -13,7 +13,7 @@ JAVA=$(JAVA_PATH)/bin/java
 JAVAC=$(JAVA_PATH)/bin/javac
 OCAMLJAVA=ocamljava -java-extensions javalib.cmja
 
-CP=-annot -cp $(JAVA_PATH)/lib/ct.sym -cp $(PACK)
+CP=-cp $(JAVA_PATH)/lib/ct.sym -cp $(PACK) -java-package wraptest
 
 default: clean compile run
 
@@ -22,7 +22,7 @@ compile:
 	$(OCAMLJAVA) $(CP) -c $(NAME).mli
 	$(OCAMLJAVA) $(CP) -c $(NAME).ml
 	$(OCAMLJAVA) $(CP) -c $(MAIN).ml
-	$(OCAMLJAVA) $(NAME).cmj $(MAIN).cmj
+	$(OCAMLJAVA) -java-package wraptest $(NAME).cmj $(MAIN).cmj
 
 run:
 	$(JAVA) -cp camlprog.jar:. pack.ocamljavaMain

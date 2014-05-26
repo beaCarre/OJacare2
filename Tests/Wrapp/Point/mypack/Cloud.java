@@ -11,7 +11,7 @@ public class Cloud {
 	data = new Vector();
     }
 
-    void addPoint(Point p) {
+    public void addPoint(Point p) {
 	data.add(p);
     }
 
