@@ -5,7 +5,7 @@ type _jni_jClassTest = mypack'ClassTest java_instance;;
 class type jTest =
   object
     method display2 : unit -> unit
-    method toString : unit -> java'lang'String java_instance
+    method toString2 : unit -> java'lang'String java_instance
     method _get_jni_jTest : _jni_jTest
 end
 and jClassTest =
@@ -21,12 +21,12 @@ class _souche_jTest (jni_ref : _jni_jTest) =
     else ()
   in 
 object (self)
-  method toString =
+  method toString2 =
     fun () ->
-      (Java.call "mypack.Test.toString():java.lang.String" jni_ref)
+      (Java.call "mypack.Test.toString2():java.lang.String" jni_ref)
   method display2 =
     fun () ->
-      Java.call "mypack.Test.display():void" jni_ref
+      Java.call "mypack.Test.display2():void" jni_ref
   method _get_jni_jTest = jni_ref
 end
 and _capsule_jClassTest (jni_ref : _jni_jClassTest) =
@@ -53,9 +53,11 @@ let _instance_of_jTest (o : top) =
   Java.instanceof "mypack.Test" o;;
 let _instance_of_jClassTest (o : top) =
   Java.instanceof "mypack.ClassTest" o;;
-class stubTest caml_obj =
+
+class proxyTest caml_obj =
   let java_obj = Java.proxy "mypack.Test" caml_obj
   in object (self) inherit _souche_jTest java_obj end;;
+
 class classTest _p0  =
   let _p0 = _p0#_get_jni_jTest
   in let java_obj = Java.make "mypack.ClassTest(mypack.Test)" _p0

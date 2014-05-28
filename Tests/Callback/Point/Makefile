@@ -16,6 +16,7 @@ default: clean compile run
 
 compile:
 	$(JAVAC) mypack/*.java
+	$(JAVAC) callback/mypack/*.java
 	$(OCAMLJAVA) $(CP) -c p.mli
 	$(OCAMLJAVA) $(CP) -c p.ml
 	$(OCAMLJAVA) $(CP) -c main.ml

@@ -66,7 +66,7 @@ display "OK\n";;
 display "Envoi n#toString : ";;
 let s = n#toString () in print_string s; print_newline ();;
 
-class ml_colored_point x y c  =
+let cb = _stub_colored_point x y c  =
   object
     inherit _stub_colored_point x y c as super
     method getColor () = "Caml"^(super#getColor ())

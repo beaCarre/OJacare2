@@ -36,21 +36,11 @@ and jCloud =
     method addPoint : jPoint -> unit
     method toString : unit -> string
   end;;
-class type virtual _stub_jColoredPoint =
+class type _stub_jColoredPoint =
   object
-    inherit JniHierarchy.top
     method _get_jni_jPoint : _jni_jPoint
     method _get_jni_jColored : _jni_jColored
     method _get_jni_jColoredPoint : _jni_jColoredPoint
-    method _stub_eq_colored_point : Jni.obj -> bool
-    method _stub_setColor : Jni.obj -> unit
-    method _stub_getColor : Jni.obj
-    method _stub_eq : Jni.obj -> bool
-    method _stub_distance : float
-    method _stub_display : unit
-    method _stub_toString : Jni.obj
-    method _stub_rmoveto : int -> int -> unit
-    method _stub_moveto : int -> int -> unit
     method eq_colored_point : jColoredPoint -> bool
     method setColor : string -> unit
     method getColor : unit -> string
@@ -60,19 +50,13 @@ class type virtual _stub_jColoredPoint =
     method toString : unit -> string
     method rmoveto : int -> int -> unit
     method moveto : int -> int -> unit
-    method set_y : int -> unit
-    method get_y : unit -> int
-    method set_x : int -> unit
-    method get_x : unit -> int
   end;;
 class point : int -> int -> jPoint;;
 class default_point : unit -> jPoint;;
 class colored_point : int -> int -> string -> jColoredPoint;;
 class default_colored_point : unit -> jColoredPoint;;
 class empty_cloud : unit -> jCloud;;
-class virtual _stub_colored_point :
+class _stub_colored_point :
   int -> int -> string -> _stub_jColoredPoint;;
-class virtual _stub_default_colored_point : unit -> _stub_jColoredPoint;;
-val mypack_jPoint__main : string JniArray.jArray -> unit;;
-val mypack_jColoredPoint__main : string JniArray.jArray -> unit;;
-val mypack_jCloud__main : string JniArray.jArray -> unit;;
+class _stub_default_colored_point : unit -> _stub_jColoredPoint;;
+

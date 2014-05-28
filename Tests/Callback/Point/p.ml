@@ -320,22 +320,9 @@ class empty_cloud () =
   let java_obj = Java.make "mypack.Cloud()" ()
   in object (self) inherit _capsule_jCloud java_obj end;;
 
-class virtual _stub_colored_point _p0 _p1 _p2 =
-  let _p2 = JavaString.of_string _p2
-  in let _p1 = Int32.of_int _p1
-    in let _p0 = Int32.of_int _p0
-      in
-        let java_obj =
-          Java.make "mypack.ColoredPoint(int,int,java.lang.String)" _p0 _p1
-            _p2
-        in
-          object (self)
-            inherit _souche_jColoredPoint java_obj
-          end;;
-
-class virtual _stub_default_colored_point () =
-  let java_obj = Java.proxy "callabck.ColoredPoint"
-    object (self)
-      inherit _souche_jColoredPoint java_obj
-    end;;
+class  _stub_default_colored_point camlObj =
+  let java_obj = Java.proxy "callback.ColoredPoint" caml_obj
+object (self)
+  inherit _souche_jColoredPoint java_obj
+end;;
 

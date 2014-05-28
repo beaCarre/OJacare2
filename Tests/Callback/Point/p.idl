@@ -33,8 +33,6 @@ interface Colored {
 
   [name eq_colored_point] boolean eq(ColoredPoint);
 
-  static void main(string [] arg);
-
 }
 
 class Cloud {
@@ -43,7 +41,5 @@ class Cloud {
 
   void addPoint(Point);
   string toString();
-
-  static void main(string [] arg);
 
 }
