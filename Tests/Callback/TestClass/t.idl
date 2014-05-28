@@ -1,0 +1,12 @@
+package mypack;
+
+class ClassTest {
+  [name classTest] <init> ();
+  string toString2();
+  void display2();
+}
+class A {
+  [name classTest] <init> ();
+  string toStringA();
+  void display2A();
+}
