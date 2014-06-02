@@ -16,14 +16,10 @@ class type jA =
     method toStringA : unit -> string
     method displayA : unit -> unit
   end;;
-class type _raw_jTest =
-  object
-    method toString2 : unit -> string
-  end;;
 
 class classTest : unit -> jClassTest;;
 class a : jClassTest -> jA;;
 
-class _stub_classTest : _raw_jTest -> jClassTest;;
+class _stub_classTest : unit -> jClassTest;;
 
 

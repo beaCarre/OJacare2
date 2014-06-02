@@ -15,6 +15,7 @@ public class CB_ClassTest extends ClassTest{
         return test.toString2();
     }
     public void display2(){
+	System.out.println("displayCB :");
         super.display2();
     }
 }
