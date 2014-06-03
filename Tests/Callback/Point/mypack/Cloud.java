@@ -5,13 +5,13 @@ import java.util.Vector;
 
 public class Cloud {
 
-    Vector data;
+   public  Vector data;
 
     public Cloud() {
 	data = new Vector();
     }
 
-    void addPoint(Point p) {
+   public  void addPoint(Point p) {
 	data.add(p);
     }
 

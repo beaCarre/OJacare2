@@ -36,27 +36,11 @@ and jCloud =
     method addPoint : jPoint -> unit
     method toString : unit -> string
   end;;
-class type _stub_jColoredPoint =
-  object
-    method _get_jni_jPoint : _jni_jPoint
-    method _get_jni_jColored : _jni_jColored
-    method _get_jni_jColoredPoint : _jni_jColoredPoint
-    method eq_colored_point : jColoredPoint -> bool
-    method setColor : string -> unit
-    method getColor : unit -> string
-    method eq : jPoint -> bool
-    method distance : unit -> float
-    method display : unit -> unit
-    method toString : unit -> string
-    method rmoveto : int -> int -> unit
-    method moveto : int -> int -> unit
-  end;;
 class point : int -> int -> jPoint;;
 class default_point : unit -> jPoint;;
 class colored_point : int -> int -> string -> jColoredPoint;;
 class default_colored_point : unit -> jColoredPoint;;
 class empty_cloud : unit -> jCloud;;
-class _stub_colored_point :
-  int -> int -> string -> _stub_jColoredPoint;;
-class _stub_default_colored_point : unit -> _stub_jColoredPoint;;
+class _stub_colored_point : int -> int -> string -> jColoredPoint;;
+
 

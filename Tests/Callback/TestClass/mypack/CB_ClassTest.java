@@ -14,8 +14,8 @@ public class CB_ClassTest extends ClassTest{
     public String toString2(){
         return test.toString2();
     }
-    public void display2(){
-	System.out.println("displayCB :");
-        super.display2();
+    public String _stub_toString2(){
+        return super.toString2();
     }
+
 }

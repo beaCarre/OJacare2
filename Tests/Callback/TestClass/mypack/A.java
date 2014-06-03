@@ -10,11 +10,9 @@ public class A {
     }
 
     public String toStringA(){
-        return ct.toString2();
+        return "A."+ct.toString2();
     }
     public void displayA(){
-	System.out.println("appel ct.display depuis Java :");
 	ct.display2();
-	System.out.println("appel ct.tostring depuis Java :\n"+ct.toString2());
     }
 }

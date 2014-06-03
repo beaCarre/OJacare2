@@ -19,10 +19,8 @@ and jA =
   end
 
 class _souche_jClassTest  =
-  let jni_ref_proxy = ref Java.null 
-  in 
+  let jni_ref_proxy = ref Java.null in 
   let jni_ref = ref Java.null  in
-
 object (self)
   initializer  
     jni_ref_proxy :=
@@ -42,7 +40,7 @@ object (self)
   method toString2 = 
      fun () ->
        JavaString.to_string
-       (Java.call "mypack.CB_ClassTest.toString2():java.lang.String" (!jni_ref:_jni_jCB_ClassTest))
+       (Java.call "mypack.CB_ClassTest._stub_toString2():java.lang.String" (!jni_ref:_jni_jCB_ClassTest))
  method display2 =
     fun () ->
       Java.call "mypack.CB_ClassTest.display2():void" (!jni_ref:_jni_jCB_ClassTest)

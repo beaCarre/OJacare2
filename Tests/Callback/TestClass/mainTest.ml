@@ -5,7 +5,8 @@ class impltest =
 
 object(self)
   inherit _stub_classTest () as super
-  method toString2  () = "new_"^super#toString2()
+  method toString2  () =
+    "new_"^super#toString2()
 end
 
 let test = new impltest

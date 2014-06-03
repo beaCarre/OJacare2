@@ -4,6 +4,8 @@ type _jni_jPoint = mypack'Point java_instance;;
 type _jni_jColored = mypack'Colored java_instance;;
 type _jni_jColoredPoint = mypack'ColoredPoint java_instance;;
 type _jni_jCloud = mypack'Cloud java_instance;;
+type _jni_jCB_ColoredPoint = callback'mypack'CB_ColoredPoint java_instance;;
+type _jni_jICB_ColoredPoint = callback'mypack'ICB_ColoredPoint java_instance;;
 class type jPoint =
   object
     method _get_jni_jPoint : _jni_jPoint
@@ -36,35 +38,6 @@ and jCloud =
     method _get_jni_jCloud : _jni_jCloud
     method addPoint : jPoint -> unit
     method toString : unit -> string
-  end;;
-class type virtual _stub_jColoredPoint =
-  object
-    inherit JniHierarchy.top
-    method _get_jni_jPoint : _jni_jPoint
-    method _get_jni_jColored : _jni_jColored
-    method _get_jni_jColoredPoint : _jni_jColoredPoint
-    method _stub_eq_colored_point : Jni.obj -> bool
-    method _stub_setColor : Jni.obj -> unit
-    method _stub_getColor : Jni.obj
-    method _stub_eq : Jni.obj -> bool
-    method _stub_distance : float
-    method _stub_display : unit
-    method _stub_toString : Jni.obj
-    method _stub_rmoveto : int -> int -> unit
-    method _stub_moveto : int -> int -> unit
-    method eq_colored_point : jColoredPoint -> bool
-    method setColor : string -> unit
-    method getColor : unit -> string
-    method eq : jPoint -> bool
-    method distance : unit -> float
-    method display : unit -> unit
-    method toString : unit -> string
-    method rmoveto : int -> int -> unit
-    method moveto : int -> int -> unit
-    method set_y : int -> unit
-    method get_y : unit -> int
-    method set_x : int -> unit
-    method get_x : unit -> int
   end;;
 class _capsule_jPoint (jni_ref : _jni_jPoint) =
   let _ =
@@ -200,88 +173,95 @@ and _capsule_jCloud (jni_ref : _jni_jCloud) =
             (Java.call "mypack.Cloud.toString():java.lang.String" jni_ref)
       method _get_jni_jCloud = jni_ref
     end
-and virtual _souche_jColoredPoint (jni_ref : _jni_jColoredPoint) =
-  let _ =
-    if Java.is_null jni_ref
-    then raise (Null_object "mypack/ColoredPoint")
-    else ()
-  in
-    object (self)
-      method _stub_eq_colored_point =
+and virtual _souche_jColoredPoint _p0 _p1 _p2 =  
+  let jni_ref_proxy = ref Java.null in 
+  let jni_ref = ref Java.null  in
+object (self)
+  initializer
+     jni_ref_proxy :=
+    Java.proxy "callback.mypack.ICB_ColoredPoint" (
+      object
+	method eq_colored_point =
         fun (_p0 : _jni_jColoredPoint) ->
           let _p0 : jColoredPoint = new _capsule_jColoredPoint _p0
           in self#eq_colored_point _p0
-      method _stub_setColor =
+      method setColor =
         fun _p0 -> let _p0 = JavaString.to_string _p0 in self#setColor _p0
-      method _stub_getColor = JavaString.of_string (self#getColor ())
-      method _stub_eq =
+      method getColor = JavaString.of_string (self#getColor ())
+      method eq =
         fun (_p0 : _jni_jPoint) ->
           let _p0 : jPoint = new _capsule_jPoint _p0 in self#eq _p0
-      method _stub_distance = self#distance ()
-      method _stub_display = self#display ()
-      method _stub_toString = JavaString.of_string (self#toString ())
-      method _stub_rmoveto =
+      method distance = self#distance ()
+      method display = self#display ()
+      method toString = JavaString.of_string (self#toString ())
+      method rmoveto =
         fun _p0 _p1 ->
           let _p1 = Int32.to_int _p1 in
           let _p0 = Int32.to_int _p0 in self#rmoveto _p0 _p1
-      method _stub_moveto =
+      method moveto =
         fun _p0 _p1 ->
           let _p1 = Int32.to_int _p1 in
           let _p0 = Int32.to_int _p0 in self#moveto _p0 _p1
+      end
+    );
+      jni_ref := Java.make "callback.mypack.CB_ColoredPoint(callback.mypack.ICB_ColoredPoint,int,int,String)" (!jni_ref_proxy:_jni_jICB_ColoredPoint) _p0 _p1 _p2;
+    if Java.is_null !jni_ref
+    then raise (Null_object "callback/mypack/ColoredPoint")
+    else ()
       method eq_colored_point =
         fun (_p0 : jColoredPoint) ->
           let _p0 = _p0#_get_jni_jColoredPoint
           in
-            Java.call "mypack.ColoredPoint.eq(mypack.ColoredPoint):boolean"
-              jni_ref _p0
+            Java.call "callback.mypack.CB_ColoredPoint._stub_eq(mypack.ColoredPoint):boolean"
+              (!jni_ref:_jni_jCB_ColoredPoint) _p0
       method setColor =
         fun _p0 ->
           let _p0 = JavaString.of_string _p0
           in
-            Java.call "mypack.Colored.setColor(java.lang.String):void"
-              jni_ref _p0
+            Java.call "callback.mypack.CB_ColoredPoint._stub_setColor(java.lang.String):void"
+              (!jni_ref:_jni_jCB_ColoredPoint) _p0
       method getColor =
         fun () ->
           JavaString.to_string
-            (Java.call "mypack.Colored.getColor():java.lang.String" jni_ref
-               ())
+            (Java.call "callback.mypack.CB_ColoredPoint._stub_getColor():java.lang.String" (!jni_ref:_jni_jCB_ColoredPoint)
+               )
       method eq =
         fun (_p0 : jPoint) ->
           let _p0 = _p0#_get_jni_jPoint
-          in Java.call "mypack.Point.eq(mypack.Point):boolean" jni_ref _p0
+          in Java.call "callback.mypack.CB_ColoredPoint._stub_eq(mypack.Point):boolean" (!jni_ref:_jni_jCB_ColoredPoint) _p0
       method distance =
-        fun () -> Java.call "mypack.Point.distance():double" jni_ref ()
+        fun () -> Java.call "callback.mypack.CB_ColoredPoint._stub_distance():double" (!jni_ref:_jni_jCB_ColoredPoint) 
       method display =
-        fun () -> Java.call "mypack.Point.display():void" jni_ref ()
+        fun () -> Java.call "callback.mypack.CB_ColoredPoint._stub_display():void" (!jni_ref:_jni_jCB_ColoredPoint) 
       method toString =
         fun () ->
           JavaString.to_string
-            (Java.call "mypack.Point.toString():java.lang.String" jni_ref ())
+            (Java.call "callback.mypack.CB_ColoredPoint._stub_toString():java.lang.String" (!jni_ref:_jni_jCB_ColoredPoint) )
       method rmoveto =
         fun _p0 _p1 ->
           let _p1 = Int32.of_int _p1 in
           let _p0 = Int32.of_int _p0
-          in Java.call "mypack.Point.rmoveto(int,int):void" jni_ref _p0 _p1
+          in Java.call "callback.mypack.CB_ColoredPoint._stub_rmoveto(int,int):void" (!jni_ref:_jni_jCB_ColoredPoint) _p0 _p1
       method moveto =
         fun _p0 _p1 ->
           let _p1 = Int32.of_int _p1 in
           let _p0 = Int32.of_int _p0
-          in Java.call "mypack.Point.moveto(int,int):void" jni_ref _p0 _p1
+          in Java.call "callback.mypack.CB_ColoredPoint._stub_moveto(int,int):void" (!jni_ref:_jni_jCB_ColoredPoint) _p0 _p1
       method set_y =
         fun _p ->
           let _p = Int32.of_int _p
-          in Java.set "mypack.Point.y:int" jni_ref _p
+          in Java.set "callback.mypack.CB_ColoredPoint.y:int" (!jni_ref:_jni_jCB_ColoredPoint) _p
       method get_y =
-        fun () -> Int32.to_int (Java.get "mypack.Point.y:int" jni_ref)
+        fun () -> Int32.to_int (Java.get "callback.mypack.CB_ColoredPoint.y:int" (!jni_ref:_jni_jCB_ColoredPoint))
       method set_x =
         fun _p ->
           let _p = Int32.of_int _p
-          in Java.set "mypack.Point.x:int" jni_ref _p
+          in Java.set "callback.mypack.CB_ColoredPoint.x:int" (!jni_ref:_jni_jCB_ColoredPoint) _p
       method get_x =
-        fun () -> Int32.to_int (Java.get "mypack.Point.x:int" jni_ref)
-      method _get_jni_jColoredPoint = jni_ref
-      method _get_jni_jPoint = (jni_ref :> _jni_jPoint)
-      method _get_jni_jColored = (jni_ref :> _jni_jColored)
+        fun () -> Int32.to_int (Java.get "callback.mypack.CB_ColoredPoint.x:int" (!jni_ref:_jni_jCB_ColoredPoint))
+      method _get_jni_jColoredPoint = (!jni_ref:>_jni_jColoredPoint)
+      method _get_jni_jPoint = (!jni_ref :> _jni_jPoint)
+      method _get_jni_jColored = (!jni_ref :> _jni_jColored)
     end;;
 let jPoint_of_top (o : top) : jPoint =
   new _capsule_jPoint (Java.cast "mypack.Point" o);;
@@ -320,9 +300,13 @@ class empty_cloud () =
   let java_obj = Java.make "mypack.Cloud()" ()
   in object (self) inherit _capsule_jCloud java_obj end;;
 
-class  _stub_default_colored_point camlObj =
-  let java_obj = Java.proxy "callback.ColoredPoint" caml_obj
+
+class  _stub_colored_point _p0 _p1 _p2 =
+  let _p2 = JavaString.of_string _p2
+  in let _p1 = Int32.of_int _p1
+     in let _p0 = Int32.of_int _p0
+	in
 object (self)
-  inherit _souche_jColoredPoint java_obj
+  inherit _souche_jColoredPoint _p0 _p1 _p2
 end;;
 

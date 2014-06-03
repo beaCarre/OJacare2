@@ -5,7 +5,7 @@ import mypack.Point;
 
 public class ColoredPoint extends Point implements Colored {
 
-    String c;
+   public  String c;
 
     public ColoredPoint() {
 	super();

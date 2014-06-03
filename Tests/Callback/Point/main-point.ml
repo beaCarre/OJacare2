@@ -66,14 +66,14 @@ display "OK\n";;
 display "Envoi n#toString : ";;
 let s = n#toString () in print_string s; print_newline ();;
 
-let cb = _stub_colored_point x y c  =
+class ml_colored_point x y c  =
   object
     inherit _stub_colored_point x y c as super
     method getColor () = "Caml"^(super#getColor ())
   end;;
 
 display "Creation d'un point callback cb1 = (5,6) blue ";;
-let cb1 = Java.proxy "mypack.Colored" (ml_colored_point 5 6 "blue");;
+let cb1 = new ml_colored_point 5 6 "blue";;
 display "OK\n";;
 
 display "Envoi cb1#getColor : ";;
