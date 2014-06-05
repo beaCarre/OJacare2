@@ -20,6 +20,19 @@ let make_jni_type cl_list =
     <:str_item< type $lid:name$ =java_instance $lid:jinst$ >> in
   P4helper.str_items (List.map make cl_list)
 
+let make_jni_CB_type cl_list =
+  let make cl =   
+    let jinst = Ident.get_class_java_oj_name cl.cc_ident in
+    let name = Ident.get_class_ml_jni_cb_type_name cl.cc_ident in
+    <:str_item< type $lid:name$ =java_instance $lid:jinst$ >> in
+  P4helper.str_items (List.map make (List.filter (fun cl -> cl.cc_callback && not (Ident.is_interface cl.cc_ident)) cl_list))
+let make_jni_ICB_type cl_list =
+  let make cl =   
+    let jinst = Ident.get_class_java_oj_name cl.cc_ident in
+    let name = Ident.get_class_ml_jni_icb_type_name cl.cc_ident in
+    <:str_item< type $lid:name$ =java_instance $lid:jinst$ >> in
+  P4helper.str_items (List.map make (List.filter (fun cl -> cl.cc_callback && not (Ident.is_interface cl.cc_ident)) cl_list))
+
 let make_jni_type_sig cl_list =
   let make cl = 
     let name = Ident.get_class_ml_jni_type_name cl.cc_ident in
@@ -28,12 +41,11 @@ let make_jni_type_sig cl_list =
   
 
 (** class type ********************************************) (* OK *)
-let make_class_type ~callback cl_list =
+let make_class_type ~callback cl_list = 
+  if callback then [] else
+    begin
   let make cl = 
-    
-    let name = 
-      if callback then Ident.get_class_ml_stub_name cl.cc_ident
-      else Ident.get_class_ml_name cl.cc_ident in
+    let name = Ident.get_class_ml_name cl.cc_ident in
     
     let jni_type_name = Ident.get_class_ml_jni_type_name cl.cc_ident
     and jni_accessor_name = Ident.get_class_ml_jni_accessor_method_name cl.cc_ident in
@@ -42,36 +54,23 @@ let make_class_type ~callback cl_list =
     
     (* méthode *)
     let method_list = 
-      if callback then List.rev_append (MlMethod.make_class_type ~callback:callback cl.cc_public_methods) method_list 
-      else List.rev_append (MlMethod.make_class_type ~callback:callback cl.cc_methods) method_list in 
-    let method_list = 
-      if callback then  List.rev_append (MlMethod.make_callback_class_type cl.cc_public_methods) method_list 
-      else method_list in
+      List.rev_append (MlMethod.make_class_type ~callback:callback cl.cc_methods) method_list in 
     
     (* accesseur *)
     let method_list = <:class_sig_item< method $lid:jni_accessor_name$ : $lid:jni_type_name$ >> :: method_list in
     
     (* héritage *)
     let method_list = 
-      if callback then 
-	List.fold_right (fun cl method_list -> 
-	  <:class_sig_item< method $lid:Ident.get_class_ml_jni_accessor_method_name cl.cc_ident$ : 
-	      $lid:Ident.get_class_ml_jni_type_name cl.cc_ident$ >> :: method_list )
-	  cl.cc_all_inherited method_list 
-      else (List.map (fun interface -> <:class_sig_item< inherit $lid:Ident.get_class_ml_name interface.cc_ident$ >>) 
-			 cl.cc_implements) @ method_list in
-    let method_list =
-      if callback then
-	<:class_sig_item< inherit JniHierarchy.top >> :: method_list 
-      else (match cl.cc_extend with
+      (List.map (fun interface -> <:class_sig_item< inherit $lid:Ident.get_class_ml_name interface.cc_ident$ >>) cl.cc_implements) @ method_list in
+    let method_list = 
+     ( match cl.cc_extend with
 	None -> <:class_sig_item< >>
       | Some super -> <:class_sig_item< inherit $lid:Ident.get_class_ml_name super.cc_ident$ >>) :: method_list
-    in
-    
-    name,callback,<:class_type< object $list:method_list$ end >>  in
-  
-  if callback then List.map make (List.filter (fun cl -> not (Ident.is_interface cl.cc_ident) && cl.cc_callback) cl_list)
-  else List.map make cl_list
+    in  
+    name,callback,<:class_type< object $list:method_list$ end >>  
+  in
+  List.map make cl_list
+      end
 
 (** Allocation *******************************************) (* A enlever *)
 let make_alloc cl_list =

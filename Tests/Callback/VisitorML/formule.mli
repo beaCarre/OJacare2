@@ -1,3 +1,4 @@
+type top;;
 type _jni_jFormule;;
 type _jni_jConstante;;
 type _jni_jVar;;
@@ -12,7 +13,6 @@ type _jni_jMainML;;
 type _jni_jMainJava;;
 class type jFormule =
   object
-    inherit JniHierarchy.top
     method _get_jni_jFormule : _jni_jFormule
     method accepte : jVisiteur -> unit
   end
@@ -58,7 +58,6 @@ and jOu =
   end
 and jVisiteur =
   object
-    inherit JniHierarchy.top
     method _get_jni_jVisiteur : _jni_jVisiteur
     method visite_cst : jConstante -> unit
     method visite_non : jNon -> unit
@@ -68,7 +67,6 @@ and jVisiteur =
   end
 and jVisiteurTS =
   object
-    inherit JniHierarchy.top
     inherit jVisiteur
     method _get_jni_jVisiteurTS : _jni_jVisiteurTS
     method get_res : unit -> string
@@ -80,94 +78,38 @@ and jVisiteurTS =
   end
 and jVisiteurML =
   object
-    inherit JniHierarchy.top
     inherit jVisiteur
     method _get_jni_jVisiteurML : _jni_jVisiteurML
     method get_res : unit -> string
   end
 and jMainML =
   object
-    inherit JniHierarchy.top
     method _get_jni_jMainML : _jni_jMainML
     method cree_visiteur : unit -> jVisiteurML
   end
-and jMainJava =
-  object inherit JniHierarchy.top method _get_jni_jMainJava : _jni_jMainJava
-  end;;
-val jFormule_of_top : JniHierarchy.top -> jFormule;;
-val jConstante_of_top : JniHierarchy.top -> jConstante;;
-val jVar_of_top : JniHierarchy.top -> jVar;;
-val jNon_of_top : JniHierarchy.top -> jNon;;
-val jOpBin_of_top : JniHierarchy.top -> jOpBin;;
-val jEt_of_top : JniHierarchy.top -> jEt;;
-val jOu_of_top : JniHierarchy.top -> jOu;;
-val jVisiteur_of_top : JniHierarchy.top -> jVisiteur;;
-val jVisiteurTS_of_top : JniHierarchy.top -> jVisiteurTS;;
-val jVisiteurML_of_top : JniHierarchy.top -> jVisiteurML;;
-val jMainML_of_top : JniHierarchy.top -> jMainML;;
-val jMainJava_of_top : JniHierarchy.top -> jMainJava;;
-val _instance_of_jFormule : JniHierarchy.top -> bool;;
-val _instance_of_jConstante : JniHierarchy.top -> bool;;
-val _instance_of_jVar : JniHierarchy.top -> bool;;
-val _instance_of_jNon : JniHierarchy.top -> bool;;
-val _instance_of_jOpBin : JniHierarchy.top -> bool;;
-val _instance_of_jEt : JniHierarchy.top -> bool;;
-val _instance_of_jOu : JniHierarchy.top -> bool;;
-val _instance_of_jVisiteur : JniHierarchy.top -> bool;;
-val _instance_of_jVisiteurTS : JniHierarchy.top -> bool;;
-val _instance_of_jVisiteurML : JniHierarchy.top -> bool;;
-val _instance_of_jMainML : JniHierarchy.top -> bool;;
-val _instance_of_jMainJava : JniHierarchy.top -> bool;;
-val jArray_init_jFormule :
-  int -> (int -> jFormule) -> jFormule JniArray.jArray;;
-val jArray_init_jConstante :
-  int -> (int -> jConstante) -> jConstante JniArray.jArray;;
-val jArray_init_jVar : int -> (int -> jVar) -> jVar JniArray.jArray;;
-val jArray_init_jNon : int -> (int -> jNon) -> jNon JniArray.jArray;;
-val jArray_init_jOpBin : int -> (int -> jOpBin) -> jOpBin JniArray.jArray;;
-val jArray_init_jEt : int -> (int -> jEt) -> jEt JniArray.jArray;;
-val jArray_init_jOu : int -> (int -> jOu) -> jOu JniArray.jArray;;
-val jArray_init_jVisiteur :
-  int -> (int -> jVisiteur) -> jVisiteur JniArray.jArray;;
-val jArray_init_jVisiteurTS :
-  int -> (int -> jVisiteurTS) -> jVisiteurTS JniArray.jArray;;
-val jArray_init_jVisiteurML :
-  int -> (int -> jVisiteurML) -> jVisiteurML JniArray.jArray;;
-val jArray_init_jMainML :
-  int -> (int -> jMainML) -> jMainML JniArray.jArray;;
-val jArray_init_jMainJava :
-  int -> (int -> jMainJava) -> jMainJava JniArray.jArray;;
+and jMainJava = object method _get_jni_jMainJava : _jni_jMainJava end;;
 class constante : bool -> jConstante;;
 class var : string -> jVar;;
 class non : jFormule -> jNon;;
 class et : jFormule -> jFormule -> jEt;;
 class ou : jFormule -> jFormule -> jOu;;
 class visiteurTS : unit -> jVisiteurTS;;
-class virtual _stub_jVisiteurML :
-  unit ->
-    object
-      inherit JniHierarchy.top
-      method _get_jni_jVisiteur : _jni_jVisiteur
-      method _get_jni_jVisiteurML : _jni_jVisiteurML
-      method _stub_get_res : Jni.obj
-      method _stub_visite_var : Jni.obj -> unit
-      method _stub_visite_ou : Jni.obj -> unit
-      method _stub_visite_et : Jni.obj -> unit
-      method _stub_visite_non : Jni.obj -> unit
-      method _stub_visite_cst : Jni.obj -> unit
-      method virtual get_res : unit -> string
-      method virtual visite_var : jVar -> unit
-      method virtual visite_ou : jOu -> unit
-      method virtual visite_et : jEt -> unit
-      method virtual visite_non : jNon -> unit
-      method virtual visite_cst : jConstante -> unit
-    end;;
-class virtual _stub_jMainML :
-  unit ->
-    object
-      inherit JniHierarchy.top
-      method _get_jni_jMainML : _jni_jMainML
-      method _stub_cree_visiteur : Jni.obj
-      method virtual cree_visiteur : unit -> jVisiteurML
-    end;;
+
+class virtual _stub_jVisiteurML : 
+object
+  method _get_jni_jVisiteur : _jni_jVisiteur
+    method _get_jni_jVisiteurML : _jni_jVisiteurML
+    method virtual get_res : unit -> string
+    method virtual visite_var : jVar -> unit
+    method virtual visite_ou : jOu -> unit
+    method virtual visite_et : jEt -> unit
+    method virtual visite_non : jNon -> unit
+    method virtual visite_cst : jConstante -> unit
+  end
+class virtual _stub_jMainML : 
+  object
+    method _get_jni_jMainML : _jni_jMainML
+    method virtual cree_visiteur : unit -> jVisiteurML
+  end
+
 val fr_upmc_infop6_mlo_jMainJava__main : jMainML -> unit;;

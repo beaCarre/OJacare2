@@ -1,10 +1,10 @@
 package fr.upmc.infop6.mlo;
 
 public interface Visiteur {
-    void visite(Constante c);
-    void visite(Non n);
-    void visite(Et e);
-    void visite(Ou o );
-    void visite(Var v );
+    public void visite(Constante c);
+   public  void visite(Non n);
+   public  void visite(Et e);
+   public  void visite(Ou o );
+   public  void visite(Var v );
 }
 

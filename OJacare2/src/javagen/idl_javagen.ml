@@ -2,6 +2,15 @@
 
 open Cidl
 open Format
+open Ident
+
 
 let create_stub_files file =
-  List.iter (fun clazz -> if clazz.cc_callback then JavaClass.create_stub_file clazz) file
+  List.iter (fun clazz -> if clazz.cc_callback && not(is_interface clazz.cc_ident) then
+      begin
+	JavaClass.create_stub_file clazz ;
+	JavaInterface.create_stub_file clazz
+      end
+  ) file
+
+    

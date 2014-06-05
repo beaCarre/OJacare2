@@ -2,7 +2,7 @@ package fr.upmc.infop6.mlo;
 
 public class MainJava {
 
-     static Formule f1() {
+    public  static Formule f1() {
 	Constante c1 = new Constante(true);
 	Constante c2 = new Constante(true);
 	Constante c3 = new Constante(false);
@@ -11,7 +11,7 @@ public class MainJava {
 	
     }
 
-     static Formule f2() {
+    public  static Formule f2() {
 	Var a = new Var("a");
 	Var b = new Var("b");
 	
@@ -23,7 +23,7 @@ public class MainJava {
 	return(new Et(nab,anb));
     }
     
-     static Formule f3() {
+    public  static Formule f3() {
 	Var a = new Var("a");
 	Non na = new Non(a);
 	

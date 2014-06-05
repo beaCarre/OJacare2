@@ -5,20 +5,24 @@ javaInit.cmi: ../check/cidl.cmi
 javaInterface.cmi: ../check/cidl.cmi
 javaMethod.cmi: ../check/cidl.cmi
 javaType.cmi: ../check/cidl.cmi
-idl_javagen.cmo: javaClass.cmi ../check/cidl.cmi idl_javagen.cmi
-idl_javagen.cmx: javaClass.cmx ../check/cidl.cmi idl_javagen.cmi
+idl_javagen.cmo: javaInterface.cmi javaClass.cmi ../check/ident.cmi \
+    ../check/cidl.cmi idl_javagen.cmi
+idl_javagen.cmx: javaInterface.cmx javaClass.cmx ../check/ident.cmx \
+    ../check/cidl.cmi idl_javagen.cmi
 javaArgs.cmo: javaType.cmi ../check/cidl.cmi javaArgs.cmi
 javaArgs.cmx: javaType.cmx ../check/cidl.cmi javaArgs.cmi
-javaClass.cmo: javaMethod.cmi javaInit.cmi javaArgs.cmi ../check/ident.cmi \
+javaClass.cmo: javaMethod.cmi javaInit.cmi ../check/ident.cmi \
     ../common/filesystem.cmi ../check/cidl.cmi javaClass.cmi
-javaClass.cmx: javaMethod.cmx javaInit.cmx javaArgs.cmx ../check/ident.cmx \
+javaClass.cmx: javaMethod.cmx javaInit.cmx ../check/ident.cmx \
     ../common/filesystem.cmx ../check/cidl.cmi javaClass.cmi
 javaInit.cmo: ../common/utilities.cmi javaArgs.cmi ../check/ident.cmi \
     ../check/cidl.cmi javaInit.cmi
 javaInit.cmx: ../common/utilities.cmx javaArgs.cmx ../check/ident.cmx \
     ../check/cidl.cmi javaInit.cmi
-javaInterface.cmo: ../check/cidl.cmi javaInterface.cmi
-javaInterface.cmx: ../check/cidl.cmi javaInterface.cmi
+javaInterface.cmo: javaMethod.cmi ../check/ident.cmi ../common/filesystem.cmi \
+    ../check/cidl.cmi javaInterface.cmi
+javaInterface.cmx: javaMethod.cmx ../check/ident.cmx ../common/filesystem.cmx \
+    ../check/cidl.cmi javaInterface.cmi
 javaMethod.cmo: ../common/utilities.cmi javaType.cmi javaArgs.cmi \
     ../check/ident.cmi ../check/cidl.cmi javaMethod.cmi
 javaMethod.cmx: ../common/utilities.cmx javaType.cmx javaArgs.cmx \

@@ -10,7 +10,7 @@ COMMON_MODULES = filesystem utilities
 PARSER_MODULES = loc syntax_error lexer parser idl_parser
 CHECK_MODULES = modifiers annot error ident env_idl env_ident type init method field content def idl_check
 CAMLGEN_MODULES = p4helper mlType mlGen mlMethod mlInit mlClass idl_camlgen  
-JAVAGEN_MODULES = javaType javaArgs javaInit javaMethod javaClass idl_javagen
+JAVAGEN_MODULES = javaType javaArgs javaInit javaMethod javaInterface javaClass idl_javagen
 
 COMMON_CMO_OBJS  = $(addprefix common/, $(addsuffix .cmo, $(COMMON_MODULES)))
 COMMON_CMX_OBJS  = $(addprefix common/, $(addsuffix .cmx, $(COMMON_MODULES)))

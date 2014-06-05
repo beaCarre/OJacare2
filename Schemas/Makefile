@@ -1,4 +1,4 @@
-TARGET=schemasCompil.pdf
+TARGET=schemasCompil0.pdf
 
 all: $(TARGET)
 

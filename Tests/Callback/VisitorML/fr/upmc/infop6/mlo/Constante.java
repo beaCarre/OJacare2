@@ -1,14 +1,14 @@
 package fr.upmc.infop6.mlo;
 
 public class Constante extends Formule {
-  boolean  b;
+ public  boolean  b;
 
-  Constante(boolean b) {this.b = b;}
-  Constante() {this.b = false;}
+ public  Constante(boolean b) {this.b = b;}
+ public  Constante() {this.b = false;}
 
-  boolean valeur(){return b;}
+ public  boolean valeur(){return b;}
 
-  void  accepte(Visiteur v) {v.visite(this);}
+ public  void  accepte(Visiteur v) {v.visite(this);}
 }
 
 

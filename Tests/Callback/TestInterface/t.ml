@@ -2,8 +2,6 @@ type top = java'lang'Object java_instance;;
 exception Null_object of string;;
 type _jni_jTest = mypack'Test java_instance;;
 type _jni_jClassTest = mypack'ClassTest java_instance;;
-
-
 class type jTest =
 object
     method display2 : unit -> unit
@@ -61,13 +59,11 @@ let _instance_of_jTest (o : top) =
 let _instance_of_jClassTest (o : top) =
   Java.instanceof "mypack.ClassTest" o;;
 
-class virtual _stub_jTest = 
-object (self)
-  inherit _souche_jTest 
-end
-
 class classTest _p0  =
   let _p0 = _p0#_get_jni_jTest
   in let java_obj = Java.make "mypack.ClassTest(mypack.Test)" _p0
     in object (self) inherit _capsule_jClassTest java_obj end;;
-
+class virtual _stub_jTest ()= 
+object (self)
+  inherit _souche_jTest 
+end

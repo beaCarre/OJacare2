@@ -20,8 +20,7 @@ let rec output ppf typ =
   | Cobject (Cjavaarray typ) -> fprintf ppf "%a[]" output typ
   | Cobject (Carray typ) -> fprintf ppf "%a[]" output typ
   | Cvoid -> fprintf ppf "void"
-  | Ccallback _ -> fprintf ppf "fr.inria.caml.camljava.Callback"
- 
+  | Ccallback id -> fprintf ppf "ICB_%s" (Ident.get_class_java_stub_name id)
 let output_convert_to_ml ppf (name,typ) =
   match typ with
   | Cboolean -> fprintf ppf "new fr.inria.caml.camljava.Boolean(%s)" name

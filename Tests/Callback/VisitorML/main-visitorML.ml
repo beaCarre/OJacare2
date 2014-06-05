@@ -3,7 +3,7 @@ open Format
 
 class visiteur_ml = 
   object (self)
-    inherit _stub_jVisiteurML ()
+    inherit _stub_jVisiteurML 
 	
     val buf = Buffer.create 80
 
@@ -46,7 +46,7 @@ class visiteur_ml =
 
 class mainML =
   object
-    inherit _stub_jMainML ()
+    inherit _stub_jMainML 
     method cree_visiteur () =
       (new visiteur_ml :> jVisiteurML)
   end

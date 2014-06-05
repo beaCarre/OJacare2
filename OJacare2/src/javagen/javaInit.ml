@@ -11,7 +11,8 @@ let output ppf init =
       (Utilities.interval 0 (List.length targs)) in
   let args = List.combine nargs targs in
 
-  fprintf ppf "  public %s(%a) {@." java_name JavaArgs.output (("cb",Ccallback init.cmi_class)::args);
+  fprintf ppf "  public %s(%a) {@." java_name JavaArgs.output 
+    (("cb", Ccallback init.cmi_class)::args);
 
   fprintf ppf "     super(%a);@." JavaArgs.output_call nargs;
   fprintf ppf "     this.cb = cb;@.";

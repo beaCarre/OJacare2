@@ -26,6 +26,8 @@ val compare_method: mmethod -> mmethod -> int
 
 (* commmun camlgen javagen*)
 val get_class_java_oj_name: clazz -> string
+(*val get_class_java_oj_ICB_name: clazz -> string
+val get_class_java_oj_CB_name: clazz -> string*)
 val get_class_java_jinst_name: clazz -> string
 val get_class_java_qualified_name: clazz -> string
 val get_class_java_stub_name: clazz -> string
@@ -38,7 +40,8 @@ val get_method_ml_stub_name: mmethod -> string
 val get_class_java_signature: clazz -> string
 val get_class_java_stub_signature: clazz -> string
 val get_class_ml_jni_type_name: clazz -> string
-
+val get_class_ml_jni_cb_type_name: clazz -> string
+val get_class_ml_jni_icb_type_name: clazz -> string
 val get_class_ml_wrapper_name: clazz -> string
 val get_class_ml_stub_wrapper_name: clazz -> string
 

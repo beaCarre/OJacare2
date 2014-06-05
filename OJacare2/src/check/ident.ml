@@ -39,6 +39,9 @@ let get_class_ml_interface_init_name c = "_funinit_" ^ get_class_ml_stub_name c
 let get_class_ml_name_location c = c.ic_ml_name_location
 
 let get_class_ml_jni_type_name c = "_jni_" ^ get_class_ml_name c
+let get_class_ml_jni_cb_type_name c = "_jni_CB_" ^ get_class_ml_name c
+let get_class_ml_jni_icb_type_name c = "_jni_ICB_" ^ get_class_ml_name c
+
 let get_class_ml_wrapper_name c = "_capsule_" ^ get_class_ml_name c
 let get_class_ml_stub_wrapper_name c = "_souche_" ^ get_class_ml_name c
 

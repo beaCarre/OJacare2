@@ -21,7 +21,7 @@ let make_sig c_file =
   | [] -> sig_list 
   | list -> <:sig_item< class type $MlGen.make_rec_class_type class_type$ >> :: sig_list in
 
-  let class_type = MlClass.make_class_type ~callback:true c_file in
+ 
   let sig_list = match class_type with 
   | [] -> sig_list 
   | list -> <:sig_item< class type $MlGen.make_rec_class_type class_type$ >> :: sig_list in
@@ -59,6 +59,8 @@ let make c_file =
 
   (** Type jni *)
   let str_list = (MlClass.make_jni_type c_file) :: str_list in
+  let str_list = (MlClass.make_jni_ICB_type c_file) :: str_list in
+  let str_list = (MlClass.make_jni_CB_type c_file) :: str_list in
 
   (** Class type *)
   let class_type = MlClass.make_class_type ~callback:false c_file in
