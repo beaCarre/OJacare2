@@ -24,7 +24,7 @@ let convert env_idl env def =
 
   (* Prise en compte des 'modifiers' *)
   let abstract = Modifiers.is_abstract def.d_modifiers || def.d_interface
-  and callback = Annot.is_callback def.d_annot in
+  and callback = Annot.is_callback def.d_annot in (* B TODO : ajouter si une meth est cb ? *)
   
   (* Recherche de la classe dont on hérite et des interfaces implémentées *)
   let super = match def.d_super with

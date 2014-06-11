@@ -8,8 +8,9 @@ let convert_dynamic env_idl class_id mmethod (acc,env_method) =
   if Modifiers.is_static mmethod.m_modifiers then
     (acc,env_method)
   else 
-
-    let abstract = Ident.is_interface class_id || Modifiers.is_abstract mmethod.m_modifiers 
+    let abstract = Ident.is_interface class_id || Modifiers.is_abstract mmethod.m_modifiers   
+    (* B : cb si classe entièrement cb ou si methode cb *)
+    and callback = Annot.is_callback mmethod.m_annot || Ident.is_callback class_id
     and rtyp = Type.convert env_idl (Annot.have_array mmethod.m_annot) mmethod.m_return_type
     and args = Type.convert_args env_idl mmethod.m_args in
 
@@ -18,7 +19,7 @@ let convert_dynamic env_idl class_id mmethod (acc,env_method) =
     let self = {
       cm_class = class_id;
       cm_ident = id;
-      cm_desc = Cmethod (abstract, rtyp, args);
+      cm_desc = Cmethod (abstract, callback, rtyp, args);
     } in
     let env_method = Env_ident.add_method self env_method in
     self::acc, env_method
@@ -38,12 +39,19 @@ let convert_static env_idl class_id mmethod acc =
     
     { cm_class = class_id;
       cm_ident = id;
-      cm_desc = Cmethod (false, rtyp, args)
+      cm_desc = Cmethod (false, false, rtyp, args)
     } :: acc
   
 let is_abstract m = match m.cm_desc with
-  | Cmethod (b,_,_) -> b
+  | Cmethod (b,_,_,_) -> b
   | _ -> false
     
 let have_abstract mmethod_list =
   List.exists is_abstract mmethod_list
+
+let is_callback m = match m.cm_desc with
+  | Cmethod (_,b,_,_) -> b
+  | _ -> false
+    
+let have_callback mmethod_list =
+  List.exists is_callback mmethod_list

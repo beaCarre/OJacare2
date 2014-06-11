@@ -12,7 +12,7 @@ let fid_prefix = "__fid_"
 let make_class_type ~callback:callback m_list =
   let make m = 
     match m.cm_desc with
-    | Cmethod (abstract, rtype, args) ->   
+    | Cmethod (abstract, callback, rtype, args) ->   
 	let typ = MlType.ml_signature args rtype in
         if abstract && callback then 
           (* car classe abstraite sans callback on ne genère pas de constructeur,
@@ -37,9 +37,9 @@ let make_dyn clazz java_obj ~callback m_list =
     and java_name = Ident.get_method_java_name m.cm_ident 
     and java_class_name = Ident.get_class_java_qualified_name m.cm_class in
     match m.cm_desc with
-    | Cmethod (abstract,rtyp,targs) -> 
+    | Cmethod (abstract,mcallback,rtyp,targs) -> 
 	
-	if abstract && callback then
+	if callback && abstract then
 
 	  let typ = MlType.ml_signature targs rtyp in
 	  None,
@@ -51,7 +51,13 @@ let make_dyn clazz java_obj ~callback m_list =
 	  (* Jni : signature de la méthode et nom de la fonction d'appel *)
 	  and sign = MlType.java_signature targs rtyp in
 
-	  let call_method = MlType.get_call_method java_class_name java_name sign in 
+	  let call_method = 
+	    MlType.get_call_method 
+	      java_class_name 
+	      (if mcallback 
+	       then ("_stub_"^java_name) 
+	       else java_name) 
+	      sign in 
 
           (* Listes les arguments : par noms puis par valeurs pour le tableau d'argument *)
 	  let args = List.map2 (fun i t -> ("_p"^string_of_int i),t) 
@@ -107,10 +113,10 @@ let make_callback m_list =
   let make m acc = 
     match m.cm_desc with 
     | Cset _ | Cget _ -> acc
-    | Cmethod (abstract,rtyp, targs) -> 
+    | Cmethod (abstract,callback,rtyp, targs) -> 
 	let ml_name = Ident.get_method_ml_name m.cm_ident
 	and java_name = Ident.get_method_java_name m.cm_ident
-	and ml_stub_name = Ident.get_method_ml_stub_name m.cm_ident in
+	and ml_stub_name = Ident.get_method_java_name m.cm_ident in
 	
 	(* Listes les arguments : par noms *)
 	let nargs = List.map (fun i -> "_p"^string_of_int i) 
@@ -137,7 +143,7 @@ let make_callback_class_type m_list =
   let make m acc = 
     match m.cm_desc with 
     | Cset _ | Cget _ -> acc
-    | Cmethod (abstract,rtyp, targs) -> 
+    | Cmethod (abstract,callback,rtyp, targs) -> 
 	let ml_stub_name = Ident.get_method_ml_stub_name m.cm_ident in
 	let sign = match targs with 
 	| [] -> MlType.ml_jni_signature_of_type rtyp
@@ -198,7 +204,7 @@ let make_static cl_list =
 
 	  <:str_item< value $lid:ml_name$ = $body$ >>
 	  
-      | Cmethod (abstract,rtyp,targs) -> 
+      | Cmethod (abstract,callback,rtyp,targs) -> 
 	  let sign = MlType.java_signature targs rtyp in
 	  let id_expr = <:expr< Jni.get_static_methodID $lid:clazz$ $str:java_name$ $str:sign$  >> in
 	  let err = "Unknown static method from IDL in class \\\""^
@@ -248,7 +254,7 @@ let make_static_sig cl_list =
 	  let sign = MlType.ml_signature [] typ in
 	  <:sig_item< value $lid:ml_name$ : $sign$ >>
 	  
-      | Cmethod (abstract,rtyp,targs) -> 
+      | Cmethod (abstract,callback,rtyp,targs) -> 
 	  let sign = MlType.ml_signature targs rtyp in	  
 	  <:sig_item< value $lid:ml_name$ : $sign$ >>
     in

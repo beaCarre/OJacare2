@@ -151,16 +151,16 @@ let make_class ~callback cl_list =
 	  let call_method = MlType.get_init_method java_class_name sign in
 	  
 
-	  let class_decl = [ <:class_str_item< inherit $lid:class_wrapper_name$ $lid:java_obj$ >> ] in
-	  let class_decl =  
+	  let class_decl =
 	    if callback then
-	      let finit = <:expr< $lid:Ident.get_method_ml_init_stub_name init.cmi_ident$ >> in
-	      <:class_str_item< initializer $MlGen.make_call finit (P4helper.expr_lid java_obj::(<:expr< (self :> $lid:ml_name$ ) >>):: List.map P4helper.expr_lid nargs)$ >>
-		:: class_decl
+	      let finit = <:expr< $lid:java_obj$ >> in
+	      let largs =  <:class_expr< MlGen.make_call $lid:class_wrapper_name$ $(List.fold_right(fun x l -> <:expr< [$x$ :: $l$] >>)(List.map P4helper.expr_lid (nargs))  <:expr< [] >> (List.map P4helper.expr_lid (nargs)))$  >> in
+	      <:class_str_item< inherit $largs$ >>
+		 
 	    else
-	      class_decl      
+	      [ <:class_str_item< inherit $lid:class_wrapper_name$ $lid:java_obj$ >> ]  
 	  in
-
+	  
 	  let body = 
 	    <:class_expr< 
 	    object (self) $list:class_decl$
@@ -183,7 +183,7 @@ let make_class ~callback cl_list =
     if not callback then 
       List.concat (List.map make_cl  cl_list) 
     else
-      List.concat (List.map make_cl (List.filter (fun cl -> cl.cc_callback ) cl_list)) in
+      List.concat (List.map make_cl (List.filter (fun cl -> cl.cc_callback || (Method.have_callback cl.cc_public_methods) ) cl_list)) in
   P4helper.str_items init_funs
 
 let make_class_sig ~callback cl_list = 

@@ -7,6 +7,7 @@ type clazz = {
     ic_id: int;
 
     ic_interface: bool;
+    ic_callback: bool;
 
     ic_java_package: string list;
     ic_java_name: string;
@@ -17,6 +18,7 @@ type clazz = {
   }
       
 let is_interface c = c.ic_interface      
+let is_callback c = c.ic_callback    
 
 let get_class_java_package c = List.rev c.ic_java_package
 let get_class_java_package_name c = String.concat "." (get_class_java_package c)
@@ -30,6 +32,10 @@ let get_class_java_stub_name c = c.ic_java_name
 let get_class_java_oj_name c =  String.concat "'" ((get_class_java_package c) @ [get_class_java_name c])
 let get_class_java_jinst_name c = (get_class_java_oj_name c) ^" java_instance"
 let get_class_java_qualified_name c = String.concat "." ((get_class_java_package c) @ [get_class_java_name c])
+
+let get_class_java_icb_qualified_name c = String.concat "." ((get_class_java_callback_package c) @ ["ICB_"^get_class_java_name c])
+let get_class_java_cb_qualified_name c = String.concat "." ((get_class_java_callback_package c) @ ["CB_"^get_class_java_name c])
+
 let get_class_java_qualified_stub_name c = String.concat "." ((get_class_java_callback_package c) @ [get_class_java_stub_name c])
 let get_class_java_signature c = String.concat "/" ((get_class_java_package c) @ [get_class_java_name c])
 let get_class_java_stub_signature c = String.concat "/" ((get_class_java_callback_package c) @ [get_class_java_stub_name c])
@@ -89,7 +95,8 @@ let make_class_ident =
       | None -> "j"^def.d_name.id_desc, def.d_name.id_location, IDdefault (* param... *)
       | Some mlname -> mlname.id_desc, mlname.id_location, IDalias in
     { ic_id = id;
-      ic_interface = def.d_interface;
+      ic_interface = def.d_interface;     
+      ic_callback = Annot.is_callback def.d_annot;
       ic_java_package = package;
       ic_java_name = java_name;
       ic_ml_name = ml_name; 

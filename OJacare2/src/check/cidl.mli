@@ -36,7 +36,7 @@ type clazz = {
   }
 
 and mmethod_desc = 
-  | Cmethod of bool * typ * typ list (* abstract, rtype, args *)
+  | Cmethod of bool * bool * typ * typ list (* abstract, callback, rtype, args *)
   | Cget of typ
   | Cset of typ
 
@@ -48,9 +48,7 @@ and mmethod = {
             
 and init = {
     cmi_ident: Ident.mmethod;
-
     cmi_class: Ident.clazz;
-
     cmi_args: typ list;
   }
 

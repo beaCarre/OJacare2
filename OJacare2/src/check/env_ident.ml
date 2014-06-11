@@ -43,7 +43,7 @@ let empty_method_env = MethodIdentEnv.empty
 let are_methods_compatible m1 m2 = 
  ( match m1.cm_desc, m2.cm_desc with
   | Cget t1 , Cget t2 | Cset t1 , Cset t2 ->  t1 = t2
-  | Cmethod (_, rt1, args1), Cmethod (_, rt2, args2) -> rt1 = rt2 && args1 = args2
+  | Cmethod (_,_, rt1, args1), Cmethod (_,_, rt2, args2) -> rt1 = rt2 && args1 = args2
   | _, _ -> false)
     && Ident.get_method_java_name m1.cm_ident = Ident.get_method_java_name m2.cm_ident
 
@@ -62,7 +62,7 @@ let add_method mmethod env =
 let make_concrete mmethod = 
  { mmethod with 
    cm_desc = match mmethod.cm_desc with
-   | Cmethod (_, rtyp, args) -> Cmethod(false, rtyp, args)
+   | Cmethod (_,cb, rtyp, args) -> Cmethod(false,cb, rtyp, args)
    | d -> d }
 
 let add_inherited_method concrete mmethod env =

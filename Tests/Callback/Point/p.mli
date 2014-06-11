@@ -41,5 +41,5 @@ class default_point : unit -> jPoint;;
 class colored_point : int -> int -> string -> jColoredPoint;;
 class default_colored_point : unit -> jColoredPoint;;
 class empty_cloud : unit -> jCloud;;
-class _stub_colored_point : int -> int -> string -> jColoredPoint;;
-class _stub_default_colored_point : unit -> jColoredPoint;;
+class virtual _stub_colored_point : int -> int -> string -> jColoredPoint;;
+class virtual _stub_default_colored_point : unit -> jColoredPoint;;

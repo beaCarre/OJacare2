@@ -7,3 +7,5 @@ val convert_static :
   Cidl.mmethod list -> Cidl.mmethod list 
 
 val have_abstract : Cidl.mmethod list -> bool
+val is_callback : Cidl.mmethod -> bool
+val have_callback :  Cidl.mmethod list -> bool

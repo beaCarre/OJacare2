@@ -9,6 +9,7 @@ val make_field_method_id: static:bool -> clazz -> Idl.field -> mmethod option * 
 val make_method_id: static:bool -> clazz -> Idl.mmethod -> mmethod
 
 val is_interface: clazz -> bool
+val is_callback: clazz -> bool
 
 val get_class_java_package: clazz -> string list
 val get_class_java_name: clazz -> string
@@ -30,6 +31,8 @@ val get_class_java_oj_name: clazz -> string
 val get_class_java_oj_CB_name: clazz -> string*)
 val get_class_java_jinst_name: clazz -> string
 val get_class_java_qualified_name: clazz -> string
+val get_class_java_icb_qualified_name: clazz -> string
+val get_class_java_cb_qualified_name: clazz -> string
 val get_class_java_stub_name: clazz -> string
 val get_class_java_qualified_stub_name: clazz -> string
 val get_class_java_callback_package: clazz -> string list

@@ -43,10 +43,10 @@ let make_sig c_file =
    (** cast JNI, exporté pour préparé la fonction 'import' *)
    let sig_list = (MlClass.make_jniupcast_sig c_file) :: sig_list in
    let sig_list = (MlClass.make_jnidowncast_sig c_file):: sig_list in 
-  
+
   (** capsule, exporté pour préparé la fonction 'import' *)
   let sig_list = (MlClass.make_wrapper_sig c_file) :: sig_list in
-*)
+ *) 
   List.rev sig_list
     
 let make c_file =

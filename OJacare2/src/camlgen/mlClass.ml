@@ -25,13 +25,13 @@ let make_jni_CB_type cl_list =
     let jinst = Ident.get_class_java_oj_name cl.cc_ident in
     let name = Ident.get_class_ml_jni_cb_type_name cl.cc_ident in
     <:str_item< type $lid:name$ =java_instance $lid:jinst$ >> in
-  P4helper.str_items (List.map make (List.filter (fun cl -> cl.cc_callback && not (Ident.is_interface cl.cc_ident)) cl_list))
+  P4helper.str_items (List.map make (List.filter (fun cl -> (cl.cc_callback||Method.have_callback cl.cc_public_methods) && not (Ident.is_interface cl.cc_ident)) cl_list))
 let make_jni_ICB_type cl_list =
   let make cl =   
     let jinst = Ident.get_class_java_oj_name cl.cc_ident in
     let name = Ident.get_class_ml_jni_icb_type_name cl.cc_ident in
     <:str_item< type $lid:name$ =java_instance $lid:jinst$ >> in
-  P4helper.str_items (List.map make (List.filter (fun cl -> cl.cc_callback && not (Ident.is_interface cl.cc_ident)) cl_list))
+  P4helper.str_items (List.map make (List.filter (fun cl -> (cl.cc_callback||Method.have_callback cl.cc_public_methods) && not (Ident.is_interface cl.cc_ident)) cl_list))
 
 let make_jni_type_sig cl_list =
   let make cl = 
@@ -101,7 +101,9 @@ let make_alloc_stub cl_list =
 (** capsule / souche *************************************) (* B : ok, TODO char *)
 let make_wrapper ~callback cl_list =
   let clazz = "clazz"
-  and java_obj = "jni_ref" in
+  and java_obj = "jni_ref"   
+  and java_proxy = "jni_ref_proxy" 
+  and init_ref = "init_jni_ref" in
   let make cl =
 
     let abstract = callback in
@@ -113,27 +115,6 @@ let make_wrapper ~callback cl_list =
 
     (* construction de la liste des méthodes *)
     let class_decl = [] in
-
-    (* méthode hérité *) (* enlevé car pas jnihierarchie *)
-    (*let class_decl = 
-        (*   if callback then *)
-      <:class_str_item< inherit JniHierarchy.top $lid:java_obj$ >> :: class_decl 
-        (* else (match cl.cc_extend with
-	   None -> <:class_str_item< inherit JniHierarchy.top $lid:java_obj$ >>
-	   | Some super -> 
-	   let super_name = Ident.get_class_ml_wrapper_name super.cc_ident in
-	   <:class_str_item< inherit $lid:super_name$ $lid:java_obj$ >>) :: class_decl *) 
-    in*)
-    let class_decl = 
-      (* if callback then   *)
-        (* TODO downcast jni *)  (* ok *)
-	List.fold_right (fun cl class_decl -> 
-	  <:class_str_item< method $lid:Ident.get_class_ml_jni_accessor_method_name cl.cc_ident$ = ( $lid:java_obj$ :> $lid:Ident.get_class_ml_jni_type_name cl.cc_ident$ ) >> 
-	    :: class_decl)  cl.cc_all_inherited class_decl 
-	(* else List.rev_append 
-	   (List.map (fun interface -> let interface_name = Ident.get_class_ml_wrapper_name interface.cc_ident in 
-	   <:class_str_item< inherit $lid:interface_name$ $lid:java_obj$ >>) cl.cc_implements) class_decl *)
-      in 
 
     (* méthode accesseur Jni *) (* ok *)
     let class_decl = 
@@ -147,70 +128,77 @@ let make_wrapper ~callback cl_list =
     in
     let class_decl = List.rev_append methods class_decl in
     
+    let proxy_decl = [] in
+    let proxy_decl = List.rev_append(MlMethod.make_callback (List.filter (fun m -> cl.cc_callback || Method.is_callback m) cl.cc_public_methods)) proxy_decl in
+
+    (* initializer :  proxy si 'callback' *)
     let class_decl = 
-      if callback then
-	List.rev_append (MlMethod.make_callback cl.cc_public_methods) class_decl
+      if callback then(	
+	let proxy_name = Ident.get_class_java_icb_qualified_name cl.cc_ident in
+	let java_cb_name = Ident.get_class_java_cb_qualified_name cl.cc_ident in
+	let proxy = <:expr< object (self) $list:proxy_decl$ end  >> in
+	let initialize_decl =  <:expr<  
+	  if Java.is_null $lid:java_obj$
+	  then raise (Null_object $str:java_cb_name$) else ()  >> :: [] in
+	let initialize_decl =  <:expr<  
+	  if Java.is_null $lid:java_proxy$
+	  then raise (Null_object $str:proxy_name$) else ()  >> :: initialize_decl in
+	let initialize_decl =   
+	  let e1 = <:expr< ! $lid:java_proxy$ >> in
+	  let e2 = <:expr< init_jni_ref $e1$ >> in
+	  <:expr< $lid:java_obj$ := $e2$ >> :: initialize_decl in
+	let initialize_decl = 
+	  <:expr< $lid:java_proxy$ := Java.proxy $str:proxy_name$ $proxy$ >> :: initialize_decl in
+	<:class_str_item< initializer do {$list:initialize_decl$} >> :: class_decl)
       else
-	class_decl in
+	class_decl
+    in
 
     (* corps de l'objet *)
     let class_body =
       <:class_expr< object (self) $list:class_decl$ end  >> in
     
     (* test si l'objet est nul ... *)
-    let class_body = 
-      <:class_expr< let _ = 
-         if Java.is_null $lid:java_obj$
-	 then raise (Null_object $str:jclazz$) else () in $class_body$ >> in
+    let class_body =      
+      if callback then  
+	<:class_expr< 
+	  let $lid:java_proxy$ = ref Java.null 		        
+	  in $class_body$ >>
+      else
+      <:class_expr< 
+	let _ = 
+	  if Java.is_null $lid:java_obj$
+	  then raise (Null_object $str:jclazz$) else () in $class_body$ >>  
+    in
+    let class_body =      
+      if callback then  
+	<:class_expr<
+	  let $lid:java_proxy$ = ref Java.null
+	  in $class_body$ >>
+      else class_body
+    in
 
-    (* fonction de création, à partir d'une référence Jni *)
-    let class_body = 
+ 
+
+
+   
+    (* fonction de création, à partir d'une référence Jni 
+       ou fonction d'initialisation pour les souches *)
+   let class_body = 
+      if (callback||Method.have_callback cl.cc_public_methods) then 
+	<:class_expr< fun $lid:init_ref$ -> $class_body$  >>
+      else
       <:class_expr< fun ($lid:java_obj$ : $lid:Ident.get_class_ml_jni_type_name cl.cc_ident$) -> $class_body$  >> in 
  
     (* Déclaration des id. de méthode et de champs (capturé dans l'env de la fonction de création) *)
-    let class_body = MlGen.make_class_local_decl method_ids class_body in
-
-    (* Test de l'héritage au chargement : interfaces *) (* B : Pas besoin*)
-    (*let class_body = 
-      if callback then class_body else 
-      List.fold_right (fun interface body ->
-	let err = "Wrong implemented interface in IDL : "^
-	  (Ident.get_class_java_qualified_name cl.cc_ident)^ 
-	  " does not implements "^
-	  (Ident.get_class_java_qualified_name interface.cc_ident)^"."
-	in
-	<:class_expr< 
-	let _ = if not (Jni.is_assignable_from $lid:clazz$ 
-			(Jni.find_class $str: Ident.get_class_java_signature interface.cc_ident$))
-	then failwith $str:err$
-	else () in $body$ >>) cl.cc_implements class_body in*)
-    
-    (* Test de l'héritage au chargement *) (* B : idem pas besoin, verif par ocaml-java*)
-    (*let class_body = 
-      if callback then class_body else
-      match cl.cc_extend with
-	None -> class_body
-      | Some super -> 
-	  let err = "Wrong super class in IDL : "^
-	    (Ident.get_class_java_qualified_name cl.cc_ident)^ 
-	    " not extends "^
-	    (Ident.get_class_java_qualified_name super.cc_ident)^"."
-	  in
-	  <:class_expr< 
-	  let _ = if not (Jni.is_assignable_from $lid:clazz$ 
-			  (Jni.find_class $str: Ident.get_class_java_signature super.cc_ident$))
-	  then failwith $str:err$
-	  else () in $class_body$ >> in*)
-    
-    (* Chargement de l'objet classe Java : qui ne sera pas jamais déchargé ... *) (* B *)
-    (*let class_body = 
-      <:class_expr< let $lid:clazz$ = Jni.find_class $str:jclazz$ in $class_body$ >> in*)
+   let class_body = MlGen.make_class_local_decl method_ids class_body in
     
     (* Retour de 'make' : nom, abstract, body*)
     class_name,abstract,class_body 
   
   in
-  List.map make (List.filter (fun cl -> (not callback) || cl.cc_callback ) cl_list)
+  (* added B : ou si a une methode CB *)
+  List.map make (List.filter (fun cl -> (not callback) || cl.cc_callback || (Method.have_callback cl.cc_public_methods) ) cl_list)
 
 (** engendre les signatures des capsules en prévision de la gestion des "import", 
    mais ne doit pas être utlisé par un programmeur externe *)

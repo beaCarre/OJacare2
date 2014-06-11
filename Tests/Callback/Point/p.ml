@@ -335,7 +335,7 @@ class empty_cloud () =
 
 
 
-class  _stub_colored_point _p0 _p1 _p2 =
+class virtual _stub_colored_point _p0 _p1 _p2 =
   let _p2 = JavaString.of_string _p2
   in let _p1 = Int32.of_int _p1
      in let _p0 = Int32.of_int _p0
@@ -348,7 +348,7 @@ object (self)
 end;;
 
 
-class  _stub_default_colored_point () =
+class virtual _stub_default_colored_point () =
   let init_stub_default_colored_point =
     fun (jni_ref_proxy:_jni_jICB_ColoredPoint) ->
       Java.make "callback.mypack.CB_ColoredPoint(callback.mypack.ICB_ColoredPoint)" jni_ref_proxy

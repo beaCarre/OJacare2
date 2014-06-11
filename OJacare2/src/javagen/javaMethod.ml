@@ -26,8 +26,8 @@ let output ppf m =
   and java_name = Ident.get_method_java_name m.cm_ident
   and ml_stub_name = Ident.get_method_ml_stub_name m.cm_ident in
 
-  match m.cm_desc with
-    Cmethod (abstract, rtyp, args) ->
+  match m.cm_desc with (* TODO CALLBACK*)
+    Cmethod (abstract, callback, rtyp, args) ->
 
       let mid = get_method_java_id_name ml_name in
       
@@ -64,7 +64,7 @@ let output_signature ppf m =
   and ml_stub_name = Ident.get_method_ml_stub_name m.cm_ident in
 
   match m.cm_desc with
-    Cmethod (abstract, rtyp, args) ->
+    Cmethod (abstract, callback, rtyp, args) ->
       
       let largs = List.map2 (fun i t -> "_p"^string_of_int i, t) 
 	  (Utilities.interval 0 (List.length args)) args 
