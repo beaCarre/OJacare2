@@ -27,8 +27,8 @@ val compare_method: mmethod -> mmethod -> int
 
 (* commmun camlgen javagen*)
 val get_class_java_oj_name: clazz -> string
-(*val get_class_java_oj_ICB_name: clazz -> string
-val get_class_java_oj_CB_name: clazz -> string*)
+val get_class_java_oj_cb_name: clazz -> string
+val get_class_java_oj_icb_name: clazz -> string
 val get_class_java_jinst_name: clazz -> string
 val get_class_java_qualified_name: clazz -> string
 val get_class_java_icb_qualified_name: clazz -> string

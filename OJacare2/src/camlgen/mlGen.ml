@@ -13,6 +13,13 @@ let make_call f nargs =
   | nargs -> List.fold_left
 	(fun e narg -> <:expr< $e$ $narg$ >>)
 	f nargs
+(* Construction d'appel de fonction *)
+let make_call2 f nargs =
+  match nargs with
+    [] -> <:expr< $f$ >>
+  | nargs -> List.fold_left
+	(fun e narg -> <:expr< $e$ $narg$ >>)
+	f nargs
 
 (* Construction d'appel de fonction "super" *)
 let make_inherit super nargs =
@@ -30,6 +37,19 @@ let make_inherit super nargs =
 let make_fun args body =
   match args with
     [] -> <:expr< fun () -> $body$ >>
+  | args ->
+      List.fold_right
+	(fun (narg,targ) e -> match targ with
+	| Cobject (Cname id) -> <:expr< fun ($lid:narg$ : $lid:Ident.get_class_ml_name id$) -> $e$>>
+	| Cobject (Carray t) -> <:expr< fun ($lid:narg$ : array $MlType.ml_signature_of_type t$) -> $e$>>
+	| Cobject (Cjavaarray t) -> <:expr< fun ($lid:narg$ : JniArray.jArray $MlType.ml_signature_of_type t$) -> $e$>>
+	| Cobject Ctop -> <:expr< fun ($lid:narg$ : JniHierarchy.jTop) -> $e$>>
+	| _ -> <:expr< fun $lid:narg$ -> $e$>>)
+	args body
+
+let make_fun2 args body =
+  match args with
+    [] -> <:expr< $body$ >>
   | args ->
       List.fold_right
 	(fun (narg,targ) e -> match targ with

@@ -18,7 +18,7 @@ let output ppf clazz =
     fprintf ppf "public class %s implements %s {@.@." java_stubname java_name
   else*) begin
     let abstract = clazz.cc_abstract in
-    fprintf ppf "%sclass %s extends %s {@.@." (if abstract then "abstract " else "") java_cb_name java_name
+    fprintf ppf "%sclass %s extends %s {@.@." (if abstract then "public abstract " else "public ") java_cb_name java_name
   end;
 
 (* fprintf ppf "  protected void finalize() throws Throwable {@.";

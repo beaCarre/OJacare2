@@ -5,10 +5,10 @@ javaInit.cmi: ../check/cidl.cmi
 javaInterface.cmi: ../check/cidl.cmi
 javaMethod.cmi: ../check/cidl.cmi
 javaType.cmi: ../check/cidl.cmi
-idl_javagen.cmo: javaInterface.cmi javaClass.cmi ../check/ident.cmi \
-    ../check/cidl.cmi idl_javagen.cmi
-idl_javagen.cmx: javaInterface.cmx javaClass.cmx ../check/ident.cmx \
-    ../check/cidl.cmi idl_javagen.cmi
+idl_javagen.cmo: ../check/method.cmi javaInterface.cmi javaClass.cmi \
+    ../check/ident.cmi ../check/cidl.cmi idl_javagen.cmi
+idl_javagen.cmx: ../check/method.cmx javaInterface.cmx javaClass.cmx \
+    ../check/ident.cmx ../check/cidl.cmi idl_javagen.cmi
 javaArgs.cmo: javaType.cmi ../check/cidl.cmi javaArgs.cmi
 javaArgs.cmx: javaType.cmx ../check/cidl.cmi javaArgs.cmi
 javaClass.cmo: javaMethod.cmi javaInit.cmi ../check/ident.cmi \

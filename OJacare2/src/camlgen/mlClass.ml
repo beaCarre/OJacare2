@@ -22,13 +22,13 @@ let make_jni_type cl_list =
 
 let make_jni_CB_type cl_list =
   let make cl =   
-    let jinst = Ident.get_class_java_oj_name cl.cc_ident in
+    let jinst = Ident.get_class_java_oj_cb_name cl.cc_ident in
     let name = Ident.get_class_ml_jni_cb_type_name cl.cc_ident in
     <:str_item< type $lid:name$ =java_instance $lid:jinst$ >> in
   P4helper.str_items (List.map make (List.filter (fun cl -> (cl.cc_callback||Method.have_callback cl.cc_public_methods) && not (Ident.is_interface cl.cc_ident)) cl_list))
 let make_jni_ICB_type cl_list =
   let make cl =   
-    let jinst = Ident.get_class_java_oj_name cl.cc_ident in
+    let jinst = Ident.get_class_java_oj_icb_name cl.cc_ident in
     let name = Ident.get_class_ml_jni_icb_type_name cl.cc_ident in
     <:str_item< type $lid:name$ =java_instance $lid:jinst$ >> in
   P4helper.str_items (List.map make (List.filter (fun cl -> (cl.cc_callback||Method.have_callback cl.cc_public_methods) && not (Ident.is_interface cl.cc_ident)) cl_list))
@@ -115,12 +115,21 @@ let make_wrapper ~callback cl_list =
 
     (* construction de la liste des méthodes *)
     let class_decl = [] in
-
+    let jni_ref = if callback then  <:expr< ! $lid:java_obj$ >> else <:expr< $lid:java_obj$ >> in
+    let class_decl =
+	List.fold_right (fun cl class_decl -> 
+	  <:class_str_item< method $lid:Ident.get_class_ml_jni_accessor_method_name cl.cc_ident$ = ( $jni_ref$ :> $lid:Ident.get_class_ml_jni_type_name cl.cc_ident$ ) >> 
+	    :: class_decl)  cl.cc_all_inherited class_decl 
+    in
     (* méthode accesseur Jni *) (* ok *)
-    let class_decl = 
-      <:class_str_item< method $lid:Ident.get_class_ml_jni_accessor_method_name cl.cc_ident$ = $lid:java_obj$ >> 
-	:: class_decl in
 
+    let class_decl =   
+      if not callback then
+	<:class_str_item< method $lid:Ident.get_class_ml_jni_accessor_method_name cl.cc_ident$ = $lid:java_obj$ >> :: class_decl 
+      else 
+    	<:class_str_item< method $lid:Ident.get_class_ml_jni_accessor_method_name cl.cc_ident$ = ( $jni_ref$ :> $lid:Ident.get_class_ml_jni_type_name cl.cc_ident$ ) >> :: class_decl 
+    in
+    
     (* méthodes IDL *) (* ok *)
     let method_ids, methods = 
      (* if callback then *) MlMethod.make_dyn clazz java_obj ~callback:callback cl.cc_public_methods
@@ -129,26 +138,35 @@ let make_wrapper ~callback cl_list =
     let class_decl = List.rev_append methods class_decl in
     
     let proxy_decl = [] in
-    let proxy_decl = List.rev_append(MlMethod.make_callback (List.filter (fun m -> cl.cc_callback || Method.is_callback m) cl.cc_public_methods)) proxy_decl in
+    let proxy_decl = List.rev_append(MlMethod.make_callback (List.filter (fun m -> (cl.cc_callback && Method.is_callback m) || (cl.cc_callback && Ident.is_callback cl.cc_ident) )   cl.cc_public_methods)) proxy_decl in
 
     (* initializer :  proxy si 'callback' *)
     let class_decl = 
       if callback then(	
-	let proxy_name = Ident.get_class_java_icb_qualified_name cl.cc_ident in
+	let proxy_name =
+	  if Ident.is_interface cl.cc_ident
+	  then Ident.get_class_java_qualified_name cl.cc_ident
+	  else Ident.get_class_java_icb_qualified_name cl.cc_ident
+	in
 	let java_cb_name = Ident.get_class_java_cb_qualified_name cl.cc_ident in
-	let proxy = <:expr< object (self) $list:proxy_decl$ end  >> in
+	let proxy = <:expr< object $list:proxy_decl$ end  >> in
 	let initialize_decl =  <:expr<  
-	  if Java.is_null $lid:java_obj$
+	  if Java.is_null ! $lid:java_obj$
 	  then raise (Null_object $str:java_cb_name$) else ()  >> :: [] in
-	let initialize_decl =  <:expr<  
-	  if Java.is_null $lid:java_proxy$
+	let initialize_decl = if Ident.is_interface cl.cc_ident then initialize_decl else 
+	    <:expr<  
+	  if Java.is_null ! $lid:java_proxy$
 	  then raise (Null_object $str:proxy_name$) else ()  >> :: initialize_decl in
-	let initialize_decl =   
+	let initialize_decl =   if Ident.is_interface cl.cc_ident then initialize_decl else
 	  let e1 = <:expr< ! $lid:java_proxy$ >> in
 	  let e2 = <:expr< init_jni_ref $e1$ >> in
-	  <:expr< $lid:java_obj$ := $e2$ >> :: initialize_decl in
+
+	  <:expr< $lid:java_obj$.val := $e2$ >> :: initialize_decl in
 	let initialize_decl = 
-	  <:expr< $lid:java_proxy$ := Java.proxy $str:proxy_name$ $proxy$ >> :: initialize_decl in
+	  if Ident.is_interface cl.cc_ident 
+	  then <:expr< $lid:java_obj$.val := Java.proxy $str:proxy_name$ $proxy$ >> :: initialize_decl 
+	  else  <:expr< $lid:java_proxy$.val := Java.proxy $str:proxy_name$ $proxy$ >> :: initialize_decl 
+	in
 	<:class_str_item< initializer do {$list:initialize_decl$} >> :: class_decl)
       else
 	class_decl
@@ -160,10 +178,13 @@ let make_wrapper ~callback cl_list =
     
     (* test si l'objet est nul ... *)
     let class_body =      
-      if callback then  
-	<:class_expr< 
-	  let $lid:java_proxy$ = ref Java.null 		        
-	  in $class_body$ >>
+      if callback then
+	if not (Ident.is_interface cl.cc_ident ) then  
+	  <:class_expr< 
+	    let $lid:java_proxy$ = ref Java.null 		        
+	    in $class_body$ >>
+	else
+	  class_body
       else
       <:class_expr< 
 	let _ = 
@@ -173,7 +194,7 @@ let make_wrapper ~callback cl_list =
     let class_body =      
       if callback then  
 	<:class_expr<
-	  let $lid:java_proxy$ = ref Java.null
+	  let $lid:java_obj$ = ref Java.null
 	  in $class_body$ >>
       else class_body
     in
@@ -185,8 +206,10 @@ let make_wrapper ~callback cl_list =
     (* fonction de création, à partir d'une référence Jni 
        ou fonction d'initialisation pour les souches *)
    let class_body = 
-      if (callback||Method.have_callback cl.cc_public_methods) then 
-	<:class_expr< fun $lid:init_ref$ -> $class_body$  >>
+      if callback  then 
+	if (Ident.is_interface cl.cc_ident) 
+	then <:class_expr<  $class_body$  >>
+	else <:class_expr< fun $lid:init_ref$ -> $class_body$  >>
       else
       <:class_expr< fun ($lid:java_obj$ : $lid:Ident.get_class_ml_jni_type_name cl.cc_ident$) -> $class_body$  >> in 
  
@@ -197,8 +220,10 @@ let make_wrapper ~callback cl_list =
     class_name,abstract,class_body 
   
   in
-  (* added B : ou si a une methode CB *)
   List.map make (List.filter (fun cl -> (not callback) || cl.cc_callback || (Method.have_callback cl.cc_public_methods) ) cl_list)
+
+
+
 
 (** engendre les signatures des capsules en prévision de la gestion des "import", 
    mais ne doit pas être utlisé par un programmeur externe *)

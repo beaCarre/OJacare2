@@ -12,12 +12,12 @@ let fid_prefix = "__fid_"
 let make_class_type ~callback:callback m_list =
   let make m = 
     match m.cm_desc with
-    | Cmethod (abstract, callback, rtype, args) ->   
+    | Cmethod (abstract, mcallback, rtype, args) ->   
 	let typ = MlType.ml_signature args rtype in
         if abstract && callback then 
           (* car classe abstraite sans callback on ne genère pas de constructeur,
 	     seul un _wrapper_ *)
-	  <:class_sig_item< method virtual $lid:Ident.get_method_ml_name m.cm_ident$ : $typ$ >> 
+	  <:class_sig_item< method virtual $lid:Ident.get_method_ml_name m.cm_ident$ : $typ$ >> (* TODO pb *)
 	else 
 	  <:class_sig_item< method $lid:Ident.get_method_ml_name m.cm_ident$ : $typ$ >> 
     | Cset typ -> 	
@@ -35,15 +35,16 @@ let make_dyn clazz java_obj ~callback m_list =
   let make m =
     let ml_name = Ident.get_method_ml_name m.cm_ident
     and java_name = Ident.get_method_java_name m.cm_ident 
-    and java_class_name = Ident.get_class_java_qualified_name m.cm_class in
+    and java_class_name = Ident.get_class_java_qualified_name m.cm_class 
+    and java_cb_class_name = Ident.get_class_java_cb_qualified_name m.cm_class in
     match m.cm_desc with
     | Cmethod (abstract,mcallback,rtyp,targs) -> 
 	
 	if callback && abstract then
-
 	  let typ = MlType.ml_signature targs rtyp in
 	  None,
 	  <:class_str_item< method virtual $lid:ml_name$ : $typ$ >>
+
 	else 
           (* label de l'id de la méthode *)
 	  let id = mid_prefix^ml_name
@@ -52,10 +53,12 @@ let make_dyn clazz java_obj ~callback m_list =
 	  and sign = MlType.java_signature targs rtyp in
 
 	  let call_method = 
-	    MlType.get_call_method 
-	      java_class_name 
-	      (if mcallback 
-	       then ("_stub_"^java_name) 
+	    MlType.get_call_method  
+	      (if callback && mcallback
+	       then java_cb_class_name
+	       else java_class_name )
+	      (if mcallback && callback
+	       then ("_oj_"^java_name) 
 	       else java_name) 
 	      sign in 
 
@@ -67,13 +70,13 @@ let make_dyn clazz java_obj ~callback m_list =
 
 	  let nargs = List.map (fun (narg,targ) -> narg) args  in
 
-          (* construction du corps de la méthode *) (* TODO long char *)
+          (* construction du corps de la méthode *) (* ok *)
 	  let body = 
 	    if not callback then 
 	      MlGen.make_call <:expr< Java.call $str:call_method$  >> (List.map P4helper.expr_lid (java_obj::nargs))
               (*<:expr< Java.call $str:call_method$ $lid:java_obj$ $list:nargs$ >> *)
 	    else
-	      MlGen.make_call <:expr< Java.call $str:call_method$ $lid:java_obj$ >> (List.map P4helper.expr_lid nargs)
+	      MlGen.make_call2 <:expr< Java.call $str:call_method$  ! $lid:java_obj$  >> (List.map P4helper.expr_lid nargs)
 	     (* <:expr< Java.call $str:call_method$ $lid:java_obj$ $lid:clazz$ $list:nargs$ >> *) in
 	  let body = MlType.convert_from_java rtyp body in
 	  let body = MlGen.make_local_decl (MlType.get_args_convertion MlType.convert_to_java args) body in
@@ -84,10 +87,16 @@ let make_dyn clazz java_obj ~callback m_list =
 	  <:class_str_item< method $lid:ml_name$ = $body$ >>
 
     | Cset typ ->   (* TODO *)
+	 
 	let call_method = MlType.get_accessors_method java_class_name java_name (MlType.java_signature_of_type typ) in
 	let narg = "_p" in
-	let call = <:expr< Java.set $str:call_method$ $lid:java_obj$ $lid:narg$ >> in
-	
+	let call = 
+	  if callback 
+	  then <:expr< Java.set $str:call_method$ ! $lid:java_obj$ $lid:narg$ >>
+	  else<:expr< Java.set $str:call_method$  $lid:java_obj$ $lid:narg$ >> 
+	    
+	in
+ 
 	let body = MlGen.make_local_decl [narg,MlType.convert_to_java typ <:expr< $lid:narg$ >>] call in
 	let body = MlGen.make_fun [narg,typ] body in
 
@@ -96,7 +105,11 @@ let make_dyn clazz java_obj ~callback m_list =
 	  
     | Cget typ ->   (* TODO *)
       let call_method = MlType.get_accessors_method java_class_name java_name (MlType.java_signature_of_type typ) in
-      let call = <:expr< Java.get $str:call_method$ $lid:java_obj$ >> in
+      let call = 
+	if callback 
+	then <:expr< Java.get $str:call_method$ ! $lid:java_obj$ >> 
+	else <:expr< Java.get $str:call_method$ $lid:java_obj$ >> 
+      in
       
 	let body = MlType.convert_from_java typ call in 
 	let body = MlGen.make_fun [] body in
@@ -143,7 +156,7 @@ let make_callback_class_type m_list =
   let make m acc = 
     match m.cm_desc with 
     | Cset _ | Cget _ -> acc
-    | Cmethod (abstract,callback,rtyp, targs) -> 
+    | Cmethod (abstract,mcallback,rtyp, targs) -> 
 	let ml_stub_name = Ident.get_method_ml_stub_name m.cm_ident in
 	let sign = match targs with 
 	| [] -> MlType.ml_jni_signature_of_type rtyp
@@ -178,16 +191,9 @@ let make_static cl_list =
 
 
 
-
-
-
-
-
-
-
       | Cget typ -> 
 	  let sign = MlType.java_signature_of_type typ in
-	  let id_expr = <:expr< Jni.get_static_fieldID $lid:clazz$ $str:java_name$ $str:sign$ >> in
+	  let id_expr = <:expr< Java.get $lid:clazz$ $str:java_name$ $str:sign$ >> in
 	  let err = "Unknown static field from IDL in class \\\""^
 	    (Ident.get_class_java_qualified_name m.cm_class)^"\\\" : \\\""^
 	    MlType.idl_signature_of_type typ ^ " " ^ java_name ^"\\\"." in
@@ -206,17 +212,11 @@ let make_static cl_list =
 	  
       | Cmethod (abstract,callback,rtyp,targs) -> 
 	  let sign = MlType.java_signature targs rtyp in
-	  let id_expr = <:expr< Jni.get_static_methodID $lid:clazz$ $str:java_name$ $str:sign$  >> in
-	  let err = "Unknown static method from IDL in class \\\""^
-	    (Ident.get_class_java_qualified_name m.cm_class)^"\\\" : \\\""^
-	    MlType.idl_signature_of_type rtyp ^ " " ^ java_name ^ "("^
-	    MlType.idl_signature targs^")\\\"." in
-	  let safe_id_expr = 
-	    <:expr<try $id_expr$ with _ -> failwith $str:err$>> in
+	  let id_expr = <:expr< Java.call $lid:clazz$ $str:java_name$ $str:sign$  >> in
 
-	  (* Jni : signature de la méthode et nom de la fonction d'appel *)
-	  let call_method = P4helper.jni ("call_static_"^(MlType.string_of_type rtyp)^"_method") in 
-	  
+	  (*  signature de la méthode et nom de la fonction d'appel *)
+	    let call_method =  MlType.get_call_method
+	      java_class_name java_name sign in 
 	  (* Listes les arguments : par noms puis par valeurs pour le tableau d'argument *)
 	  let nargs = List.map (fun i -> "_p"^string_of_int i) 
 	      (Utilities.interval 0 (List.length targs)) in
@@ -225,13 +225,11 @@ let make_static cl_list =
 	    <:expr< $id:MlType.constructor_of_type targ$ $lid:narg$  >>) args in
 	  
 	  (* construction du corps de la méthode *)
-	  let body = <:expr< $id:call_method$ $lid:clazz$ $lid:id$ [| $list:jargs$ |] >> in
+	  let body = MlGen.make_call <:expr< Java.call $str:call_method$ >> (List.map P4helper.expr_lid nargs) in
 	  	  
 	  let body = MlType.convert_from_java rtyp body in
 	  let body = MlGen.make_local_decl (MlType.get_args_convertion MlType.convert_to_java args) body in
 	  let body = MlGen.make_fun args body in
-	  let body = MlGen.make_local_decl [id,safe_id_expr] body in
-	  let body = MlGen.make_local_decl [clazz,class_expr] body in
 	  
 	  <:str_item< value $lid:ml_name$ = $body$ >>
     in

@@ -20,11 +20,6 @@ let make_sig c_file =
   let sig_list = match class_type with 
   | [] -> sig_list 
   | list -> <:sig_item< class type $MlGen.make_rec_class_type class_type$ >> :: sig_list in
-
- 
-  let sig_list = match class_type with 
-  | [] -> sig_list 
-  | list -> <:sig_item< class type $MlGen.make_rec_class_type class_type$ >> :: sig_list in
   (*
   (** downcast 'utilisateur' *)
   let sig_list = (MlClass.make_downcast_sig c_file) :: sig_list in

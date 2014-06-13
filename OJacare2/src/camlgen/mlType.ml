@@ -51,7 +51,7 @@ let rec java_signature_of_type t =
   | Clong -> "long"
   | Cfloat -> "float"
   | Cdouble -> "double"
-  | Ccallback _ -> "fr.inria.caml.camljava.Callback"
+  | Ccallback id -> Ident.get_class_java_icb_qualified_name id
   | Cobject Ctop -> "java.lang.Object"
   | Cobject Cstring -> "java.lang.String"
   | Cobject (Cname id) -> Ident.get_class_java_qualified_name id

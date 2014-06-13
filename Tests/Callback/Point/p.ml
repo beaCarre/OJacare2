@@ -237,11 +237,13 @@ object (self)
       end
     );
       jni_ref := init_jni_ref !jni_ref_proxy;
-
-    if Java.is_null !jni_ref
-    then raise (Null_object "callback/mypack/ColoredPoint")
-    else ()
-      method eq_colored_point =
+      if Java.is_null jni_ref_proxy
+      then raise (Null_object "callback.mypack.ICB_ColoredPoint")
+      else ();
+      if Java.is_null !jni_ref
+      then raise (Null_object "callback/mypack/ColoredPoint")
+      else ()
+     method eq_colored_point =
         fun (_p0 : jColoredPoint) ->
           let _p0 = _p0#_get_jni_jColoredPoint
           in

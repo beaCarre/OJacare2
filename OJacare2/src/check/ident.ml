@@ -30,6 +30,8 @@ let get_class_java_name c = c.ic_java_name
 let get_class_java_stub_name c = c.ic_java_name
 
 let get_class_java_oj_name c =  String.concat "'" ((get_class_java_package c) @ [get_class_java_name c])
+let get_class_java_oj_cb_name c =  String.concat "'" ((get_class_java_callback_package c) @ ["CB_"^get_class_java_name c])
+let get_class_java_oj_icb_name c =  String.concat "'" ((get_class_java_callback_package c) @ ["ICB_"^get_class_java_name c])
 let get_class_java_jinst_name c = (get_class_java_oj_name c) ^" java_instance"
 let get_class_java_qualified_name c = String.concat "." ((get_class_java_package c) @ [get_class_java_name c])
 
@@ -45,8 +47,8 @@ let get_class_ml_interface_init_name c = "_funinit_" ^ get_class_ml_stub_name c
 let get_class_ml_name_location c = c.ic_ml_name_location
 
 let get_class_ml_jni_type_name c = "_jni_" ^ get_class_ml_name c
-let get_class_ml_jni_cb_type_name c = "_jni_CB_" ^ get_class_ml_name c
-let get_class_ml_jni_icb_type_name c = "_jni_ICB_" ^ get_class_ml_name c
+let get_class_ml_jni_cb_type_name c = "_jni_jCB_" ^ get_class_ml_name c
+let get_class_ml_jni_icb_type_name c = "_jni_jICB_" ^ get_class_ml_name c
 
 let get_class_ml_wrapper_name c = "_capsule_" ^ get_class_ml_name c
 let get_class_ml_stub_wrapper_name c = "_souche_" ^ get_class_ml_name c
