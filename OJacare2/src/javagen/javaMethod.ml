@@ -21,13 +21,13 @@ let output_call ppf typ =
     | Cvoid -> fprintf ppf ""
     | Ccallback _ -> invalid_arg "JavaMethod.output_call"
 
-let output ppf m =
+let output ppf cb m =
   let ml_name = Ident.get_method_ml_name m.cm_ident
   and java_name = Ident.get_method_java_name m.cm_ident
   and ml_stub_name = Ident.get_method_ml_stub_name m.cm_ident in
 
   match m.cm_desc with (* TODO CALLBACK*)
-    Cmethod (abstract, true, rtyp, args) ->
+    Cmethod (abstract, mcb, rtyp, args) when cb || mcb -> 
 
       let mid = get_method_java_id_name ml_name in
       
@@ -58,13 +58,13 @@ let output ppf m =
 
   | _ -> ()
     
-let output_signature ppf m =
+let output_signature ppf cb m =
   let ml_name = Ident.get_method_ml_name m.cm_ident
   and java_name = Ident.get_method_java_name m.cm_ident
   and ml_stub_name = Ident.get_method_ml_stub_name m.cm_ident in
 
   match m.cm_desc with
-    Cmethod (abstract, true, rtyp, args) ->
+    Cmethod (abstract, mcb, rtyp, args) when cb || mcb ->
       
       let largs = List.map2 (fun i t -> "_p"^string_of_int i, t) 
 	  (Utilities.interval 0 (List.length args)) args 

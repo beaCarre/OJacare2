@@ -3,7 +3,7 @@
 TOP= ..
 include $(TOP)/Makefile.config
 
-SUBDIRS = jnihelpers common parser check camlgen javagen
+SUBDIRS = common parser check camlgen javagen
 MLINCDIRS = $(SUBDIRS)
 
 COMMON_MODULES = filesystem utilities
@@ -37,7 +37,6 @@ src: srcbyte srcopt
 srcbyte: 
 	$(foreach dir,$(SUBDIRS),$(MAKE) -C $(dir) byte;) 
 srcopt: 
-	make -C jnihelpers opt
 	$(foreach dir,$(SUBDIRS),$(MAKE) -C $(dir) opt;)
 clean:: 
 	$(foreach dir,$(SUBDIRS),$(MAKE) -C $(dir) clean;)
@@ -54,7 +53,6 @@ partialclean::
 install:
 	test -d $(BINDIR) || mkdir -p $(BINDIR)
 	cp ojacare $(BINDIR) 
-	make -C jnihelpers install
 	cp main/Makefile.include $(LIBDIR)
 
 # Règles générales

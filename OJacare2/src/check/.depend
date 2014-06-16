@@ -1,50 +1,54 @@
-annot.cmi: ../parser/idl.cmi
-cidl.cmi: ident.cmi
-content.cmi: ../parser/idl.cmi ident.cmi env_idl.cmi env_ident.cmi cidl.cmi
-def.cmi: ../parser/idl.cmi env_idl.cmi env_ident.cmi
-env_ident.cmi: ident.cmi cidl.cmi
-env_idl.cmi: ../parser/idl.cmi ident.cmi
-error.cmi: ../parser/loc.cmi ../parser/idl.cmi
-field.cmi: ../parser/idl.cmi ident.cmi env_idl.cmi env_ident.cmi cidl.cmi
-ident.cmi: ../parser/loc.cmi ../parser/idl.cmi
-idl_check.cmi: ../parser/idl.cmi cidl.cmi
-init.cmi: ../parser/idl.cmi ident.cmi env_idl.cmi cidl.cmi
-method.cmi: ../parser/idl.cmi ident.cmi env_idl.cmi env_ident.cmi cidl.cmi
-modifiers.cmi: ../parser/idl.cmi
-type.cmi: ../parser/idl.cmi env_idl.cmi cidl.cmi
-annot.cmo: ../parser/idl.cmi annot.cmi
-annot.cmx: ../parser/idl.cmi annot.cmi
-content.cmo: method.cmi ../parser/idl.cmi field.cmi env_ident.cmi content.cmi
-content.cmx: method.cmx ../parser/idl.cmi field.cmx env_ident.cmx content.cmi
-def.cmo: modifiers.cmi method.cmi init.cmi ../parser/idl.cmi error.cmi \
+annot.cmi : ../parser/idl.cmi
+cidl.cmi : ident.cmi
+content.cmi : ../parser/idl.cmi ident.cmi env_idl.cmi env_ident.cmi cidl.cmi
+def.cmi : ../parser/idl.cmi env_idl.cmi env_ident.cmi
+env_ident.cmi : ident.cmi cidl.cmi
+env_idl.cmi : ../parser/idl.cmi ident.cmi
+error.cmi : ../parser/loc.cmi ../parser/idl.cmi
+field.cmi : ../parser/idl.cmi ident.cmi env_idl.cmi env_ident.cmi cidl.cmi
+ident.cmi : ../parser/loc.cmi ../parser/idl.cmi
+idl_check.cmi : ../parser/idl.cmi cidl.cmi
+init.cmi : ../parser/idl.cmi ident.cmi env_idl.cmi cidl.cmi
+method.cmi : ../parser/idl.cmi ident.cmi env_idl.cmi env_ident.cmi cidl.cmi
+modifiers.cmi : ../parser/idl.cmi
+type.cmi : ../parser/idl.cmi env_idl.cmi cidl.cmi
+annot.cmo : ../parser/idl.cmi annot.cmi
+annot.cmx : ../parser/idl.cmi annot.cmi
+content.cmo : method.cmi ../parser/idl.cmi field.cmi env_ident.cmi \
+    content.cmi
+content.cmx : method.cmx ../parser/idl.cmi field.cmx env_ident.cmx \
+    content.cmi
+def.cmo : modifiers.cmi method.cmi init.cmi ../parser/idl.cmi error.cmi \
     env_idl.cmi env_ident.cmi content.cmi cidl.cmi annot.cmi def.cmi
-def.cmx: modifiers.cmx method.cmx init.cmx ../parser/idl.cmi error.cmx \
+def.cmx : modifiers.cmx method.cmx init.cmx ../parser/idl.cmi error.cmx \
     env_idl.cmx env_ident.cmx content.cmx cidl.cmi annot.cmx def.cmi
-env_ident.cmo: ident.cmi error.cmi cidl.cmi env_ident.cmi
-env_ident.cmx: ident.cmx error.cmx cidl.cmi env_ident.cmi
-env_idl.cmo: ../parser/idl.cmi ident.cmi error.cmi env_idl.cmi
-env_idl.cmx: ../parser/idl.cmi ident.cmx error.cmx env_idl.cmi
-error.cmo: ../parser/loc.cmi ../parser/idl.cmi error.cmi
-error.cmx: ../parser/loc.cmx ../parser/idl.cmi error.cmi
-field.cmo: type.cmi modifiers.cmi ../parser/idl.cmi ident.cmi error.cmi \
+env_ident.cmo : ident.cmi error.cmi cidl.cmi env_ident.cmi
+env_ident.cmx : ident.cmx error.cmx cidl.cmi env_ident.cmi
+env_idl.cmo : ../parser/idl.cmi ident.cmi error.cmi env_idl.cmi
+env_idl.cmx : ../parser/idl.cmi ident.cmx error.cmx env_idl.cmi
+error.cmo : ../parser/loc.cmi ../parser/idl.cmi error.cmi
+error.cmx : ../parser/loc.cmx ../parser/idl.cmi error.cmi
+field.cmo : type.cmi modifiers.cmi ../parser/idl.cmi ident.cmi error.cmi \
     env_ident.cmi cidl.cmi annot.cmi field.cmi
-field.cmx: type.cmx modifiers.cmx ../parser/idl.cmi ident.cmx error.cmx \
+field.cmx : type.cmx modifiers.cmx ../parser/idl.cmi ident.cmx error.cmx \
     env_ident.cmx cidl.cmi annot.cmx field.cmi
-ident.cmo: ../common/utilities.cmi modifiers.cmi ../parser/loc.cmi \
+ident.cmo : ../common/utilities.cmi modifiers.cmi ../parser/loc.cmi \
     ../parser/idl.cmi error.cmi annot.cmi ident.cmi
-ident.cmx: ../common/utilities.cmx modifiers.cmx ../parser/loc.cmx \
+ident.cmx : ../common/utilities.cmx modifiers.cmx ../parser/loc.cmx \
     ../parser/idl.cmi error.cmx annot.cmx ident.cmi
-idl_check.cmo: ../parser/loc.cmi ../parser/idl.cmi error.cmi env_idl.cmi \
+idl_check.cmo : ../parser/loc.cmi ../parser/idl.cmi error.cmi env_idl.cmi \
     env_ident.cmi def.cmi idl_check.cmi
-idl_check.cmx: ../parser/loc.cmx ../parser/idl.cmi error.cmx env_idl.cmx \
+idl_check.cmx : ../parser/loc.cmx ../parser/idl.cmi error.cmx env_idl.cmx \
     env_ident.cmx def.cmx idl_check.cmi
-init.cmo: type.cmi ../parser/idl.cmi ident.cmi error.cmi cidl.cmi init.cmi
-init.cmx: type.cmx ../parser/idl.cmi ident.cmx error.cmx cidl.cmi init.cmi
-method.cmo: type.cmi modifiers.cmi ../parser/idl.cmi ident.cmi error.cmi \
+init.cmo : type.cmi ../parser/idl.cmi ident.cmi error.cmi cidl.cmi init.cmi
+init.cmx : type.cmx ../parser/idl.cmi ident.cmx error.cmx cidl.cmi init.cmi
+method.cmo : type.cmi modifiers.cmi ../parser/idl.cmi ident.cmi error.cmi \
     env_ident.cmi cidl.cmi annot.cmi method.cmi
-method.cmx: type.cmx modifiers.cmx ../parser/idl.cmi ident.cmx error.cmx \
+method.cmx : type.cmx modifiers.cmx ../parser/idl.cmi ident.cmx error.cmx \
     env_ident.cmx cidl.cmi annot.cmx method.cmi
-modifiers.cmo: ../parser/idl.cmi modifiers.cmi
-modifiers.cmx: ../parser/idl.cmi modifiers.cmi
-type.cmo: ../parser/idl.cmi error.cmi env_idl.cmi cidl.cmi annot.cmi type.cmi
-type.cmx: ../parser/idl.cmi error.cmx env_idl.cmx cidl.cmi annot.cmx type.cmi
+modifiers.cmo : ../parser/idl.cmi modifiers.cmi
+modifiers.cmx : ../parser/idl.cmi modifiers.cmi
+type.cmo : ../parser/idl.cmi error.cmi env_idl.cmi cidl.cmi annot.cmi \
+    type.cmi
+type.cmx : ../parser/idl.cmi error.cmx env_idl.cmx cidl.cmi annot.cmx \
+    type.cmi

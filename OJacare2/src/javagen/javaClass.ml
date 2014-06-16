@@ -36,7 +36,7 @@ let output ppf clazz =
   end else*)
     
     List.iter (JavaInit.output ppf) clazz.cc_inits;
-  List.iter (JavaMethod.output ppf) clazz.cc_public_methods;
+  List.iter (JavaMethod.output ppf clazz.cc_callback) clazz.cc_public_methods;
 
   fprintf ppf "}@."
 

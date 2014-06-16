@@ -117,12 +117,12 @@ let make_wrapper ~callback cl_list =
     let class_decl = [] in
     let jni_ref = if callback then  <:expr< ! $lid:java_obj$ >> else <:expr< $lid:java_obj$ >> in
     let class_decl =
-	List.fold_right (fun cl class_decl -> 
-	  <:class_str_item< method $lid:Ident.get_class_ml_jni_accessor_method_name cl.cc_ident$ = ( $jni_ref$ :> $lid:Ident.get_class_ml_jni_type_name cl.cc_ident$ ) >> 
-	    :: class_decl)  cl.cc_all_inherited class_decl 
+      List.fold_right (fun cl class_decl -> 
+	<:class_str_item< method $lid:Ident.get_class_ml_jni_accessor_method_name cl.cc_ident$ = ( $jni_ref$ :> $lid:Ident.get_class_ml_jni_type_name cl.cc_ident$ ) >> 
+			  :: class_decl)  cl.cc_all_inherited class_decl 
     in
     (* méthode accesseur Jni *) (* ok *)
-
+    
     let class_decl =   
       if not callback then
 	<:class_str_item< method $lid:Ident.get_class_ml_jni_accessor_method_name cl.cc_ident$ = $lid:java_obj$ >> :: class_decl 
@@ -138,7 +138,7 @@ let make_wrapper ~callback cl_list =
     let class_decl = List.rev_append methods class_decl in
     
     let proxy_decl = [] in
-    let proxy_decl = List.rev_append(MlMethod.make_callback (List.filter (fun m -> (cl.cc_callback && Method.is_callback m) || (cl.cc_callback && Ident.is_callback cl.cc_ident) )   cl.cc_public_methods)) proxy_decl in
+    let proxy_decl = List.rev_append(MlMethod.make_callback (List.filter (fun m -> ( Method.have_callback cl.cc_public_methods && Method.is_callback m) || Ident.is_callback cl.cc_ident )   cl.cc_public_methods)) proxy_decl in
 
     (* initializer :  proxy si 'callback' *)
     let class_decl = 

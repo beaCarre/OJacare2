@@ -15,10 +15,8 @@ let output ppf clazz =
   fprintf ppf "package %s;@." package;
 
   fprintf ppf "public interface %s {@.@."  java_icb_name;
-  
-  List.iter (JavaMethod.output_signature ppf) (List.filter (fun m -> match m.cm_desc with 
-    Cmethod (_,cb,_,_) -> cb
-  | Cget _ | Cset _ -> false) clazz.cc_public_methods);
+
+  List.iter (JavaMethod.output_signature ppf clazz.cc_callback) clazz.cc_public_methods;
   
   fprintf ppf "}@."
     

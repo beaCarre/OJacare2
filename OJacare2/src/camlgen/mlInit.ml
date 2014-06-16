@@ -151,9 +151,9 @@ let make_class ~callback cl_list =
 	    if callback then
 	      let init = <:expr< $lid:init_name$ >> in
 	      let finit = <:expr<$ (MlGen.make_call2 init (List.map P4helper.expr_lid nargs)) $>> in
-	      let wrap = <:class_expr< $lid:class_wrapper_name$ >> in
-	      let largs =  <:class_expr< $wrap$ ($finit$) >> in
-	      [ <:class_str_item< inherit $largs$ >> ]
+(*	      let wrap = <:class_expr< $$ >> in *)
+	      let largs =  <:class_expr< $lid:class_wrapper_name$ $finit$ >> in
+	      [ <:class_str_item< inherit $largs$>> ]
 		 
 	    else
 	      [ <:class_str_item< inherit $lid:class_wrapper_name$ $lid:java_obj$ >> ]  
@@ -228,7 +228,7 @@ let make_class_sig ~callback cl_list =
 	  acc
 	else
 	  let ml_name =
- 	    if callback then Ident.get_method_ml_name init.cmi_ident
+ 	    if callback then Ident.get_method_ml_stub_name init.cmi_ident
 	    else Ident.get_method_ml_name init.cmi_ident 
 	  and targs = init.cmi_args 
 	  and class_sig_name =  Ident.get_class_ml_name init.cmi_class in
