@@ -1,7 +1,6 @@
 # generic minimal Makefile for O'Jacare
 
 # Adjust to your O'Jacare installation
-BINDIR = 
 LIBDIR = 
 
 ### Specific to your application
@@ -38,22 +37,19 @@ OCAMLMKTOP  = ocamlfind ocamlmktop
 
 # OJACARE = ojacare
 # OCAMLJAVA = ocamljava -java-extensions -I $(LIBDIR)/ojacare
-# OJACAREDIR  = $(shell ocamlfind printconf destdir)/ojacare
-
 
 #########  #########
 
 CMI_OBJS      = $(addsuffix .cmi, $(IDL))
 CMO_OBJS      = $(addsuffix .cmo, $(IDL)) $(addsuffix .cmo, $(MODULES))
-CMX_OBJS      = $(addsuffix .cmx, $(IDL)) $(addsuffix .cmx, $(MODULES))
+CMJ_OBJS      = $(addsuffix .cmx, $(IDL)) $(addsuffix .cmx, $(MODULES))
 CMA_OBJS      = $(addsuffix .cma, $(LIBRARIES)) 
-CMXA_OBJS     = $(addsuffix .cmxa, $(LIBRARIES))
+CMJA_OBJS     = $(addsuffix .cmja, $(LIBRARIES))
 CLASS_FILES   = $(addsuffix .class, $(CLASS))
 CBCLASS_FILES = $(addsuffix .class,$(addprefix callback/,$(CBCLASS)))
 IDL_FILES     = $(addsuffix .idl, $(IDL))
 
-BYTE_OBJS = $(CMA_OBJS) $(CMO_OBJS)
-OPT_OBJS  = $(CMXA_OBJS) $(CMX_OBJS)
+OBJS = $(CMA_OBJS) $(CMO_OBJS)
 
 INCLUDES  = $(PACKAGES) $(addprefix -I , $(MLINCDIRS))
 LINK_OPTS = -linkpkg $(addprefix -ccopt -L, $(CLIBDIRS)) \
@@ -70,6 +66,9 @@ endif
 default: clean compile run
 
 compile: camlprog.jar
+
+%.ml: %.idl
+       $(OJACARE) $<
 
 %.cmi: %.mli
 	$(OCAMLJAVA) $(CP) $(INCLUDES) -c $<

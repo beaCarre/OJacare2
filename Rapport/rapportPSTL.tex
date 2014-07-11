@@ -246,13 +246,13 @@ La génération de code se fait en plusieurs passes :
 \end{itemize}
 Les deux dernières étapes seront présentées plus en profondeur dans la
 section \ref{2.1}.
-Un schéma décrit ces étapes dans la figure 2. 
+% Un schéma décrit ces étapes dans la figure 2. 
 
-%% \begin{figure}[h]
-%%   \centering
-%%   \includegraphics{schemaOjacare.pdf}
-%%   \caption{Schéma global de la génération d'O'Jacaré}
-%% \end{figure}
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics{schemaOjacare.pdf}
+%   \caption{Schéma global de la génération d'O'Jacaré}
+% \end{figure}
 
 
 
@@ -271,6 +271,7 @@ dans l'IDL que les méthodes que nous voulons appeler depuis OCaml.
 
 Voici un exemple de déclarations dans un IDL, si on veut utiliser la classe Point définie à gauche. Il n'est nécéssaire de définir dans l'IDL uniquement les méthodes ou attributs que l'on veut manipuler depuis OCaml.
 
+\newpage
 
 \begin{multicols}{2}
 Point.java
@@ -905,10 +906,10 @@ En développant ce projet, une application concrète m'est venue à l'esprit : u
 J'ai donc d'un côté repris ce projet en ajoutant une fonction créant un JTable en lui donnant les données de la base de données créée, et implémenté une classe Java JTable construisant le composant en question.
 En quelques lignes de code, j'ai ajouté une interface graphique Java à mon programme OCaml de gestion de base de données.
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[scale=0.5]{exempleDBuse.png}
-\end{figure}
+% \begin{figure}[h!]
+%   \centering
+%   \includegraphics[scale=0.5]{exempleDBuse.png}
+% \end{figure}
 
 La structure de ce programme est la suivante :
 

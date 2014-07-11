@@ -26,7 +26,7 @@ run:
 	$(JAVA) -cp camlprog.jar:. pack.ocamljavaMain
 
 clean:
-	rm -f camlprog.jar *.cm* *.jo mypack/*.class callback/mypack/*.class *.annot
+	rm -rf camlprog.jar *.cm* *.jo mypack/*.class callback *.annot
 
 
 .PHONY: default compile run clean

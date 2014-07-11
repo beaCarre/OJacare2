@@ -54,10 +54,10 @@ partialclean::
 
 install:
 	test -d $(BINDIR) || mkdir -p $(BINDIR)
-	test -d $(LIBDIR) || mkdir -p $(LIBDIR)
+	test -d $(LIBDIR)/ojacare || mkdir -p $(LIBDIR)/ojacare
 	cp ojacare $(BINDIR) 
 	$(MAKE) -C ojHelpers install
-	cp main/Makefile.include $(LIBDIR)
+	cp main/Makefile.include $(LIBDIR)/ojacare
 
 # Règles générales
 .SUFFIXES: .ml .mli .cmo .cmi .cmx

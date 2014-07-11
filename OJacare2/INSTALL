@@ -43,11 +43,6 @@ Makefile.config)
 
 	 Makefile.include	a makefile to help building with O'Jacare
 
-From the top directory, become superuser and do:
-
-        make -C src install
-
-
 5- To make some test, see directory examples/
 
 6- Installation is complete. Time to clean up. From the top
