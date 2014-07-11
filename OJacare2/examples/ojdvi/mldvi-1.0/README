@@ -1,0 +1,104 @@
+Mldvi is a simple DVI previewer written in Objective Caml.
+(http://caml.inria.fr/ocaml/)
+
+Version: 1.0 (first release)
+
+
+CURRENTLY SUPPORTED FEATURES:
+============================
+
+- Antialiasing
+- Color (as defined in the LaTeX package `color')
+- Automatic recompilation of METAFONT fonts
+- Automatic reloading of the file after modification
+
+Notice that mldvi needs the `kpsewhich' tool in order to find and
+recompile PK fonts.  (This program is part of the `kpathsea' library
+provided by many TeX distributions.)
+
+
+INVOCATION
+==========
+
+The invocation is
+
+        mldvi [OPTIONS...] DVIFILE
+
+where OPTIONS are:
+
+  -geometry GEOM    sets the (maximum) geometry GEOM
+  -g GEOM           same as -geometry GEOM
+  -crop             crop the window to the best size (default)
+  -no-crop          disable cropping
+  -hmargin DIMEN    horizontal margin  (default: 1cm)
+  -vmargin DIMEN    vertical margin    (default: 1cm)
+
+Geometry GEOM is specified in pixels, using the standard format
+for specifying geometries (i.e: "WIDTHxHEIGHT[+XOFFSET+YOFFSET]").
+
+Dimensions (for options `-hmargin' and `-vmargin') are specified as
+numbers optionaly followed by two letters representing units.
+
+When no units are given, dimensions are treated as numbers of pixels.
+
+Currently supported units are the standard TeX units as specified in
+the TeXbook (D. Knuth, Addison-Wesley, (C) 1986):
+
+  `pt' (point), `pc' (pica), `in' (inch), `bp' (big point),
+  `cm' (centimeter), `mm' (millimeter), `dd' (didot point),
+  `cc' (cicero) and `sp' (scaled point).
+
+Notice that dimensions are specified w.r.t the original TeX document,
+and do not correspond to what is actually shown on the screen, which
+can be displayed at a different resolution than specified in the
+original TeX source.
+
+
+KEYSTROKES
+==========
+
+Mldvi recognizes the following keystrokes when typed in its window.
+Each may optionally be preceded by a number, whose interpretation will
+depend on the particular keystroke.
+
+q      Quits the program
+
+n      Moves to the next page (or to the n-th next page
+       if a number is given)
+
+p      Moves to the previous page (or back n pages).
+
+g      Moves to the page with the given number.  The first page is
+       numbered 1.
+
+c      Center the page in the window, and resets the
+       default resolution.
+
+<      Scale the resolution by 1/1.414
+
+>      Scale the resolution by 1.414
+
+f      Load all the fonts used in the documents.  By default, fonts
+       are loaded only when needed.
+
+F      Does the same as `f', and precomputes the glyphs of all
+       characters used in the document.  This takes more time than
+       loading the fonts, but the pages are drawn faster.
+
+Moreover, the user can drag the currently displayed page in the window
+in order to change its relative position.  (This is useful when the
+page is displayed at a resolution such that it cannot fit in the
+window.)
+
+
+COPYRIGHT
+=========
+
+This program is distributed under the GNU LGPL. 
+See the enclosed file COPYING.
+
+
+AUTHOR
+======
+
+Alexandre Miquel  <Alexandre.Miquel@inria.fr>

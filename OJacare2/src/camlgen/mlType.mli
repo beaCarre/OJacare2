@@ -1,14 +1,11 @@
 open Camlp4.PreCast
 
-val string_of_type: Cidl.typ -> string
-val constructor_of_type: Cidl.typ -> Ast.ident
+
 val java_signature_of_type: Cidl.typ -> string
 val java_signature: Cidl.typ list -> Cidl.typ -> string
 val java_init_signature: Cidl.typ list -> string
 val convert_to_java: Cidl.typ -> Ast.expr -> Ast.expr
 val convert_from_java: Cidl.typ -> Ast.expr -> Ast.expr
-val idl_signature_of_type: Cidl.typ -> string
-val idl_signature: Cidl.typ list -> string
 val ml_signature_of_type: Cidl.typ -> Ast.ctyp
 val ml_signature: Cidl.typ list -> Cidl.typ -> Ast.ctyp
 val ml_jni_signature_of_type: Cidl.typ -> Ast.ctyp

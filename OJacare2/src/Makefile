@@ -37,8 +37,10 @@ src: srcbyte srcopt
 srcbyte: 
 	$(foreach dir,$(SUBDIRS),$(MAKE) -C $(dir) byte;) 
 srcopt: 
+	$(MAKE) -C ojHelpers 
 	$(foreach dir,$(SUBDIRS),$(MAKE) -C $(dir) opt;)
 clean:: 
+	$(MAKE) -C ojHelpers clean
 	$(foreach dir,$(SUBDIRS),$(MAKE) -C $(dir) clean;)
 
 # Exécutable
@@ -52,7 +54,9 @@ partialclean::
 
 install:
 	test -d $(BINDIR) || mkdir -p $(BINDIR)
+	test -d $(LIBDIR) || mkdir -p $(LIBDIR)
 	cp ojacare $(BINDIR) 
+	$(MAKE) -C ojHelpers install
 	cp main/Makefile.include $(LIBDIR)
 
 # Règles générales

@@ -5,38 +5,6 @@ open Cidl
 open Camlp4.PreCast
 
 let _loc = Loc.ghost
-
-let string_of_type t =
-  match t with 
-  | Cboolean -> "boolean"
-  | Cchar -> "char"
-  | Cbyte -> "byte"
-  | Cshort -> "short"
-  | Cint -> "int"
-  | Ccamlint -> "int"
-  | Clong -> "long"
-  | Cfloat -> "float"
-  | Cdouble -> "double"
-  | Cobject _ -> "object"
-  | Cvoid -> "void"
-  | Ccallback _ -> invalid_arg "string_of_type"
-
-let constructor_of_type t = 
-  <:ident<$uid:
-    match t with 
-    | Cboolean -> "Boolean"
-    | Cchar -> "Char"
-    | Cbyte -> "Byte"
-    | Cshort -> "Short"
-    | Cint -> "Int"
-    | Ccamlint -> "Camlint"
-    | Clong -> "Long"
-    | Cfloat -> "Float"
-    | Cdouble -> "Double"
-    | Cobject _ -> "Obj"
-    | Ccallback _ -> "Obj"
-    | Cvoid -> invalid_arg "constructor_of_type"
-  $>>
   
 (** java_type *)
 let rec java_signature_of_type t = 
@@ -56,68 +24,96 @@ let rec java_signature_of_type t =
   | Cobject Cstring -> "java.lang.String"
   | Cobject (Cname id) -> Ident.get_class_java_qualified_name id
   | Cobject (Cjavaarray t)
-  | Cobject (Carray t) -> "["^(java_signature_of_type t)
+  | Cobject (Carray t) -> (java_signature_of_type t)^"[]"
 
-let rec idl_signature_of_type t = 
-  match t with
-    Cvoid -> "void"
-  | Cboolean -> "boolean"
-  | Cbyte -> "byte"
-  | Cchar -> "char"
-  | Cshort -> "short"
-  | Ccamlint -> "int"
-  | Cint -> "int32"
-  | Clong -> "long"
-  | Cfloat -> "float"
-  | Cdouble -> "double"
-  | Ccallback _ -> "_callback"
-  | Cobject Ctop -> "_top"
-  | Cobject Cstring -> "string"
-  | Cobject (Cname id) -> Ident.get_class_java_qualified_name id
-  | Cobject (Cjavaarray t)
-  | Cobject (Carray t) -> (idl_signature_of_type t)^"[]"
-				 
+		
+(** signature java pour la description des appels de methode*)
 let java_signature args rtyp = 
   Printf.sprintf "(%s):%s" 
     (String.concat "," (List.map java_signature_of_type args))
     (java_signature_of_type rtyp)
 
+(** signature java pour la description des appels de constructeurs*)
 let java_init_signature args = 
   Printf.sprintf "(%s)" 
     (String.concat "," (List.map java_signature_of_type args))
 
-let idl_signature args  = 
-    String.concat "," (List.map idl_signature_of_type args)
-    
-let rec convert_to_java typ e = (* to_oj_type*)
+(** nom des modules associés à chaque types de tableaux *)
+let array_module_of_type typ = 
+  match typ with 
+    Cvoid -> "void"
+  | Cboolean -> "JavaBooleanArray"
+  | Cbyte -> "JavaByteArray"
+  | Cchar -> "JavaCharArray"
+  | Cshort -> "JavaShortArray"
+  | Ccamlint -> "JavaIntArray"
+  | Cint -> "int32"
+  | Clong -> "JavaLongArray"
+  | Cfloat -> "JavaFloatArray"
+  | Cdouble -> "JavaDoubleArray"
+  | Ccallback _ -> "_callback"
+  | Cobject Ctop -> "_top"
+  | Cobject Cstring -> "JavaStringArray"
+  | Cobject (Cname id) -> Ident.get_class_java_qualified_name id
+  | Cobject (Cjavaarray t)
+  | Cobject (Carray t) -> (java_signature_of_type t)^"[]"
+
+(** fonction de désencapsulation associée à chaque types de tableaux *)
+let array_unwrap_of_type typ = 
+  match typ with 
+    Cvoid -> "void"
+  | Cboolean -> "unwrap_boolean_array"
+  | Cbyte -> "unwrap_byte_array"
+  | Cchar -> "unwrap_char_array"
+  | Cshort -> "unwrap_short_array"
+  | Ccamlint -> "unwrap_int_array"
+  | Cint -> "int32"
+  | Clong -> "unwrap_long_array"
+  | Cfloat -> "unwrap_float_array"
+  | Cdouble -> "unwrap_double_array"
+  | Ccallback _ -> "_callback"
+  | Cobject Ctop -> "unwrap_jObject_array"
+  | Cobject Cstring -> "unwrap_reference_array"
+  | Cobject (Cname id) -> "unwrap_"^(Ident.get_class_java_name id)^"_array"
+  | Cobject (Cjavaarray t)
+  | Cobject (Carray t) -> "TODO 2 dim"
+
+(** fonction d'encapsulation associée à chaque types de tableaux *)
+let array_wrap_of_type typ = 
+  match typ with 
+    Cvoid -> "void"
+  | Cboolean -> "wrap_boolean_array"
+  | Cbyte -> "wrap_byte_array"
+  | Cchar -> "wrap_char_array"
+  | Cshort -> "wrap_short_array"
+  | Ccamlint -> "wrap_int_array"
+  | Cint -> "int32"
+  | Clong -> "wrap_long_array"
+  | Cfloat -> "wrap_float_array"
+  | Cdouble -> "wrap_double_array"
+  | Ccallback _ -> "_callback"
+  | Cobject Ctop -> "wrap_jObject_array"
+  | Cobject Cstring -> "wrap_reference_array"
+  | Cobject (Cname id) -> "wrap_"^(Ident.get_class_java_name id)^"_array"
+  | Cobject (Cjavaarray t)
+  | Cobject (Carray t) -> "TODO 2 dim"
+	 
+(** fonctions de conversion des types ocaml vers le type java : "to_oj_type" *)
+let rec convert_to_java typ e =
   match typ with
-    | Ccamlint ->  <:expr< Int32.of_int $e$ >>
-    | Clong ->  <:expr< Int64.of_int $e$ >>
+  | Ccamlint ->  <:expr< Int32.of_int $e$ >>
+  | Clong ->  <:expr< Int64.of_int $e$ >>
+  | Cchar -> <:expr< Char.code $e$ >>
   | Cobject Cstring -> <:expr< JavaString.of_string $e$ >>
   | Cobject (Cname id) -> <:expr< $e$ # $lid:Ident.get_class_ml_jni_accessor_method_name id$ >>
   | Cobject Ctop -> <:expr< $e$ # _get_jniobj >>
-  | Cobject (Cjavaarray t) -> <:expr< $e$ # _get_jniobj >>
-  | Cobject (Carray t) -> 
-      let elt = <:expr< elt >> in
-      let allocname = match t with Ccamlint -> "Jni.new_int_array" | t -> "Jni.new_"^(string_of_type t)^"_array" 
-      and set = "Jni.set_"^(string_of_type t)^"_array_element" in
-      let alloc = match t with
-      | Cobject Ctop -> <:expr< $lid:allocname$ length (Jni.find_class "java/lang/Class") >>
-      | Cobject (Cname id) -> <:expr< $lid:allocname$ length (Jni.find_class $str:Ident.get_class_java_signature id$) >>
-      | Cobject Cstring -> <:expr< $lid:allocname$ length (Jni.find_class "java/lang/String") >>
-      | Cobject (Carray t) -> <:expr< $lid:allocname$ length (Jni.find_class "java/lang/Object") >>
-      | _ -> <:expr< $lid:allocname$ length >> in
-      <:expr< 
-      let data = $e$ in 
-      let length = Array.length data in 
-      let res = $alloc$ in 
-      do { 
-       ignore(Array.fold_right (fun elt -> fun  i -> do { $lid:set$ res i $convert_to_java t elt$; pred i } ) data (pred length));
-       res } >> 
+  | Cobject (Cjavaarray t) -> <:expr< OjArray.$lid:array_unwrap_of_type t$ $e$ >>
+  | Cobject (Carray t) -> <:expr< OjArray.unwrap_$lid:array_unwrap_of_type t$ $e$ >>
   | Ccallback _ -> <:expr< Jni.wrap_object $e$ >>
   | _ -> e
-	
-let rec ml_signature_of_type typ =
+
+(** type utilisé par l'utilisateur selon le type java: "ml_type" *)
+let rec ml_signature_of_type typ = 
   match typ with
   | Cvoid -> <:ctyp< unit >>
   | Cboolean -> <:ctyp< bool >>
@@ -131,7 +127,7 @@ let rec ml_signature_of_type typ =
   | Cdouble -> <:ctyp< float >>
   | Cobject Cstring -> <:ctyp< string >> 
   | Cobject Ctop -> <:ctyp< JniHierarchy.top >> 
-  | Cobject (Cjavaarray typ) -> <:ctyp< JniArray.jArray $ml_signature_of_type typ$>>
+  | Cobject (Cjavaarray typ) -> <:ctyp< OjArray.t $ml_signature_of_type typ$>>
   | Cobject (Carray typ) -> <:ctyp< array $ml_signature_of_type typ$ >>
   | Cobject (Cname id) -> <:ctyp< $lid:Ident.get_class_ml_name id$ >>
   | Ccallback id -> <:ctyp< $lid:Ident.get_class_ml_name id$ >>
@@ -145,7 +141,9 @@ let ml_signature args rtyp =
   | [] -> <:ctyp< unit -> $ml_signature_of_type rtyp$ >>
   | args -> loop args 
 
-let rec ml_jni_signature_of_type typ =
+
+(** type utilisé par OCamlJava selon le type java: "oj_type" *)
+let rec ml_jni_signature_of_type typ = 
   match typ with
   | Cvoid -> <:ctyp< unit >>
   | Cboolean -> <:ctyp< bool >>
@@ -167,7 +165,7 @@ let ml_jni_signature args rtyp =
   in 
   loop args 
 
-(* Construction de la signature de fonction de classe (constructeur) *)
+(** Construction de la signature de fonction de classe (constructeur) *)
 let ml_class_signature targs rtyp =
   match targs with
   | [] -> <:class_type< [ unit ] -> $rtyp$ >>
@@ -175,43 +173,37 @@ let ml_class_signature targs rtyp =
 	(fun targ e -> <:class_type< [ $ml_signature_of_type targ$ ] -> $e$>> )
 	targs rtyp
 
-(* Convertit les arguments *)
+(** Convertit les arguments *)
 let get_args_convertion convert args =
   let make (narg,targ) =
     narg,convert targ <:expr< $lid:narg$ >>
   in
   List.map make args
 
-(* nom de la fonction Jni *) (*ok *)
+(** description de la methode java appelée *)
 let get_call_method java_class_name java_name sign = 
   java_class_name^"."^java_name^sign
 
+(** description de l'accesseur java appelée *)
 let get_accessors_method java_class_name java_name typ =
   java_class_name^"."^java_name^":"^typ
 
+(** description de la methode java appelée *)
 let get_init_method java_class_name sign =
   java_class_name^sign
 
+(** conversion des types d'OCaml-java vers le type OCaml : "to_ml_type" *)
 let rec convert_from_java typ e = (* to_ml_type *)
   match typ with
-    |Cint -> <:expr< Int32.to_int $e$ >>
-    |Ccamlint -> <:expr< Int32.to_int $e$ >>
-    |Clong -> <:expr< Int64.to_int $e$ >>
+  | Cint -> <:expr< Int32.to_int $e$ >>
+  | Ccamlint -> <:expr< Int32.to_int $e$ >>
+  | Cchar -> <:expr< Char.chr $e$ >>
+  | Clong -> <:expr< Int64.to_int $e$ >>
   | Cobject Cstring -> <:expr< JavaString.to_string $e$ >>
   | Cobject (Cname id) -> <:expr< (new $lid:Ident.get_class_ml_wrapper_name id$ $e$ : $lid:Ident.get_class_ml_name id$) >>
   | Cobject Ctop -> <:expr< (new todo $e$ : java'lang'Object java_instance) >>
-  | Cobject (Cjavaarray t) -> 
-      let jniobj = <:expr< $lid:"jniobj"$ >> in
-      let obj = <:expr< $lid:"obj"$ >> in
-      <:expr< (new JniArray._Array 
-			    Jni.$lid:"get_"^ string_of_type t ^ "_array_element"$
-			    Jni.$lid:"set_"^ string_of_type t ^ "_array_element"$
-			    (fun jniobj -> $convert_from_java t jniobj$ ) 
-			    (fun obj -> $convert_to_java t obj$)
-			    $e$ : JniArray.jArray $ml_signature_of_type t$ ) >>
-  | Cobject (Carray t) ->
-      let elt = <:expr< $lid:"Jni.get_"^ string_of_type t ^ "_array_element"$ java_obj i >> in
-      <:expr< 
-      let java_obj = $e$ in
-      Array.init (Jni.get_array_length java_obj) (fun i -> $convert_from_java t elt$) >>
+  | Cobject (Cjavaarray t) | Cobject (Carray t) ->
+    (match t with 
+    | Cobject (Cname id) ->  <:expr< $lid:array_wrap_of_type t$ $e$>>
+    | t -> <:expr< OjArray.$lid:array_wrap_of_type t$ $e$>>)
   | _ -> e

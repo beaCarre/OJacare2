@@ -20,28 +20,18 @@ let make_sig c_file =
   let sig_list = match class_type with 
   | [] -> sig_list 
   | list -> <:sig_item< class type $MlGen.make_rec_class_type class_type$ >> :: sig_list in
-  (*
-  (** downcast 'utilisateur' *)
-  let sig_list = (MlClass.make_downcast_sig c_file) :: sig_list in
-  let sig_list = (MlClass.make_instance_of_sig c_file) :: sig_list in
-  
-  (** Tableaux *)
-  let sig_list = (MlClass.make_array_sig c_file) :: sig_list in
-  *)
+
   (** classe de construction ("utilisateur") *)
   let sig_list = (MlInit.make_class_sig ~callback:false c_file) :: sig_list in
   let sig_list = (MlInit.make_class_sig ~callback:true c_file) :: sig_list in
   
+  (** Tableaux *)
+  let sig_list = MlClass.make_array_sig c_file :: sig_list in
+  let sig_list = MlClass.make_unwrap_array_sig c_file  :: sig_list in
+
   (** fonctions / méhodes static *)
   let sig_list = (MlMethod.make_static_sig c_file) :: sig_list in
-(*    
-   (** cast JNI, exporté pour préparé la fonction 'import' *)
-   let sig_list = (MlClass.make_jniupcast_sig c_file) :: sig_list in
-   let sig_list = (MlClass.make_jnidowncast_sig c_file):: sig_list in 
 
-  (** capsule, exporté pour préparé la fonction 'import' *)
-  let sig_list = (MlClass.make_wrapper_sig c_file) :: sig_list in
- *) 
   List.rev sig_list
     
 let make c_file =
@@ -67,15 +57,7 @@ let make c_file =
   let str_list = match class_type with 
   | [] -> str_list 
   | list -> <:str_item< class type $MlGen.make_rec_class_type class_type$ >> :: str_list in
-(*
-  (** cast JNI *)
-  let str_list = (MlClass.make_jniupcast c_file) :: str_list in
-  let str_list = (MlClass.make_jnidowncast c_file):: str_list in 
 
-  (** fonction d'allocations *)
-  let str_list = (MlClass.make_alloc c_file) :: str_list in
-  let str_list = (MlClass.make_alloc_stub c_file) :: str_list in
-*)
   (** capsule/souche *)
   let wrapper = [] in
   let wrapper = List.append (MlClass.make_wrapper ~callback:true c_file) wrapper in
@@ -91,13 +73,10 @@ let make c_file =
   let str_list = (MlClass.make_downcast c_file) :: str_list in
   let str_list = (MlClass.make_instance_of c_file) :: str_list in
 
-  (** Tableaux *)
-  (*let str_list = (MlClass.make_array c_file) :: str_list in*)
+  (** Tableaux TODO *) 
+  let str_list = (MlClass.make_array c_file) :: str_list in
+  let str_list = (MlClass.make_unwrap_array c_file) :: str_list in 
 
-  (** fonction d'initialisation *)
- (* let str_list = (MlInit.make_fun ~callback:false c_file) :: str_list in
-  let str_list = (MlInit.make_fun ~callback:true c_file) :: str_list in
- *)
   (** classe de construction *)
   let str_list = (MlInit.make_class ~callback:false c_file) :: str_list in
   let str_list = (MlInit.make_class ~callback:true c_file) :: str_list in

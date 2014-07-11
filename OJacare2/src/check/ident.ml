@@ -57,8 +57,9 @@ let get_class_ml_allocator_name c = "_alloc_" ^ get_class_ml_name c
 let get_class_ml_stub_allocator_name c = "_alloc_" ^ get_class_ml_stub_name c
 let get_class_ml_jni_accessor_method_name c = "_get_jni_" ^ get_class_ml_name c
 
-let get_class_ml_array_alloc_name c = "_new_jArray_" ^ get_class_ml_name c
-let get_class_ml_array_init_name c = "jArray_init_"  ^ get_class_ml_name c
+let get_class_ml_array_alloc_name c = "_new_" ^ get_class_ml_name c ^ "_array"
+let get_class_ml_array_descr c = get_class_java_qualified_name c ^ "[]"
+let get_class_ml_array_unwrap_name c = "unwrap_"  ^ get_class_ml_name c ^ "_array"
 
 let compare_clazz id1 id2 = 
   Pervasives.compare id1.ic_id id2.ic_id
@@ -76,6 +77,7 @@ let get_method_java_name m = m.im_java_name
 let get_method_ml_name m = m.im_ml_name
 let get_method_ml_name_location m = m.im_ml_name_location
 let get_method_ml_stub_name m = "_stub_" ^ get_method_ml_name m
+let get_method_ml_id m = m.im_ml_id
 
 let get_method_ml_init_name m = "_init_" ^ get_method_ml_name m
 let get_method_ml_init_stub_name m = "_init_" ^ get_method_ml_stub_name m
@@ -111,7 +113,6 @@ module OrderedString =
     let compare id1 id2 =  Pervasives.compare id1 id2
   end
 module StringEnv = Map.Make(OrderedString)
-
 
 let get_unique_id =
   let env = ref StringEnv.empty 

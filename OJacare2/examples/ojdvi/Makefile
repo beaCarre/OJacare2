@@ -1,112 +1,75 @@
-#	$Id: Makefile,v 1.7 2004/03/23 20:33:18 henry Exp $
+PACK=mypack
+IDL=jGraphics
+MAIN=export.ml javadev.ml main.ml
 
-DISTRIBDIR = mldvi-1.0
-
-include ../Makefile.config
-include $(CAMLJAVADIR)/Makefile.config
-
-# Pour ne pas compiler les modules spécifique à X11
+# Pour ne pas compiler les modules spÃ©cifique Ã  X11
 DISTRIB_MODULES  = table pkfont search font glyph devfont dvi driver \
 	     units dviview
 
-DISTRIB_CMO_OBJS = $(addsuffix .cmo, $(DISTRIB_MODULES))
-DISTRIB_CMX_OBJS = $(addsuffix .cmx, $(DISTRIB_MODULES))
+DISTRIB_REP=mldvi-1.0
+DISTRIB_CMJ_OBJS = $(addprefix $(DISTRIB_REP)/, $(addsuffix .cmj, $(DISTRIB_MODULES)))
 
-MLINCDIRS =  $(CAMLJAVADIR) $(DISTRIBDIR) $(OJACAREDIR)
-CLIBDIRS  = /usr/X11R6/lib
+LIBRARIES = unix
 
-EXEC = ojdvi
+CBCLASSES = 
+CLASSES=GrControler MlDvi GrView CamlEvent DviFrame
 
-IDL       = jGraphics
-MODULES   = javadev export main
-LIBRARIES = unix jni jnihelpers
-CLIBS     = unix
-CLASS     = mypack/MlDvi mypack/GrControler mypack/GrView mypack/CamlEvent \
-	mypack/DviFrame 
-CBCLASS = mypack/MlDvi
+JAVA_CLASSES=$(addprefix $(PACK)/, $(addsuffix .class,$(CLASSES)))
+JAVA_SOURCES=$(addprefix $(PACK)/, $(addsuffix .java,$(CLASSES)))
 
-CMO_OBJS   = $(addsuffix .cmo, $(IDL)) \
-	$(addprefix $(DISTRIBDIR)/, $(addsuffix .cmo, $(DISTRIB_MODULES))) \
-	$(addsuffix .cmo, $(MODULES))
-CMX_OBJS   = $(addsuffix .cmx, $(IDL)) \
-	$(addprefix $(DISTRIBDIR)/, $(addsuffix .cmx, $(DISTRIB_MODULES))) \
-	$(addsuffix .cmx, $(MODULES))
-CMA_OBJS   = $(addsuffix .cma, $(LIBRARIES))
-CMXA_OBJS  = $(addsuffix .cmxa, $(LIBRARIES))
-CLASS_FILE = $(addsuffix .class, $(CLASS))
-CBCLASS_FILE = $(addprefix callback/,$(addsuffix .class, $(CBCLASS)))
+JAVA_CB_CLASSES=$(addprefix callback/$(PACK)/, $(addsuffix .class,$(CBCLASSES)))
+JAVA_CB_SOURCES=$(addprefix callback/$(PACK)/, $(addsuffix .java,$(CBCLASSES)))
+INCLUDES=-I $(DISTRIB_REP)
 
-BYTE_OBJS = $(CMA_OBJS) $(CMO_OBJS)
-OPT_OBJS  = $(CMXA_OBJS) $(CMX_OBJS)
+#HOME
+#JAVA_PATH=/usr/lib/jvm/java-7-oracle
+#ARI :
+#JAVA_PATH=/usr/lib/jvm/jdk1.7.0_07
+#IRILL :
+JAVA_PATH=/usr/lib/jvm/jdk1.7.0_55
 
-INCLUDES  = $(addprefix -I , $(MLINCDIRS))
-LINK_OPTS = $(addprefix -ccopt -L, $(CLIBDIRS)) \
-	    $(addprefix -cclib -l, $(CLIBS))
+JAVA=$(JAVA_PATH)/bin/java
+JAVAC=$(JAVA_PATH)/bin/javac
+OCAMLJAVA=ocamljava -java-extensions javalib.cmja
+OCAMLDEP=ocamldep
+
+ifeq ($(CBCLASSES),)
+  CP=-annot -cp $(JAVA_PATH)/lib/ct.sym -cp $(PACK)
+else
+  CP=-annot -cp $(JAVA_PATH)/lib/ct.sym -cp $(PACK) -cp callback/$(PACK)
+endif
+
+default: clean compile run
+
+compile: camlprog.jar
+
+%.cmi: %.mli
+	$(OCAMLJAVA) $(CP) $(INCLUDES) -c $<
+
+%.cmj: %.ml 
+	$(OCAMLJAVA) $(CP) $(INCLUDES) -c $<
+
+$(IDL).cmj: $(IDL).cmi
+$(MAIN:%.ml=%.cmj): $(IDL).cmi
+
+$(IDL).cmj: $(JAVA_CLASSES) $(JAVA_CB_CLASSES)
+
+$(JAVA_CLASSES): $(JAVA_SOURCES)
+	$(JAVAC) $(JAVA_SOURCES)
+
+camlprog.jar: $(IDL).cmj $(DISTRIB_CMJ_OBJS) $(MAIN:%.ml=%.cmj)
+	$(OCAMLJAVA) $(LIBRARIES:=.cmja) $^
+
+run:
+	$(JAVA) -cp camlprog.jar:. pack.ocamljavaMain
+
+clean:
+	rm -f camlprog.jar *.cm* *.jo $(PACK)/*.class *.annot $(DISTRIB_REP)/*.cm* $(DISTRIB_REP)/*.jo
+
+.PHONY: default compile run clean
 
 
-all: distrib-all byte opt
-byte: distrib-byte $(CLASS_FILE) $(CBCLASS_FILE) $(EXEC)
-opt: distrib-opt $(CLASS_FILE) $(CBCLASS_FILE) $(EXEC).opt
+.depend: *.mli *.ml $(DISTRIB_REP)/*.ml $(DISTRIB_REP)/*.mli
+	$(OCAMLDEP) $(INCLUDES) $^ > .depend
 
-distrib-byte: mldvi-1.0
-	make -C $(DISTRIBDIR) $(DISTRIB_CMO_OBJS)
-distrib-opt: mldvi-1.0
-	make -C $(DISTRIBDIR) $(DISTRIB_CMX_OBJS)
-distrib-all: distrib-byte distrib-opt
-
-$(EXEC): $(CMO_OBJS)
-	$(OCAMLC) -custom $(INCLUDES) $(BYTE_OBJS) $(LINK_OPTS) -o $(EXEC)
-
-$(EXEC).opt: $(CMX_OBJS)
-	$(OCAMLOPT) $(INCLUDES) $(OPT_OBJS) $(LINK_OPTS) -o $(EXEC).opt -cclib "$(JNILIBOPTS)" -cclib "$(JNILIBS)"
-
-# Test
-.PHONY: test.byte test
-run-byte:
-	./$(EXEC)
-run-opt:
-	./$(EXEC).opt
-
-# Règles générales
-.SUFFIXES: .idl .ml
-.idl.ml:
-	$(OJACARE) $< 
-.idl.mli:
-	$(OJACARE) $< 
-$(CBCLASS_FILE:.class=.java): jGraphics.idl
-	$(OJACARE) jGraphics.idl
-
-.SUFFIXES: .ml .mli .java .cmo .cmi .cmx .class
-.mli.cmi:
-	$(OCAMLC) -c $(INCLUDES) $<
-.ml.cmo:
-	$(OCAMLC) -c $(INCLUDES) $<
-.ml.cmx:
-	$(OCAMLOPT) -c $(INCLUDES) $< 
-.java.class:
-	CLASSPATH=`pwd`:$(CAMLJAVADIR)/camljava.jar $(JAVAC) $<
-
-clean:: 
-	rm -f *.cm[iox] *.[so] *~ *.annot
-	rm -f mypack/*.class mypack/*~
-
-partialclean::
-	rm -rf callback
-	rm -f $(addsuffix .ml,$(IDL)) $(addsuffix .mli,$(IDL))
-	rm -f $(EXEC) $(EXEC).opt
-
-# Admin
-mldvi-1.0:
-	@curl -O http://pauillac.inria.fr/~miquel/mldvi-1.0.tar.gz || \
-		echo "Pour compiler jdvi, veuillez téléchérger mldvi à l'adresse suivante :\n  http://pauillac.inria.fr/~miquel/mldvi-1.0.tar.gz"
-	tar xzf mldvi-1.0.tar.gz
-
-clean:: partialclean
-	test ! -d $(DISTRIBDIR) || make -C $(DISTRIBDIR) clean
-	rm -f *~
-
-realclean:: clean
-	rm -rf $(DISTRIBDIR).tar.gz $(DISTRIBDIR) missfont.log
-
-$(addsuffix .cmo,$(IDL)): $(addsuffix .cmi,$(IDL))
-$(addsuffix .cmx,$(IDL)): $(addsuffix .cmi,$(IDL))
+include .depend

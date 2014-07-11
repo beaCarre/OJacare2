@@ -1,21 +1,36 @@
-#	$Id: Makefile,v 1.2 2004/03/28 02:45:09 henry Exp $
 
-include ../Makefile.config
+#HOME
+#JAVA_PATH=/usr/lib/jvm/java-7-oracle
+#ARI :
+#JAVA_PATH=/usr/lib/jvm/jdk1.7.0_07
+#IRILL :
+JAVA_PATH=/usr/lib/jvm/jdk1.7.0_55
 
-EXEC = visiteur
+LIB=/home/beatrice/.opam/4.01.0+ocamljava/lib/ojacare/
 
-IDL        = visiteur
+JAVA=$(JAVA_PATH)/bin/java
+JAVAC=$(JAVA_PATH)/bin/javac
+OCAMLJAVA=ocamljava -java-extensions -I $(LIB)
 
-MODULES    = formule
-MLINCDIRS =
+CP=-cp $(JAVA_PATH)/lib/ct.sym -cp fr/upmc/infop6/mlo -I $(LIB)
 
-LIBRARIES  = 
-CLIBS      = 
+default: clean compile run
 
-MLOCLASS   = Formule Visiteur VisiteurTS
-MLOCBCLASS = Formule Visiteur
+compile:
+	$(JAVAC) fr/upmc/infop6/mlo/Formule.java
+	$(JAVAC) fr/upmc/infop6/mlo/Visiteur.java
+	$(JAVAC) fr/upmc/infop6/mlo/VisiteurTS.java
 
-CLASS      = $(addprefix fr/upmc/infop6/mlo/,$(MLOCLASS))
-CBCLASS    = $(addprefix fr/upmc/infop6/mlo/,$(MLOCBCLASS))
+	$(OCAMLJAVA) $(CP) -c visiteur.mli
+	$(OCAMLJAVA) $(CP) -c visiteur.ml
+	$(OCAMLJAVA) $(CP) -c formule.ml
+	$(OCAMLJAVA) $(CP) -c main_visiteur.ml
+	$(OCAMLJAVA) javalib.cmja ojhelpers.cmja visiteur.cmj formule.cmj main_visiteur.cmj
 
-include $(OJACAREDIR)/Makefile.include
+run:
+	$(JAVA) -cp camlprog.jar:. pack.ocamljavaMain
+
+clean:
+	rm -rf camlprog.jar *.cm* *.jo fr/upmc/infop6/mlo/*.class *.annot callback
+
+.PHONY: default compile run clean

@@ -4,7 +4,7 @@ package mypack;
 
 import java.awt.*;
 
-class DviFrame extends Frame {
+public class DviFrame extends Frame {
     
     GrView view;
  

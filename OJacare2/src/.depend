@@ -2,3 +2,5 @@ main/ojacare.cmo : parser/idl_parser.cmi javagen/idl_javagen.cmi \
     check/idl_check.cmi camlgen/idl_camlgen.cmi
 main/ojacare.cmx : parser/idl_parser.cmx javagen/idl_javagen.cmx \
     check/idl_check.cmx camlgen/idl_camlgen.cmx
+main/ojacare.cmj : parser/idl_parser.cmj javagen/idl_javagen.cmj \
+    check/idl_check.cmj camlgen/idl_camlgen.cmj

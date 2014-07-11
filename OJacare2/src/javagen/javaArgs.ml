@@ -3,14 +3,7 @@
 open Cidl
 open Format
 
-let output_convert ppf args =
-  let rec loop ppf args = 
-    match args with
-    | [arg] -> fprintf ppf "%a" JavaType.output_convert_to_ml arg
-    | arg::args -> fprintf ppf "%a, %a " JavaType.output_convert_to_ml arg loop args
-    | [] -> ()
-  in
-  loop ppf args
+
 
 let output_call ppf nargs =
   let rec loop ppf nargs = 

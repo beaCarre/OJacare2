@@ -7,7 +7,6 @@ let get () =
   Loc (Parsing.symbol_start (), Parsing.symbol_end ())
 
 let rec print_source in_channel (Loc(deb, fin)) =
-  let lg = in_channel_length in_channel in
   let rec cherche deb_line pos num_line =
     let lig = input_line in_channel in
     let end_line = deb_line + String.length lig in

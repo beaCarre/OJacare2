@@ -1,0 +1,6994 @@
+"formule.ml" 94 2787 2812 "formule.ml" 94 2787 2819
+type(
+  _jni_jFormule
+)
+"formule.ml" 95 2839 2845 "formule.ml" 95 2839 2846
+type(
+  unit
+)
+"formule.ml" 96 2849 2856 "formule.ml" 96 2849 2868
+type(
+  _jni_jFormule -> bool
+)
+ident(
+  ext_ref Java.is_null
+)
+"formule.ml" 96 2849 2869 "formule.ml" 96 2849 2876
+type(
+  _jni_jFormule
+)
+ident(
+  int_ref jni_ref "formule.ml" 94 2787 2812 "formule.ml" 94 2787 2819
+)
+"formule.ml" 96 2849 2856 "formule.ml" 96 2849 2876
+type(
+  bool
+)
+"formule.ml" 97 2877 2886 "formule.ml" 97 2877 2891
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"formule.ml" 97 2877 2905 "formule.ml" 97 2877 2933
+type(
+  string
+)
+"formule.ml" 97 2877 2892 "formule.ml" 97 2877 2934
+type(
+  exn
+)
+"formule.ml" 97 2877 2886 "formule.ml" 97 2877 2934
+type(
+  unit
+)
+"formule.ml" 98 2935 2944 "formule.ml" 98 2935 2946
+type(
+  unit
+)
+"formule.ml" 96 2849 2853 "formule.ml" 98 2935 2946
+type(
+  unit
+)
+"formule.ml" 100 2952 2963 "formule.ml" 100 2952 2969
+type(
+  < _get_jni_jFormule : _jni_jFormule; accepte : jVisiteur -> unit; .. >
+)
+"formule.ml" 102 2993 3006 "formule.ml" 102 2993 3009
+type(
+  jVisiteur
+)
+ident(
+  def _p0 "formule.ml" 103 3026 3036 "formule.ml" 107 3189 3214
+)
+"formule.ml" 103 3026 3040 "formule.ml" 103 3026 3043
+type(
+  _jni_jVisiteur
+)
+ident(
+  def _p0 "formule.ml" 105 3082 3094 "formule.ml" 107 3189 3214
+)
+"formule.ml" 103 3026 3046 "formule.ml" 103 3026 3049
+type(
+  jVisiteur
+)
+ident(
+  int_ref _p0 "formule.ml" 102 2993 3006 "formule.ml" 102 2993 3009
+)
+"formule.ml" 103 3026 3046 "formule.ml" 103 3026 3068
+call(
+  stack
+)
+type(
+  _jni_jVisiteur
+)
+"formule.ml" 105 3082 3094 "formule.ml" 105 3082 3103
+type(
+  (_jni_jFormule -> _jni_jVisiteur -> unit) java_method ->
+  _jni_jFormule -> _jni_jVisiteur -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 106 3104 3118 "formule.ml" 106 3104 3188
+type(
+  (_jni_jFormule -> _jni_jVisiteur -> unit) java_method
+)
+"formule.ml" 107 3189 3203 "formule.ml" 107 3189 3210
+type(
+  _jni_jFormule
+)
+ident(
+  int_ref jni_ref "formule.ml" 94 2787 2812 "formule.ml" 94 2787 2819
+)
+"formule.ml" 107 3189 3211 "formule.ml" 107 3189 3214
+type(
+  _jni_jVisiteur
+)
+ident(
+  int_ref _p0 "formule.ml" 103 3026 3040 "formule.ml" 103 3026 3043
+)
+"formule.ml" 105 3082 3094 "formule.ml" 107 3189 3214
+type(
+  unit
+)
+"formule.ml" 103 3026 3036 "formule.ml" 107 3189 3214
+type(
+  unit
+)
+"formule.ml" 102 2993 3001 "formule.ml" 107 3189 3214
+type(
+  jVisiteur -> unit
+)
+type(
+  jVisiteur -> unit
+)
+"formule.ml" 108 3215 3248 "formule.ml" 108 3215 3255
+type(
+  _jni_jFormule
+)
+type(
+  _jni_jFormule
+)
+ident(
+  int_ref jni_ref "formule.ml" 94 2787 2812 "formule.ml" 94 2787 2819
+)
+"formule.ml" 110 3264 3289 "formule.ml" 110 3264 3296
+type(
+  _jni_jConstante
+)
+"formule.ml" 111 3318 3324 "formule.ml" 111 3318 3325
+type(
+  unit
+)
+"formule.ml" 112 3328 3335 "formule.ml" 112 3328 3347
+type(
+  _jni_jConstante -> bool
+)
+ident(
+  ext_ref Java.is_null
+)
+"formule.ml" 112 3328 3348 "formule.ml" 112 3328 3355
+type(
+  _jni_jConstante
+)
+ident(
+  int_ref jni_ref "formule.ml" 110 3264 3289 "formule.ml" 110 3264 3296
+)
+"formule.ml" 112 3328 3335 "formule.ml" 112 3328 3355
+type(
+  bool
+)
+"formule.ml" 113 3356 3365 "formule.ml" 113 3356 3370
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"formule.ml" 113 3356 3384 "formule.ml" 113 3356 3414
+type(
+  string
+)
+"formule.ml" 113 3356 3371 "formule.ml" 113 3356 3415
+type(
+  exn
+)
+"formule.ml" 113 3356 3365 "formule.ml" 113 3356 3415
+type(
+  unit
+)
+"formule.ml" 114 3416 3425 "formule.ml" 114 3416 3427
+type(
+  unit
+)
+"formule.ml" 112 3328 3332 "formule.ml" 114 3416 3427
+type(
+  unit
+)
+"formule.ml" 116 3433 3444 "formule.ml" 116 3433 3450
+type(
+  < _get_jni_jConstante : _jni_jConstante; _get_jni_jFormule : _jni_jFormule;
+    accepte : jVisiteur -> unit; valeur : unit -> bool; .. >
+)
+"formule.ml" 118 3473 3485 "formule.ml" 118 3473 3487
+type(
+  unit
+)
+"formule.ml" 119 3491 3501 "formule.ml" 119 3491 3510
+type(
+  (_jni_jConstante -> bool) java_method -> _jni_jConstante -> bool
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 119 3491 3511 "formule.ml" 119 3491 3558
+type(
+  (_jni_jConstante -> bool) java_method
+)
+"formule.ml" 119 3491 3559 "formule.ml" 119 3491 3566
+type(
+  _jni_jConstante
+)
+ident(
+  int_ref jni_ref "formule.ml" 110 3264 3289 "formule.ml" 110 3264 3296
+)
+"formule.ml" 119 3491 3501 "formule.ml" 119 3491 3566
+type(
+  bool
+)
+"formule.ml" 118 3473 3481 "formule.ml" 119 3491 3566
+type(
+  unit -> bool
+)
+type(
+  unit -> bool
+)
+"formule.ml" 121 3590 3603 "formule.ml" 121 3590 3606
+type(
+  jVisiteur
+)
+ident(
+  def _p0 "formule.ml" 122 3623 3633 "formule.ml" 126 3788 3813
+)
+"formule.ml" 122 3623 3637 "formule.ml" 122 3623 3640
+type(
+  _jni_jVisiteur
+)
+ident(
+  def _p0 "formule.ml" 124 3679 3691 "formule.ml" 126 3788 3813
+)
+"formule.ml" 122 3623 3643 "formule.ml" 122 3623 3646
+type(
+  jVisiteur
+)
+ident(
+  int_ref _p0 "formule.ml" 121 3590 3603 "formule.ml" 121 3590 3606
+)
+"formule.ml" 122 3623 3643 "formule.ml" 122 3623 3665
+call(
+  stack
+)
+type(
+  _jni_jVisiteur
+)
+"formule.ml" 124 3679 3691 "formule.ml" 124 3679 3700
+type(
+  (_jni_jConstante -> _jni_jVisiteur -> unit) java_method ->
+  _jni_jConstante -> _jni_jVisiteur -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 125 3701 3715 "formule.ml" 125 3701 3787
+type(
+  (_jni_jConstante -> _jni_jVisiteur -> unit) java_method
+)
+"formule.ml" 126 3788 3802 "formule.ml" 126 3788 3809
+type(
+  _jni_jConstante
+)
+ident(
+  int_ref jni_ref "formule.ml" 110 3264 3289 "formule.ml" 110 3264 3296
+)
+"formule.ml" 126 3788 3810 "formule.ml" 126 3788 3813
+type(
+  _jni_jVisiteur
+)
+ident(
+  int_ref _p0 "formule.ml" 122 3623 3637 "formule.ml" 122 3623 3640
+)
+"formule.ml" 124 3679 3691 "formule.ml" 126 3788 3813
+type(
+  unit
+)
+"formule.ml" 122 3623 3633 "formule.ml" 126 3788 3813
+type(
+  unit
+)
+"formule.ml" 121 3590 3598 "formule.ml" 126 3788 3813
+type(
+  jVisiteur -> unit
+)
+type(
+  jVisiteur -> unit
+)
+"formule.ml" 127 3814 3849 "formule.ml" 127 3814 3856
+type(
+  _jni_jConstante
+)
+type(
+  _jni_jConstante
+)
+ident(
+  int_ref jni_ref "formule.ml" 110 3264 3289 "formule.ml" 110 3264 3296
+)
+"formule.ml" 128 3857 3891 "formule.ml" 128 3857 3898
+type(
+  _jni_jFormule
+)
+type(
+  _jni_jFormule
+)
+type(
+  _jni_jConstante
+)
+ident(
+  int_ref jni_ref "formule.ml" 110 3264 3289 "formule.ml" 110 3264 3296
+)
+"formule.ml" 130 3925 3944 "formule.ml" 130 3925 3951
+type(
+  _jni_jVar
+)
+"formule.ml" 131 3967 3973 "formule.ml" 131 3967 3974
+type(
+  unit
+)
+"formule.ml" 132 3977 3984 "formule.ml" 132 3977 3996
+type(
+  _jni_jVar -> bool
+)
+ident(
+  ext_ref Java.is_null
+)
+"formule.ml" 132 3977 3997 "formule.ml" 132 3977 4004
+type(
+  _jni_jVar
+)
+ident(
+  int_ref jni_ref "formule.ml" 130 3925 3944 "formule.ml" 130 3925 3951
+)
+"formule.ml" 132 3977 3984 "formule.ml" 132 3977 4004
+type(
+  bool
+)
+"formule.ml" 133 4005 4014 "formule.ml" 133 4005 4019
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"formule.ml" 133 4005 4033 "formule.ml" 133 4005 4057
+type(
+  string
+)
+"formule.ml" 133 4005 4020 "formule.ml" 133 4005 4058
+type(
+  exn
+)
+"formule.ml" 133 4005 4014 "formule.ml" 133 4005 4058
+type(
+  unit
+)
+"formule.ml" 134 4059 4068 "formule.ml" 134 4059 4070
+type(
+  unit
+)
+"formule.ml" 132 3977 3981 "formule.ml" 134 4059 4070
+type(
+  unit
+)
+"formule.ml" 136 4076 4087 "formule.ml" 136 4076 4093
+type(
+  < _get_jni_jFormule : _jni_jFormule; _get_jni_jVar : _jni_jVar;
+    accepte : jVisiteur -> unit; ident : unit -> string; .. >
+)
+"formule.ml" 138 4115 4127 "formule.ml" 138 4115 4129
+type(
+  unit
+)
+"formule.ml" 139 4133 4143 "formule.ml" 139 4133 4163
+type(
+  java'lang'String java_instance -> string
+)
+ident(
+  ext_ref JavaString.to_string
+)
+"formule.ml" 140 4164 4177 "formule.ml" 140 4164 4186
+type(
+  (_jni_jVar -> java'lang'String java_instance) java_method ->
+  _jni_jVar -> java'lang'String java_instance
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 140 4164 4187 "formule.ml" 140 4164 4236
+type(
+  (_jni_jVar -> java'lang'String java_instance) java_method
+)
+"formule.ml" 141 4237 4252 "formule.ml" 141 4237 4259
+type(
+  _jni_jVar
+)
+ident(
+  int_ref jni_ref "formule.ml" 130 3925 3944 "formule.ml" 130 3925 3951
+)
+"formule.ml" 140 4164 4176 "formule.ml" 141 4237 4260
+type(
+  java'lang'String java_instance
+)
+"formule.ml" 139 4133 4143 "formule.ml" 141 4237 4260
+type(
+  string
+)
+"formule.ml" 138 4115 4123 "formule.ml" 141 4237 4260
+type(
+  unit -> string
+)
+type(
+  unit -> string
+)
+"formule.ml" 143 4284 4297 "formule.ml" 143 4284 4300
+type(
+  jVisiteur
+)
+ident(
+  def _p0 "formule.ml" 144 4317 4327 "formule.ml" 148 4476 4501
+)
+"formule.ml" 144 4317 4331 "formule.ml" 144 4317 4334
+type(
+  _jni_jVisiteur
+)
+ident(
+  def _p0 "formule.ml" 146 4373 4385 "formule.ml" 148 4476 4501
+)
+"formule.ml" 144 4317 4337 "formule.ml" 144 4317 4340
+type(
+  jVisiteur
+)
+ident(
+  int_ref _p0 "formule.ml" 143 4284 4297 "formule.ml" 143 4284 4300
+)
+"formule.ml" 144 4317 4337 "formule.ml" 144 4317 4359
+call(
+  stack
+)
+type(
+  _jni_jVisiteur
+)
+"formule.ml" 146 4373 4385 "formule.ml" 146 4373 4394
+type(
+  (_jni_jVar -> _jni_jVisiteur -> unit) java_method ->
+  _jni_jVar -> _jni_jVisiteur -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 147 4395 4409 "formule.ml" 147 4395 4475
+type(
+  (_jni_jVar -> _jni_jVisiteur -> unit) java_method
+)
+"formule.ml" 148 4476 4490 "formule.ml" 148 4476 4497
+type(
+  _jni_jVar
+)
+ident(
+  int_ref jni_ref "formule.ml" 130 3925 3944 "formule.ml" 130 3925 3951
+)
+"formule.ml" 148 4476 4498 "formule.ml" 148 4476 4501
+type(
+  _jni_jVisiteur
+)
+ident(
+  int_ref _p0 "formule.ml" 144 4317 4331 "formule.ml" 144 4317 4334
+)
+"formule.ml" 146 4373 4385 "formule.ml" 148 4476 4501
+type(
+  unit
+)
+"formule.ml" 144 4317 4327 "formule.ml" 148 4476 4501
+type(
+  unit
+)
+"formule.ml" 143 4284 4292 "formule.ml" 148 4476 4501
+type(
+  jVisiteur -> unit
+)
+type(
+  jVisiteur -> unit
+)
+"formule.ml" 149 4502 4531 "formule.ml" 149 4502 4538
+type(
+  _jni_jVar
+)
+type(
+  _jni_jVar
+)
+ident(
+  int_ref jni_ref "formule.ml" 130 3925 3944 "formule.ml" 130 3925 3951
+)
+"formule.ml" 150 4539 4573 "formule.ml" 150 4539 4580
+type(
+  _jni_jFormule
+)
+type(
+  _jni_jFormule
+)
+type(
+  _jni_jVar
+)
+ident(
+  int_ref jni_ref "formule.ml" 130 3925 3944 "formule.ml" 130 3925 3951
+)
+"formule.ml" 152 4607 4626 "formule.ml" 152 4607 4633
+type(
+  _jni_jNon
+)
+"formule.ml" 153 4649 4655 "formule.ml" 153 4649 4656
+type(
+  unit
+)
+"formule.ml" 154 4659 4666 "formule.ml" 154 4659 4678
+type(
+  _jni_jNon -> bool
+)
+ident(
+  ext_ref Java.is_null
+)
+"formule.ml" 154 4659 4679 "formule.ml" 154 4659 4686
+type(
+  _jni_jNon
+)
+ident(
+  int_ref jni_ref "formule.ml" 152 4607 4626 "formule.ml" 152 4607 4633
+)
+"formule.ml" 154 4659 4666 "formule.ml" 154 4659 4686
+type(
+  bool
+)
+"formule.ml" 155 4687 4696 "formule.ml" 155 4687 4701
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"formule.ml" 155 4687 4715 "formule.ml" 155 4687 4739
+type(
+  string
+)
+"formule.ml" 155 4687 4702 "formule.ml" 155 4687 4740
+type(
+  exn
+)
+"formule.ml" 155 4687 4696 "formule.ml" 155 4687 4740
+type(
+  unit
+)
+"formule.ml" 156 4741 4750 "formule.ml" 156 4741 4752
+type(
+  unit
+)
+"formule.ml" 154 4659 4663 "formule.ml" 156 4741 4752
+type(
+  unit
+)
+"formule.ml" 158 4758 4769 "formule.ml" 158 4758 4775
+type(
+  < _get_jni_jFormule : _jni_jFormule; _get_jni_jNon : _jni_jNon;
+    accepte : jVisiteur -> unit; sous_formule : unit -> jFormule; .. >
+)
+"formule.ml" 160 4804 4816 "formule.ml" 160 4804 4818
+type(
+  unit
+)
+"formule.ml" 161 4822 4833 "formule.ml" 161 4822 4854
+type(
+  _jni_jFormule -> _capsule_jFormule
+)
+"formule.ml" 162 4855 4869 "formule.ml" 162 4855 4878
+type(
+  (_jni_jNon -> _jni_jFormule) java_method -> _jni_jNon -> _jni_jFormule
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 163 4879 4895 "formule.ml" 163 4879 4961
+type(
+  (_jni_jNon -> _jni_jFormule) java_method
+)
+"formule.ml" 164 4962 4978 "formule.ml" 164 4962 4985
+type(
+  _jni_jNon
+)
+ident(
+  int_ref jni_ref "formule.ml" 152 4607 4626 "formule.ml" 152 4607 4633
+)
+"formule.ml" 162 4855 4868 "formule.ml" 164 4962 4986
+type(
+  _jni_jFormule
+)
+"formule.ml" 161 4822 4833 "formule.ml" 164 4962 4986
+call(
+  tail
+)
+type(
+  jFormule
+)
+type(
+  _capsule_jFormule
+)
+"formule.ml" 160 4804 4812 "formule.ml" 165 4989 5010
+type(
+  unit -> jFormule
+)
+type(
+  unit -> jFormule
+)
+"formule.ml" 167 5034 5047 "formule.ml" 167 5034 5050
+type(
+  jVisiteur
+)
+ident(
+  def _p0 "formule.ml" 168 5067 5077 "formule.ml" 172 5226 5251
+)
+"formule.ml" 168 5067 5081 "formule.ml" 168 5067 5084
+type(
+  _jni_jVisiteur
+)
+ident(
+  def _p0 "formule.ml" 170 5123 5135 "formule.ml" 172 5226 5251
+)
+"formule.ml" 168 5067 5087 "formule.ml" 168 5067 5090
+type(
+  jVisiteur
+)
+ident(
+  int_ref _p0 "formule.ml" 167 5034 5047 "formule.ml" 167 5034 5050
+)
+"formule.ml" 168 5067 5087 "formule.ml" 168 5067 5109
+call(
+  stack
+)
+type(
+  _jni_jVisiteur
+)
+"formule.ml" 170 5123 5135 "formule.ml" 170 5123 5144
+type(
+  (_jni_jNon -> _jni_jVisiteur -> unit) java_method ->
+  _jni_jNon -> _jni_jVisiteur -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 171 5145 5159 "formule.ml" 171 5145 5225
+type(
+  (_jni_jNon -> _jni_jVisiteur -> unit) java_method
+)
+"formule.ml" 172 5226 5240 "formule.ml" 172 5226 5247
+type(
+  _jni_jNon
+)
+ident(
+  int_ref jni_ref "formule.ml" 152 4607 4626 "formule.ml" 152 4607 4633
+)
+"formule.ml" 172 5226 5248 "formule.ml" 172 5226 5251
+type(
+  _jni_jVisiteur
+)
+ident(
+  int_ref _p0 "formule.ml" 168 5067 5081 "formule.ml" 168 5067 5084
+)
+"formule.ml" 170 5123 5135 "formule.ml" 172 5226 5251
+type(
+  unit
+)
+"formule.ml" 168 5067 5077 "formule.ml" 172 5226 5251
+type(
+  unit
+)
+"formule.ml" 167 5034 5042 "formule.ml" 172 5226 5251
+type(
+  jVisiteur -> unit
+)
+type(
+  jVisiteur -> unit
+)
+"formule.ml" 173 5252 5281 "formule.ml" 173 5252 5288
+type(
+  _jni_jNon
+)
+type(
+  _jni_jNon
+)
+ident(
+  int_ref jni_ref "formule.ml" 152 4607 4626 "formule.ml" 152 4607 4633
+)
+"formule.ml" 174 5289 5323 "formule.ml" 174 5289 5330
+type(
+  _jni_jFormule
+)
+type(
+  _jni_jFormule
+)
+type(
+  _jni_jNon
+)
+ident(
+  int_ref jni_ref "formule.ml" 152 4607 4626 "formule.ml" 152 4607 4633
+)
+"formule.ml" 176 5357 5378 "formule.ml" 176 5357 5385
+type(
+  _jni_jOpBin
+)
+"formule.ml" 177 5403 5409 "formule.ml" 177 5403 5410
+type(
+  unit
+)
+"formule.ml" 178 5413 5420 "formule.ml" 178 5413 5432
+type(
+  _jni_jOpBin -> bool
+)
+ident(
+  ext_ref Java.is_null
+)
+"formule.ml" 178 5413 5433 "formule.ml" 178 5413 5440
+type(
+  _jni_jOpBin
+)
+ident(
+  int_ref jni_ref "formule.ml" 176 5357 5378 "formule.ml" 176 5357 5385
+)
+"formule.ml" 178 5413 5420 "formule.ml" 178 5413 5440
+type(
+  bool
+)
+"formule.ml" 179 5441 5450 "formule.ml" 179 5441 5455
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"formule.ml" 179 5441 5469 "formule.ml" 179 5441 5495
+type(
+  string
+)
+"formule.ml" 179 5441 5456 "formule.ml" 179 5441 5496
+type(
+  exn
+)
+"formule.ml" 179 5441 5450 "formule.ml" 179 5441 5496
+type(
+  unit
+)
+"formule.ml" 180 5497 5506 "formule.ml" 180 5497 5508
+type(
+  unit
+)
+"formule.ml" 178 5413 5417 "formule.ml" 180 5497 5508
+type(
+  unit
+)
+"formule.ml" 182 5514 5525 "formule.ml" 182 5514 5531
+type(
+  < _get_jni_jFormule : _jni_jFormule; _get_jni_jOpBin : _jni_jOpBin;
+    accepte : jVisiteur -> unit; sous_formule_d : unit -> jFormule;
+    sous_formule_g : unit -> jFormule; .. >
+)
+"formule.ml" 184 5562 5574 "formule.ml" 184 5562 5576
+type(
+  unit
+)
+"formule.ml" 185 5580 5591 "formule.ml" 185 5580 5612
+type(
+  _jni_jFormule -> _capsule_jFormule
+)
+"formule.ml" 186 5613 5627 "formule.ml" 186 5613 5636
+type(
+  (_jni_jOpBin -> _jni_jFormule) java_method -> _jni_jOpBin -> _jni_jFormule
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 187 5637 5653 "formule.ml" 187 5637 5723
+type(
+  (_jni_jOpBin -> _jni_jFormule) java_method
+)
+"formule.ml" 188 5724 5740 "formule.ml" 188 5724 5747
+type(
+  _jni_jOpBin
+)
+ident(
+  int_ref jni_ref "formule.ml" 176 5357 5378 "formule.ml" 176 5357 5385
+)
+"formule.ml" 186 5613 5626 "formule.ml" 188 5724 5748
+type(
+  _jni_jFormule
+)
+"formule.ml" 185 5580 5591 "formule.ml" 188 5724 5748
+call(
+  tail
+)
+type(
+  jFormule
+)
+type(
+  _capsule_jFormule
+)
+"formule.ml" 184 5562 5570 "formule.ml" 189 5751 5772
+type(
+  unit -> jFormule
+)
+type(
+  unit -> jFormule
+)
+"formule.ml" 191 5803 5815 "formule.ml" 191 5803 5817
+type(
+  unit
+)
+"formule.ml" 192 5821 5832 "formule.ml" 192 5821 5853
+type(
+  _jni_jFormule -> _capsule_jFormule
+)
+"formule.ml" 193 5854 5868 "formule.ml" 193 5854 5877
+type(
+  (_jni_jOpBin -> _jni_jFormule) java_method -> _jni_jOpBin -> _jni_jFormule
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 194 5878 5894 "formule.ml" 194 5878 5964
+type(
+  (_jni_jOpBin -> _jni_jFormule) java_method
+)
+"formule.ml" 195 5965 5981 "formule.ml" 195 5965 5988
+type(
+  _jni_jOpBin
+)
+ident(
+  int_ref jni_ref "formule.ml" 176 5357 5378 "formule.ml" 176 5357 5385
+)
+"formule.ml" 193 5854 5867 "formule.ml" 195 5965 5989
+type(
+  _jni_jFormule
+)
+"formule.ml" 192 5821 5832 "formule.ml" 195 5965 5989
+call(
+  tail
+)
+type(
+  jFormule
+)
+type(
+  _capsule_jFormule
+)
+"formule.ml" 191 5803 5811 "formule.ml" 196 5992 6013
+type(
+  unit -> jFormule
+)
+type(
+  unit -> jFormule
+)
+"formule.ml" 198 6037 6050 "formule.ml" 198 6037 6053
+type(
+  jVisiteur
+)
+ident(
+  def _p0 "formule.ml" 199 6070 6080 "formule.ml" 203 6233 6258
+)
+"formule.ml" 199 6070 6084 "formule.ml" 199 6070 6087
+type(
+  _jni_jVisiteur
+)
+ident(
+  def _p0 "formule.ml" 201 6126 6138 "formule.ml" 203 6233 6258
+)
+"formule.ml" 199 6070 6090 "formule.ml" 199 6070 6093
+type(
+  jVisiteur
+)
+ident(
+  int_ref _p0 "formule.ml" 198 6037 6050 "formule.ml" 198 6037 6053
+)
+"formule.ml" 199 6070 6090 "formule.ml" 199 6070 6112
+call(
+  stack
+)
+type(
+  _jni_jVisiteur
+)
+"formule.ml" 201 6126 6138 "formule.ml" 201 6126 6147
+type(
+  (_jni_jOpBin -> _jni_jVisiteur -> unit) java_method ->
+  _jni_jOpBin -> _jni_jVisiteur -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 202 6148 6162 "formule.ml" 202 6148 6232
+type(
+  (_jni_jOpBin -> _jni_jVisiteur -> unit) java_method
+)
+"formule.ml" 203 6233 6247 "formule.ml" 203 6233 6254
+type(
+  _jni_jOpBin
+)
+ident(
+  int_ref jni_ref "formule.ml" 176 5357 5378 "formule.ml" 176 5357 5385
+)
+"formule.ml" 203 6233 6255 "formule.ml" 203 6233 6258
+type(
+  _jni_jVisiteur
+)
+ident(
+  int_ref _p0 "formule.ml" 199 6070 6084 "formule.ml" 199 6070 6087
+)
+"formule.ml" 201 6126 6138 "formule.ml" 203 6233 6258
+type(
+  unit
+)
+"formule.ml" 199 6070 6080 "formule.ml" 203 6233 6258
+type(
+  unit
+)
+"formule.ml" 198 6037 6045 "formule.ml" 203 6233 6258
+type(
+  jVisiteur -> unit
+)
+type(
+  jVisiteur -> unit
+)
+"formule.ml" 204 6259 6290 "formule.ml" 204 6259 6297
+type(
+  _jni_jOpBin
+)
+type(
+  _jni_jOpBin
+)
+ident(
+  int_ref jni_ref "formule.ml" 176 5357 5378 "formule.ml" 176 5357 5385
+)
+"formule.ml" 205 6298 6332 "formule.ml" 205 6298 6339
+type(
+  _jni_jFormule
+)
+type(
+  _jni_jFormule
+)
+type(
+  _jni_jOpBin
+)
+ident(
+  int_ref jni_ref "formule.ml" 176 5357 5378 "formule.ml" 176 5357 5385
+)
+"formule.ml" 207 6366 6384 "formule.ml" 207 6366 6391
+type(
+  _jni_jEt
+)
+"formule.ml" 208 6406 6412 "formule.ml" 208 6406 6413
+type(
+  unit
+)
+"formule.ml" 209 6416 6423 "formule.ml" 209 6416 6435
+type(
+  _jni_jEt -> bool
+)
+ident(
+  ext_ref Java.is_null
+)
+"formule.ml" 209 6416 6436 "formule.ml" 209 6416 6443
+type(
+  _jni_jEt
+)
+ident(
+  int_ref jni_ref "formule.ml" 207 6366 6384 "formule.ml" 207 6366 6391
+)
+"formule.ml" 209 6416 6423 "formule.ml" 209 6416 6443
+type(
+  bool
+)
+"formule.ml" 210 6444 6453 "formule.ml" 210 6444 6458
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"formule.ml" 210 6444 6472 "formule.ml" 210 6444 6495
+type(
+  string
+)
+"formule.ml" 210 6444 6459 "formule.ml" 210 6444 6496
+type(
+  exn
+)
+"formule.ml" 210 6444 6453 "formule.ml" 210 6444 6496
+type(
+  unit
+)
+"formule.ml" 211 6497 6506 "formule.ml" 211 6497 6508
+type(
+  unit
+)
+"formule.ml" 209 6416 6420 "formule.ml" 211 6497 6508
+type(
+  unit
+)
+"formule.ml" 213 6514 6525 "formule.ml" 213 6514 6531
+type(
+  < _get_jni_jEt : _jni_jEt; _get_jni_jFormule : _jni_jFormule;
+    _get_jni_jOpBin : _jni_jOpBin; accepte : jVisiteur -> unit;
+    sous_formule_d : unit -> jFormule; sous_formule_g : unit -> jFormule;
+    .. >
+)
+"formule.ml" 215 6562 6574 "formule.ml" 215 6562 6576
+type(
+  unit
+)
+"formule.ml" 216 6580 6591 "formule.ml" 216 6580 6612
+type(
+  _jni_jFormule -> _capsule_jFormule
+)
+"formule.ml" 217 6613 6627 "formule.ml" 217 6613 6636
+type(
+  (_jni_jEt -> _jni_jFormule) java_method -> _jni_jEt -> _jni_jFormule
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 218 6637 6653 "formule.ml" 218 6637 6723
+type(
+  (_jni_jEt -> _jni_jFormule) java_method
+)
+"formule.ml" 219 6724 6740 "formule.ml" 219 6724 6747
+type(
+  _jni_jEt
+)
+ident(
+  int_ref jni_ref "formule.ml" 207 6366 6384 "formule.ml" 207 6366 6391
+)
+"formule.ml" 217 6613 6626 "formule.ml" 219 6724 6748
+type(
+  _jni_jFormule
+)
+"formule.ml" 216 6580 6591 "formule.ml" 219 6724 6748
+call(
+  tail
+)
+type(
+  jFormule
+)
+type(
+  _capsule_jFormule
+)
+"formule.ml" 215 6562 6570 "formule.ml" 220 6751 6772
+type(
+  unit -> jFormule
+)
+type(
+  unit -> jFormule
+)
+"formule.ml" 222 6803 6815 "formule.ml" 222 6803 6817
+type(
+  unit
+)
+"formule.ml" 223 6821 6832 "formule.ml" 223 6821 6853
+type(
+  _jni_jFormule -> _capsule_jFormule
+)
+"formule.ml" 224 6854 6868 "formule.ml" 224 6854 6877
+type(
+  (_jni_jEt -> _jni_jFormule) java_method -> _jni_jEt -> _jni_jFormule
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 225 6878 6894 "formule.ml" 225 6878 6964
+type(
+  (_jni_jEt -> _jni_jFormule) java_method
+)
+"formule.ml" 226 6965 6981 "formule.ml" 226 6965 6988
+type(
+  _jni_jEt
+)
+ident(
+  int_ref jni_ref "formule.ml" 207 6366 6384 "formule.ml" 207 6366 6391
+)
+"formule.ml" 224 6854 6867 "formule.ml" 226 6965 6989
+type(
+  _jni_jFormule
+)
+"formule.ml" 223 6821 6832 "formule.ml" 226 6965 6989
+call(
+  tail
+)
+type(
+  jFormule
+)
+type(
+  _capsule_jFormule
+)
+"formule.ml" 222 6803 6811 "formule.ml" 227 6992 7013
+type(
+  unit -> jFormule
+)
+type(
+  unit -> jFormule
+)
+"formule.ml" 229 7037 7050 "formule.ml" 229 7037 7053
+type(
+  jVisiteur
+)
+ident(
+  def _p0 "formule.ml" 230 7070 7080 "formule.ml" 234 7228 7253
+)
+"formule.ml" 230 7070 7084 "formule.ml" 230 7070 7087
+type(
+  _jni_jVisiteur
+)
+ident(
+  def _p0 "formule.ml" 232 7126 7138 "formule.ml" 234 7228 7253
+)
+"formule.ml" 230 7070 7090 "formule.ml" 230 7070 7093
+type(
+  jVisiteur
+)
+ident(
+  int_ref _p0 "formule.ml" 229 7037 7050 "formule.ml" 229 7037 7053
+)
+"formule.ml" 230 7070 7090 "formule.ml" 230 7070 7112
+call(
+  stack
+)
+type(
+  _jni_jVisiteur
+)
+"formule.ml" 232 7126 7138 "formule.ml" 232 7126 7147
+type(
+  (_jni_jEt -> _jni_jVisiteur -> unit) java_method ->
+  _jni_jEt -> _jni_jVisiteur -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 233 7148 7162 "formule.ml" 233 7148 7227
+type(
+  (_jni_jEt -> _jni_jVisiteur -> unit) java_method
+)
+"formule.ml" 234 7228 7242 "formule.ml" 234 7228 7249
+type(
+  _jni_jEt
+)
+ident(
+  int_ref jni_ref "formule.ml" 207 6366 6384 "formule.ml" 207 6366 6391
+)
+"formule.ml" 234 7228 7250 "formule.ml" 234 7228 7253
+type(
+  _jni_jVisiteur
+)
+ident(
+  int_ref _p0 "formule.ml" 230 7070 7084 "formule.ml" 230 7070 7087
+)
+"formule.ml" 232 7126 7138 "formule.ml" 234 7228 7253
+type(
+  unit
+)
+"formule.ml" 230 7070 7080 "formule.ml" 234 7228 7253
+type(
+  unit
+)
+"formule.ml" 229 7037 7045 "formule.ml" 234 7228 7253
+type(
+  jVisiteur -> unit
+)
+type(
+  jVisiteur -> unit
+)
+"formule.ml" 235 7254 7282 "formule.ml" 235 7254 7289
+type(
+  _jni_jEt
+)
+type(
+  _jni_jEt
+)
+ident(
+  int_ref jni_ref "formule.ml" 207 6366 6384 "formule.ml" 207 6366 6391
+)
+"formule.ml" 236 7290 7324 "formule.ml" 236 7290 7331
+type(
+  _jni_jFormule
+)
+type(
+  _jni_jFormule
+)
+type(
+  _jni_jEt
+)
+ident(
+  int_ref jni_ref "formule.ml" 207 6366 6384 "formule.ml" 207 6366 6391
+)
+"formule.ml" 237 7350 7382 "formule.ml" 237 7350 7389
+type(
+  _jni_jOpBin
+)
+type(
+  _jni_jOpBin
+)
+type(
+  _jni_jEt
+)
+ident(
+  int_ref jni_ref "formule.ml" 207 6366 6384 "formule.ml" 207 6366 6391
+)
+"formule.ml" 239 7414 7432 "formule.ml" 239 7414 7439
+type(
+  _jni_jOu
+)
+"formule.ml" 240 7454 7460 "formule.ml" 240 7454 7461
+type(
+  unit
+)
+"formule.ml" 241 7464 7471 "formule.ml" 241 7464 7483
+type(
+  _jni_jOu -> bool
+)
+ident(
+  ext_ref Java.is_null
+)
+"formule.ml" 241 7464 7484 "formule.ml" 241 7464 7491
+type(
+  _jni_jOu
+)
+ident(
+  int_ref jni_ref "formule.ml" 239 7414 7432 "formule.ml" 239 7414 7439
+)
+"formule.ml" 241 7464 7471 "formule.ml" 241 7464 7491
+type(
+  bool
+)
+"formule.ml" 242 7492 7501 "formule.ml" 242 7492 7506
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"formule.ml" 242 7492 7520 "formule.ml" 242 7492 7543
+type(
+  string
+)
+"formule.ml" 242 7492 7507 "formule.ml" 242 7492 7544
+type(
+  exn
+)
+"formule.ml" 242 7492 7501 "formule.ml" 242 7492 7544
+type(
+  unit
+)
+"formule.ml" 243 7545 7554 "formule.ml" 243 7545 7556
+type(
+  unit
+)
+"formule.ml" 241 7464 7468 "formule.ml" 243 7545 7556
+type(
+  unit
+)
+"formule.ml" 245 7562 7573 "formule.ml" 245 7562 7579
+type(
+  < _get_jni_jFormule : _jni_jFormule; _get_jni_jOpBin : _jni_jOpBin;
+    _get_jni_jOu : _jni_jOu; accepte : jVisiteur -> unit;
+    sous_formule_d : unit -> jFormule; sous_formule_g : unit -> jFormule;
+    .. >
+)
+"formule.ml" 247 7610 7622 "formule.ml" 247 7610 7624
+type(
+  unit
+)
+"formule.ml" 248 7628 7639 "formule.ml" 248 7628 7660
+type(
+  _jni_jFormule -> _capsule_jFormule
+)
+"formule.ml" 249 7661 7675 "formule.ml" 249 7661 7684
+type(
+  (_jni_jOu -> _jni_jFormule) java_method -> _jni_jOu -> _jni_jFormule
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 250 7685 7701 "formule.ml" 250 7685 7771
+type(
+  (_jni_jOu -> _jni_jFormule) java_method
+)
+"formule.ml" 251 7772 7788 "formule.ml" 251 7772 7795
+type(
+  _jni_jOu
+)
+ident(
+  int_ref jni_ref "formule.ml" 239 7414 7432 "formule.ml" 239 7414 7439
+)
+"formule.ml" 249 7661 7674 "formule.ml" 251 7772 7796
+type(
+  _jni_jFormule
+)
+"formule.ml" 248 7628 7639 "formule.ml" 251 7772 7796
+call(
+  tail
+)
+type(
+  jFormule
+)
+type(
+  _capsule_jFormule
+)
+"formule.ml" 247 7610 7618 "formule.ml" 252 7799 7820
+type(
+  unit -> jFormule
+)
+type(
+  unit -> jFormule
+)
+"formule.ml" 254 7851 7863 "formule.ml" 254 7851 7865
+type(
+  unit
+)
+"formule.ml" 255 7869 7880 "formule.ml" 255 7869 7901
+type(
+  _jni_jFormule -> _capsule_jFormule
+)
+"formule.ml" 256 7902 7916 "formule.ml" 256 7902 7925
+type(
+  (_jni_jOu -> _jni_jFormule) java_method -> _jni_jOu -> _jni_jFormule
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 257 7926 7942 "formule.ml" 257 7926 8012
+type(
+  (_jni_jOu -> _jni_jFormule) java_method
+)
+"formule.ml" 258 8013 8029 "formule.ml" 258 8013 8036
+type(
+  _jni_jOu
+)
+ident(
+  int_ref jni_ref "formule.ml" 239 7414 7432 "formule.ml" 239 7414 7439
+)
+"formule.ml" 256 7902 7915 "formule.ml" 258 8013 8037
+type(
+  _jni_jFormule
+)
+"formule.ml" 255 7869 7880 "formule.ml" 258 8013 8037
+call(
+  tail
+)
+type(
+  jFormule
+)
+type(
+  _capsule_jFormule
+)
+"formule.ml" 254 7851 7859 "formule.ml" 259 8040 8061
+type(
+  unit -> jFormule
+)
+type(
+  unit -> jFormule
+)
+"formule.ml" 261 8085 8098 "formule.ml" 261 8085 8101
+type(
+  jVisiteur
+)
+ident(
+  def _p0 "formule.ml" 262 8118 8128 "formule.ml" 266 8276 8301
+)
+"formule.ml" 262 8118 8132 "formule.ml" 262 8118 8135
+type(
+  _jni_jVisiteur
+)
+ident(
+  def _p0 "formule.ml" 264 8174 8186 "formule.ml" 266 8276 8301
+)
+"formule.ml" 262 8118 8138 "formule.ml" 262 8118 8141
+type(
+  jVisiteur
+)
+ident(
+  int_ref _p0 "formule.ml" 261 8085 8098 "formule.ml" 261 8085 8101
+)
+"formule.ml" 262 8118 8138 "formule.ml" 262 8118 8160
+call(
+  stack
+)
+type(
+  _jni_jVisiteur
+)
+"formule.ml" 264 8174 8186 "formule.ml" 264 8174 8195
+type(
+  (_jni_jOu -> _jni_jVisiteur -> unit) java_method ->
+  _jni_jOu -> _jni_jVisiteur -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 265 8196 8210 "formule.ml" 265 8196 8275
+type(
+  (_jni_jOu -> _jni_jVisiteur -> unit) java_method
+)
+"formule.ml" 266 8276 8290 "formule.ml" 266 8276 8297
+type(
+  _jni_jOu
+)
+ident(
+  int_ref jni_ref "formule.ml" 239 7414 7432 "formule.ml" 239 7414 7439
+)
+"formule.ml" 266 8276 8298 "formule.ml" 266 8276 8301
+type(
+  _jni_jVisiteur
+)
+ident(
+  int_ref _p0 "formule.ml" 262 8118 8132 "formule.ml" 262 8118 8135
+)
+"formule.ml" 264 8174 8186 "formule.ml" 266 8276 8301
+type(
+  unit
+)
+"formule.ml" 262 8118 8128 "formule.ml" 266 8276 8301
+type(
+  unit
+)
+"formule.ml" 261 8085 8093 "formule.ml" 266 8276 8301
+type(
+  jVisiteur -> unit
+)
+type(
+  jVisiteur -> unit
+)
+"formule.ml" 267 8302 8330 "formule.ml" 267 8302 8337
+type(
+  _jni_jOu
+)
+type(
+  _jni_jOu
+)
+ident(
+  int_ref jni_ref "formule.ml" 239 7414 7432 "formule.ml" 239 7414 7439
+)
+"formule.ml" 268 8338 8372 "formule.ml" 268 8338 8379
+type(
+  _jni_jFormule
+)
+type(
+  _jni_jFormule
+)
+type(
+  _jni_jOu
+)
+ident(
+  int_ref jni_ref "formule.ml" 239 7414 7432 "formule.ml" 239 7414 7439
+)
+"formule.ml" 269 8398 8430 "formule.ml" 269 8398 8437
+type(
+  _jni_jOpBin
+)
+type(
+  _jni_jOpBin
+)
+type(
+  _jni_jOu
+)
+ident(
+  int_ref jni_ref "formule.ml" 239 7414 7432 "formule.ml" 239 7414 7439
+)
+"formule.ml" 271 8462 8486 "formule.ml" 271 8462 8493
+type(
+  _jni_jVisiteur
+)
+"formule.ml" 272 8514 8520 "formule.ml" 272 8514 8521
+type(
+  unit
+)
+"formule.ml" 273 8524 8531 "formule.ml" 273 8524 8543
+type(
+  _jni_jVisiteur -> bool
+)
+ident(
+  ext_ref Java.is_null
+)
+"formule.ml" 273 8524 8544 "formule.ml" 273 8524 8551
+type(
+  _jni_jVisiteur
+)
+ident(
+  int_ref jni_ref "formule.ml" 271 8462 8486 "formule.ml" 271 8462 8493
+)
+"formule.ml" 273 8524 8531 "formule.ml" 273 8524 8551
+type(
+  bool
+)
+"formule.ml" 274 8552 8561 "formule.ml" 274 8552 8566
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"formule.ml" 274 8552 8580 "formule.ml" 274 8552 8609
+type(
+  string
+)
+"formule.ml" 274 8552 8567 "formule.ml" 274 8552 8610
+type(
+  exn
+)
+"formule.ml" 274 8552 8561 "formule.ml" 274 8552 8610
+type(
+  unit
+)
+"formule.ml" 275 8611 8620 "formule.ml" 275 8611 8622
+type(
+  unit
+)
+"formule.ml" 273 8524 8528 "formule.ml" 275 8611 8622
+type(
+  unit
+)
+"formule.ml" 277 8628 8639 "formule.ml" 277 8628 8645
+type(
+  < _get_jni_jVisiteur : _jni_jVisiteur; visite_cst : jConstante -> unit;
+    visite_et : jEt -> unit; visite_non : jNon -> unit;
+    visite_ou : jOu -> unit; visite_var : jVar -> unit; .. >
+)
+"formule.ml" 279 8672 8685 "formule.ml" 279 8672 8688
+type(
+  jVar
+)
+ident(
+  def _p0 "formule.ml" 280 8700 8710 "formule.ml" 284 8853 8878
+)
+"formule.ml" 280 8700 8714 "formule.ml" 280 8700 8717
+type(
+  _jni_jVar
+)
+ident(
+  def _p0 "formule.ml" 282 8751 8763 "formule.ml" 284 8853 8878
+)
+"formule.ml" 280 8700 8720 "formule.ml" 280 8700 8723
+type(
+  jVar
+)
+ident(
+  int_ref _p0 "formule.ml" 279 8672 8685 "formule.ml" 279 8672 8688
+)
+"formule.ml" 280 8700 8720 "formule.ml" 280 8700 8737
+call(
+  stack
+)
+type(
+  _jni_jVar
+)
+"formule.ml" 282 8751 8763 "formule.ml" 282 8751 8772
+type(
+  (_jni_jVisiteur -> _jni_jVar -> unit) java_method ->
+  _jni_jVisiteur -> _jni_jVar -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 283 8773 8787 "formule.ml" 283 8773 8852
+type(
+  (_jni_jVisiteur -> _jni_jVar -> unit) java_method
+)
+"formule.ml" 284 8853 8867 "formule.ml" 284 8853 8874
+type(
+  _jni_jVisiteur
+)
+ident(
+  int_ref jni_ref "formule.ml" 271 8462 8486 "formule.ml" 271 8462 8493
+)
+"formule.ml" 284 8853 8875 "formule.ml" 284 8853 8878
+type(
+  _jni_jVar
+)
+ident(
+  int_ref _p0 "formule.ml" 280 8700 8714 "formule.ml" 280 8700 8717
+)
+"formule.ml" 282 8751 8763 "formule.ml" 284 8853 8878
+type(
+  unit
+)
+"formule.ml" 280 8700 8710 "formule.ml" 284 8853 8878
+type(
+  unit
+)
+"formule.ml" 279 8672 8680 "formule.ml" 284 8853 8878
+type(
+  jVar -> unit
+)
+type(
+  jVar -> unit
+)
+"formule.ml" 286 8904 8917 "formule.ml" 286 8904 8920
+type(
+  jOu
+)
+ident(
+  def _p0 "formule.ml" 287 8931 8941 "formule.ml" 291 9082 9107
+)
+"formule.ml" 287 8931 8945 "formule.ml" 287 8931 8948
+type(
+  _jni_jOu
+)
+ident(
+  def _p0 "formule.ml" 289 8981 8993 "formule.ml" 291 9082 9107
+)
+"formule.ml" 287 8931 8951 "formule.ml" 287 8931 8954
+type(
+  jOu
+)
+ident(
+  int_ref _p0 "formule.ml" 286 8904 8917 "formule.ml" 286 8904 8920
+)
+"formule.ml" 287 8931 8951 "formule.ml" 287 8931 8967
+call(
+  stack
+)
+type(
+  _jni_jOu
+)
+"formule.ml" 289 8981 8993 "formule.ml" 289 8981 9002
+type(
+  (_jni_jVisiteur -> _jni_jOu -> unit) java_method ->
+  _jni_jVisiteur -> _jni_jOu -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 290 9003 9017 "formule.ml" 290 9003 9081
+type(
+  (_jni_jVisiteur -> _jni_jOu -> unit) java_method
+)
+"formule.ml" 291 9082 9096 "formule.ml" 291 9082 9103
+type(
+  _jni_jVisiteur
+)
+ident(
+  int_ref jni_ref "formule.ml" 271 8462 8486 "formule.ml" 271 8462 8493
+)
+"formule.ml" 291 9082 9104 "formule.ml" 291 9082 9107
+type(
+  _jni_jOu
+)
+ident(
+  int_ref _p0 "formule.ml" 287 8931 8945 "formule.ml" 287 8931 8948
+)
+"formule.ml" 289 8981 8993 "formule.ml" 291 9082 9107
+type(
+  unit
+)
+"formule.ml" 287 8931 8941 "formule.ml" 291 9082 9107
+type(
+  unit
+)
+"formule.ml" 286 8904 8912 "formule.ml" 291 9082 9107
+type(
+  jOu -> unit
+)
+type(
+  jOu -> unit
+)
+"formule.ml" 293 9133 9146 "formule.ml" 293 9133 9149
+type(
+  jEt
+)
+ident(
+  def _p0 "formule.ml" 294 9160 9170 "formule.ml" 298 9311 9336
+)
+"formule.ml" 294 9160 9174 "formule.ml" 294 9160 9177
+type(
+  _jni_jEt
+)
+ident(
+  def _p0 "formule.ml" 296 9210 9222 "formule.ml" 298 9311 9336
+)
+"formule.ml" 294 9160 9180 "formule.ml" 294 9160 9183
+type(
+  jEt
+)
+ident(
+  int_ref _p0 "formule.ml" 293 9133 9146 "formule.ml" 293 9133 9149
+)
+"formule.ml" 294 9160 9180 "formule.ml" 294 9160 9196
+call(
+  stack
+)
+type(
+  _jni_jEt
+)
+"formule.ml" 296 9210 9222 "formule.ml" 296 9210 9231
+type(
+  (_jni_jVisiteur -> _jni_jEt -> unit) java_method ->
+  _jni_jVisiteur -> _jni_jEt -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 297 9232 9246 "formule.ml" 297 9232 9310
+type(
+  (_jni_jVisiteur -> _jni_jEt -> unit) java_method
+)
+"formule.ml" 298 9311 9325 "formule.ml" 298 9311 9332
+type(
+  _jni_jVisiteur
+)
+ident(
+  int_ref jni_ref "formule.ml" 271 8462 8486 "formule.ml" 271 8462 8493
+)
+"formule.ml" 298 9311 9333 "formule.ml" 298 9311 9336
+type(
+  _jni_jEt
+)
+ident(
+  int_ref _p0 "formule.ml" 294 9160 9174 "formule.ml" 294 9160 9177
+)
+"formule.ml" 296 9210 9222 "formule.ml" 298 9311 9336
+type(
+  unit
+)
+"formule.ml" 294 9160 9170 "formule.ml" 298 9311 9336
+type(
+  unit
+)
+"formule.ml" 293 9133 9141 "formule.ml" 298 9311 9336
+type(
+  jEt -> unit
+)
+type(
+  jEt -> unit
+)
+"formule.ml" 300 9363 9376 "formule.ml" 300 9363 9379
+type(
+  jNon
+)
+ident(
+  def _p0 "formule.ml" 301 9391 9401 "formule.ml" 305 9544 9569
+)
+"formule.ml" 301 9391 9405 "formule.ml" 301 9391 9408
+type(
+  _jni_jNon
+)
+ident(
+  def _p0 "formule.ml" 303 9442 9454 "formule.ml" 305 9544 9569
+)
+"formule.ml" 301 9391 9411 "formule.ml" 301 9391 9414
+type(
+  jNon
+)
+ident(
+  int_ref _p0 "formule.ml" 300 9363 9376 "formule.ml" 300 9363 9379
+)
+"formule.ml" 301 9391 9411 "formule.ml" 301 9391 9428
+call(
+  stack
+)
+type(
+  _jni_jNon
+)
+"formule.ml" 303 9442 9454 "formule.ml" 303 9442 9463
+type(
+  (_jni_jVisiteur -> _jni_jNon -> unit) java_method ->
+  _jni_jVisiteur -> _jni_jNon -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 304 9464 9478 "formule.ml" 304 9464 9543
+type(
+  (_jni_jVisiteur -> _jni_jNon -> unit) java_method
+)
+"formule.ml" 305 9544 9558 "formule.ml" 305 9544 9565
+type(
+  _jni_jVisiteur
+)
+ident(
+  int_ref jni_ref "formule.ml" 271 8462 8486 "formule.ml" 271 8462 8493
+)
+"formule.ml" 305 9544 9566 "formule.ml" 305 9544 9569
+type(
+  _jni_jNon
+)
+ident(
+  int_ref _p0 "formule.ml" 301 9391 9405 "formule.ml" 301 9391 9408
+)
+"formule.ml" 303 9442 9454 "formule.ml" 305 9544 9569
+type(
+  unit
+)
+"formule.ml" 301 9391 9401 "formule.ml" 305 9544 9569
+type(
+  unit
+)
+"formule.ml" 300 9363 9371 "formule.ml" 305 9544 9569
+type(
+  jNon -> unit
+)
+type(
+  jNon -> unit
+)
+"formule.ml" 307 9596 9609 "formule.ml" 307 9596 9612
+type(
+  jConstante
+)
+ident(
+  def _p0 "formule.ml" 308 9630 9640 "formule.ml" 312 9795 9820
+)
+"formule.ml" 308 9630 9644 "formule.ml" 308 9630 9647
+type(
+  _jni_jConstante
+)
+ident(
+  def _p0 "formule.ml" 310 9687 9699 "formule.ml" 312 9795 9820
+)
+"formule.ml" 308 9630 9650 "formule.ml" 308 9630 9653
+type(
+  jConstante
+)
+ident(
+  int_ref _p0 "formule.ml" 307 9596 9609 "formule.ml" 307 9596 9612
+)
+"formule.ml" 308 9630 9650 "formule.ml" 308 9630 9673
+call(
+  stack
+)
+type(
+  _jni_jConstante
+)
+"formule.ml" 310 9687 9699 "formule.ml" 310 9687 9708
+type(
+  (_jni_jVisiteur -> _jni_jConstante -> unit) java_method ->
+  _jni_jVisiteur -> _jni_jConstante -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 311 9709 9723 "formule.ml" 311 9709 9794
+type(
+  (_jni_jVisiteur -> _jni_jConstante -> unit) java_method
+)
+"formule.ml" 312 9795 9809 "formule.ml" 312 9795 9816
+type(
+  _jni_jVisiteur
+)
+ident(
+  int_ref jni_ref "formule.ml" 271 8462 8486 "formule.ml" 271 8462 8493
+)
+"formule.ml" 312 9795 9817 "formule.ml" 312 9795 9820
+type(
+  _jni_jConstante
+)
+ident(
+  int_ref _p0 "formule.ml" 308 9630 9644 "formule.ml" 308 9630 9647
+)
+"formule.ml" 310 9687 9699 "formule.ml" 312 9795 9820
+type(
+  unit
+)
+"formule.ml" 308 9630 9640 "formule.ml" 312 9795 9820
+type(
+  unit
+)
+"formule.ml" 307 9596 9604 "formule.ml" 312 9795 9820
+type(
+  jConstante -> unit
+)
+type(
+  jConstante -> unit
+)
+"formule.ml" 313 9821 9855 "formule.ml" 313 9821 9862
+type(
+  _jni_jVisiteur
+)
+type(
+  _jni_jVisiteur
+)
+ident(
+  int_ref jni_ref "formule.ml" 271 8462 8486 "formule.ml" 271 8462 8493
+)
+"formule.ml" 315 9871 9897 "formule.ml" 315 9871 9904
+type(
+  _jni_jVisiteurTS
+)
+"formule.ml" 316 9927 9933 "formule.ml" 316 9927 9934
+type(
+  unit
+)
+"formule.ml" 317 9937 9944 "formule.ml" 317 9937 9956
+type(
+  _jni_jVisiteurTS -> bool
+)
+ident(
+  ext_ref Java.is_null
+)
+"formule.ml" 317 9937 9957 "formule.ml" 317 9937 9964
+type(
+  _jni_jVisiteurTS
+)
+ident(
+  int_ref jni_ref "formule.ml" 315 9871 9897 "formule.ml" 315 9871 9904
+)
+"formule.ml" 317 9937 9944 "formule.ml" 317 9937 9964
+type(
+  bool
+)
+"formule.ml" 318 9965 9974 "formule.ml" 318 9965 9979
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"formule.ml" 318 9965 9993 "formule.ml" 318 9965 10024
+type(
+  string
+)
+"formule.ml" 318 9965 9980 "formule.ml" 318 9965 10025
+type(
+  exn
+)
+"formule.ml" 318 9965 9974 "formule.ml" 318 9965 10025
+type(
+  unit
+)
+"formule.ml" 319 10026 10035 "formule.ml" 319 10026 10037
+type(
+  unit
+)
+"formule.ml" 317 9937 9941 "formule.ml" 319 10026 10037
+type(
+  unit
+)
+"formule.ml" 321 10043 10054 "formule.ml" 321 10043 10060
+type(
+  < _get_jni_jVisiteur : _jni_jVisiteur;
+    _get_jni_jVisiteurTS : _jni_jVisiteurTS; get_res : unit -> string;
+    visite_cst : jConstante -> unit; visite_et : jEt -> unit;
+    visite_non : jNon -> unit; visite_ou : jOu -> unit;
+    visite_var : jVar -> unit; .. >
+)
+"formule.ml" 323 10084 10096 "formule.ml" 323 10084 10098
+type(
+  unit
+)
+"formule.ml" 324 10102 10112 "formule.ml" 324 10102 10132
+type(
+  java'lang'String java_instance -> string
+)
+ident(
+  ext_ref JavaString.to_string
+)
+"formule.ml" 325 10133 10146 "formule.ml" 325 10133 10155
+type(
+  (_jni_jVisiteurTS -> java'lang'String java_instance) java_method ->
+  _jni_jVisiteurTS -> java'lang'String java_instance
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 326 10156 10171 "formule.ml" 326 10156 10229
+type(
+  (_jni_jVisiteurTS -> java'lang'String java_instance) java_method
+)
+"formule.ml" 327 10230 10245 "formule.ml" 327 10230 10252
+type(
+  _jni_jVisiteurTS
+)
+ident(
+  int_ref jni_ref "formule.ml" 315 9871 9897 "formule.ml" 315 9871 9904
+)
+"formule.ml" 325 10133 10145 "formule.ml" 327 10230 10253
+type(
+  java'lang'String java_instance
+)
+"formule.ml" 324 10102 10112 "formule.ml" 327 10230 10253
+type(
+  string
+)
+"formule.ml" 323 10084 10092 "formule.ml" 327 10230 10253
+type(
+  unit -> string
+)
+type(
+  unit -> string
+)
+"formule.ml" 329 10280 10293 "formule.ml" 329 10280 10296
+type(
+  jVar
+)
+ident(
+  def _p0 "formule.ml" 330 10308 10318 "formule.ml" 334 10463 10488
+)
+"formule.ml" 330 10308 10322 "formule.ml" 330 10308 10325
+type(
+  _jni_jVar
+)
+ident(
+  def _p0 "formule.ml" 332 10359 10371 "formule.ml" 334 10463 10488
+)
+"formule.ml" 330 10308 10328 "formule.ml" 330 10308 10331
+type(
+  jVar
+)
+ident(
+  int_ref _p0 "formule.ml" 329 10280 10293 "formule.ml" 329 10280 10296
+)
+"formule.ml" 330 10308 10328 "formule.ml" 330 10308 10345
+call(
+  stack
+)
+type(
+  _jni_jVar
+)
+"formule.ml" 332 10359 10371 "formule.ml" 332 10359 10380
+type(
+  (_jni_jVisiteurTS -> _jni_jVar -> unit) java_method ->
+  _jni_jVisiteurTS -> _jni_jVar -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 333 10381 10395 "formule.ml" 333 10381 10462
+type(
+  (_jni_jVisiteurTS -> _jni_jVar -> unit) java_method
+)
+"formule.ml" 334 10463 10477 "formule.ml" 334 10463 10484
+type(
+  _jni_jVisiteurTS
+)
+ident(
+  int_ref jni_ref "formule.ml" 315 9871 9897 "formule.ml" 315 9871 9904
+)
+"formule.ml" 334 10463 10485 "formule.ml" 334 10463 10488
+type(
+  _jni_jVar
+)
+ident(
+  int_ref _p0 "formule.ml" 330 10308 10322 "formule.ml" 330 10308 10325
+)
+"formule.ml" 332 10359 10371 "formule.ml" 334 10463 10488
+type(
+  unit
+)
+"formule.ml" 330 10308 10318 "formule.ml" 334 10463 10488
+type(
+  unit
+)
+"formule.ml" 329 10280 10288 "formule.ml" 334 10463 10488
+type(
+  jVar -> unit
+)
+type(
+  jVar -> unit
+)
+"formule.ml" 336 10514 10527 "formule.ml" 336 10514 10530
+type(
+  jOu
+)
+ident(
+  def _p0 "formule.ml" 337 10541 10551 "formule.ml" 341 10694 10719
+)
+"formule.ml" 337 10541 10555 "formule.ml" 337 10541 10558
+type(
+  _jni_jOu
+)
+ident(
+  def _p0 "formule.ml" 339 10591 10603 "formule.ml" 341 10694 10719
+)
+"formule.ml" 337 10541 10561 "formule.ml" 337 10541 10564
+type(
+  jOu
+)
+ident(
+  int_ref _p0 "formule.ml" 336 10514 10527 "formule.ml" 336 10514 10530
+)
+"formule.ml" 337 10541 10561 "formule.ml" 337 10541 10577
+call(
+  stack
+)
+type(
+  _jni_jOu
+)
+"formule.ml" 339 10591 10603 "formule.ml" 339 10591 10612
+type(
+  (_jni_jVisiteurTS -> _jni_jOu -> unit) java_method ->
+  _jni_jVisiteurTS -> _jni_jOu -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 340 10613 10627 "formule.ml" 340 10613 10693
+type(
+  (_jni_jVisiteurTS -> _jni_jOu -> unit) java_method
+)
+"formule.ml" 341 10694 10708 "formule.ml" 341 10694 10715
+type(
+  _jni_jVisiteurTS
+)
+ident(
+  int_ref jni_ref "formule.ml" 315 9871 9897 "formule.ml" 315 9871 9904
+)
+"formule.ml" 341 10694 10716 "formule.ml" 341 10694 10719
+type(
+  _jni_jOu
+)
+ident(
+  int_ref _p0 "formule.ml" 337 10541 10555 "formule.ml" 337 10541 10558
+)
+"formule.ml" 339 10591 10603 "formule.ml" 341 10694 10719
+type(
+  unit
+)
+"formule.ml" 337 10541 10551 "formule.ml" 341 10694 10719
+type(
+  unit
+)
+"formule.ml" 336 10514 10522 "formule.ml" 341 10694 10719
+type(
+  jOu -> unit
+)
+type(
+  jOu -> unit
+)
+"formule.ml" 343 10745 10758 "formule.ml" 343 10745 10761
+type(
+  jEt
+)
+ident(
+  def _p0 "formule.ml" 344 10772 10782 "formule.ml" 348 10925 10950
+)
+"formule.ml" 344 10772 10786 "formule.ml" 344 10772 10789
+type(
+  _jni_jEt
+)
+ident(
+  def _p0 "formule.ml" 346 10822 10834 "formule.ml" 348 10925 10950
+)
+"formule.ml" 344 10772 10792 "formule.ml" 344 10772 10795
+type(
+  jEt
+)
+ident(
+  int_ref _p0 "formule.ml" 343 10745 10758 "formule.ml" 343 10745 10761
+)
+"formule.ml" 344 10772 10792 "formule.ml" 344 10772 10808
+call(
+  stack
+)
+type(
+  _jni_jEt
+)
+"formule.ml" 346 10822 10834 "formule.ml" 346 10822 10843
+type(
+  (_jni_jVisiteurTS -> _jni_jEt -> unit) java_method ->
+  _jni_jVisiteurTS -> _jni_jEt -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 347 10844 10858 "formule.ml" 347 10844 10924
+type(
+  (_jni_jVisiteurTS -> _jni_jEt -> unit) java_method
+)
+"formule.ml" 348 10925 10939 "formule.ml" 348 10925 10946
+type(
+  _jni_jVisiteurTS
+)
+ident(
+  int_ref jni_ref "formule.ml" 315 9871 9897 "formule.ml" 315 9871 9904
+)
+"formule.ml" 348 10925 10947 "formule.ml" 348 10925 10950
+type(
+  _jni_jEt
+)
+ident(
+  int_ref _p0 "formule.ml" 344 10772 10786 "formule.ml" 344 10772 10789
+)
+"formule.ml" 346 10822 10834 "formule.ml" 348 10925 10950
+type(
+  unit
+)
+"formule.ml" 344 10772 10782 "formule.ml" 348 10925 10950
+type(
+  unit
+)
+"formule.ml" 343 10745 10753 "formule.ml" 348 10925 10950
+type(
+  jEt -> unit
+)
+type(
+  jEt -> unit
+)
+"formule.ml" 350 10977 10990 "formule.ml" 350 10977 10993
+type(
+  jNon
+)
+ident(
+  def _p0 "formule.ml" 351 11005 11015 "formule.ml" 355 11160 11185
+)
+"formule.ml" 351 11005 11019 "formule.ml" 351 11005 11022
+type(
+  _jni_jNon
+)
+ident(
+  def _p0 "formule.ml" 353 11056 11068 "formule.ml" 355 11160 11185
+)
+"formule.ml" 351 11005 11025 "formule.ml" 351 11005 11028
+type(
+  jNon
+)
+ident(
+  int_ref _p0 "formule.ml" 350 10977 10990 "formule.ml" 350 10977 10993
+)
+"formule.ml" 351 11005 11025 "formule.ml" 351 11005 11042
+call(
+  stack
+)
+type(
+  _jni_jNon
+)
+"formule.ml" 353 11056 11068 "formule.ml" 353 11056 11077
+type(
+  (_jni_jVisiteurTS -> _jni_jNon -> unit) java_method ->
+  _jni_jVisiteurTS -> _jni_jNon -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 354 11078 11092 "formule.ml" 354 11078 11159
+type(
+  (_jni_jVisiteurTS -> _jni_jNon -> unit) java_method
+)
+"formule.ml" 355 11160 11174 "formule.ml" 355 11160 11181
+type(
+  _jni_jVisiteurTS
+)
+ident(
+  int_ref jni_ref "formule.ml" 315 9871 9897 "formule.ml" 315 9871 9904
+)
+"formule.ml" 355 11160 11182 "formule.ml" 355 11160 11185
+type(
+  _jni_jNon
+)
+ident(
+  int_ref _p0 "formule.ml" 351 11005 11019 "formule.ml" 351 11005 11022
+)
+"formule.ml" 353 11056 11068 "formule.ml" 355 11160 11185
+type(
+  unit
+)
+"formule.ml" 351 11005 11015 "formule.ml" 355 11160 11185
+type(
+  unit
+)
+"formule.ml" 350 10977 10985 "formule.ml" 355 11160 11185
+type(
+  jNon -> unit
+)
+type(
+  jNon -> unit
+)
+"formule.ml" 357 11212 11225 "formule.ml" 357 11212 11228
+type(
+  jConstante
+)
+ident(
+  def _p0 "formule.ml" 358 11246 11256 "formule.ml" 362 11413 11438
+)
+"formule.ml" 358 11246 11260 "formule.ml" 358 11246 11263
+type(
+  _jni_jConstante
+)
+ident(
+  def _p0 "formule.ml" 360 11303 11315 "formule.ml" 362 11413 11438
+)
+"formule.ml" 358 11246 11266 "formule.ml" 358 11246 11269
+type(
+  jConstante
+)
+ident(
+  int_ref _p0 "formule.ml" 357 11212 11225 "formule.ml" 357 11212 11228
+)
+"formule.ml" 358 11246 11266 "formule.ml" 358 11246 11289
+call(
+  stack
+)
+type(
+  _jni_jConstante
+)
+"formule.ml" 360 11303 11315 "formule.ml" 360 11303 11324
+type(
+  (_jni_jVisiteurTS -> _jni_jConstante -> unit) java_method ->
+  _jni_jVisiteurTS -> _jni_jConstante -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 361 11325 11339 "formule.ml" 361 11325 11412
+type(
+  (_jni_jVisiteurTS -> _jni_jConstante -> unit) java_method
+)
+"formule.ml" 362 11413 11427 "formule.ml" 362 11413 11434
+type(
+  _jni_jVisiteurTS
+)
+ident(
+  int_ref jni_ref "formule.ml" 315 9871 9897 "formule.ml" 315 9871 9904
+)
+"formule.ml" 362 11413 11435 "formule.ml" 362 11413 11438
+type(
+  _jni_jConstante
+)
+ident(
+  int_ref _p0 "formule.ml" 358 11246 11260 "formule.ml" 358 11246 11263
+)
+"formule.ml" 360 11303 11315 "formule.ml" 362 11413 11438
+type(
+  unit
+)
+"formule.ml" 358 11246 11256 "formule.ml" 362 11413 11438
+type(
+  unit
+)
+"formule.ml" 357 11212 11220 "formule.ml" 362 11413 11438
+type(
+  jConstante -> unit
+)
+type(
+  jConstante -> unit
+)
+"formule.ml" 363 11439 11475 "formule.ml" 363 11439 11482
+type(
+  _jni_jVisiteurTS
+)
+type(
+  _jni_jVisiteurTS
+)
+ident(
+  int_ref jni_ref "formule.ml" 315 9871 9897 "formule.ml" 315 9871 9904
+)
+"formule.ml" 364 11483 11518 "formule.ml" 364 11483 11525
+type(
+  _jni_jVisiteur
+)
+type(
+  _jni_jVisiteur
+)
+type(
+  _jni_jVisiteurTS
+)
+ident(
+  int_ref jni_ref "formule.ml" 315 9871 9897 "formule.ml" 315 9871 9904
+)
+"formule.ml" 366 11553 11579 "formule.ml" 366 11553 11586
+type(
+  _jni_jVisiteurML
+)
+"formule.ml" 367 11609 11615 "formule.ml" 367 11609 11616
+type(
+  unit
+)
+"formule.ml" 368 11619 11626 "formule.ml" 368 11619 11638
+type(
+  _jni_jVisiteurML -> bool
+)
+ident(
+  ext_ref Java.is_null
+)
+"formule.ml" 368 11619 11639 "formule.ml" 368 11619 11646
+type(
+  _jni_jVisiteurML
+)
+ident(
+  int_ref jni_ref "formule.ml" 366 11553 11579 "formule.ml" 366 11553 11586
+)
+"formule.ml" 368 11619 11626 "formule.ml" 368 11619 11646
+type(
+  bool
+)
+"formule.ml" 369 11647 11656 "formule.ml" 369 11647 11661
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"formule.ml" 369 11647 11675 "formule.ml" 369 11647 11706
+type(
+  string
+)
+"formule.ml" 369 11647 11662 "formule.ml" 369 11647 11707
+type(
+  exn
+)
+"formule.ml" 369 11647 11656 "formule.ml" 369 11647 11707
+type(
+  unit
+)
+"formule.ml" 370 11708 11717 "formule.ml" 370 11708 11719
+type(
+  unit
+)
+"formule.ml" 368 11619 11623 "formule.ml" 370 11708 11719
+type(
+  unit
+)
+"formule.ml" 372 11725 11736 "formule.ml" 372 11725 11742
+type(
+  < _get_jni_jVisiteur : _jni_jVisiteur;
+    _get_jni_jVisiteurML : _jni_jVisiteurML; get_res : unit -> string;
+    visite_cst : jConstante -> unit; visite_et : jEt -> unit;
+    visite_non : jNon -> unit; visite_ou : jOu -> unit;
+    visite_var : jVar -> unit; .. >
+)
+"formule.ml" 374 11766 11778 "formule.ml" 374 11766 11780
+type(
+  unit
+)
+"formule.ml" 375 11784 11794 "formule.ml" 375 11784 11814
+type(
+  java'lang'String java_instance -> string
+)
+ident(
+  ext_ref JavaString.to_string
+)
+"formule.ml" 376 11815 11828 "formule.ml" 376 11815 11837
+type(
+  (_jni_jVisiteurML -> java'lang'String java_instance) java_method ->
+  _jni_jVisiteurML -> java'lang'String java_instance
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 377 11838 11853 "formule.ml" 377 11838 11911
+type(
+  (_jni_jVisiteurML -> java'lang'String java_instance) java_method
+)
+"formule.ml" 378 11912 11927 "formule.ml" 378 11912 11934
+type(
+  _jni_jVisiteurML
+)
+ident(
+  int_ref jni_ref "formule.ml" 366 11553 11579 "formule.ml" 366 11553 11586
+)
+"formule.ml" 376 11815 11827 "formule.ml" 378 11912 11935
+type(
+  java'lang'String java_instance
+)
+"formule.ml" 375 11784 11794 "formule.ml" 378 11912 11935
+type(
+  string
+)
+"formule.ml" 374 11766 11774 "formule.ml" 378 11912 11935
+type(
+  unit -> string
+)
+type(
+  unit -> string
+)
+"formule.ml" 380 11962 11975 "formule.ml" 380 11962 11978
+type(
+  jVar
+)
+ident(
+  def _p0 "formule.ml" 381 11990 12000 "formule.ml" 385 12143 12168
+)
+"formule.ml" 381 11990 12004 "formule.ml" 381 11990 12007
+type(
+  _jni_jVar
+)
+ident(
+  def _p0 "formule.ml" 383 12041 12053 "formule.ml" 385 12143 12168
+)
+"formule.ml" 381 11990 12010 "formule.ml" 381 11990 12013
+type(
+  jVar
+)
+ident(
+  int_ref _p0 "formule.ml" 380 11962 11975 "formule.ml" 380 11962 11978
+)
+"formule.ml" 381 11990 12010 "formule.ml" 381 11990 12027
+call(
+  stack
+)
+type(
+  _jni_jVar
+)
+"formule.ml" 383 12041 12053 "formule.ml" 383 12041 12062
+type(
+  (_jni_jVisiteurML -> _jni_jVar -> unit) java_method ->
+  _jni_jVisiteurML -> _jni_jVar -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 384 12063 12077 "formule.ml" 384 12063 12142
+type(
+  (_jni_jVisiteurML -> _jni_jVar -> unit) java_method
+)
+"formule.ml" 385 12143 12157 "formule.ml" 385 12143 12164
+type(
+  _jni_jVisiteurML
+)
+ident(
+  int_ref jni_ref "formule.ml" 366 11553 11579 "formule.ml" 366 11553 11586
+)
+"formule.ml" 385 12143 12165 "formule.ml" 385 12143 12168
+type(
+  _jni_jVar
+)
+ident(
+  int_ref _p0 "formule.ml" 381 11990 12004 "formule.ml" 381 11990 12007
+)
+"formule.ml" 383 12041 12053 "formule.ml" 385 12143 12168
+type(
+  unit
+)
+"formule.ml" 381 11990 12000 "formule.ml" 385 12143 12168
+type(
+  unit
+)
+"formule.ml" 380 11962 11970 "formule.ml" 385 12143 12168
+type(
+  jVar -> unit
+)
+type(
+  jVar -> unit
+)
+"formule.ml" 387 12194 12207 "formule.ml" 387 12194 12210
+type(
+  jOu
+)
+ident(
+  def _p0 "formule.ml" 388 12221 12231 "formule.ml" 392 12372 12397
+)
+"formule.ml" 388 12221 12235 "formule.ml" 388 12221 12238
+type(
+  _jni_jOu
+)
+ident(
+  def _p0 "formule.ml" 390 12271 12283 "formule.ml" 392 12372 12397
+)
+"formule.ml" 388 12221 12241 "formule.ml" 388 12221 12244
+type(
+  jOu
+)
+ident(
+  int_ref _p0 "formule.ml" 387 12194 12207 "formule.ml" 387 12194 12210
+)
+"formule.ml" 388 12221 12241 "formule.ml" 388 12221 12257
+call(
+  stack
+)
+type(
+  _jni_jOu
+)
+"formule.ml" 390 12271 12283 "formule.ml" 390 12271 12292
+type(
+  (_jni_jVisiteurML -> _jni_jOu -> unit) java_method ->
+  _jni_jVisiteurML -> _jni_jOu -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 391 12293 12307 "formule.ml" 391 12293 12371
+type(
+  (_jni_jVisiteurML -> _jni_jOu -> unit) java_method
+)
+"formule.ml" 392 12372 12386 "formule.ml" 392 12372 12393
+type(
+  _jni_jVisiteurML
+)
+ident(
+  int_ref jni_ref "formule.ml" 366 11553 11579 "formule.ml" 366 11553 11586
+)
+"formule.ml" 392 12372 12394 "formule.ml" 392 12372 12397
+type(
+  _jni_jOu
+)
+ident(
+  int_ref _p0 "formule.ml" 388 12221 12235 "formule.ml" 388 12221 12238
+)
+"formule.ml" 390 12271 12283 "formule.ml" 392 12372 12397
+type(
+  unit
+)
+"formule.ml" 388 12221 12231 "formule.ml" 392 12372 12397
+type(
+  unit
+)
+"formule.ml" 387 12194 12202 "formule.ml" 392 12372 12397
+type(
+  jOu -> unit
+)
+type(
+  jOu -> unit
+)
+"formule.ml" 394 12423 12436 "formule.ml" 394 12423 12439
+type(
+  jEt
+)
+ident(
+  def _p0 "formule.ml" 395 12450 12460 "formule.ml" 399 12601 12626
+)
+"formule.ml" 395 12450 12464 "formule.ml" 395 12450 12467
+type(
+  _jni_jEt
+)
+ident(
+  def _p0 "formule.ml" 397 12500 12512 "formule.ml" 399 12601 12626
+)
+"formule.ml" 395 12450 12470 "formule.ml" 395 12450 12473
+type(
+  jEt
+)
+ident(
+  int_ref _p0 "formule.ml" 394 12423 12436 "formule.ml" 394 12423 12439
+)
+"formule.ml" 395 12450 12470 "formule.ml" 395 12450 12486
+call(
+  stack
+)
+type(
+  _jni_jEt
+)
+"formule.ml" 397 12500 12512 "formule.ml" 397 12500 12521
+type(
+  (_jni_jVisiteurML -> _jni_jEt -> unit) java_method ->
+  _jni_jVisiteurML -> _jni_jEt -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 398 12522 12536 "formule.ml" 398 12522 12600
+type(
+  (_jni_jVisiteurML -> _jni_jEt -> unit) java_method
+)
+"formule.ml" 399 12601 12615 "formule.ml" 399 12601 12622
+type(
+  _jni_jVisiteurML
+)
+ident(
+  int_ref jni_ref "formule.ml" 366 11553 11579 "formule.ml" 366 11553 11586
+)
+"formule.ml" 399 12601 12623 "formule.ml" 399 12601 12626
+type(
+  _jni_jEt
+)
+ident(
+  int_ref _p0 "formule.ml" 395 12450 12464 "formule.ml" 395 12450 12467
+)
+"formule.ml" 397 12500 12512 "formule.ml" 399 12601 12626
+type(
+  unit
+)
+"formule.ml" 395 12450 12460 "formule.ml" 399 12601 12626
+type(
+  unit
+)
+"formule.ml" 394 12423 12431 "formule.ml" 399 12601 12626
+type(
+  jEt -> unit
+)
+type(
+  jEt -> unit
+)
+"formule.ml" 401 12653 12666 "formule.ml" 401 12653 12669
+type(
+  jNon
+)
+ident(
+  def _p0 "formule.ml" 402 12681 12691 "formule.ml" 406 12834 12859
+)
+"formule.ml" 402 12681 12695 "formule.ml" 402 12681 12698
+type(
+  _jni_jNon
+)
+ident(
+  def _p0 "formule.ml" 404 12732 12744 "formule.ml" 406 12834 12859
+)
+"formule.ml" 402 12681 12701 "formule.ml" 402 12681 12704
+type(
+  jNon
+)
+ident(
+  int_ref _p0 "formule.ml" 401 12653 12666 "formule.ml" 401 12653 12669
+)
+"formule.ml" 402 12681 12701 "formule.ml" 402 12681 12718
+call(
+  stack
+)
+type(
+  _jni_jNon
+)
+"formule.ml" 404 12732 12744 "formule.ml" 404 12732 12753
+type(
+  (_jni_jVisiteurML -> _jni_jNon -> unit) java_method ->
+  _jni_jVisiteurML -> _jni_jNon -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 405 12754 12768 "formule.ml" 405 12754 12833
+type(
+  (_jni_jVisiteurML -> _jni_jNon -> unit) java_method
+)
+"formule.ml" 406 12834 12848 "formule.ml" 406 12834 12855
+type(
+  _jni_jVisiteurML
+)
+ident(
+  int_ref jni_ref "formule.ml" 366 11553 11579 "formule.ml" 366 11553 11586
+)
+"formule.ml" 406 12834 12856 "formule.ml" 406 12834 12859
+type(
+  _jni_jNon
+)
+ident(
+  int_ref _p0 "formule.ml" 402 12681 12695 "formule.ml" 402 12681 12698
+)
+"formule.ml" 404 12732 12744 "formule.ml" 406 12834 12859
+type(
+  unit
+)
+"formule.ml" 402 12681 12691 "formule.ml" 406 12834 12859
+type(
+  unit
+)
+"formule.ml" 401 12653 12661 "formule.ml" 406 12834 12859
+type(
+  jNon -> unit
+)
+type(
+  jNon -> unit
+)
+"formule.ml" 408 12886 12899 "formule.ml" 408 12886 12902
+type(
+  jConstante
+)
+ident(
+  def _p0 "formule.ml" 409 12920 12930 "formule.ml" 413 13085 13110
+)
+"formule.ml" 409 12920 12934 "formule.ml" 409 12920 12937
+type(
+  _jni_jConstante
+)
+ident(
+  def _p0 "formule.ml" 411 12977 12989 "formule.ml" 413 13085 13110
+)
+"formule.ml" 409 12920 12940 "formule.ml" 409 12920 12943
+type(
+  jConstante
+)
+ident(
+  int_ref _p0 "formule.ml" 408 12886 12899 "formule.ml" 408 12886 12902
+)
+"formule.ml" 409 12920 12940 "formule.ml" 409 12920 12963
+call(
+  stack
+)
+type(
+  _jni_jConstante
+)
+"formule.ml" 411 12977 12989 "formule.ml" 411 12977 12998
+type(
+  (_jni_jVisiteurML -> _jni_jConstante -> unit) java_method ->
+  _jni_jVisiteurML -> _jni_jConstante -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 412 12999 13013 "formule.ml" 412 12999 13084
+type(
+  (_jni_jVisiteurML -> _jni_jConstante -> unit) java_method
+)
+"formule.ml" 413 13085 13099 "formule.ml" 413 13085 13106
+type(
+  _jni_jVisiteurML
+)
+ident(
+  int_ref jni_ref "formule.ml" 366 11553 11579 "formule.ml" 366 11553 11586
+)
+"formule.ml" 413 13085 13107 "formule.ml" 413 13085 13110
+type(
+  _jni_jConstante
+)
+ident(
+  int_ref _p0 "formule.ml" 409 12920 12934 "formule.ml" 409 12920 12937
+)
+"formule.ml" 411 12977 12989 "formule.ml" 413 13085 13110
+type(
+  unit
+)
+"formule.ml" 409 12920 12930 "formule.ml" 413 13085 13110
+type(
+  unit
+)
+"formule.ml" 408 12886 12894 "formule.ml" 413 13085 13110
+type(
+  jConstante -> unit
+)
+type(
+  jConstante -> unit
+)
+"formule.ml" 414 13111 13147 "formule.ml" 414 13111 13154
+type(
+  _jni_jVisiteurML
+)
+type(
+  _jni_jVisiteurML
+)
+ident(
+  int_ref jni_ref "formule.ml" 366 11553 11579 "formule.ml" 366 11553 11586
+)
+"formule.ml" 415 13155 13190 "formule.ml" 415 13155 13197
+type(
+  _jni_jVisiteur
+)
+type(
+  _jni_jVisiteur
+)
+type(
+  _jni_jVisiteurML
+)
+ident(
+  int_ref jni_ref "formule.ml" 366 11553 11579 "formule.ml" 366 11553 11586
+)
+"formule.ml" 417 13225 13247 "formule.ml" 417 13225 13254
+type(
+  _jni_jMainML
+)
+"formule.ml" 418 13273 13279 "formule.ml" 418 13273 13280
+type(
+  unit
+)
+"formule.ml" 419 13283 13290 "formule.ml" 419 13283 13302
+type(
+  _jni_jMainML -> bool
+)
+ident(
+  ext_ref Java.is_null
+)
+"formule.ml" 419 13283 13303 "formule.ml" 419 13283 13310
+type(
+  _jni_jMainML
+)
+ident(
+  int_ref jni_ref "formule.ml" 417 13225 13247 "formule.ml" 417 13225 13254
+)
+"formule.ml" 419 13283 13290 "formule.ml" 419 13283 13310
+type(
+  bool
+)
+"formule.ml" 420 13311 13320 "formule.ml" 420 13311 13325
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"formule.ml" 420 13311 13339 "formule.ml" 420 13311 13366
+type(
+  string
+)
+"formule.ml" 420 13311 13326 "formule.ml" 420 13311 13367
+type(
+  exn
+)
+"formule.ml" 420 13311 13320 "formule.ml" 420 13311 13367
+type(
+  unit
+)
+"formule.ml" 421 13368 13377 "formule.ml" 421 13368 13379
+type(
+  unit
+)
+"formule.ml" 419 13283 13287 "formule.ml" 421 13368 13379
+type(
+  unit
+)
+"formule.ml" 423 13385 13396 "formule.ml" 423 13385 13402
+type(
+  < _get_jni_jMainML : _jni_jMainML; cree_visiteur : unit -> jVisiteurML;
+    .. >
+)
+"formule.ml" 425 13432 13444 "formule.ml" 425 13432 13446
+type(
+  unit
+)
+"formule.ml" 426 13450 13461 "formule.ml" 426 13450 13485
+type(
+  _jni_jVisiteurML -> _capsule_jVisiteurML
+)
+"formule.ml" 427 13486 13500 "formule.ml" 427 13486 13509
+type(
+  (_jni_jMainML -> _jni_jVisiteurML) java_method ->
+  _jni_jMainML -> _jni_jVisiteurML
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 428 13510 13526 "formule.ml" 428 13510 13599
+type(
+  (_jni_jMainML -> _jni_jVisiteurML) java_method
+)
+"formule.ml" 429 13600 13616 "formule.ml" 429 13600 13623
+type(
+  _jni_jMainML
+)
+ident(
+  int_ref jni_ref "formule.ml" 417 13225 13247 "formule.ml" 417 13225 13254
+)
+"formule.ml" 427 13486 13499 "formule.ml" 429 13600 13624
+type(
+  _jni_jVisiteurML
+)
+"formule.ml" 426 13450 13461 "formule.ml" 429 13600 13624
+call(
+  tail
+)
+type(
+  jVisiteurML
+)
+type(
+  _capsule_jVisiteurML
+)
+"formule.ml" 425 13432 13440 "formule.ml" 430 13627 13651
+type(
+  unit -> jVisiteurML
+)
+type(
+  unit -> jVisiteurML
+)
+"formule.ml" 431 13652 13684 "formule.ml" 431 13652 13691
+type(
+  _jni_jMainML
+)
+type(
+  _jni_jMainML
+)
+ident(
+  int_ref jni_ref "formule.ml" 417 13225 13247 "formule.ml" 417 13225 13254
+)
+"formule.ml" 433 13700 13724 "formule.ml" 433 13700 13731
+type(
+  _jni_jMainJava
+)
+"formule.ml" 434 13752 13758 "formule.ml" 434 13752 13759
+type(
+  unit
+)
+"formule.ml" 435 13762 13769 "formule.ml" 435 13762 13781
+type(
+  _jni_jMainJava -> bool
+)
+ident(
+  ext_ref Java.is_null
+)
+"formule.ml" 435 13762 13782 "formule.ml" 435 13762 13789
+type(
+  _jni_jMainJava
+)
+ident(
+  int_ref jni_ref "formule.ml" 433 13700 13724 "formule.ml" 433 13700 13731
+)
+"formule.ml" 435 13762 13769 "formule.ml" 435 13762 13789
+type(
+  bool
+)
+"formule.ml" 436 13790 13799 "formule.ml" 436 13790 13804
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"formule.ml" 436 13790 13818 "formule.ml" 436 13790 13847
+type(
+  string
+)
+"formule.ml" 436 13790 13805 "formule.ml" 436 13790 13848
+type(
+  exn
+)
+"formule.ml" 436 13790 13799 "formule.ml" 436 13790 13848
+type(
+  unit
+)
+"formule.ml" 437 13849 13858 "formule.ml" 437 13849 13860
+type(
+  unit
+)
+"formule.ml" 435 13762 13766 "formule.ml" 437 13849 13860
+type(
+  unit
+)
+"formule.ml" 438 13861 13873 "formule.ml" 438 13861 13879
+type(
+  < _get_jni_jMainJava : _jni_jMainJava; .. >
+)
+"formule.ml" 438 13861 13908 "formule.ml" 438 13861 13915
+type(
+  _jni_jMainJava
+)
+type(
+  _jni_jMainJava
+)
+ident(
+  int_ref jni_ref "formule.ml" 433 13700 13724 "formule.ml" 433 13700 13731
+)
+"formule.ml" 439 13920 13958 "formule.ml" 439 13920 13965
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance ref
+)
+"formule.ml" 439 13920 13968 "formule.ml" 439 13920 13971
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance ->
+  fr'upmc'infop6'mlo'VisiteurML java_instance ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"formule.ml" 439 13920 13972 "formule.ml" 439 13920 13981
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance
+)
+ident(
+  ext_ref Java.null
+)
+"formule.ml" 439 13920 13968 "formule.ml" 439 13920 13981
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance ref
+)
+"formule.ml" 441 13987 13998 "formule.ml" 441 13987 14004
+type(
+  < _get_jni_jVisiteur : _jni_jVisiteur;
+    _get_jni_jVisiteurML : _jni_jVisiteurML; get_res : unit -> string;
+    visite_cst : jConstante -> unit; visite_et : jEt -> unit;
+    visite_non : jNon -> unit; visite_ou : jOu -> unit;
+    visite_var : jVar -> unit; .. >
+)
+"formule.ml" 443 14023 14032 "formule.ml" 443 14023 14039
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance ref
+)
+ident(
+  int_ref jni_ref "formule.ml" 439 13920 13958 "formule.ml" 439 13920 13965
+)
+"formule.ml" 443 14023 14040 "formule.ml" 443 14023 14042
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance ref ->
+  fr'upmc'infop6'mlo'VisiteurML java_instance -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"formule.ml" 444 14043 14054 "formule.ml" 444 14043 14064
+type(
+  (< get_res : java'lang'String java_instance;
+     visite : _jni_jConstante -> unit; visite_2 : _jni_jEt -> unit;
+     visite_3 : _jni_jNon -> unit; visite_4 : _jni_jOu -> unit;
+     visite_5 : _jni_jVar -> unit > ->
+   fr'upmc'infop6'mlo'VisiteurML java_instance)
+  java_proxy ->
+  < get_res : java'lang'String java_instance;
+    visite : _jni_jConstante -> unit; visite_2 : _jni_jEt -> unit;
+    visite_3 : _jni_jNon -> unit; visite_4 : _jni_jOu -> unit;
+    visite_5 : _jni_jVar -> unit > ->
+  fr'upmc'infop6'mlo'VisiteurML java_instance
+)
+ident(
+  ext_ref Java.proxy
+)
+"formule.ml" 444 14043 14065 "formule.ml" 444 14043 14096
+type(
+  (< get_res : java'lang'String java_instance;
+     visite : _jni_jConstante -> unit; visite_2 : _jni_jEt -> unit;
+     visite_3 : _jni_jNon -> unit; visite_4 : _jni_jOu -> unit;
+     visite_5 : _jni_jVar -> unit > ->
+   fr'upmc'infop6'mlo'VisiteurML java_instance)
+  java_proxy
+)
+"formule.ml" 446 14118 14151 "formule.ml" 446 14118 14171
+type(
+  string -> java'lang'String java_instance
+)
+ident(
+  ext_ref JavaString.of_string
+)
+"formule.ml" 446 14118 14173 "formule.ml" 446 14118 14177
+type(
+  < _get_jni_jVisiteur : _jni_jVisiteur;
+    _get_jni_jVisiteurML : _jni_jVisiteurML; get_res : unit -> string;
+    visite_cst : jConstante -> unit; visite_et : jEt -> unit;
+    visite_non : jNon -> unit; visite_ou : jOu -> unit;
+    visite_var : jVar -> unit; .. >
+  as 'a
+)
+ident(
+  int_ref self "formule.ml" 441 13987 13998 "formule.ml" 441 13987 14004
+)
+"formule.ml" 446 14118 14173 "formule.ml" 446 14118 14185
+call(
+  stack
+)
+type(
+  unit -> string
+)
+"formule.ml" 446 14118 14186 "formule.ml" 446 14118 14188
+type(
+  unit
+)
+"formule.ml" 446 14118 14172 "formule.ml" 446 14118 14189
+type(
+  string
+)
+"formule.ml" 446 14118 14151 "formule.ml" 446 14118 14189
+type(
+  java'lang'String java_instance
+)
+type(
+  java'lang'String java_instance
+)
+"formule.ml" 448 14224 14247 "formule.ml" 448 14224 14250
+type(
+  _jni_jVar
+)
+ident(
+  def _p0 "formule.ml" 449 14267 14287 "formule.ml" 450 14326 14368
+)
+"formule.ml" 449 14267 14291 "formule.ml" 449 14267 14294
+type(
+  jVar
+)
+ident(
+  def _p0 "formule.ml" 450 14326 14349 "formule.ml" 450 14326 14368
+)
+"formule.ml" 449 14267 14304 "formule.ml" 449 14267 14321
+type(
+  _jni_jVar -> _capsule_jVar
+)
+"formule.ml" 449 14267 14322 "formule.ml" 449 14267 14325
+type(
+  _jni_jVar
+)
+ident(
+  int_ref _p0 "formule.ml" 448 14224 14247 "formule.ml" 448 14224 14250
+)
+"formule.ml" 449 14267 14304 "formule.ml" 449 14267 14325
+call(
+  stack
+)
+type(
+  jVar
+)
+type(
+  _capsule_jVar
+)
+"formule.ml" 450 14326 14349 "formule.ml" 450 14326 14353
+type(
+  'a
+)
+ident(
+  int_ref self "formule.ml" 441 13987 13998 "formule.ml" 441 13987 14004
+)
+"formule.ml" 450 14326 14349 "formule.ml" 450 14326 14364
+call(
+  tail
+)
+type(
+  jVar -> unit
+)
+"formule.ml" 450 14326 14365 "formule.ml" 450 14326 14368
+type(
+  jVar
+)
+ident(
+  int_ref _p0 "formule.ml" 449 14267 14291 "formule.ml" 449 14267 14294
+)
+"formule.ml" 450 14326 14349 "formule.ml" 450 14326 14368
+type(
+  unit
+)
+"formule.ml" 449 14267 14287 "formule.ml" 450 14326 14368
+type(
+  unit
+)
+"formule.ml" 448 14224 14242 "formule.ml" 450 14326 14368
+type(
+  _jni_jVar -> unit
+)
+type(
+  _jni_jVar -> unit
+)
+"formule.ml" 452 14403 14426 "formule.ml" 452 14403 14429
+type(
+  _jni_jOu
+)
+ident(
+  def _p0 "formule.ml" 453 14445 14465 "formule.ml" 454 14502 14543
+)
+"formule.ml" 453 14445 14469 "formule.ml" 453 14445 14472
+type(
+  jOu
+)
+ident(
+  def _p0 "formule.ml" 454 14502 14525 "formule.ml" 454 14502 14543
+)
+"formule.ml" 453 14445 14481 "formule.ml" 453 14445 14497
+type(
+  _jni_jOu -> _capsule_jOu
+)
+"formule.ml" 453 14445 14498 "formule.ml" 453 14445 14501
+type(
+  _jni_jOu
+)
+ident(
+  int_ref _p0 "formule.ml" 452 14403 14426 "formule.ml" 452 14403 14429
+)
+"formule.ml" 453 14445 14481 "formule.ml" 453 14445 14501
+call(
+  stack
+)
+type(
+  jOu
+)
+type(
+  _capsule_jOu
+)
+"formule.ml" 454 14502 14525 "formule.ml" 454 14502 14529
+type(
+  'a
+)
+ident(
+  int_ref self "formule.ml" 441 13987 13998 "formule.ml" 441 13987 14004
+)
+"formule.ml" 454 14502 14525 "formule.ml" 454 14502 14539
+call(
+  tail
+)
+type(
+  jOu -> unit
+)
+"formule.ml" 454 14502 14540 "formule.ml" 454 14502 14543
+type(
+  jOu
+)
+ident(
+  int_ref _p0 "formule.ml" 453 14445 14469 "formule.ml" 453 14445 14472
+)
+"formule.ml" 454 14502 14525 "formule.ml" 454 14502 14543
+type(
+  unit
+)
+"formule.ml" 453 14445 14465 "formule.ml" 454 14502 14543
+type(
+  unit
+)
+"formule.ml" 452 14403 14421 "formule.ml" 454 14502 14543
+type(
+  _jni_jOu -> unit
+)
+type(
+  _jni_jOu -> unit
+)
+"formule.ml" 456 14578 14601 "formule.ml" 456 14578 14604
+type(
+  _jni_jEt
+)
+ident(
+  def _p0 "formule.ml" 457 14620 14640 "formule.ml" 458 14677 14718
+)
+"formule.ml" 457 14620 14644 "formule.ml" 457 14620 14647
+type(
+  jEt
+)
+ident(
+  def _p0 "formule.ml" 458 14677 14700 "formule.ml" 458 14677 14718
+)
+"formule.ml" 457 14620 14656 "formule.ml" 457 14620 14672
+type(
+  _jni_jEt -> _capsule_jEt
+)
+"formule.ml" 457 14620 14673 "formule.ml" 457 14620 14676
+type(
+  _jni_jEt
+)
+ident(
+  int_ref _p0 "formule.ml" 456 14578 14601 "formule.ml" 456 14578 14604
+)
+"formule.ml" 457 14620 14656 "formule.ml" 457 14620 14676
+call(
+  stack
+)
+type(
+  jEt
+)
+type(
+  _capsule_jEt
+)
+"formule.ml" 458 14677 14700 "formule.ml" 458 14677 14704
+type(
+  'a
+)
+ident(
+  int_ref self "formule.ml" 441 13987 13998 "formule.ml" 441 13987 14004
+)
+"formule.ml" 458 14677 14700 "formule.ml" 458 14677 14714
+call(
+  tail
+)
+type(
+  jEt -> unit
+)
+"formule.ml" 458 14677 14715 "formule.ml" 458 14677 14718
+type(
+  jEt
+)
+ident(
+  int_ref _p0 "formule.ml" 457 14620 14644 "formule.ml" 457 14620 14647
+)
+"formule.ml" 458 14677 14700 "formule.ml" 458 14677 14718
+type(
+  unit
+)
+"formule.ml" 457 14620 14640 "formule.ml" 458 14677 14718
+type(
+  unit
+)
+"formule.ml" 456 14578 14596 "formule.ml" 458 14677 14718
+type(
+  _jni_jEt -> unit
+)
+type(
+  _jni_jEt -> unit
+)
+"formule.ml" 460 14753 14776 "formule.ml" 460 14753 14779
+type(
+  _jni_jNon
+)
+ident(
+  def _p0 "formule.ml" 461 14796 14816 "formule.ml" 462 14855 14897
+)
+"formule.ml" 461 14796 14820 "formule.ml" 461 14796 14823
+type(
+  jNon
+)
+ident(
+  def _p0 "formule.ml" 462 14855 14878 "formule.ml" 462 14855 14897
+)
+"formule.ml" 461 14796 14833 "formule.ml" 461 14796 14850
+type(
+  _jni_jNon -> _capsule_jNon
+)
+"formule.ml" 461 14796 14851 "formule.ml" 461 14796 14854
+type(
+  _jni_jNon
+)
+ident(
+  int_ref _p0 "formule.ml" 460 14753 14776 "formule.ml" 460 14753 14779
+)
+"formule.ml" 461 14796 14833 "formule.ml" 461 14796 14854
+call(
+  stack
+)
+type(
+  jNon
+)
+type(
+  _capsule_jNon
+)
+"formule.ml" 462 14855 14878 "formule.ml" 462 14855 14882
+type(
+  'a
+)
+ident(
+  int_ref self "formule.ml" 441 13987 13998 "formule.ml" 441 13987 14004
+)
+"formule.ml" 462 14855 14878 "formule.ml" 462 14855 14893
+call(
+  tail
+)
+type(
+  jNon -> unit
+)
+"formule.ml" 462 14855 14894 "formule.ml" 462 14855 14897
+type(
+  jNon
+)
+ident(
+  int_ref _p0 "formule.ml" 461 14796 14820 "formule.ml" 461 14796 14823
+)
+"formule.ml" 462 14855 14878 "formule.ml" 462 14855 14897
+type(
+  unit
+)
+"formule.ml" 461 14796 14816 "formule.ml" 462 14855 14897
+type(
+  unit
+)
+"formule.ml" 460 14753 14771 "formule.ml" 462 14855 14897
+type(
+  _jni_jNon -> unit
+)
+type(
+  _jni_jNon -> unit
+)
+"formule.ml" 464 14930 14953 "formule.ml" 464 14930 14956
+type(
+  _jni_jConstante
+)
+ident(
+  def _p0 "formule.ml" 465 14979 14999 "formule.ml" 466 15050 15092
+)
+"formule.ml" 465 14979 15003 "formule.ml" 465 14979 15006
+type(
+  jConstante
+)
+ident(
+  def _p0 "formule.ml" 466 15050 15073 "formule.ml" 466 15050 15092
+)
+"formule.ml" 465 14979 15022 "formule.ml" 465 14979 15045
+type(
+  _jni_jConstante -> _capsule_jConstante
+)
+"formule.ml" 465 14979 15046 "formule.ml" 465 14979 15049
+type(
+  _jni_jConstante
+)
+ident(
+  int_ref _p0 "formule.ml" 464 14930 14953 "formule.ml" 464 14930 14956
+)
+"formule.ml" 465 14979 15022 "formule.ml" 465 14979 15049
+call(
+  stack
+)
+type(
+  jConstante
+)
+type(
+  _capsule_jConstante
+)
+"formule.ml" 466 15050 15073 "formule.ml" 466 15050 15077
+type(
+  'a
+)
+ident(
+  int_ref self "formule.ml" 441 13987 13998 "formule.ml" 441 13987 14004
+)
+"formule.ml" 466 15050 15073 "formule.ml" 466 15050 15088
+call(
+  tail
+)
+type(
+  jConstante -> unit
+)
+"formule.ml" 466 15050 15089 "formule.ml" 466 15050 15092
+type(
+  jConstante
+)
+ident(
+  int_ref _p0 "formule.ml" 465 14979 15003 "formule.ml" 465 14979 15006
+)
+"formule.ml" 466 15050 15073 "formule.ml" 466 15050 15092
+type(
+  unit
+)
+"formule.ml" 465 14979 14999 "formule.ml" 466 15050 15092
+type(
+  unit
+)
+"formule.ml" 464 14930 14948 "formule.ml" 466 15050 15092
+type(
+  _jni_jConstante -> unit
+)
+type(
+  _jni_jConstante -> unit
+)
+"formule.ml" 445 14097 14110 "formule.ml" 467 15093 15111
+type(
+  < get_res : java'lang'String java_instance;
+    visite : _jni_jConstante -> unit; visite_2 : _jni_jEt -> unit;
+    visite_3 : _jni_jNon -> unit; visite_4 : _jni_jOu -> unit;
+    visite_5 : _jni_jVar -> unit >
+)
+"formule.ml" 444 14043 14054 "formule.ml" 467 15093 15111
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance
+)
+"formule.ml" 443 14023 14032 "formule.ml" 467 15093 15111
+type(
+  unit
+)
+"formule.ml" 468 15113 15125 "formule.ml" 468 15113 15137
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance -> bool
+)
+ident(
+  ext_ref Java.is_null
+)
+"formule.ml" 468 15113 15138 "formule.ml" 468 15113 15139
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance ref ->
+  fr'upmc'infop6'mlo'VisiteurML java_instance
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"formule.ml" 468 15113 15139 "formule.ml" 468 15113 15146
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance ref
+)
+ident(
+  int_ref jni_ref "formule.ml" 439 13920 13958 "formule.ml" 439 13920 13965
+)
+"formule.ml" 468 15113 15138 "formule.ml" 468 15113 15146
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance
+)
+"formule.ml" 468 15113 15125 "formule.ml" 468 15113 15146
+type(
+  bool
+)
+"formule.ml" 469 15147 15161 "formule.ml" 469 15147 15166
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"formule.ml" 469 15147 15180 "formule.ml" 469 15147 15223
+type(
+  string
+)
+"formule.ml" 469 15147 15167 "formule.ml" 469 15147 15224
+type(
+  exn
+)
+"formule.ml" 469 15147 15161 "formule.ml" 469 15147 15224
+type(
+  unit
+)
+"formule.ml" 470 15225 15239 "formule.ml" 470 15225 15241
+type(
+  unit
+)
+"formule.ml" 468 15113 15122 "formule.ml" 470 15225 15241
+type(
+  unit
+)
+"formule.ml" 443 14023 14031 "formule.ml" 470 15225 15242
+type(
+  'a -> unit
+)
+type(
+  unit
+)
+"formule.ml" 477 15526 15563 "formule.ml" 477 15526 15564
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance ref ->
+  fr'upmc'infop6'mlo'VisiteurML java_instance
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"formule.ml" 477 15526 15564 "formule.ml" 477 15526 15571
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance ref
+)
+ident(
+  int_ref jni_ref "formule.ml" 439 13920 13958 "formule.ml" 439 13920 13965
+)
+"formule.ml" 477 15526 15563 "formule.ml" 477 15526 15571
+type(
+  _jni_jVisiteurML
+)
+type(
+  _jni_jVisiteurML
+)
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance
+)
+"formule.ml" 478 15593 15628 "formule.ml" 478 15593 15629
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance ref ->
+  fr'upmc'infop6'mlo'VisiteurML java_instance
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"formule.ml" 478 15593 15629 "formule.ml" 478 15593 15636
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance ref
+)
+ident(
+  int_ref jni_ref "formule.ml" 439 13920 13958 "formule.ml" 439 13920 13965
+)
+"formule.ml" 478 15593 15628 "formule.ml" 478 15593 15636
+type(
+  _jni_jVisiteur
+)
+type(
+  _jni_jVisiteur
+)
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance
+)
+"formule.ml" 480 15664 15698 "formule.ml" 480 15664 15705
+type(
+  fr'upmc'infop6'mlo'MainML java_instance ref
+)
+"formule.ml" 480 15664 15708 "formule.ml" 480 15664 15711
+type(
+  fr'upmc'infop6'mlo'MainML java_instance ->
+  fr'upmc'infop6'mlo'MainML java_instance ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"formule.ml" 480 15664 15712 "formule.ml" 480 15664 15721
+type(
+  fr'upmc'infop6'mlo'MainML java_instance
+)
+ident(
+  ext_ref Java.null
+)
+"formule.ml" 480 15664 15708 "formule.ml" 480 15664 15721
+type(
+  fr'upmc'infop6'mlo'MainML java_instance ref
+)
+"formule.ml" 482 15727 15738 "formule.ml" 482 15727 15744
+type(
+  < _get_jni_jMainML : _jni_jMainML; cree_visiteur : unit -> jVisiteurML;
+    .. >
+)
+"formule.ml" 484 15763 15772 "formule.ml" 484 15763 15779
+type(
+  fr'upmc'infop6'mlo'MainML java_instance ref
+)
+ident(
+  int_ref jni_ref "formule.ml" 480 15664 15698 "formule.ml" 480 15664 15705
+)
+"formule.ml" 484 15763 15780 "formule.ml" 484 15763 15782
+type(
+  fr'upmc'infop6'mlo'MainML java_instance ref ->
+  fr'upmc'infop6'mlo'MainML java_instance -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"formule.ml" 485 15783 15794 "formule.ml" 485 15783 15804
+type(
+  (< cree_visiteur : _jni_jVisiteurML > ->
+   fr'upmc'infop6'mlo'MainML java_instance)
+  java_proxy ->
+  < cree_visiteur : _jni_jVisiteurML > ->
+  fr'upmc'infop6'mlo'MainML java_instance
+)
+ident(
+  ext_ref Java.proxy
+)
+"formule.ml" 485 15783 15805 "formule.ml" 485 15783 15832
+type(
+  (< cree_visiteur : _jni_jVisiteurML > ->
+   fr'upmc'infop6'mlo'MainML java_instance)
+  java_proxy
+)
+"formule.ml" 488 15893 15912 "formule.ml" 488 15893 15916
+type(
+  < _get_jni_jMainML : _jni_jMainML; cree_visiteur : unit -> jVisiteurML;
+    .. >
+  as 'b
+)
+ident(
+  int_ref self "formule.ml" 482 15727 15738 "formule.ml" 482 15727 15744
+)
+"formule.ml" 488 15893 15912 "formule.ml" 488 15893 15930
+call(
+  stack
+)
+type(
+  unit -> jVisiteurML
+)
+"formule.ml" 488 15893 15931 "formule.ml" 488 15893 15933
+type(
+  unit
+)
+"formule.ml" 488 15893 15911 "formule.ml" 488 15893 15934
+type(
+  jVisiteurML
+)
+"formule.ml" 488 15893 15911 "formule.ml" 488 15893 15955
+call(
+  tail
+)
+type(
+  _jni_jVisiteurML
+)
+type(
+  _jni_jVisiteurML
+)
+"formule.ml" 486 15833 15846 "formule.ml" 489 15956 15974
+type(
+  < cree_visiteur : _jni_jVisiteurML >
+)
+"formule.ml" 485 15783 15794 "formule.ml" 489 15956 15974
+type(
+  fr'upmc'infop6'mlo'MainML java_instance
+)
+"formule.ml" 484 15763 15772 "formule.ml" 489 15956 15974
+type(
+  unit
+)
+"formule.ml" 490 15976 15988 "formule.ml" 490 15976 16000
+type(
+  fr'upmc'infop6'mlo'MainML java_instance -> bool
+)
+ident(
+  ext_ref Java.is_null
+)
+"formule.ml" 490 15976 16001 "formule.ml" 490 15976 16002
+type(
+  fr'upmc'infop6'mlo'MainML java_instance ref ->
+  fr'upmc'infop6'mlo'MainML java_instance
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"formule.ml" 490 15976 16002 "formule.ml" 490 15976 16009
+type(
+  fr'upmc'infop6'mlo'MainML java_instance ref
+)
+ident(
+  int_ref jni_ref "formule.ml" 480 15664 15698 "formule.ml" 480 15664 15705
+)
+"formule.ml" 490 15976 16001 "formule.ml" 490 15976 16009
+type(
+  fr'upmc'infop6'mlo'MainML java_instance
+)
+"formule.ml" 490 15976 15988 "formule.ml" 490 15976 16009
+type(
+  bool
+)
+"formule.ml" 491 16010 16024 "formule.ml" 491 16010 16029
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"formule.ml" 491 16010 16043 "formule.ml" 491 16010 16082
+type(
+  string
+)
+"formule.ml" 491 16010 16030 "formule.ml" 491 16010 16083
+type(
+  exn
+)
+"formule.ml" 491 16010 16024 "formule.ml" 491 16010 16083
+type(
+  unit
+)
+"formule.ml" 492 16084 16098 "formule.ml" 492 16084 16100
+type(
+  unit
+)
+"formule.ml" 490 15976 15985 "formule.ml" 492 16084 16100
+type(
+  unit
+)
+"formule.ml" 484 15763 15771 "formule.ml" 492 16084 16101
+type(
+  'b -> unit
+)
+type(
+  unit
+)
+"formule.ml" 494 16159 16192 "formule.ml" 494 16159 16193
+type(
+  fr'upmc'infop6'mlo'MainML java_instance ref ->
+  fr'upmc'infop6'mlo'MainML java_instance
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"formule.ml" 494 16159 16193 "formule.ml" 494 16159 16200
+type(
+  fr'upmc'infop6'mlo'MainML java_instance ref
+)
+ident(
+  int_ref jni_ref "formule.ml" 480 15664 15698 "formule.ml" 480 15664 15705
+)
+"formule.ml" 494 16159 16192 "formule.ml" 494 16159 16200
+type(
+  _jni_jMainML
+)
+type(
+  _jni_jMainML
+)
+type(
+  fr'upmc'infop6'mlo'MainML java_instance
+)
+"formule.ml" 496 16228 16232 "formule.ml" 496 16228 16247
+type(
+  top -> jFormule
+)
+ident(
+  def jFormule_of_top "formule.ml" 498 16340 16340 "formule.ml" 1 0 -1
+)
+"formule.ml" 496 16228 16249 "formule.ml" 496 16228 16250
+type(
+  top
+)
+ident(
+  def o "formule.ml" 496 16228 16258 "formule.ml" 497 16271 16337
+)
+"formule.ml" 497 16271 16273 "formule.ml" 497 16271 16294
+type(
+  _jni_jFormule -> _capsule_jFormule
+)
+"formule.ml" 497 16271 16296 "formule.ml" 497 16271 16305
+type(
+  _jni_jFormule java_reference_type -> top -> _jni_jFormule
+)
+ident(
+  ext_ref Java.cast
+)
+"formule.ml" 497 16271 16306 "formule.ml" 497 16271 16334
+type(
+  _jni_jFormule java_reference_type
+)
+"formule.ml" 497 16271 16335 "formule.ml" 497 16271 16336
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 496 16228 16249 "formule.ml" 496 16228 16250
+)
+"formule.ml" 497 16271 16295 "formule.ml" 497 16271 16337
+type(
+  _jni_jFormule
+)
+"formule.ml" 497 16271 16273 "formule.ml" 497 16271 16337
+call(
+  tail
+)
+type(
+  jFormule
+)
+type(
+  _capsule_jFormule
+)
+"formule.ml" 498 16340 16344 "formule.ml" 498 16340 16361
+type(
+  top -> jConstante
+)
+ident(
+  def jConstante_of_top "formule.ml" 500 16460 16460 "formule.ml" 1 0 -1
+)
+"formule.ml" 498 16340 16363 "formule.ml" 498 16340 16364
+type(
+  top
+)
+ident(
+  def o "formule.ml" 498 16340 16372 "formule.ml" 499 16387 16457
+)
+"formule.ml" 499 16387 16389 "formule.ml" 499 16387 16412
+type(
+  _jni_jConstante -> _capsule_jConstante
+)
+"formule.ml" 499 16387 16414 "formule.ml" 499 16387 16423
+type(
+  _jni_jConstante java_reference_type -> top -> _jni_jConstante
+)
+ident(
+  ext_ref Java.cast
+)
+"formule.ml" 499 16387 16424 "formule.ml" 499 16387 16454
+type(
+  _jni_jConstante java_reference_type
+)
+"formule.ml" 499 16387 16455 "formule.ml" 499 16387 16456
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 498 16340 16363 "formule.ml" 498 16340 16364
+)
+"formule.ml" 499 16387 16413 "formule.ml" 499 16387 16457
+type(
+  _jni_jConstante
+)
+"formule.ml" 499 16387 16389 "formule.ml" 499 16387 16457
+call(
+  tail
+)
+type(
+  jConstante
+)
+type(
+  _capsule_jConstante
+)
+"formule.ml" 500 16460 16464 "formule.ml" 500 16460 16475
+type(
+  top -> jVar
+)
+ident(
+  def jVar_of_top "formule.ml" 502 16556 16556 "formule.ml" 1 0 -1
+)
+"formule.ml" 500 16460 16477 "formule.ml" 500 16460 16478
+type(
+  top
+)
+ident(
+  def o "formule.ml" 500 16460 16486 "formule.ml" 501 16495 16553
+)
+"formule.ml" 501 16495 16497 "formule.ml" 501 16495 16514
+type(
+  _jni_jVar -> _capsule_jVar
+)
+"formule.ml" 501 16495 16516 "formule.ml" 501 16495 16525
+type(
+  _jni_jVar java_reference_type -> top -> _jni_jVar
+)
+ident(
+  ext_ref Java.cast
+)
+"formule.ml" 501 16495 16526 "formule.ml" 501 16495 16550
+type(
+  _jni_jVar java_reference_type
+)
+"formule.ml" 501 16495 16551 "formule.ml" 501 16495 16552
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 500 16460 16477 "formule.ml" 500 16460 16478
+)
+"formule.ml" 501 16495 16515 "formule.ml" 501 16495 16553
+type(
+  _jni_jVar
+)
+"formule.ml" 501 16495 16497 "formule.ml" 501 16495 16553
+call(
+  tail
+)
+type(
+  jVar
+)
+type(
+  _capsule_jVar
+)
+"formule.ml" 502 16556 16560 "formule.ml" 502 16556 16571
+type(
+  top -> jNon
+)
+ident(
+  def jNon_of_top "formule.ml" 504 16652 16652 "formule.ml" 1 0 -1
+)
+"formule.ml" 502 16556 16573 "formule.ml" 502 16556 16574
+type(
+  top
+)
+ident(
+  def o "formule.ml" 502 16556 16582 "formule.ml" 503 16591 16649
+)
+"formule.ml" 503 16591 16593 "formule.ml" 503 16591 16610
+type(
+  _jni_jNon -> _capsule_jNon
+)
+"formule.ml" 503 16591 16612 "formule.ml" 503 16591 16621
+type(
+  _jni_jNon java_reference_type -> top -> _jni_jNon
+)
+ident(
+  ext_ref Java.cast
+)
+"formule.ml" 503 16591 16622 "formule.ml" 503 16591 16646
+type(
+  _jni_jNon java_reference_type
+)
+"formule.ml" 503 16591 16647 "formule.ml" 503 16591 16648
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 502 16556 16573 "formule.ml" 502 16556 16574
+)
+"formule.ml" 503 16591 16611 "formule.ml" 503 16591 16649
+type(
+  _jni_jNon
+)
+"formule.ml" 503 16591 16593 "formule.ml" 503 16591 16649
+call(
+  tail
+)
+type(
+  jNon
+)
+type(
+  _capsule_jNon
+)
+"formule.ml" 504 16652 16656 "formule.ml" 504 16652 16669
+type(
+  top -> jOpBin
+)
+ident(
+  def jOpBin_of_top "formule.ml" 506 16756 16756 "formule.ml" 1 0 -1
+)
+"formule.ml" 504 16652 16671 "formule.ml" 504 16652 16672
+type(
+  top
+)
+ident(
+  def o "formule.ml" 504 16652 16680 "formule.ml" 505 16691 16753
+)
+"formule.ml" 505 16691 16693 "formule.ml" 505 16691 16712
+type(
+  _jni_jOpBin -> _capsule_jOpBin
+)
+"formule.ml" 505 16691 16714 "formule.ml" 505 16691 16723
+type(
+  _jni_jOpBin java_reference_type -> top -> _jni_jOpBin
+)
+ident(
+  ext_ref Java.cast
+)
+"formule.ml" 505 16691 16724 "formule.ml" 505 16691 16750
+type(
+  _jni_jOpBin java_reference_type
+)
+"formule.ml" 505 16691 16751 "formule.ml" 505 16691 16752
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 504 16652 16671 "formule.ml" 504 16652 16672
+)
+"formule.ml" 505 16691 16713 "formule.ml" 505 16691 16753
+type(
+  _jni_jOpBin
+)
+"formule.ml" 505 16691 16693 "formule.ml" 505 16691 16753
+call(
+  tail
+)
+type(
+  jOpBin
+)
+type(
+  _capsule_jOpBin
+)
+"formule.ml" 506 16756 16760 "formule.ml" 506 16756 16770
+type(
+  top -> jEt
+)
+ident(
+  def jEt_of_top "formule.ml" 508 16848 16848 "formule.ml" 1 0 -1
+)
+"formule.ml" 506 16756 16772 "formule.ml" 506 16756 16773
+type(
+  top
+)
+ident(
+  def o "formule.ml" 506 16756 16781 "formule.ml" 507 16789 16845
+)
+"formule.ml" 507 16789 16791 "formule.ml" 507 16789 16807
+type(
+  _jni_jEt -> _capsule_jEt
+)
+"formule.ml" 507 16789 16809 "formule.ml" 507 16789 16818
+type(
+  _jni_jEt java_reference_type -> top -> _jni_jEt
+)
+ident(
+  ext_ref Java.cast
+)
+"formule.ml" 507 16789 16819 "formule.ml" 507 16789 16842
+type(
+  _jni_jEt java_reference_type
+)
+"formule.ml" 507 16789 16843 "formule.ml" 507 16789 16844
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 506 16756 16772 "formule.ml" 506 16756 16773
+)
+"formule.ml" 507 16789 16808 "formule.ml" 507 16789 16845
+type(
+  _jni_jEt
+)
+"formule.ml" 507 16789 16791 "formule.ml" 507 16789 16845
+call(
+  tail
+)
+type(
+  jEt
+)
+type(
+  _capsule_jEt
+)
+"formule.ml" 508 16848 16852 "formule.ml" 508 16848 16862
+type(
+  top -> jOu
+)
+ident(
+  def jOu_of_top "formule.ml" 510 16940 16940 "formule.ml" 1 0 -1
+)
+"formule.ml" 508 16848 16864 "formule.ml" 508 16848 16865
+type(
+  top
+)
+ident(
+  def o "formule.ml" 508 16848 16873 "formule.ml" 509 16881 16937
+)
+"formule.ml" 509 16881 16883 "formule.ml" 509 16881 16899
+type(
+  _jni_jOu -> _capsule_jOu
+)
+"formule.ml" 509 16881 16901 "formule.ml" 509 16881 16910
+type(
+  _jni_jOu java_reference_type -> top -> _jni_jOu
+)
+ident(
+  ext_ref Java.cast
+)
+"formule.ml" 509 16881 16911 "formule.ml" 509 16881 16934
+type(
+  _jni_jOu java_reference_type
+)
+"formule.ml" 509 16881 16935 "formule.ml" 509 16881 16936
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 508 16848 16864 "formule.ml" 508 16848 16865
+)
+"formule.ml" 509 16881 16900 "formule.ml" 509 16881 16937
+type(
+  _jni_jOu
+)
+"formule.ml" 509 16881 16883 "formule.ml" 509 16881 16937
+call(
+  tail
+)
+type(
+  jOu
+)
+type(
+  _capsule_jOu
+)
+"formule.ml" 510 16940 16944 "formule.ml" 510 16940 16960
+type(
+  top -> jVisiteur
+)
+ident(
+  def jVisiteur_of_top "formule.ml" 512 17056 17056 "formule.ml" 1 0 -1
+)
+"formule.ml" 510 16940 16962 "formule.ml" 510 16940 16963
+type(
+  top
+)
+ident(
+  def o "formule.ml" 510 16940 16971 "formule.ml" 511 16985 17053
+)
+"formule.ml" 511 16985 16987 "formule.ml" 511 16985 17009
+type(
+  _jni_jVisiteur -> _capsule_jVisiteur
+)
+"formule.ml" 511 16985 17011 "formule.ml" 511 16985 17020
+type(
+  _jni_jVisiteur java_reference_type -> top -> _jni_jVisiteur
+)
+ident(
+  ext_ref Java.cast
+)
+"formule.ml" 511 16985 17021 "formule.ml" 511 16985 17050
+type(
+  _jni_jVisiteur java_reference_type
+)
+"formule.ml" 511 16985 17051 "formule.ml" 511 16985 17052
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 510 16940 16962 "formule.ml" 510 16940 16963
+)
+"formule.ml" 511 16985 17010 "formule.ml" 511 16985 17053
+type(
+  _jni_jVisiteur
+)
+"formule.ml" 511 16985 16987 "formule.ml" 511 16985 17053
+call(
+  tail
+)
+type(
+  jVisiteur
+)
+type(
+  _capsule_jVisiteur
+)
+"formule.ml" 512 17056 17060 "formule.ml" 512 17056 17078
+type(
+  top -> jVisiteurTS
+)
+ident(
+  def jVisiteurTS_of_top "formule.ml" 514 17180 17180 "formule.ml" 1 0 -1
+)
+"formule.ml" 512 17056 17080 "formule.ml" 512 17056 17081
+type(
+  top
+)
+ident(
+  def o "formule.ml" 512 17056 17089 "formule.ml" 513 17105 17177
+)
+"formule.ml" 513 17105 17107 "formule.ml" 513 17105 17131
+type(
+  _jni_jVisiteurTS -> _capsule_jVisiteurTS
+)
+"formule.ml" 513 17105 17133 "formule.ml" 513 17105 17142
+type(
+  _jni_jVisiteurTS java_reference_type -> top -> _jni_jVisiteurTS
+)
+ident(
+  ext_ref Java.cast
+)
+"formule.ml" 513 17105 17143 "formule.ml" 513 17105 17174
+type(
+  _jni_jVisiteurTS java_reference_type
+)
+"formule.ml" 513 17105 17175 "formule.ml" 513 17105 17176
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 512 17056 17080 "formule.ml" 512 17056 17081
+)
+"formule.ml" 513 17105 17132 "formule.ml" 513 17105 17177
+type(
+  _jni_jVisiteurTS
+)
+"formule.ml" 513 17105 17107 "formule.ml" 513 17105 17177
+call(
+  tail
+)
+type(
+  jVisiteurTS
+)
+type(
+  _capsule_jVisiteurTS
+)
+"formule.ml" 514 17180 17184 "formule.ml" 514 17180 17202
+type(
+  top -> jVisiteurML
+)
+ident(
+  def jVisiteurML_of_top "formule.ml" 516 17304 17304 "formule.ml" 1 0 -1
+)
+"formule.ml" 514 17180 17204 "formule.ml" 514 17180 17205
+type(
+  top
+)
+ident(
+  def o "formule.ml" 514 17180 17213 "formule.ml" 515 17229 17301
+)
+"formule.ml" 515 17229 17231 "formule.ml" 515 17229 17255
+type(
+  _jni_jVisiteurML -> _capsule_jVisiteurML
+)
+"formule.ml" 515 17229 17257 "formule.ml" 515 17229 17266
+type(
+  _jni_jVisiteurML java_reference_type -> top -> _jni_jVisiteurML
+)
+ident(
+  ext_ref Java.cast
+)
+"formule.ml" 515 17229 17267 "formule.ml" 515 17229 17298
+type(
+  _jni_jVisiteurML java_reference_type
+)
+"formule.ml" 515 17229 17299 "formule.ml" 515 17229 17300
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 514 17180 17204 "formule.ml" 514 17180 17205
+)
+"formule.ml" 515 17229 17256 "formule.ml" 515 17229 17301
+type(
+  _jni_jVisiteurML
+)
+"formule.ml" 515 17229 17231 "formule.ml" 515 17229 17301
+call(
+  tail
+)
+type(
+  jVisiteurML
+)
+type(
+  _capsule_jVisiteurML
+)
+"formule.ml" 516 17304 17308 "formule.ml" 516 17304 17322
+type(
+  top -> jMainML
+)
+ident(
+  def jMainML_of_top "formule.ml" 518 17412 17412 "formule.ml" 1 0 -1
+)
+"formule.ml" 516 17304 17324 "formule.ml" 516 17304 17325
+type(
+  top
+)
+ident(
+  def o "formule.ml" 516 17304 17333 "formule.ml" 517 17345 17409
+)
+"formule.ml" 517 17345 17347 "formule.ml" 517 17345 17367
+type(
+  _jni_jMainML -> _capsule_jMainML
+)
+"formule.ml" 517 17345 17369 "formule.ml" 517 17345 17378
+type(
+  _jni_jMainML java_reference_type -> top -> _jni_jMainML
+)
+ident(
+  ext_ref Java.cast
+)
+"formule.ml" 517 17345 17379 "formule.ml" 517 17345 17406
+type(
+  _jni_jMainML java_reference_type
+)
+"formule.ml" 517 17345 17407 "formule.ml" 517 17345 17408
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 516 17304 17324 "formule.ml" 516 17304 17325
+)
+"formule.ml" 517 17345 17368 "formule.ml" 517 17345 17409
+type(
+  _jni_jMainML
+)
+"formule.ml" 517 17345 17347 "formule.ml" 517 17345 17409
+call(
+  tail
+)
+type(
+  jMainML
+)
+type(
+  _capsule_jMainML
+)
+"formule.ml" 518 17412 17416 "formule.ml" 518 17412 17432
+type(
+  top -> jMainJava
+)
+ident(
+  def jMainJava_of_top "formule.ml" 520 17528 17528 "formule.ml" 1 0 -1
+)
+"formule.ml" 518 17412 17434 "formule.ml" 518 17412 17435
+type(
+  top
+)
+ident(
+  def o "formule.ml" 518 17412 17443 "formule.ml" 519 17457 17525
+)
+"formule.ml" 519 17457 17459 "formule.ml" 519 17457 17481
+type(
+  _jni_jMainJava -> _capsule_jMainJava
+)
+"formule.ml" 519 17457 17483 "formule.ml" 519 17457 17492
+type(
+  _jni_jMainJava java_reference_type -> top -> _jni_jMainJava
+)
+ident(
+  ext_ref Java.cast
+)
+"formule.ml" 519 17457 17493 "formule.ml" 519 17457 17522
+type(
+  _jni_jMainJava java_reference_type
+)
+"formule.ml" 519 17457 17523 "formule.ml" 519 17457 17524
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 518 17412 17434 "formule.ml" 518 17412 17435
+)
+"formule.ml" 519 17457 17482 "formule.ml" 519 17457 17525
+type(
+  _jni_jMainJava
+)
+"formule.ml" 519 17457 17459 "formule.ml" 519 17457 17525
+call(
+  tail
+)
+type(
+  jMainJava
+)
+type(
+  _capsule_jMainJava
+)
+"formule.ml" 520 17528 17532 "formule.ml" 520 17528 17553
+type(
+  top -> bool
+)
+ident(
+  def _instance_of_jFormule "formule.ml" 522 17617 17617 "formule.ml" 1 0 -1
+)
+"formule.ml" 520 17528 17555 "formule.ml" 520 17528 17556
+type(
+  top
+)
+ident(
+  def o "formule.ml" 521 17566 17568 "formule.ml" 521 17566 17614
+)
+"formule.ml" 521 17566 17568 "formule.ml" 521 17566 17583
+type(
+  fr'upmc'infop6'mlo'Formule java_instance java_reference_type -> top -> bool
+)
+ident(
+  ext_ref Java.instanceof
+)
+"formule.ml" 521 17566 17584 "formule.ml" 521 17566 17612
+type(
+  fr'upmc'infop6'mlo'Formule java_instance java_reference_type
+)
+"formule.ml" 521 17566 17613 "formule.ml" 521 17566 17614
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 520 17528 17555 "formule.ml" 520 17528 17556
+)
+"formule.ml" 521 17566 17568 "formule.ml" 521 17566 17614
+type(
+  bool
+)
+"formule.ml" 522 17617 17621 "formule.ml" 522 17617 17644
+type(
+  top -> bool
+)
+ident(
+  def _instance_of_jConstante "formule.ml" 524 17710 17710 "formule.ml" 1 0 -1
+)
+"formule.ml" 522 17617 17646 "formule.ml" 522 17617 17647
+type(
+  top
+)
+ident(
+  def o "formule.ml" 523 17657 17659 "formule.ml" 523 17657 17707
+)
+"formule.ml" 523 17657 17659 "formule.ml" 523 17657 17674
+type(
+  fr'upmc'infop6'mlo'Constante java_instance java_reference_type ->
+  top -> bool
+)
+ident(
+  ext_ref Java.instanceof
+)
+"formule.ml" 523 17657 17675 "formule.ml" 523 17657 17705
+type(
+  fr'upmc'infop6'mlo'Constante java_instance java_reference_type
+)
+"formule.ml" 523 17657 17706 "formule.ml" 523 17657 17707
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 522 17617 17646 "formule.ml" 522 17617 17647
+)
+"formule.ml" 523 17657 17659 "formule.ml" 523 17657 17707
+type(
+  bool
+)
+"formule.ml" 524 17710 17714 "formule.ml" 524 17710 17731
+type(
+  top -> bool
+)
+ident(
+  def _instance_of_jVar "formule.ml" 526 17791 17791 "formule.ml" 1 0 -1
+)
+"formule.ml" 524 17710 17733 "formule.ml" 524 17710 17734
+type(
+  top
+)
+ident(
+  def o "formule.ml" 525 17744 17746 "formule.ml" 525 17744 17788
+)
+"formule.ml" 525 17744 17746 "formule.ml" 525 17744 17761
+type(
+  fr'upmc'infop6'mlo'Var java_instance java_reference_type -> top -> bool
+)
+ident(
+  ext_ref Java.instanceof
+)
+"formule.ml" 525 17744 17762 "formule.ml" 525 17744 17786
+type(
+  fr'upmc'infop6'mlo'Var java_instance java_reference_type
+)
+"formule.ml" 525 17744 17787 "formule.ml" 525 17744 17788
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 524 17710 17733 "formule.ml" 524 17710 17734
+)
+"formule.ml" 525 17744 17746 "formule.ml" 525 17744 17788
+type(
+  bool
+)
+"formule.ml" 526 17791 17795 "formule.ml" 526 17791 17812
+type(
+  top -> bool
+)
+ident(
+  def _instance_of_jNon "formule.ml" 528 17872 17872 "formule.ml" 1 0 -1
+)
+"formule.ml" 526 17791 17814 "formule.ml" 526 17791 17815
+type(
+  top
+)
+ident(
+  def o "formule.ml" 527 17825 17827 "formule.ml" 527 17825 17869
+)
+"formule.ml" 527 17825 17827 "formule.ml" 527 17825 17842
+type(
+  fr'upmc'infop6'mlo'Non java_instance java_reference_type -> top -> bool
+)
+ident(
+  ext_ref Java.instanceof
+)
+"formule.ml" 527 17825 17843 "formule.ml" 527 17825 17867
+type(
+  fr'upmc'infop6'mlo'Non java_instance java_reference_type
+)
+"formule.ml" 527 17825 17868 "formule.ml" 527 17825 17869
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 526 17791 17814 "formule.ml" 526 17791 17815
+)
+"formule.ml" 527 17825 17827 "formule.ml" 527 17825 17869
+type(
+  bool
+)
+"formule.ml" 528 17872 17876 "formule.ml" 528 17872 17895
+type(
+  top -> bool
+)
+ident(
+  def _instance_of_jOpBin "formule.ml" 530 17957 17957 "formule.ml" 1 0 -1
+)
+"formule.ml" 528 17872 17897 "formule.ml" 528 17872 17898
+type(
+  top
+)
+ident(
+  def o "formule.ml" 529 17908 17910 "formule.ml" 529 17908 17954
+)
+"formule.ml" 529 17908 17910 "formule.ml" 529 17908 17925
+type(
+  fr'upmc'infop6'mlo'OpBin java_instance java_reference_type -> top -> bool
+)
+ident(
+  ext_ref Java.instanceof
+)
+"formule.ml" 529 17908 17926 "formule.ml" 529 17908 17952
+type(
+  fr'upmc'infop6'mlo'OpBin java_instance java_reference_type
+)
+"formule.ml" 529 17908 17953 "formule.ml" 529 17908 17954
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 528 17872 17897 "formule.ml" 528 17872 17898
+)
+"formule.ml" 529 17908 17910 "formule.ml" 529 17908 17954
+type(
+  bool
+)
+"formule.ml" 530 17957 17961 "formule.ml" 530 17957 17977
+type(
+  top -> bool
+)
+ident(
+  def _instance_of_jEt "formule.ml" 531 18034 18034 "formule.ml" 1 0 -1
+)
+"formule.ml" 530 17957 17979 "formule.ml" 530 17957 17980
+type(
+  top
+)
+ident(
+  def o "formule.ml" 530 17957 17990 "formule.ml" 530 17957 18031
+)
+"formule.ml" 530 17957 17990 "formule.ml" 530 17957 18005
+type(
+  fr'upmc'infop6'mlo'Et java_instance java_reference_type -> top -> bool
+)
+ident(
+  ext_ref Java.instanceof
+)
+"formule.ml" 530 17957 18006 "formule.ml" 530 17957 18029
+type(
+  fr'upmc'infop6'mlo'Et java_instance java_reference_type
+)
+"formule.ml" 530 17957 18030 "formule.ml" 530 17957 18031
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 530 17957 17979 "formule.ml" 530 17957 17980
+)
+"formule.ml" 530 17957 17990 "formule.ml" 530 17957 18031
+type(
+  bool
+)
+"formule.ml" 531 18034 18038 "formule.ml" 531 18034 18054
+type(
+  top -> bool
+)
+ident(
+  def _instance_of_jOu "formule.ml" 532 18111 18111 "formule.ml" 1 0 -1
+)
+"formule.ml" 531 18034 18056 "formule.ml" 531 18034 18057
+type(
+  top
+)
+ident(
+  def o "formule.ml" 531 18034 18067 "formule.ml" 531 18034 18108
+)
+"formule.ml" 531 18034 18067 "formule.ml" 531 18034 18082
+type(
+  fr'upmc'infop6'mlo'Ou java_instance java_reference_type -> top -> bool
+)
+ident(
+  ext_ref Java.instanceof
+)
+"formule.ml" 531 18034 18083 "formule.ml" 531 18034 18106
+type(
+  fr'upmc'infop6'mlo'Ou java_instance java_reference_type
+)
+"formule.ml" 531 18034 18107 "formule.ml" 531 18034 18108
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 531 18034 18056 "formule.ml" 531 18034 18057
+)
+"formule.ml" 531 18034 18067 "formule.ml" 531 18034 18108
+type(
+  bool
+)
+"formule.ml" 532 18111 18115 "formule.ml" 532 18111 18137
+type(
+  top -> bool
+)
+ident(
+  def _instance_of_jVisiteur "formule.ml" 534 18202 18202 "formule.ml" 1 0 -1
+)
+"formule.ml" 532 18111 18139 "formule.ml" 532 18111 18140
+type(
+  top
+)
+ident(
+  def o "formule.ml" 533 18150 18152 "formule.ml" 533 18150 18199
+)
+"formule.ml" 533 18150 18152 "formule.ml" 533 18150 18167
+type(
+  fr'upmc'infop6'mlo'Visiteur java_instance java_reference_type ->
+  top -> bool
+)
+ident(
+  ext_ref Java.instanceof
+)
+"formule.ml" 533 18150 18168 "formule.ml" 533 18150 18197
+type(
+  fr'upmc'infop6'mlo'Visiteur java_instance java_reference_type
+)
+"formule.ml" 533 18150 18198 "formule.ml" 533 18150 18199
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 532 18111 18139 "formule.ml" 532 18111 18140
+)
+"formule.ml" 533 18150 18152 "formule.ml" 533 18150 18199
+type(
+  bool
+)
+"formule.ml" 534 18202 18206 "formule.ml" 534 18202 18230
+type(
+  top -> bool
+)
+ident(
+  def _instance_of_jVisiteurTS "formule.ml" 536 18297 18297 "formule.ml" 1 0 -1
+)
+"formule.ml" 534 18202 18232 "formule.ml" 534 18202 18233
+type(
+  top
+)
+ident(
+  def o "formule.ml" 535 18243 18245 "formule.ml" 535 18243 18294
+)
+"formule.ml" 535 18243 18245 "formule.ml" 535 18243 18260
+type(
+  fr'upmc'infop6'mlo'VisiteurTS java_instance java_reference_type ->
+  top -> bool
+)
+ident(
+  ext_ref Java.instanceof
+)
+"formule.ml" 535 18243 18261 "formule.ml" 535 18243 18292
+type(
+  fr'upmc'infop6'mlo'VisiteurTS java_instance java_reference_type
+)
+"formule.ml" 535 18243 18293 "formule.ml" 535 18243 18294
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 534 18202 18232 "formule.ml" 534 18202 18233
+)
+"formule.ml" 535 18243 18245 "formule.ml" 535 18243 18294
+type(
+  bool
+)
+"formule.ml" 536 18297 18301 "formule.ml" 536 18297 18325
+type(
+  top -> bool
+)
+ident(
+  def _instance_of_jVisiteurML "formule.ml" 538 18392 18392 "formule.ml" 1 0 -1
+)
+"formule.ml" 536 18297 18327 "formule.ml" 536 18297 18328
+type(
+  top
+)
+ident(
+  def o "formule.ml" 537 18338 18340 "formule.ml" 537 18338 18389
+)
+"formule.ml" 537 18338 18340 "formule.ml" 537 18338 18355
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance java_reference_type ->
+  top -> bool
+)
+ident(
+  ext_ref Java.instanceof
+)
+"formule.ml" 537 18338 18356 "formule.ml" 537 18338 18387
+type(
+  fr'upmc'infop6'mlo'VisiteurML java_instance java_reference_type
+)
+"formule.ml" 537 18338 18388 "formule.ml" 537 18338 18389
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 536 18297 18327 "formule.ml" 536 18297 18328
+)
+"formule.ml" 537 18338 18340 "formule.ml" 537 18338 18389
+type(
+  bool
+)
+"formule.ml" 538 18392 18396 "formule.ml" 538 18392 18416
+type(
+  top -> bool
+)
+ident(
+  def _instance_of_jMainML "formule.ml" 540 18479 18479 "formule.ml" 1 0 -1
+)
+"formule.ml" 538 18392 18418 "formule.ml" 538 18392 18419
+type(
+  top
+)
+ident(
+  def o "formule.ml" 539 18429 18431 "formule.ml" 539 18429 18476
+)
+"formule.ml" 539 18429 18431 "formule.ml" 539 18429 18446
+type(
+  fr'upmc'infop6'mlo'MainML java_instance java_reference_type -> top -> bool
+)
+ident(
+  ext_ref Java.instanceof
+)
+"formule.ml" 539 18429 18447 "formule.ml" 539 18429 18474
+type(
+  fr'upmc'infop6'mlo'MainML java_instance java_reference_type
+)
+"formule.ml" 539 18429 18475 "formule.ml" 539 18429 18476
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 538 18392 18418 "formule.ml" 538 18392 18419
+)
+"formule.ml" 539 18429 18431 "formule.ml" 539 18429 18476
+type(
+  bool
+)
+"formule.ml" 540 18479 18483 "formule.ml" 540 18479 18505
+type(
+  top -> bool
+)
+ident(
+  def _instance_of_jMainJava "formule.ml" 542 18570 18570 "formule.ml" 1 0 -1
+)
+"formule.ml" 540 18479 18507 "formule.ml" 540 18479 18508
+type(
+  top
+)
+ident(
+  def o "formule.ml" 541 18518 18520 "formule.ml" 541 18518 18567
+)
+"formule.ml" 541 18518 18520 "formule.ml" 541 18518 18535
+type(
+  fr'upmc'infop6'mlo'MainJava java_instance java_reference_type ->
+  top -> bool
+)
+ident(
+  ext_ref Java.instanceof
+)
+"formule.ml" 541 18518 18536 "formule.ml" 541 18518 18565
+type(
+  fr'upmc'infop6'mlo'MainJava java_instance java_reference_type
+)
+"formule.ml" 541 18518 18566 "formule.ml" 541 18518 18567
+type(
+  top
+)
+ident(
+  int_ref o "formule.ml" 540 18479 18507 "formule.ml" 540 18479 18508
+)
+"formule.ml" 541 18518 18520 "formule.ml" 541 18518 18567
+type(
+  bool
+)
+"formule.ml" 542 18570 18574 "formule.ml" 542 18570 18593
+type(
+  int -> _capsule_jFormule OjArray.t
+)
+ident(
+  def _new_jFormule_array "formule.ml" 548 18814 18814 "formule.ml" 1 0 -1
+)
+"formule.ml" 542 18570 18594 "formule.ml" 542 18570 18598
+type(
+  int
+)
+ident(
+  def size "formule.ml" 543 18601 18603 "formule.ml" 547 18771 18811
+)
+"formule.ml" 543 18601 18607 "formule.ml" 543 18601 18615
+type(
+  _jni_jFormule java_reference_array
+)
+ident(
+  def java_obj "formule.ml" 546 18694 18698 "formule.ml" 547 18771 18811
+)
+"formule.ml" 544 18618 18622 "formule.ml" 544 18618 18637
+type(
+  (int32 -> _jni_jFormule java_reference_array) java_array_shape ->
+  int32 -> _jni_jFormule java_reference_array
+)
+ident(
+  ext_ref Java.make_array
+)
+"formule.ml" 544 18618 18638 "formule.ml" 544 18618 18668
+type(
+  (int32 -> _jni_jFormule java_reference_array) java_array_shape
+)
+"formule.ml" 544 18618 18670 "formule.ml" 544 18618 18682
+type(
+  int -> int32
+)
+ident(
+  ext_ref Int32.of_int
+)
+"formule.ml" 544 18618 18683 "formule.ml" 544 18618 18687
+type(
+  int
+)
+ident(
+  int_ref size "formule.ml" 542 18570 18594 "formule.ml" 542 18570 18598
+)
+"formule.ml" 544 18618 18669 "formule.ml" 544 18618 18688
+type(
+  int32
+)
+"formule.ml" 544 18618 18622 "formule.ml" 544 18618 18688
+type(
+  _jni_jFormule java_reference_array
+)
+"formule.ml" 546 18694 18698 "formule.ml" 546 18694 18726
+type(
+  _jni_jFormule java_reference_array ->
+  (_capsule_jFormule -> _jni_jFormule) ->
+  (_jni_jFormule -> _capsule_jFormule) -> _capsule_jFormule OjArray.t
+)
+ident(
+  ext_ref OjArray.wrap_reference_array
+)
+"formule.ml" 546 18694 18727 "formule.ml" 546 18694 18735
+type(
+  _jni_jFormule java_reference_array
+)
+ident(
+  int_ref java_obj "formule.ml" 543 18601 18607 "formule.ml" 543 18601 18615
+)
+"formule.ml" 546 18694 18741 "formule.ml" 546 18694 18744
+type(
+  _capsule_jFormule
+)
+ident(
+  def obj "formule.ml" 546 18694 18748 "formule.ml" 546 18694 18769
+)
+"formule.ml" 546 18694 18748 "formule.ml" 546 18694 18751
+type(
+  _capsule_jFormule
+)
+ident(
+  int_ref obj "formule.ml" 546 18694 18741 "formule.ml" 546 18694 18744
+)
+"formule.ml" 546 18694 18748 "formule.ml" 546 18694 18769
+call(
+  tail
+)
+type(
+  _jni_jFormule
+)
+"formule.ml" 546 18694 18736 "formule.ml" 546 18694 18770
+type(
+  _capsule_jFormule -> _jni_jFormule
+)
+"formule.ml" 547 18771 18782 "formule.ml" 547 18771 18783
+type(
+  _jni_jFormule
+)
+ident(
+  def r "formule.ml" 547 18771 18787 "formule.ml" 547 18771 18810
+)
+"formule.ml" 547 18771 18787 "formule.ml" 547 18771 18808
+type(
+  _jni_jFormule -> _capsule_jFormule
+)
+"formule.ml" 547 18771 18809 "formule.ml" 547 18771 18810
+type(
+  _jni_jFormule
+)
+ident(
+  int_ref r "formule.ml" 547 18771 18782 "formule.ml" 547 18771 18783
+)
+"formule.ml" 547 18771 18787 "formule.ml" 547 18771 18810
+call(
+  tail
+)
+type(
+  _capsule_jFormule
+)
+"formule.ml" 547 18771 18777 "formule.ml" 547 18771 18811
+type(
+  _jni_jFormule -> _capsule_jFormule
+)
+"formule.ml" 546 18694 18698 "formule.ml" 547 18771 18811
+call(
+  tail
+)
+type(
+  _capsule_jFormule OjArray.t
+)
+"formule.ml" 543 18601 18603 "formule.ml" 547 18771 18811
+type(
+  _capsule_jFormule OjArray.t
+)
+"formule.ml" 548 18814 18818 "formule.ml" 548 18814 18839
+type(
+  int -> _capsule_jConstante OjArray.t
+)
+ident(
+  def _new_jConstante_array "formule.ml" 555 19072 19072 "formule.ml" 1 0 -1
+)
+"formule.ml" 548 18814 18840 "formule.ml" 548 18814 18844
+type(
+  int
+)
+ident(
+  def size "formule.ml" 549 18847 18849 "formule.ml" 554 19027 19069
+)
+"formule.ml" 549 18847 18853 "formule.ml" 549 18847 18861
+type(
+  _jni_jConstante java_reference_array
+)
+ident(
+  def java_obj "formule.ml" 552 18942 18946 "formule.ml" 554 19027 19069
+)
+"formule.ml" 550 18864 18868 "formule.ml" 550 18864 18883
+type(
+  (int32 -> _jni_jConstante java_reference_array) java_array_shape ->
+  int32 -> _jni_jConstante java_reference_array
+)
+ident(
+  ext_ref Java.make_array
+)
+"formule.ml" 550 18864 18884 "formule.ml" 550 18864 18916
+type(
+  (int32 -> _jni_jConstante java_reference_array) java_array_shape
+)
+"formule.ml" 550 18864 18918 "formule.ml" 550 18864 18930
+type(
+  int -> int32
+)
+ident(
+  ext_ref Int32.of_int
+)
+"formule.ml" 550 18864 18931 "formule.ml" 550 18864 18935
+type(
+  int
+)
+ident(
+  int_ref size "formule.ml" 548 18814 18840 "formule.ml" 548 18814 18844
+)
+"formule.ml" 550 18864 18917 "formule.ml" 550 18864 18936
+type(
+  int32
+)
+"formule.ml" 550 18864 18868 "formule.ml" 550 18864 18936
+type(
+  _jni_jConstante java_reference_array
+)
+"formule.ml" 552 18942 18946 "formule.ml" 552 18942 18974
+type(
+  _jni_jConstante java_reference_array ->
+  (_capsule_jConstante -> _jni_jConstante) ->
+  (_jni_jConstante -> _capsule_jConstante) -> _capsule_jConstante OjArray.t
+)
+ident(
+  ext_ref OjArray.wrap_reference_array
+)
+"formule.ml" 552 18942 18975 "formule.ml" 552 18942 18983
+type(
+  _jni_jConstante java_reference_array
+)
+ident(
+  int_ref java_obj "formule.ml" 549 18847 18853 "formule.ml" 549 18847 18861
+)
+"formule.ml" 553 18984 18995 "formule.ml" 553 18984 18998
+type(
+  _capsule_jConstante
+)
+ident(
+  def obj "formule.ml" 553 18984 19002 "formule.ml" 553 18984 19025
+)
+"formule.ml" 553 18984 19002 "formule.ml" 553 18984 19005
+type(
+  _capsule_jConstante
+)
+ident(
+  int_ref obj "formule.ml" 553 18984 18995 "formule.ml" 553 18984 18998
+)
+"formule.ml" 553 18984 19002 "formule.ml" 553 18984 19025
+call(
+  tail
+)
+type(
+  _jni_jConstante
+)
+"formule.ml" 553 18984 18990 "formule.ml" 553 18984 19026
+type(
+  _capsule_jConstante -> _jni_jConstante
+)
+"formule.ml" 554 19027 19038 "formule.ml" 554 19027 19039
+type(
+  _jni_jConstante
+)
+ident(
+  def r "formule.ml" 554 19027 19043 "formule.ml" 554 19027 19068
+)
+"formule.ml" 554 19027 19043 "formule.ml" 554 19027 19066
+type(
+  _jni_jConstante -> _capsule_jConstante
+)
+"formule.ml" 554 19027 19067 "formule.ml" 554 19027 19068
+type(
+  _jni_jConstante
+)
+ident(
+  int_ref r "formule.ml" 554 19027 19038 "formule.ml" 554 19027 19039
+)
+"formule.ml" 554 19027 19043 "formule.ml" 554 19027 19068
+call(
+  tail
+)
+type(
+  _capsule_jConstante
+)
+"formule.ml" 554 19027 19033 "formule.ml" 554 19027 19069
+type(
+  _jni_jConstante -> _capsule_jConstante
+)
+"formule.ml" 552 18942 18946 "formule.ml" 554 19027 19069
+call(
+  tail
+)
+type(
+  _capsule_jConstante OjArray.t
+)
+"formule.ml" 549 18847 18849 "formule.ml" 554 19027 19069
+type(
+  _capsule_jConstante OjArray.t
+)
+"formule.ml" 555 19072 19076 "formule.ml" 555 19072 19091
+type(
+  int -> _capsule_jVar OjArray.t
+)
+ident(
+  def _new_jVar_array "formule.ml" 561 19300 19300 "formule.ml" 1 0 -1
+)
+"formule.ml" 555 19072 19092 "formule.ml" 555 19072 19096
+type(
+  int
+)
+ident(
+  def size "formule.ml" 556 19099 19101 "formule.ml" 560 19261 19297
+)
+"formule.ml" 556 19099 19105 "formule.ml" 556 19099 19113
+type(
+  _jni_jVar java_reference_array
+)
+ident(
+  def java_obj "formule.ml" 559 19188 19192 "formule.ml" 560 19261 19297
+)
+"formule.ml" 557 19116 19120 "formule.ml" 557 19116 19135
+type(
+  (int32 -> _jni_jVar java_reference_array) java_array_shape ->
+  int32 -> _jni_jVar java_reference_array
+)
+ident(
+  ext_ref Java.make_array
+)
+"formule.ml" 557 19116 19136 "formule.ml" 557 19116 19162
+type(
+  (int32 -> _jni_jVar java_reference_array) java_array_shape
+)
+"formule.ml" 557 19116 19164 "formule.ml" 557 19116 19176
+type(
+  int -> int32
+)
+ident(
+  ext_ref Int32.of_int
+)
+"formule.ml" 557 19116 19177 "formule.ml" 557 19116 19181
+type(
+  int
+)
+ident(
+  int_ref size "formule.ml" 555 19072 19092 "formule.ml" 555 19072 19096
+)
+"formule.ml" 557 19116 19163 "formule.ml" 557 19116 19182
+type(
+  int32
+)
+"formule.ml" 557 19116 19120 "formule.ml" 557 19116 19182
+type(
+  _jni_jVar java_reference_array
+)
+"formule.ml" 559 19188 19192 "formule.ml" 559 19188 19220
+type(
+  _jni_jVar java_reference_array ->
+  (_capsule_jVar -> _jni_jVar) ->
+  (_jni_jVar -> _capsule_jVar) -> _capsule_jVar OjArray.t
+)
+ident(
+  ext_ref OjArray.wrap_reference_array
+)
+"formule.ml" 559 19188 19221 "formule.ml" 559 19188 19229
+type(
+  _jni_jVar java_reference_array
+)
+ident(
+  int_ref java_obj "formule.ml" 556 19099 19105 "formule.ml" 556 19099 19113
+)
+"formule.ml" 559 19188 19235 "formule.ml" 559 19188 19238
+type(
+  _capsule_jVar
+)
+ident(
+  def obj "formule.ml" 559 19188 19242 "formule.ml" 559 19188 19259
+)
+"formule.ml" 559 19188 19242 "formule.ml" 559 19188 19245
+type(
+  _capsule_jVar
+)
+ident(
+  int_ref obj "formule.ml" 559 19188 19235 "formule.ml" 559 19188 19238
+)
+"formule.ml" 559 19188 19242 "formule.ml" 559 19188 19259
+call(
+  tail
+)
+type(
+  _jni_jVar
+)
+"formule.ml" 559 19188 19230 "formule.ml" 559 19188 19260
+type(
+  _capsule_jVar -> _jni_jVar
+)
+"formule.ml" 560 19261 19272 "formule.ml" 560 19261 19273
+type(
+  _jni_jVar
+)
+ident(
+  def r "formule.ml" 560 19261 19277 "formule.ml" 560 19261 19296
+)
+"formule.ml" 560 19261 19277 "formule.ml" 560 19261 19294
+type(
+  _jni_jVar -> _capsule_jVar
+)
+"formule.ml" 560 19261 19295 "formule.ml" 560 19261 19296
+type(
+  _jni_jVar
+)
+ident(
+  int_ref r "formule.ml" 560 19261 19272 "formule.ml" 560 19261 19273
+)
+"formule.ml" 560 19261 19277 "formule.ml" 560 19261 19296
+call(
+  tail
+)
+type(
+  _capsule_jVar
+)
+"formule.ml" 560 19261 19267 "formule.ml" 560 19261 19297
+type(
+  _jni_jVar -> _capsule_jVar
+)
+"formule.ml" 559 19188 19192 "formule.ml" 560 19261 19297
+call(
+  tail
+)
+type(
+  _capsule_jVar OjArray.t
+)
+"formule.ml" 556 19099 19101 "formule.ml" 560 19261 19297
+type(
+  _capsule_jVar OjArray.t
+)
+"formule.ml" 561 19300 19304 "formule.ml" 561 19300 19319
+type(
+  int -> _capsule_jNon OjArray.t
+)
+ident(
+  def _new_jNon_array "formule.ml" 567 19528 19528 "formule.ml" 1 0 -1
+)
+"formule.ml" 561 19300 19320 "formule.ml" 561 19300 19324
+type(
+  int
+)
+ident(
+  def size "formule.ml" 562 19327 19329 "formule.ml" 566 19489 19525
+)
+"formule.ml" 562 19327 19333 "formule.ml" 562 19327 19341
+type(
+  _jni_jNon java_reference_array
+)
+ident(
+  def java_obj "formule.ml" 565 19416 19420 "formule.ml" 566 19489 19525
+)
+"formule.ml" 563 19344 19348 "formule.ml" 563 19344 19363
+type(
+  (int32 -> _jni_jNon java_reference_array) java_array_shape ->
+  int32 -> _jni_jNon java_reference_array
+)
+ident(
+  ext_ref Java.make_array
+)
+"formule.ml" 563 19344 19364 "formule.ml" 563 19344 19390
+type(
+  (int32 -> _jni_jNon java_reference_array) java_array_shape
+)
+"formule.ml" 563 19344 19392 "formule.ml" 563 19344 19404
+type(
+  int -> int32
+)
+ident(
+  ext_ref Int32.of_int
+)
+"formule.ml" 563 19344 19405 "formule.ml" 563 19344 19409
+type(
+  int
+)
+ident(
+  int_ref size "formule.ml" 561 19300 19320 "formule.ml" 561 19300 19324
+)
+"formule.ml" 563 19344 19391 "formule.ml" 563 19344 19410
+type(
+  int32
+)
+"formule.ml" 563 19344 19348 "formule.ml" 563 19344 19410
+type(
+  _jni_jNon java_reference_array
+)
+"formule.ml" 565 19416 19420 "formule.ml" 565 19416 19448
+type(
+  _jni_jNon java_reference_array ->
+  (_capsule_jNon -> _jni_jNon) ->
+  (_jni_jNon -> _capsule_jNon) -> _capsule_jNon OjArray.t
+)
+ident(
+  ext_ref OjArray.wrap_reference_array
+)
+"formule.ml" 565 19416 19449 "formule.ml" 565 19416 19457
+type(
+  _jni_jNon java_reference_array
+)
+ident(
+  int_ref java_obj "formule.ml" 562 19327 19333 "formule.ml" 562 19327 19341
+)
+"formule.ml" 565 19416 19463 "formule.ml" 565 19416 19466
+type(
+  _capsule_jNon
+)
+ident(
+  def obj "formule.ml" 565 19416 19470 "formule.ml" 565 19416 19487
+)
+"formule.ml" 565 19416 19470 "formule.ml" 565 19416 19473
+type(
+  _capsule_jNon
+)
+ident(
+  int_ref obj "formule.ml" 565 19416 19463 "formule.ml" 565 19416 19466
+)
+"formule.ml" 565 19416 19470 "formule.ml" 565 19416 19487
+call(
+  tail
+)
+type(
+  _jni_jNon
+)
+"formule.ml" 565 19416 19458 "formule.ml" 565 19416 19488
+type(
+  _capsule_jNon -> _jni_jNon
+)
+"formule.ml" 566 19489 19500 "formule.ml" 566 19489 19501
+type(
+  _jni_jNon
+)
+ident(
+  def r "formule.ml" 566 19489 19505 "formule.ml" 566 19489 19524
+)
+"formule.ml" 566 19489 19505 "formule.ml" 566 19489 19522
+type(
+  _jni_jNon -> _capsule_jNon
+)
+"formule.ml" 566 19489 19523 "formule.ml" 566 19489 19524
+type(
+  _jni_jNon
+)
+ident(
+  int_ref r "formule.ml" 566 19489 19500 "formule.ml" 566 19489 19501
+)
+"formule.ml" 566 19489 19505 "formule.ml" 566 19489 19524
+call(
+  tail
+)
+type(
+  _capsule_jNon
+)
+"formule.ml" 566 19489 19495 "formule.ml" 566 19489 19525
+type(
+  _jni_jNon -> _capsule_jNon
+)
+"formule.ml" 565 19416 19420 "formule.ml" 566 19489 19525
+call(
+  tail
+)
+type(
+  _capsule_jNon OjArray.t
+)
+"formule.ml" 562 19327 19329 "formule.ml" 566 19489 19525
+type(
+  _capsule_jNon OjArray.t
+)
+"formule.ml" 567 19528 19532 "formule.ml" 567 19528 19549
+type(
+  int -> _capsule_jOpBin OjArray.t
+)
+ident(
+  def _new_jOpBin_array "formule.ml" 573 19764 19764 "formule.ml" 1 0 -1
+)
+"formule.ml" 567 19528 19550 "formule.ml" 567 19528 19554
+type(
+  int
+)
+ident(
+  def size "formule.ml" 568 19557 19559 "formule.ml" 572 19723 19761
+)
+"formule.ml" 568 19557 19563 "formule.ml" 568 19557 19571
+type(
+  _jni_jOpBin java_reference_array
+)
+ident(
+  def java_obj "formule.ml" 571 19648 19652 "formule.ml" 572 19723 19761
+)
+"formule.ml" 569 19574 19578 "formule.ml" 569 19574 19593
+type(
+  (int32 -> _jni_jOpBin java_reference_array) java_array_shape ->
+  int32 -> _jni_jOpBin java_reference_array
+)
+ident(
+  ext_ref Java.make_array
+)
+"formule.ml" 569 19574 19594 "formule.ml" 569 19574 19622
+type(
+  (int32 -> _jni_jOpBin java_reference_array) java_array_shape
+)
+"formule.ml" 569 19574 19624 "formule.ml" 569 19574 19636
+type(
+  int -> int32
+)
+ident(
+  ext_ref Int32.of_int
+)
+"formule.ml" 569 19574 19637 "formule.ml" 569 19574 19641
+type(
+  int
+)
+ident(
+  int_ref size "formule.ml" 567 19528 19550 "formule.ml" 567 19528 19554
+)
+"formule.ml" 569 19574 19623 "formule.ml" 569 19574 19642
+type(
+  int32
+)
+"formule.ml" 569 19574 19578 "formule.ml" 569 19574 19642
+type(
+  _jni_jOpBin java_reference_array
+)
+"formule.ml" 571 19648 19652 "formule.ml" 571 19648 19680
+type(
+  _jni_jOpBin java_reference_array ->
+  (_capsule_jOpBin -> _jni_jOpBin) ->
+  (_jni_jOpBin -> _capsule_jOpBin) -> _capsule_jOpBin OjArray.t
+)
+ident(
+  ext_ref OjArray.wrap_reference_array
+)
+"formule.ml" 571 19648 19681 "formule.ml" 571 19648 19689
+type(
+  _jni_jOpBin java_reference_array
+)
+ident(
+  int_ref java_obj "formule.ml" 568 19557 19563 "formule.ml" 568 19557 19571
+)
+"formule.ml" 571 19648 19695 "formule.ml" 571 19648 19698
+type(
+  _capsule_jOpBin
+)
+ident(
+  def obj "formule.ml" 571 19648 19702 "formule.ml" 571 19648 19721
+)
+"formule.ml" 571 19648 19702 "formule.ml" 571 19648 19705
+type(
+  _capsule_jOpBin
+)
+ident(
+  int_ref obj "formule.ml" 571 19648 19695 "formule.ml" 571 19648 19698
+)
+"formule.ml" 571 19648 19702 "formule.ml" 571 19648 19721
+call(
+  tail
+)
+type(
+  _jni_jOpBin
+)
+"formule.ml" 571 19648 19690 "formule.ml" 571 19648 19722
+type(
+  _capsule_jOpBin -> _jni_jOpBin
+)
+"formule.ml" 572 19723 19734 "formule.ml" 572 19723 19735
+type(
+  _jni_jOpBin
+)
+ident(
+  def r "formule.ml" 572 19723 19739 "formule.ml" 572 19723 19760
+)
+"formule.ml" 572 19723 19739 "formule.ml" 572 19723 19758
+type(
+  _jni_jOpBin -> _capsule_jOpBin
+)
+"formule.ml" 572 19723 19759 "formule.ml" 572 19723 19760
+type(
+  _jni_jOpBin
+)
+ident(
+  int_ref r "formule.ml" 572 19723 19734 "formule.ml" 572 19723 19735
+)
+"formule.ml" 572 19723 19739 "formule.ml" 572 19723 19760
+call(
+  tail
+)
+type(
+  _capsule_jOpBin
+)
+"formule.ml" 572 19723 19729 "formule.ml" 572 19723 19761
+type(
+  _jni_jOpBin -> _capsule_jOpBin
+)
+"formule.ml" 571 19648 19652 "formule.ml" 572 19723 19761
+call(
+  tail
+)
+type(
+  _capsule_jOpBin OjArray.t
+)
+"formule.ml" 568 19557 19559 "formule.ml" 572 19723 19761
+type(
+  _capsule_jOpBin OjArray.t
+)
+"formule.ml" 573 19764 19768 "formule.ml" 573 19764 19782
+type(
+  int -> _capsule_jEt OjArray.t
+)
+ident(
+  def _new_jEt_array "formule.ml" 579 19988 19988 "formule.ml" 1 0 -1
+)
+"formule.ml" 573 19764 19783 "formule.ml" 573 19764 19787
+type(
+  int
+)
+ident(
+  def size "formule.ml" 574 19790 19792 "formule.ml" 578 19950 19985
+)
+"formule.ml" 574 19790 19796 "formule.ml" 574 19790 19804
+type(
+  _jni_jEt java_reference_array
+)
+ident(
+  def java_obj "formule.ml" 577 19878 19882 "formule.ml" 578 19950 19985
+)
+"formule.ml" 575 19807 19811 "formule.ml" 575 19807 19826
+type(
+  (int32 -> _jni_jEt java_reference_array) java_array_shape ->
+  int32 -> _jni_jEt java_reference_array
+)
+ident(
+  ext_ref Java.make_array
+)
+"formule.ml" 575 19807 19827 "formule.ml" 575 19807 19852
+type(
+  (int32 -> _jni_jEt java_reference_array) java_array_shape
+)
+"formule.ml" 575 19807 19854 "formule.ml" 575 19807 19866
+type(
+  int -> int32
+)
+ident(
+  ext_ref Int32.of_int
+)
+"formule.ml" 575 19807 19867 "formule.ml" 575 19807 19871
+type(
+  int
+)
+ident(
+  int_ref size "formule.ml" 573 19764 19783 "formule.ml" 573 19764 19787
+)
+"formule.ml" 575 19807 19853 "formule.ml" 575 19807 19872
+type(
+  int32
+)
+"formule.ml" 575 19807 19811 "formule.ml" 575 19807 19872
+type(
+  _jni_jEt java_reference_array
+)
+"formule.ml" 577 19878 19882 "formule.ml" 577 19878 19910
+type(
+  _jni_jEt java_reference_array ->
+  (_capsule_jEt -> _jni_jEt) ->
+  (_jni_jEt -> _capsule_jEt) -> _capsule_jEt OjArray.t
+)
+ident(
+  ext_ref OjArray.wrap_reference_array
+)
+"formule.ml" 577 19878 19911 "formule.ml" 577 19878 19919
+type(
+  _jni_jEt java_reference_array
+)
+ident(
+  int_ref java_obj "formule.ml" 574 19790 19796 "formule.ml" 574 19790 19804
+)
+"formule.ml" 577 19878 19925 "formule.ml" 577 19878 19928
+type(
+  _capsule_jEt
+)
+ident(
+  def obj "formule.ml" 577 19878 19932 "formule.ml" 577 19878 19948
+)
+"formule.ml" 577 19878 19932 "formule.ml" 577 19878 19935
+type(
+  _capsule_jEt
+)
+ident(
+  int_ref obj "formule.ml" 577 19878 19925 "formule.ml" 577 19878 19928
+)
+"formule.ml" 577 19878 19932 "formule.ml" 577 19878 19948
+call(
+  tail
+)
+type(
+  _jni_jEt
+)
+"formule.ml" 577 19878 19920 "formule.ml" 577 19878 19949
+type(
+  _capsule_jEt -> _jni_jEt
+)
+"formule.ml" 578 19950 19961 "formule.ml" 578 19950 19962
+type(
+  _jni_jEt
+)
+ident(
+  def r "formule.ml" 578 19950 19966 "formule.ml" 578 19950 19984
+)
+"formule.ml" 578 19950 19966 "formule.ml" 578 19950 19982
+type(
+  _jni_jEt -> _capsule_jEt
+)
+"formule.ml" 578 19950 19983 "formule.ml" 578 19950 19984
+type(
+  _jni_jEt
+)
+ident(
+  int_ref r "formule.ml" 578 19950 19961 "formule.ml" 578 19950 19962
+)
+"formule.ml" 578 19950 19966 "formule.ml" 578 19950 19984
+call(
+  tail
+)
+type(
+  _capsule_jEt
+)
+"formule.ml" 578 19950 19956 "formule.ml" 578 19950 19985
+type(
+  _jni_jEt -> _capsule_jEt
+)
+"formule.ml" 577 19878 19882 "formule.ml" 578 19950 19985
+call(
+  tail
+)
+type(
+  _capsule_jEt OjArray.t
+)
+"formule.ml" 574 19790 19792 "formule.ml" 578 19950 19985
+type(
+  _capsule_jEt OjArray.t
+)
+"formule.ml" 579 19988 19992 "formule.ml" 579 19988 20006
+type(
+  int -> _capsule_jOu OjArray.t
+)
+ident(
+  def _new_jOu_array "formule.ml" 585 20212 20212 "formule.ml" 1 0 -1
+)
+"formule.ml" 579 19988 20007 "formule.ml" 579 19988 20011
+type(
+  int
+)
+ident(
+  def size "formule.ml" 580 20014 20016 "formule.ml" 584 20174 20209
+)
+"formule.ml" 580 20014 20020 "formule.ml" 580 20014 20028
+type(
+  _jni_jOu java_reference_array
+)
+ident(
+  def java_obj "formule.ml" 583 20102 20106 "formule.ml" 584 20174 20209
+)
+"formule.ml" 581 20031 20035 "formule.ml" 581 20031 20050
+type(
+  (int32 -> _jni_jOu java_reference_array) java_array_shape ->
+  int32 -> _jni_jOu java_reference_array
+)
+ident(
+  ext_ref Java.make_array
+)
+"formule.ml" 581 20031 20051 "formule.ml" 581 20031 20076
+type(
+  (int32 -> _jni_jOu java_reference_array) java_array_shape
+)
+"formule.ml" 581 20031 20078 "formule.ml" 581 20031 20090
+type(
+  int -> int32
+)
+ident(
+  ext_ref Int32.of_int
+)
+"formule.ml" 581 20031 20091 "formule.ml" 581 20031 20095
+type(
+  int
+)
+ident(
+  int_ref size "formule.ml" 579 19988 20007 "formule.ml" 579 19988 20011
+)
+"formule.ml" 581 20031 20077 "formule.ml" 581 20031 20096
+type(
+  int32
+)
+"formule.ml" 581 20031 20035 "formule.ml" 581 20031 20096
+type(
+  _jni_jOu java_reference_array
+)
+"formule.ml" 583 20102 20106 "formule.ml" 583 20102 20134
+type(
+  _jni_jOu java_reference_array ->
+  (_capsule_jOu -> _jni_jOu) ->
+  (_jni_jOu -> _capsule_jOu) -> _capsule_jOu OjArray.t
+)
+ident(
+  ext_ref OjArray.wrap_reference_array
+)
+"formule.ml" 583 20102 20135 "formule.ml" 583 20102 20143
+type(
+  _jni_jOu java_reference_array
+)
+ident(
+  int_ref java_obj "formule.ml" 580 20014 20020 "formule.ml" 580 20014 20028
+)
+"formule.ml" 583 20102 20149 "formule.ml" 583 20102 20152
+type(
+  _capsule_jOu
+)
+ident(
+  def obj "formule.ml" 583 20102 20156 "formule.ml" 583 20102 20172
+)
+"formule.ml" 583 20102 20156 "formule.ml" 583 20102 20159
+type(
+  _capsule_jOu
+)
+ident(
+  int_ref obj "formule.ml" 583 20102 20149 "formule.ml" 583 20102 20152
+)
+"formule.ml" 583 20102 20156 "formule.ml" 583 20102 20172
+call(
+  tail
+)
+type(
+  _jni_jOu
+)
+"formule.ml" 583 20102 20144 "formule.ml" 583 20102 20173
+type(
+  _capsule_jOu -> _jni_jOu
+)
+"formule.ml" 584 20174 20185 "formule.ml" 584 20174 20186
+type(
+  _jni_jOu
+)
+ident(
+  def r "formule.ml" 584 20174 20190 "formule.ml" 584 20174 20208
+)
+"formule.ml" 584 20174 20190 "formule.ml" 584 20174 20206
+type(
+  _jni_jOu -> _capsule_jOu
+)
+"formule.ml" 584 20174 20207 "formule.ml" 584 20174 20208
+type(
+  _jni_jOu
+)
+ident(
+  int_ref r "formule.ml" 584 20174 20185 "formule.ml" 584 20174 20186
+)
+"formule.ml" 584 20174 20190 "formule.ml" 584 20174 20208
+call(
+  tail
+)
+type(
+  _capsule_jOu
+)
+"formule.ml" 584 20174 20180 "formule.ml" 584 20174 20209
+type(
+  _jni_jOu -> _capsule_jOu
+)
+"formule.ml" 583 20102 20106 "formule.ml" 584 20174 20209
+call(
+  tail
+)
+type(
+  _capsule_jOu OjArray.t
+)
+"formule.ml" 580 20014 20016 "formule.ml" 584 20174 20209
+type(
+  _capsule_jOu OjArray.t
+)
+"formule.ml" 585 20212 20216 "formule.ml" 585 20212 20236
+type(
+  int -> _capsule_jVisiteur OjArray.t
+)
+ident(
+  def _new_jVisiteur_array "formule.ml" 591 20460 20460 "formule.ml" 1 0 -1
+)
+"formule.ml" 585 20212 20237 "formule.ml" 585 20212 20241
+type(
+  int
+)
+ident(
+  def size "formule.ml" 586 20244 20246 "formule.ml" 590 20416 20457
+)
+"formule.ml" 586 20244 20250 "formule.ml" 586 20244 20258
+type(
+  _jni_jVisiteur java_reference_array
+)
+ident(
+  def java_obj "formule.ml" 589 20338 20342 "formule.ml" 590 20416 20457
+)
+"formule.ml" 587 20261 20265 "formule.ml" 587 20261 20280
+type(
+  (int32 -> _jni_jVisiteur java_reference_array) java_array_shape ->
+  int32 -> _jni_jVisiteur java_reference_array
+)
+ident(
+  ext_ref Java.make_array
+)
+"formule.ml" 587 20261 20281 "formule.ml" 587 20261 20312
+type(
+  (int32 -> _jni_jVisiteur java_reference_array) java_array_shape
+)
+"formule.ml" 587 20261 20314 "formule.ml" 587 20261 20326
+type(
+  int -> int32
+)
+ident(
+  ext_ref Int32.of_int
+)
+"formule.ml" 587 20261 20327 "formule.ml" 587 20261 20331
+type(
+  int
+)
+ident(
+  int_ref size "formule.ml" 585 20212 20237 "formule.ml" 585 20212 20241
+)
+"formule.ml" 587 20261 20313 "formule.ml" 587 20261 20332
+type(
+  int32
+)
+"formule.ml" 587 20261 20265 "formule.ml" 587 20261 20332
+type(
+  _jni_jVisiteur java_reference_array
+)
+"formule.ml" 589 20338 20342 "formule.ml" 589 20338 20370
+type(
+  _jni_jVisiteur java_reference_array ->
+  (_capsule_jVisiteur -> _jni_jVisiteur) ->
+  (_jni_jVisiteur -> _capsule_jVisiteur) -> _capsule_jVisiteur OjArray.t
+)
+ident(
+  ext_ref OjArray.wrap_reference_array
+)
+"formule.ml" 589 20338 20371 "formule.ml" 589 20338 20379
+type(
+  _jni_jVisiteur java_reference_array
+)
+ident(
+  int_ref java_obj "formule.ml" 586 20244 20250 "formule.ml" 586 20244 20258
+)
+"formule.ml" 589 20338 20385 "formule.ml" 589 20338 20388
+type(
+  _capsule_jVisiteur
+)
+ident(
+  def obj "formule.ml" 589 20338 20392 "formule.ml" 589 20338 20414
+)
+"formule.ml" 589 20338 20392 "formule.ml" 589 20338 20395
+type(
+  _capsule_jVisiteur
+)
+ident(
+  int_ref obj "formule.ml" 589 20338 20385 "formule.ml" 589 20338 20388
+)
+"formule.ml" 589 20338 20392 "formule.ml" 589 20338 20414
+call(
+  tail
+)
+type(
+  _jni_jVisiteur
+)
+"formule.ml" 589 20338 20380 "formule.ml" 589 20338 20415
+type(
+  _capsule_jVisiteur -> _jni_jVisiteur
+)
+"formule.ml" 590 20416 20427 "formule.ml" 590 20416 20428
+type(
+  _jni_jVisiteur
+)
+ident(
+  def r "formule.ml" 590 20416 20432 "formule.ml" 590 20416 20456
+)
+"formule.ml" 590 20416 20432 "formule.ml" 590 20416 20454
+type(
+  _jni_jVisiteur -> _capsule_jVisiteur
+)
+"formule.ml" 590 20416 20455 "formule.ml" 590 20416 20456
+type(
+  _jni_jVisiteur
+)
+ident(
+  int_ref r "formule.ml" 590 20416 20427 "formule.ml" 590 20416 20428
+)
+"formule.ml" 590 20416 20432 "formule.ml" 590 20416 20456
+call(
+  tail
+)
+type(
+  _capsule_jVisiteur
+)
+"formule.ml" 590 20416 20422 "formule.ml" 590 20416 20457
+type(
+  _jni_jVisiteur -> _capsule_jVisiteur
+)
+"formule.ml" 589 20338 20342 "formule.ml" 590 20416 20457
+call(
+  tail
+)
+type(
+  _capsule_jVisiteur OjArray.t
+)
+"formule.ml" 586 20244 20246 "formule.ml" 590 20416 20457
+type(
+  _capsule_jVisiteur OjArray.t
+)
+"formule.ml" 591 20460 20464 "formule.ml" 591 20460 20486
+type(
+  int -> _capsule_jVisiteurTS OjArray.t
+)
+ident(
+  def _new_jVisiteurTS_array "formule.ml" 598 20722 20722 "formule.ml" 1 0 -1
+)
+"formule.ml" 591 20460 20487 "formule.ml" 591 20460 20491
+type(
+  int
+)
+ident(
+  def size "formule.ml" 592 20494 20496 "formule.ml" 597 20676 20719
+)
+"formule.ml" 592 20494 20500 "formule.ml" 592 20494 20508
+type(
+  _jni_jVisiteurTS java_reference_array
+)
+ident(
+  def java_obj "formule.ml" 595 20590 20594 "formule.ml" 597 20676 20719
+)
+"formule.ml" 593 20511 20515 "formule.ml" 593 20511 20530
+type(
+  (int32 -> _jni_jVisiteurTS java_reference_array) java_array_shape ->
+  int32 -> _jni_jVisiteurTS java_reference_array
+)
+ident(
+  ext_ref Java.make_array
+)
+"formule.ml" 593 20511 20531 "formule.ml" 593 20511 20564
+type(
+  (int32 -> _jni_jVisiteurTS java_reference_array) java_array_shape
+)
+"formule.ml" 593 20511 20566 "formule.ml" 593 20511 20578
+type(
+  int -> int32
+)
+ident(
+  ext_ref Int32.of_int
+)
+"formule.ml" 593 20511 20579 "formule.ml" 593 20511 20583
+type(
+  int
+)
+ident(
+  int_ref size "formule.ml" 591 20460 20487 "formule.ml" 591 20460 20491
+)
+"formule.ml" 593 20511 20565 "formule.ml" 593 20511 20584
+type(
+  int32
+)
+"formule.ml" 593 20511 20515 "formule.ml" 593 20511 20584
+type(
+  _jni_jVisiteurTS java_reference_array
+)
+"formule.ml" 595 20590 20594 "formule.ml" 595 20590 20622
+type(
+  _jni_jVisiteurTS java_reference_array ->
+  (_capsule_jVisiteurTS -> _jni_jVisiteurTS) ->
+  (_jni_jVisiteurTS -> _capsule_jVisiteurTS) ->
+  _capsule_jVisiteurTS OjArray.t
+)
+ident(
+  ext_ref OjArray.wrap_reference_array
+)
+"formule.ml" 595 20590 20623 "formule.ml" 595 20590 20631
+type(
+  _jni_jVisiteurTS java_reference_array
+)
+ident(
+  int_ref java_obj "formule.ml" 592 20494 20500 "formule.ml" 592 20494 20508
+)
+"formule.ml" 596 20632 20643 "formule.ml" 596 20632 20646
+type(
+  _capsule_jVisiteurTS
+)
+ident(
+  def obj "formule.ml" 596 20632 20650 "formule.ml" 596 20632 20674
+)
+"formule.ml" 596 20632 20650 "formule.ml" 596 20632 20653
+type(
+  _capsule_jVisiteurTS
+)
+ident(
+  int_ref obj "formule.ml" 596 20632 20643 "formule.ml" 596 20632 20646
+)
+"formule.ml" 596 20632 20650 "formule.ml" 596 20632 20674
+call(
+  tail
+)
+type(
+  _jni_jVisiteurTS
+)
+"formule.ml" 596 20632 20638 "formule.ml" 596 20632 20675
+type(
+  _capsule_jVisiteurTS -> _jni_jVisiteurTS
+)
+"formule.ml" 597 20676 20687 "formule.ml" 597 20676 20688
+type(
+  _jni_jVisiteurTS
+)
+ident(
+  def r "formule.ml" 597 20676 20692 "formule.ml" 597 20676 20718
+)
+"formule.ml" 597 20676 20692 "formule.ml" 597 20676 20716
+type(
+  _jni_jVisiteurTS -> _capsule_jVisiteurTS
+)
+"formule.ml" 597 20676 20717 "formule.ml" 597 20676 20718
+type(
+  _jni_jVisiteurTS
+)
+ident(
+  int_ref r "formule.ml" 597 20676 20687 "formule.ml" 597 20676 20688
+)
+"formule.ml" 597 20676 20692 "formule.ml" 597 20676 20718
+call(
+  tail
+)
+type(
+  _capsule_jVisiteurTS
+)
+"formule.ml" 597 20676 20682 "formule.ml" 597 20676 20719
+type(
+  _jni_jVisiteurTS -> _capsule_jVisiteurTS
+)
+"formule.ml" 595 20590 20594 "formule.ml" 597 20676 20719
+call(
+  tail
+)
+type(
+  _capsule_jVisiteurTS OjArray.t
+)
+"formule.ml" 592 20494 20496 "formule.ml" 597 20676 20719
+type(
+  _capsule_jVisiteurTS OjArray.t
+)
+"formule.ml" 598 20722 20726 "formule.ml" 598 20722 20748
+type(
+  int -> _capsule_jVisiteurML OjArray.t
+)
+ident(
+  def _new_jVisiteurML_array "formule.ml" 605 20984 20984 "formule.ml" 1 0 -1
+)
+"formule.ml" 598 20722 20749 "formule.ml" 598 20722 20753
+type(
+  int
+)
+ident(
+  def size "formule.ml" 599 20756 20758 "formule.ml" 604 20938 20981
+)
+"formule.ml" 599 20756 20762 "formule.ml" 599 20756 20770
+type(
+  _jni_jVisiteurML java_reference_array
+)
+ident(
+  def java_obj "formule.ml" 602 20852 20856 "formule.ml" 604 20938 20981
+)
+"formule.ml" 600 20773 20777 "formule.ml" 600 20773 20792
+type(
+  (int32 -> _jni_jVisiteurML java_reference_array) java_array_shape ->
+  int32 -> _jni_jVisiteurML java_reference_array
+)
+ident(
+  ext_ref Java.make_array
+)
+"formule.ml" 600 20773 20793 "formule.ml" 600 20773 20826
+type(
+  (int32 -> _jni_jVisiteurML java_reference_array) java_array_shape
+)
+"formule.ml" 600 20773 20828 "formule.ml" 600 20773 20840
+type(
+  int -> int32
+)
+ident(
+  ext_ref Int32.of_int
+)
+"formule.ml" 600 20773 20841 "formule.ml" 600 20773 20845
+type(
+  int
+)
+ident(
+  int_ref size "formule.ml" 598 20722 20749 "formule.ml" 598 20722 20753
+)
+"formule.ml" 600 20773 20827 "formule.ml" 600 20773 20846
+type(
+  int32
+)
+"formule.ml" 600 20773 20777 "formule.ml" 600 20773 20846
+type(
+  _jni_jVisiteurML java_reference_array
+)
+"formule.ml" 602 20852 20856 "formule.ml" 602 20852 20884
+type(
+  _jni_jVisiteurML java_reference_array ->
+  (_capsule_jVisiteurML -> _jni_jVisiteurML) ->
+  (_jni_jVisiteurML -> _capsule_jVisiteurML) ->
+  _capsule_jVisiteurML OjArray.t
+)
+ident(
+  ext_ref OjArray.wrap_reference_array
+)
+"formule.ml" 602 20852 20885 "formule.ml" 602 20852 20893
+type(
+  _jni_jVisiteurML java_reference_array
+)
+ident(
+  int_ref java_obj "formule.ml" 599 20756 20762 "formule.ml" 599 20756 20770
+)
+"formule.ml" 603 20894 20905 "formule.ml" 603 20894 20908
+type(
+  _capsule_jVisiteurML
+)
+ident(
+  def obj "formule.ml" 603 20894 20912 "formule.ml" 603 20894 20936
+)
+"formule.ml" 603 20894 20912 "formule.ml" 603 20894 20915
+type(
+  _capsule_jVisiteurML
+)
+ident(
+  int_ref obj "formule.ml" 603 20894 20905 "formule.ml" 603 20894 20908
+)
+"formule.ml" 603 20894 20912 "formule.ml" 603 20894 20936
+call(
+  tail
+)
+type(
+  _jni_jVisiteurML
+)
+"formule.ml" 603 20894 20900 "formule.ml" 603 20894 20937
+type(
+  _capsule_jVisiteurML -> _jni_jVisiteurML
+)
+"formule.ml" 604 20938 20949 "formule.ml" 604 20938 20950
+type(
+  _jni_jVisiteurML
+)
+ident(
+  def r "formule.ml" 604 20938 20954 "formule.ml" 604 20938 20980
+)
+"formule.ml" 604 20938 20954 "formule.ml" 604 20938 20978
+type(
+  _jni_jVisiteurML -> _capsule_jVisiteurML
+)
+"formule.ml" 604 20938 20979 "formule.ml" 604 20938 20980
+type(
+  _jni_jVisiteurML
+)
+ident(
+  int_ref r "formule.ml" 604 20938 20949 "formule.ml" 604 20938 20950
+)
+"formule.ml" 604 20938 20954 "formule.ml" 604 20938 20980
+call(
+  tail
+)
+type(
+  _capsule_jVisiteurML
+)
+"formule.ml" 604 20938 20944 "formule.ml" 604 20938 20981
+type(
+  _jni_jVisiteurML -> _capsule_jVisiteurML
+)
+"formule.ml" 602 20852 20856 "formule.ml" 604 20938 20981
+call(
+  tail
+)
+type(
+  _capsule_jVisiteurML OjArray.t
+)
+"formule.ml" 599 20756 20758 "formule.ml" 604 20938 20981
+type(
+  _capsule_jVisiteurML OjArray.t
+)
+"formule.ml" 605 20984 20988 "formule.ml" 605 20984 21006
+type(
+  int -> _capsule_jMainML OjArray.t
+)
+ident(
+  def _new_jMainML_array "formule.ml" 611 21224 21224 "formule.ml" 1 0 -1
+)
+"formule.ml" 605 20984 21007 "formule.ml" 605 20984 21011
+type(
+  int
+)
+ident(
+  def size "formule.ml" 606 21014 21016 "formule.ml" 610 21182 21221
+)
+"formule.ml" 606 21014 21020 "formule.ml" 606 21014 21028
+type(
+  _jni_jMainML java_reference_array
+)
+ident(
+  def java_obj "formule.ml" 609 21106 21110 "formule.ml" 610 21182 21221
+)
+"formule.ml" 607 21031 21035 "formule.ml" 607 21031 21050
+type(
+  (int32 -> _jni_jMainML java_reference_array) java_array_shape ->
+  int32 -> _jni_jMainML java_reference_array
+)
+ident(
+  ext_ref Java.make_array
+)
+"formule.ml" 607 21031 21051 "formule.ml" 607 21031 21080
+type(
+  (int32 -> _jni_jMainML java_reference_array) java_array_shape
+)
+"formule.ml" 607 21031 21082 "formule.ml" 607 21031 21094
+type(
+  int -> int32
+)
+ident(
+  ext_ref Int32.of_int
+)
+"formule.ml" 607 21031 21095 "formule.ml" 607 21031 21099
+type(
+  int
+)
+ident(
+  int_ref size "formule.ml" 605 20984 21007 "formule.ml" 605 20984 21011
+)
+"formule.ml" 607 21031 21081 "formule.ml" 607 21031 21100
+type(
+  int32
+)
+"formule.ml" 607 21031 21035 "formule.ml" 607 21031 21100
+type(
+  _jni_jMainML java_reference_array
+)
+"formule.ml" 609 21106 21110 "formule.ml" 609 21106 21138
+type(
+  _jni_jMainML java_reference_array ->
+  (_capsule_jMainML -> _jni_jMainML) ->
+  (_jni_jMainML -> _capsule_jMainML) -> _capsule_jMainML OjArray.t
+)
+ident(
+  ext_ref OjArray.wrap_reference_array
+)
+"formule.ml" 609 21106 21139 "formule.ml" 609 21106 21147
+type(
+  _jni_jMainML java_reference_array
+)
+ident(
+  int_ref java_obj "formule.ml" 606 21014 21020 "formule.ml" 606 21014 21028
+)
+"formule.ml" 609 21106 21153 "formule.ml" 609 21106 21156
+type(
+  _capsule_jMainML
+)
+ident(
+  def obj "formule.ml" 609 21106 21160 "formule.ml" 609 21106 21180
+)
+"formule.ml" 609 21106 21160 "formule.ml" 609 21106 21163
+type(
+  _capsule_jMainML
+)
+ident(
+  int_ref obj "formule.ml" 609 21106 21153 "formule.ml" 609 21106 21156
+)
+"formule.ml" 609 21106 21160 "formule.ml" 609 21106 21180
+call(
+  tail
+)
+type(
+  _jni_jMainML
+)
+"formule.ml" 609 21106 21148 "formule.ml" 609 21106 21181
+type(
+  _capsule_jMainML -> _jni_jMainML
+)
+"formule.ml" 610 21182 21193 "formule.ml" 610 21182 21194
+type(
+  _jni_jMainML
+)
+ident(
+  def r "formule.ml" 610 21182 21198 "formule.ml" 610 21182 21220
+)
+"formule.ml" 610 21182 21198 "formule.ml" 610 21182 21218
+type(
+  _jni_jMainML -> _capsule_jMainML
+)
+"formule.ml" 610 21182 21219 "formule.ml" 610 21182 21220
+type(
+  _jni_jMainML
+)
+ident(
+  int_ref r "formule.ml" 610 21182 21193 "formule.ml" 610 21182 21194
+)
+"formule.ml" 610 21182 21198 "formule.ml" 610 21182 21220
+call(
+  tail
+)
+type(
+  _capsule_jMainML
+)
+"formule.ml" 610 21182 21188 "formule.ml" 610 21182 21221
+type(
+  _jni_jMainML -> _capsule_jMainML
+)
+"formule.ml" 609 21106 21110 "formule.ml" 610 21182 21221
+call(
+  tail
+)
+type(
+  _capsule_jMainML OjArray.t
+)
+"formule.ml" 606 21014 21016 "formule.ml" 610 21182 21221
+type(
+  _capsule_jMainML OjArray.t
+)
+"formule.ml" 611 21224 21228 "formule.ml" 611 21224 21248
+type(
+  int -> _capsule_jMainJava OjArray.t
+)
+ident(
+  def _new_jMainJava_array "formule.ml" 617 21472 21472 "formule.ml" 1 0 -1
+)
+"formule.ml" 611 21224 21249 "formule.ml" 611 21224 21253
+type(
+  int
+)
+ident(
+  def size "formule.ml" 612 21256 21258 "formule.ml" 616 21428 21469
+)
+"formule.ml" 612 21256 21262 "formule.ml" 612 21256 21270
+type(
+  _jni_jMainJava java_reference_array
+)
+ident(
+  def java_obj "formule.ml" 615 21350 21354 "formule.ml" 616 21428 21469
+)
+"formule.ml" 613 21273 21277 "formule.ml" 613 21273 21292
+type(
+  (int32 -> _jni_jMainJava java_reference_array) java_array_shape ->
+  int32 -> _jni_jMainJava java_reference_array
+)
+ident(
+  ext_ref Java.make_array
+)
+"formule.ml" 613 21273 21293 "formule.ml" 613 21273 21324
+type(
+  (int32 -> _jni_jMainJava java_reference_array) java_array_shape
+)
+"formule.ml" 613 21273 21326 "formule.ml" 613 21273 21338
+type(
+  int -> int32
+)
+ident(
+  ext_ref Int32.of_int
+)
+"formule.ml" 613 21273 21339 "formule.ml" 613 21273 21343
+type(
+  int
+)
+ident(
+  int_ref size "formule.ml" 611 21224 21249 "formule.ml" 611 21224 21253
+)
+"formule.ml" 613 21273 21325 "formule.ml" 613 21273 21344
+type(
+  int32
+)
+"formule.ml" 613 21273 21277 "formule.ml" 613 21273 21344
+type(
+  _jni_jMainJava java_reference_array
+)
+"formule.ml" 615 21350 21354 "formule.ml" 615 21350 21382
+type(
+  _jni_jMainJava java_reference_array ->
+  (_capsule_jMainJava -> _jni_jMainJava) ->
+  (_jni_jMainJava -> _capsule_jMainJava) -> _capsule_jMainJava OjArray.t
+)
+ident(
+  ext_ref OjArray.wrap_reference_array
+)
+"formule.ml" 615 21350 21383 "formule.ml" 615 21350 21391
+type(
+  _jni_jMainJava java_reference_array
+)
+ident(
+  int_ref java_obj "formule.ml" 612 21256 21262 "formule.ml" 612 21256 21270
+)
+"formule.ml" 615 21350 21397 "formule.ml" 615 21350 21400
+type(
+  _capsule_jMainJava
+)
+ident(
+  def obj "formule.ml" 615 21350 21404 "formule.ml" 615 21350 21426
+)
+"formule.ml" 615 21350 21404 "formule.ml" 615 21350 21407
+type(
+  _capsule_jMainJava
+)
+ident(
+  int_ref obj "formule.ml" 615 21350 21397 "formule.ml" 615 21350 21400
+)
+"formule.ml" 615 21350 21404 "formule.ml" 615 21350 21426
+call(
+  tail
+)
+type(
+  _jni_jMainJava
+)
+"formule.ml" 615 21350 21392 "formule.ml" 615 21350 21427
+type(
+  _capsule_jMainJava -> _jni_jMainJava
+)
+"formule.ml" 616 21428 21439 "formule.ml" 616 21428 21440
+type(
+  _jni_jMainJava
+)
+ident(
+  def r "formule.ml" 616 21428 21444 "formule.ml" 616 21428 21468
+)
+"formule.ml" 616 21428 21444 "formule.ml" 616 21428 21466
+type(
+  _jni_jMainJava -> _capsule_jMainJava
+)
+"formule.ml" 616 21428 21467 "formule.ml" 616 21428 21468
+type(
+  _jni_jMainJava
+)
+ident(
+  int_ref r "formule.ml" 616 21428 21439 "formule.ml" 616 21428 21440
+)
+"formule.ml" 616 21428 21444 "formule.ml" 616 21428 21468
+call(
+  tail
+)
+type(
+  _capsule_jMainJava
+)
+"formule.ml" 616 21428 21434 "formule.ml" 616 21428 21469
+type(
+  _jni_jMainJava -> _capsule_jMainJava
+)
+"formule.ml" 615 21350 21354 "formule.ml" 616 21428 21469
+call(
+  tail
+)
+type(
+  _capsule_jMainJava OjArray.t
+)
+"formule.ml" 612 21256 21258 "formule.ml" 616 21428 21469
+type(
+  _capsule_jMainJava OjArray.t
+)
+"formule.ml" 617 21472 21488 "formule.ml" 617 21472 21491
+type(
+  bool
+)
+"formule.ml" 618 21494 21500 "formule.ml" 618 21494 21503
+type(
+  bool
+)
+"formule.ml" 618 21494 21506 "formule.ml" 618 21494 21509
+type(
+  bool
+)
+ident(
+  int_ref _p0 "formule.ml" 617 21472 21488 "formule.ml" 617 21472 21491
+)
+"formule.ml" 619 21510 21519 "formule.ml" 619 21510 21527
+type(
+  fr'upmc'infop6'mlo'Constante java_instance
+)
+"formule.ml" 619 21510 21530 "formule.ml" 619 21510 21539
+type(
+  (bool -> fr'upmc'infop6'mlo'Constante java_instance) java_constructor ->
+  bool -> fr'upmc'infop6'mlo'Constante java_instance
+)
+ident(
+  ext_ref Java.make
+)
+"formule.ml" 619 21510 21540 "formule.ml" 619 21510 21579
+type(
+  (bool -> fr'upmc'infop6'mlo'Constante java_instance) java_constructor
+)
+"formule.ml" 619 21510 21580 "formule.ml" 619 21510 21583
+type(
+  bool
+)
+ident(
+  int_ref _p0 "formule.ml" 618 21494 21500 "formule.ml" 618 21494 21503
+)
+"formule.ml" 619 21510 21530 "formule.ml" 619 21510 21583
+type(
+  fr'upmc'infop6'mlo'Constante java_instance
+)
+"formule.ml" 620 21584 21598 "formule.ml" 620 21584 21604
+type(
+  < _get_jni_jConstante : _jni_jConstante; _get_jni_jFormule : _jni_jFormule;
+    accepte : jVisiteur -> unit; valeur : unit -> bool; .. >
+)
+"formule.ml" 620 21584 21633 "formule.ml" 620 21584 21641
+type(
+  _jni_jConstante
+)
+ident(
+  int_ref java_obj "formule.ml" 619 21510 21519 "formule.ml" 619 21510 21527
+)
+"formule.ml" 621 21648 21658 "formule.ml" 621 21648 21661
+type(
+  string
+)
+"formule.ml" 622 21664 21670 "formule.ml" 622 21664 21673
+type(
+  java'lang'String java_instance
+)
+"formule.ml" 622 21664 21676 "formule.ml" 622 21664 21696
+type(
+  string -> java'lang'String java_instance
+)
+ident(
+  ext_ref JavaString.of_string
+)
+"formule.ml" 622 21664 21697 "formule.ml" 622 21664 21700
+type(
+  string
+)
+ident(
+  int_ref _p0 "formule.ml" 621 21648 21658 "formule.ml" 621 21648 21661
+)
+"formule.ml" 622 21664 21676 "formule.ml" 622 21664 21700
+type(
+  java'lang'String java_instance
+)
+"formule.ml" 623 21701 21710 "formule.ml" 623 21701 21718
+type(
+  fr'upmc'infop6'mlo'Var java_instance
+)
+"formule.ml" 623 21701 21721 "formule.ml" 623 21701 21730
+type(
+  (java'lang'String java_instance -> fr'upmc'infop6'mlo'Var java_instance)
+  java_constructor ->
+  java'lang'String java_instance -> fr'upmc'infop6'mlo'Var java_instance
+)
+ident(
+  ext_ref Java.make
+)
+"formule.ml" 623 21701 21731 "formule.ml" 623 21701 21773
+type(
+  (java'lang'String java_instance -> fr'upmc'infop6'mlo'Var java_instance)
+  java_constructor
+)
+"formule.ml" 623 21701 21774 "formule.ml" 623 21701 21777
+type(
+  java'lang'String java_instance
+)
+ident(
+  int_ref _p0 "formule.ml" 622 21664 21670 "formule.ml" 622 21664 21673
+)
+"formule.ml" 623 21701 21721 "formule.ml" 623 21701 21777
+type(
+  fr'upmc'infop6'mlo'Var java_instance
+)
+"formule.ml" 624 21778 21792 "formule.ml" 624 21778 21798
+type(
+  < _get_jni_jFormule : _jni_jFormule; _get_jni_jVar : _jni_jVar;
+    accepte : jVisiteur -> unit; ident : unit -> string; .. >
+)
+"formule.ml" 624 21778 21821 "formule.ml" 624 21778 21829
+type(
+  _jni_jVar
+)
+ident(
+  int_ref java_obj "formule.ml" 623 21701 21710 "formule.ml" 623 21701 21718
+)
+"formule.ml" 625 21836 21846 "formule.ml" 625 21836 21849
+type(
+  < _get_jni_jFormule : fr'upmc'infop6'mlo'Formule java_extends; .. >
+)
+"formule.ml" 626 21852 21858 "formule.ml" 626 21852 21861
+type(
+  fr'upmc'infop6'mlo'Formule java_extends
+)
+"formule.ml" 626 21852 21864 "formule.ml" 626 21852 21867
+type(
+  < _get_jni_jFormule : fr'upmc'infop6'mlo'Formule java_extends; .. > as 'a
+)
+ident(
+  int_ref _p0 "formule.ml" 625 21836 21846 "formule.ml" 625 21836 21849
+)
+"formule.ml" 626 21852 21864 "formule.ml" 626 21852 21885
+call(
+  stack
+)
+type(
+  fr'upmc'infop6'mlo'Formule java_extends
+)
+"formule.ml" 628 21891 21899 "formule.ml" 628 21891 21907
+type(
+  fr'upmc'infop6'mlo'Non java_instance
+)
+"formule.ml" 629 21910 21916 "formule.ml" 629 21910 21925
+type(
+  (fr'upmc'infop6'mlo'Formule java_extends ->
+   fr'upmc'infop6'mlo'Non java_instance)
+  java_constructor ->
+  fr'upmc'infop6'mlo'Formule java_extends ->
+  fr'upmc'infop6'mlo'Non java_instance
+)
+ident(
+  ext_ref Java.make
+)
+"formule.ml" 629 21910 21926 "formule.ml" 629 21910 21978
+type(
+  (fr'upmc'infop6'mlo'Formule java_extends ->
+   fr'upmc'infop6'mlo'Non java_instance)
+  java_constructor
+)
+"formule.ml" 629 21910 21979 "formule.ml" 629 21910 21982
+type(
+  fr'upmc'infop6'mlo'Formule java_extends
+)
+ident(
+  int_ref _p0 "formule.ml" 626 21852 21858 "formule.ml" 626 21852 21861
+)
+"formule.ml" 629 21910 21916 "formule.ml" 629 21910 21982
+type(
+  fr'upmc'infop6'mlo'Non java_instance
+)
+"formule.ml" 630 21983 21997 "formule.ml" 630 21983 22003
+type(
+  < _get_jni_jFormule : _jni_jFormule; _get_jni_jNon : _jni_jNon;
+    accepte : jVisiteur -> unit; sous_formule : unit -> jFormule; .. >
+)
+"formule.ml" 630 21983 22026 "formule.ml" 630 21983 22034
+type(
+  _jni_jNon
+)
+ident(
+  int_ref java_obj "formule.ml" 628 21891 21899 "formule.ml" 628 21891 21907
+)
+"formule.ml" 631 22041 22050 "formule.ml" 631 22041 22053
+type(
+  < _get_jni_jFormule : fr'upmc'infop6'mlo'Formule java_extends; .. >
+)
+"formule.ml" 631 22041 22054 "formule.ml" 631 22041 22057
+type(
+  < _get_jni_jFormule : fr'upmc'infop6'mlo'Formule java_extends; .. >
+)
+"formule.ml" 632 22060 22066 "formule.ml" 632 22060 22069
+type(
+  fr'upmc'infop6'mlo'Formule java_extends
+)
+"formule.ml" 632 22060 22072 "formule.ml" 632 22060 22075
+type(
+  < _get_jni_jFormule : fr'upmc'infop6'mlo'Formule java_extends; .. > as 'a
+)
+ident(
+  int_ref _p1 "formule.ml" 631 22041 22054 "formule.ml" 631 22041 22057
+)
+"formule.ml" 632 22060 22072 "formule.ml" 632 22060 22093
+call(
+  stack
+)
+type(
+  fr'upmc'infop6'mlo'Formule java_extends
+)
+"formule.ml" 633 22094 22103 "formule.ml" 633 22094 22106
+type(
+  fr'upmc'infop6'mlo'Formule java_extends
+)
+"formule.ml" 633 22094 22109 "formule.ml" 633 22094 22112
+type(
+  < _get_jni_jFormule : fr'upmc'infop6'mlo'Formule java_extends; .. > as 'b
+)
+ident(
+  int_ref _p0 "formule.ml" 631 22041 22050 "formule.ml" 631 22041 22053
+)
+"formule.ml" 633 22094 22109 "formule.ml" 633 22094 22130
+call(
+  stack
+)
+type(
+  fr'upmc'infop6'mlo'Formule java_extends
+)
+"formule.ml" 635 22138 22148 "formule.ml" 635 22138 22156
+type(
+  fr'upmc'infop6'mlo'Et java_instance
+)
+"formule.ml" 636 22159 22167 "formule.ml" 636 22159 22176
+type(
+  (fr'upmc'infop6'mlo'Formule java_extends ->
+   fr'upmc'infop6'mlo'Formule java_extends ->
+   fr'upmc'infop6'mlo'Et java_instance)
+  java_constructor ->
+  fr'upmc'infop6'mlo'Formule java_extends ->
+  fr'upmc'infop6'mlo'Formule java_extends ->
+  fr'upmc'infop6'mlo'Et java_instance
+)
+ident(
+  ext_ref Java.make
+)
+"formule.ml" 637 22177 22187 "formule.ml" 637 22177 22265
+type(
+  (fr'upmc'infop6'mlo'Formule java_extends ->
+   fr'upmc'infop6'mlo'Formule java_extends ->
+   fr'upmc'infop6'mlo'Et java_instance)
+  java_constructor
+)
+"formule.ml" 638 22266 22276 "formule.ml" 638 22266 22279
+type(
+  fr'upmc'infop6'mlo'Formule java_extends
+)
+ident(
+  int_ref _p0 "formule.ml" 633 22094 22103 "formule.ml" 633 22094 22106
+)
+"formule.ml" 638 22266 22280 "formule.ml" 638 22266 22283
+type(
+  fr'upmc'infop6'mlo'Formule java_extends
+)
+ident(
+  int_ref _p1 "formule.ml" 632 22060 22066 "formule.ml" 632 22060 22069
+)
+"formule.ml" 636 22159 22167 "formule.ml" 638 22266 22283
+type(
+  fr'upmc'infop6'mlo'Et java_instance
+)
+"formule.ml" 639 22284 22300 "formule.ml" 639 22284 22306
+type(
+  < _get_jni_jEt : _jni_jEt; _get_jni_jFormule : _jni_jFormule;
+    _get_jni_jOpBin : _jni_jOpBin; accepte : jVisiteur -> unit;
+    sous_formule_d : unit -> jFormule; sous_formule_g : unit -> jFormule;
+    .. >
+)
+"formule.ml" 639 22284 22328 "formule.ml" 639 22284 22336
+type(
+  _jni_jEt
+)
+ident(
+  int_ref java_obj "formule.ml" 635 22138 22148 "formule.ml" 635 22138 22156
+)
+"formule.ml" 640 22343 22352 "formule.ml" 640 22343 22355
+type(
+  < _get_jni_jFormule : fr'upmc'infop6'mlo'Formule java_extends; .. >
+)
+"formule.ml" 640 22343 22356 "formule.ml" 640 22343 22359
+type(
+  < _get_jni_jFormule : fr'upmc'infop6'mlo'Formule java_extends; .. >
+)
+"formule.ml" 641 22362 22368 "formule.ml" 641 22362 22371
+type(
+  fr'upmc'infop6'mlo'Formule java_extends
+)
+"formule.ml" 641 22362 22374 "formule.ml" 641 22362 22377
+type(
+  < _get_jni_jFormule : fr'upmc'infop6'mlo'Formule java_extends; .. > as 'a
+)
+ident(
+  int_ref _p1 "formule.ml" 640 22343 22356 "formule.ml" 640 22343 22359
+)
+"formule.ml" 641 22362 22374 "formule.ml" 641 22362 22395
+call(
+  stack
+)
+type(
+  fr'upmc'infop6'mlo'Formule java_extends
+)
+"formule.ml" 642 22396 22405 "formule.ml" 642 22396 22408
+type(
+  fr'upmc'infop6'mlo'Formule java_extends
+)
+"formule.ml" 642 22396 22411 "formule.ml" 642 22396 22414
+type(
+  < _get_jni_jFormule : fr'upmc'infop6'mlo'Formule java_extends; .. > as 'b
+)
+ident(
+  int_ref _p0 "formule.ml" 640 22343 22352 "formule.ml" 640 22343 22355
+)
+"formule.ml" 642 22396 22411 "formule.ml" 642 22396 22432
+call(
+  stack
+)
+type(
+  fr'upmc'infop6'mlo'Formule java_extends
+)
+"formule.ml" 644 22440 22450 "formule.ml" 644 22440 22458
+type(
+  fr'upmc'infop6'mlo'Ou java_instance
+)
+"formule.ml" 645 22461 22469 "formule.ml" 645 22461 22478
+type(
+  (fr'upmc'infop6'mlo'Formule java_extends ->
+   fr'upmc'infop6'mlo'Formule java_extends ->
+   fr'upmc'infop6'mlo'Ou java_instance)
+  java_constructor ->
+  fr'upmc'infop6'mlo'Formule java_extends ->
+  fr'upmc'infop6'mlo'Formule java_extends ->
+  fr'upmc'infop6'mlo'Ou java_instance
+)
+ident(
+  ext_ref Java.make
+)
+"formule.ml" 646 22479 22489 "formule.ml" 646 22479 22567
+type(
+  (fr'upmc'infop6'mlo'Formule java_extends ->
+   fr'upmc'infop6'mlo'Formule java_extends ->
+   fr'upmc'infop6'mlo'Ou java_instance)
+  java_constructor
+)
+"formule.ml" 647 22568 22578 "formule.ml" 647 22568 22581
+type(
+  fr'upmc'infop6'mlo'Formule java_extends
+)
+ident(
+  int_ref _p0 "formule.ml" 642 22396 22405 "formule.ml" 642 22396 22408
+)
+"formule.ml" 647 22568 22582 "formule.ml" 647 22568 22585
+type(
+  fr'upmc'infop6'mlo'Formule java_extends
+)
+ident(
+  int_ref _p1 "formule.ml" 641 22362 22368 "formule.ml" 641 22362 22371
+)
+"formule.ml" 645 22461 22469 "formule.ml" 647 22568 22585
+type(
+  fr'upmc'infop6'mlo'Ou java_instance
+)
+"formule.ml" 648 22586 22602 "formule.ml" 648 22586 22608
+type(
+  < _get_jni_jFormule : _jni_jFormule; _get_jni_jOpBin : _jni_jOpBin;
+    _get_jni_jOu : _jni_jOu; accepte : jVisiteur -> unit;
+    sous_formule_d : unit -> jFormule; sous_formule_g : unit -> jFormule;
+    .. >
+)
+"formule.ml" 648 22586 22630 "formule.ml" 648 22586 22638
+type(
+  _jni_jOu
+)
+ident(
+  int_ref java_obj "formule.ml" 644 22440 22450 "formule.ml" 644 22440 22458
+)
+"formule.ml" 649 22645 22662 "formule.ml" 649 22645 22664
+type(
+  unit
+)
+"formule.ml" 650 22667 22673 "formule.ml" 650 22667 22681
+type(
+  fr'upmc'infop6'mlo'VisiteurTS java_instance
+)
+"formule.ml" 650 22667 22684 "formule.ml" 650 22667 22693
+type(
+  (unit -> fr'upmc'infop6'mlo'VisiteurTS java_instance) java_constructor ->
+  unit -> fr'upmc'infop6'mlo'VisiteurTS java_instance
+)
+ident(
+  ext_ref Java.make
+)
+"formule.ml" 650 22667 22694 "formule.ml" 650 22667 22727
+type(
+  (unit -> fr'upmc'infop6'mlo'VisiteurTS java_instance) java_constructor
+)
+"formule.ml" 650 22667 22728 "formule.ml" 650 22667 22730
+type(
+  unit
+)
+"formule.ml" 650 22667 22684 "formule.ml" 650 22667 22730
+type(
+  fr'upmc'infop6'mlo'VisiteurTS java_instance
+)
+"formule.ml" 651 22731 22743 "formule.ml" 651 22731 22749
+type(
+  < _get_jni_jVisiteur : _jni_jVisiteur;
+    _get_jni_jVisiteurTS : _jni_jVisiteurTS; get_res : unit -> string;
+    visite_cst : jConstante -> unit; visite_et : jEt -> unit;
+    visite_non : jNon -> unit; visite_ou : jOu -> unit;
+    visite_var : jVar -> unit; .. >
+)
+"formule.ml" 651 22731 22779 "formule.ml" 651 22731 22787
+type(
+  _jni_jVisiteurTS
+)
+ident(
+  int_ref java_obj "formule.ml" 650 22667 22673 "formule.ml" 650 22667 22681
+)
+"formule.ml" 652 22794 22826 "formule.ml" 652 22794 22828
+type(
+  unit
+)
+"formule.ml" 653 22831 22840 "formule.ml" 653 22831 22846
+type(
+  < _get_jni_jVisiteur : _jni_jVisiteur;
+    _get_jni_jVisiteurML : _jni_jVisiteurML; get_res : unit -> string;
+    visite_cst : jConstante -> unit; visite_et : jEt -> unit;
+    visite_non : jNon -> unit; visite_ou : jOu -> unit;
+    visite_var : jVar -> unit; .. >
+)
+"formule.ml" 654 22881 22909 "formule.ml" 654 22881 22911
+type(
+  unit
+)
+"formule.ml" 654 22881 22921 "formule.ml" 654 22881 22927
+type(
+  < _get_jni_jMainML : _jni_jMainML; cree_visiteur : unit -> jVisiteurML;
+    .. >
+)
+"formule.ml" 655 22958 22962 "formule.ml" 655 22958 22996
+type(
+  jMainML -> unit
+)
+ident(
+  def fr_upmc_infop6_mlo_jMainJava__main "formule.ml" 659 23067 23143 "formule.ml" 1 0 -1
+)
+"formule.ml" 655 22958 22998 "formule.ml" 655 22958 23001
+type(
+  jMainML
+)
+ident(
+  def _p0 "formule.ml" 656 23015 23017 "formule.ml" 659 23067 23143
+)
+"formule.ml" 656 23015 23021 "formule.ml" 656 23015 23024
+type(
+  _jni_jMainML
+)
+ident(
+  def _p0 "formule.ml" 658 23053 23057 "formule.ml" 659 23067 23143
+)
+"formule.ml" 656 23015 23027 "formule.ml" 656 23015 23030
+type(
+  jMainML
+)
+ident(
+  int_ref _p0 "formule.ml" 655 22958 22998 "formule.ml" 655 22958 23001
+)
+"formule.ml" 656 23015 23027 "formule.ml" 656 23015 23047
+call(
+  stack
+)
+type(
+  _jni_jMainML
+)
+"formule.ml" 658 23053 23057 "formule.ml" 658 23053 23066
+type(
+  (_jni_jMainML -> unit) java_method -> _jni_jMainML -> unit
+)
+ident(
+  ext_ref Java.call
+)
+"formule.ml" 659 23067 23073 "formule.ml" 659 23067 23139
+type(
+  (_jni_jMainML -> unit) java_method
+)
+"formule.ml" 659 23067 23140 "formule.ml" 659 23067 23143
+type(
+  _jni_jMainML
+)
+ident(
+  int_ref _p0 "formule.ml" 656 23015 23021 "formule.ml" 656 23015 23024
+)
+"formule.ml" 658 23053 23057 "formule.ml" 659 23067 23143
+type(
+  unit
+)
+"formule.ml" 656 23015 23017 "formule.ml" 659 23067 23143
+type(
+  unit
+)

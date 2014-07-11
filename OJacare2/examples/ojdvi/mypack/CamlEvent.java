@@ -9,17 +9,17 @@ import java.awt.event.MouseEvent;
 
 public class CamlEvent {
 
-    static final int KEY_PRESSED_MASK = 1;
-    static final int BUTTON_DOWN_MASK = 2;
-    static final int BUTTON_UP_MASK = 4;
-    static final int MOUSE_MOTION_MASK = 8;
+    public static final int KEY_PRESSED_MASK = 1;
+    public static final int BUTTON_DOWN_MASK = 2;
+    public static final int BUTTON_UP_MASK = 4;
+    public static final int MOUSE_MOTION_MASK = 8;
 
-    final int kinds;
-    final int mouse_x;
-    final int mouse_y;
-    final boolean button;
-    final boolean keypressed;
-    final char key;
+    public final int kinds;
+    public final int mouse_x;
+    public final int mouse_y;
+    public final boolean button;
+    public final boolean keypressed;
+    public final char key;
 
     boolean match(int mask) { return (0 != (mask & this.kinds)); } 
 

@@ -32,7 +32,7 @@ let string_of_formule f =
    
 class formule f =
   object (self)
-      inherit Visiteur._stub_jFormule ()
+      inherit _stub_jFormule ()
       method accepte v =
 	match f with
 	| `Cst b -> v#visite_cst b
@@ -49,7 +49,7 @@ class formule f =
   end
 and virtual visiteur =
   object 
-    inherit Visiteur._stub_jVisiteur ()
+    inherit _stub_jVisiteur ()
 (*  method virtual visite_cst: bool -> unit
     method virtual visite_var: string -> unit
     method virtual visite_non: jFormule -> unit

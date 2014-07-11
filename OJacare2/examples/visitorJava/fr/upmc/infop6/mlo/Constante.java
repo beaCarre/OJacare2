@@ -1,6 +1,6 @@
 package fr.upmc.infop6.mlo;
 
-public class Constante extends Formule {
+public class Constante extends callback.fr.upmc.infop6.mlo.CB_Formule {
   boolean  b;
 
   Constante(boolean b) {this.b = b;}

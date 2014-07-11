@@ -7,11 +7,17 @@ idl_parser.cmo : syntax_error.cmi parser.cmi loc.cmi lexer.cmo \
     idl_parser.cmi
 idl_parser.cmx : syntax_error.cmx parser.cmx loc.cmx lexer.cmx \
     idl_parser.cmi
+idl_parser.cmj : syntax_error.cmj parser.cmj loc.cmj lexer.cmj \
+    idl_parser.cmi
 lexer.cmo : parser.cmi
 lexer.cmx : parser.cmx
+lexer.cmj : parser.cmj
 loc.cmo : loc.cmi
 loc.cmx : loc.cmi
+loc.cmj : loc.cmi
 parser.cmo : syntax_error.cmi loc.cmi idl.cmi parser.cmi
 parser.cmx : syntax_error.cmx loc.cmx idl.cmi parser.cmi
+parser.cmj : syntax_error.cmj loc.cmj idl.cmi parser.cmi
 syntax_error.cmo : loc.cmi idl.cmi syntax_error.cmi
 syntax_error.cmx : loc.cmx idl.cmi syntax_error.cmi
+syntax_error.cmj : loc.cmj idl.cmi syntax_error.cmi

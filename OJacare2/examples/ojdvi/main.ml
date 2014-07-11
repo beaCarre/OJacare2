@@ -12,10 +12,10 @@ let hmargin = ref (View.Cm 1.0) ;;
 let vmargin = ref (View.Cm 1.0) ;;
 let geometry = ref "864x864" ;;
 
+
 class mlDvi =
   object
     inherit _stub_ml_dvi ()
-	
     method run filename view controler =
       Javadev.set_view view;
       Javadev.set_controler controler;
@@ -28,3 +28,4 @@ class mlDvi =
   end
 
 let _ = mypack_jDviFrame__main (new mlDvi :> ml_dvi)
+

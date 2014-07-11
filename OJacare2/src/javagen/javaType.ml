@@ -21,17 +21,4 @@ let rec output ppf typ =
   | Cobject (Carray typ) -> fprintf ppf "%a[]" output typ
   | Cvoid -> fprintf ppf "void"
   | Ccallback id -> fprintf ppf "ICB_%s" (Ident.get_class_java_stub_name id)
-let output_convert_to_ml ppf (name,typ) =
-  match typ with
-  | Cboolean -> fprintf ppf "new fr.inria.caml.camljava.Boolean(%s)" name
-  | Cchar -> fprintf ppf "new fr.inria.caml.camljava.Char(%s)" name
-  | Cbyte -> fprintf ppf "new fr.inria.caml.camljava.Byte(%s)" name
-  | Cshort -> fprintf ppf "new fr.inria.caml.camljava.Short(%s)" name
-  | Cint -> fprintf ppf "new fr.inria.caml.camljava.Int(%s)" name
-  | Ccamlint -> fprintf ppf "new fr.inria.caml.camljava.Camlint(%s)" name
-  | Clong -> fprintf ppf "new fr.inria.caml.camljava.Long(%s)" name
-  | Cfloat -> fprintf ppf "new fr.inria.caml.camljava.Float(%s)" name
-  | Cdouble -> fprintf ppf "new fr.inria.caml.camljava.Double(%s)" name
-  | Cobject _ -> fprintf ppf "%s" name
-  | Cvoid -> invalid_arg "JavaType.output_convert_from_ml Cvoid"
-  | Ccallback _ -> invalid_arg "JavaType.output_convert_from_ml Ccallback"
+

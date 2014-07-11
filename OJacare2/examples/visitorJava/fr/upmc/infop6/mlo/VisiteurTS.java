@@ -1,9 +1,9 @@
 package fr.upmc.infop6.mlo;
 
 public class VisiteurTS implements Visiteur {
-    String res;
-    VisiteurTS(){res="";}
-    String get_res(){String s = res; res =""; return s; }
+   public String res;
+   public VisiteurTS(){res="";}
+   public  String get_res(){String s = res; res =""; return s; }
 
   public void visite_cst(boolean b){res=res+b;}
 

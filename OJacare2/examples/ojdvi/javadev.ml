@@ -65,12 +65,12 @@ let get_image g col =
 	      and h = g.height in
               (* We enforce [h <> 0] and [w <> 0] because
 		 Caml graphics don't like zero-sized pixmaps. *)
-	      let dst = JniArray._new_int_jArray ((max 1 w)*(max 1 h))
+	      let dst = OjArray._new_int_array ((max 1 w)*(max 1 h))
 	      and table = get_color_table col
 	      and p = ref 0 in
 	      for i = 0 to h - 1 do
 		for j = 0 to w - 1 do
-		  dst#set (i*w+j) table.(Char.code gmap.[!p]);
+OjArray.set dst  (i*w+j) (Int32.of_int table.(Char.code gmap.[!p]));
 		  incr p
 		done
 	      done ;
@@ -108,8 +108,8 @@ let open_dev geom =
   | Some canvas -> 
       (try Scanf.sscanf geom " %dx%d" (fun width height -> canvas#init width height)
       with _ -> canvas#init 400 600);
-      size_x := canvas#get_width ();
-      size_y := canvas#get_height ();  
+      size_x := canvas#get_widthV ();
+      size_y := canvas#get_heightV ();  
       xmin := 0 ; xmax := !size_x;
       ymin := 0 ; ymax := !size_y;
 ;;

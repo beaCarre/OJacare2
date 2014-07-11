@@ -21,6 +21,7 @@ val get_class_ml_interface_init_name: clazz -> string
 val get_method_java_name: mmethod -> string
 val get_method_ml_name: mmethod -> string
 val get_method_ml_name_location: mmethod -> Loc.t
+val get_method_ml_id : mmethod -> int
 
 val compare_clazz: clazz -> clazz -> int
 val compare_method: mmethod -> mmethod -> int
@@ -56,4 +57,5 @@ val get_method_ml_init_name: mmethod -> string
 val get_method_ml_init_stub_name: mmethod -> string
 
 val get_class_ml_array_alloc_name: clazz -> string
-val get_class_ml_array_init_name: clazz -> string
+val get_class_ml_array_descr: clazz -> string
+val get_class_ml_array_unwrap_name : clazz -> string

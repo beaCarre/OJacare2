@@ -41,9 +41,9 @@ let make_fun args body =
       List.fold_right
 	(fun (narg,targ) e -> match targ with
 	| Cobject (Cname id) -> <:expr< fun ($lid:narg$ : $lid:Ident.get_class_ml_name id$) -> $e$>>
-	| Cobject (Carray t) -> <:expr< fun ($lid:narg$ : array $MlType.ml_signature_of_type t$) -> $e$>>
-	| Cobject (Cjavaarray t) -> <:expr< fun ($lid:narg$ : JniArray.jArray $MlType.ml_signature_of_type t$) -> $e$>>
-	| Cobject Ctop -> <:expr< fun ($lid:narg$ : JniHierarchy.jTop) -> $e$>>
+	| Cobject (Carray t) -> <:expr< fun ($lid:narg$ : OjArray.t $MlType.ml_signature_of_type t$) -> $e$>>
+	| Cobject (Cjavaarray t) -> <:expr< fun ($lid:narg$ : OjArray.t $MlType.ml_signature_of_type t$) -> $e$>>
+	| Cobject Ctop -> <:expr< fun ($lid:narg$ : top) -> $e$>>
 	| _ -> <:expr< fun $lid:narg$ -> $e$>>)
 	args body
 

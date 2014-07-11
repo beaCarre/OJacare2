@@ -4,8 +4,8 @@ class Image { }
 
 package mypack;
 
-[name ml_dvi, callback] interface MlDvi {
-  void run(string, GrView, GrControler);
+[name ml_dvi] interface MlDvi {
+  [callback] void run(string, GrView, GrControler);
 }
 
 class DviFrame {
@@ -16,8 +16,8 @@ class GrView {
 
   static final int transp;
 
-  int width;
-  int height;
+  int widthV;
+  int heightV;
 
   void init(int,int);
   void clear();

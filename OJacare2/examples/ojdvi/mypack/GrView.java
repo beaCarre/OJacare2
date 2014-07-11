@@ -8,7 +8,7 @@ import java.awt.event.*;
 
 public class GrView extends java.awt.Canvas implements GrControler {
  
-    public int width, height;
+    public int widthV, heightV;
     private Frame frame;
 
     public GrView(Frame frame) {
@@ -30,8 +30,8 @@ public class GrView extends java.awt.Canvas implements GrControler {
 
 	Rectangle bounds = new Rectangle();
 	bounds = this.getBounds(bounds);
-	this.width = bounds.width;
-	this.height = bounds.height;
+	this.widthV = bounds.width;
+	this.heightV = bounds.height;
 	
 	this.initBuffer();
 
@@ -49,7 +49,7 @@ public class GrView extends java.awt.Canvas implements GrControler {
     Graphics buffer, screen;
 
     void initBuffer() {
-	this.image = new BufferedImage(this.width,this.height,BufferedImage.TYPE_INT_RGB);
+	this.image = new BufferedImage(this.widthV,this.heightV,BufferedImage.TYPE_INT_RGB);
 	this.buffer = this.image.getGraphics();
     }
 
@@ -69,7 +69,7 @@ public class GrView extends java.awt.Canvas implements GrControler {
     static final int green = 255 << 8;
     static final int blue = 255;
     static final int white = (red | green | blue);
-    static final int transp = -1;
+    public static final int transp = -1;
 
     private Color color;
 
@@ -85,7 +85,7 @@ public class GrView extends java.awt.Canvas implements GrControler {
 	//screen.fillRect(0,0,this.width,this.height);
 	//screen.setColor(this.color); // Hack HasChange
 	buffer.setColor(Color.white);
-	buffer.fillRect(0,0,this.width,this.height);
+	buffer.fillRect(0,0,this.widthV,this.heightV);
 	buffer.setColor(this.color);
     }
 
@@ -96,14 +96,14 @@ public class GrView extends java.awt.Canvas implements GrControler {
     }
 
     public void fillRect(int x, int _y, int w, int h) {
-	int y = this.height - _y - h;
+	int y = this.heightV - _y - h;
 	//screen.fillRect(x, y, w, h);  // Hack HasChange
 	buffer.fillRect(x, y, w, h);
 	this.hasChange = true;
     }
 
     public void drawImage(Image img, int x, int _y) {
-	int y = this.height - _y - img.getHeight(this);
+	int y = this.heightV - _y - img.getHeight(this);
 	//screen.drawImage(img,x,y,this); // Hack HasChange
 	buffer.drawImage(img,x,y,this);
 	this.hasChange = true;
