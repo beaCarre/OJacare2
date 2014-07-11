@@ -25,13 +25,13 @@ let make_jni_CB_type cl_list =
     let jinst = Ident.get_class_java_oj_cb_name cl.cc_ident in
     let name = Ident.get_class_ml_jni_cb_type_name cl.cc_ident in
     <:str_item< type $lid:name$ =java_instance $lid:jinst$ >> in
-  P4helper.str_items (List.map make (List.filter (fun cl -> (cl.cc_callback||Method.have_callback cl.cc_public_methods) && not (Ident.is_interface cl.cc_ident)) cl_list))
+  P4helper.str_items (List.map make (List.filter (fun cl -> (cl.cc_callback||Method.have_callback cl.cc_methods) && not (Ident.is_interface cl.cc_ident)) cl_list))
 let make_jni_ICB_type cl_list =
   let make cl =   
     let jinst = Ident.get_class_java_oj_icb_name cl.cc_ident in
     let name = Ident.get_class_ml_jni_icb_type_name cl.cc_ident in
     <:str_item< type $lid:name$ =java_instance $lid:jinst$ >> in
-  P4helper.str_items (List.map make (List.filter (fun cl -> (cl.cc_callback||Method.have_callback cl.cc_public_methods) && not (Ident.is_interface cl.cc_ident)) cl_list))
+  P4helper.str_items (List.map make (List.filter (fun cl -> (cl.cc_callback||Method.have_callback cl.cc_methods) && not (Ident.is_interface cl.cc_ident)) cl_list))
 let make_jni_type_sig cl_list =
   let make cl = 
     let name = Ident.get_class_ml_jni_type_name cl.cc_ident in
@@ -52,7 +52,7 @@ let make_class_type ~callback cl_list =
 	
 	(* méthode *)
 	let method_list = 
-	  List.rev_append (MlMethod.make_class_type ~callback:callback cl.cc_methods) method_list in 
+	  List.rev_append (MlMethod.make_class_type ~callback:callback cl.cc_public_methods) method_list in 
 	
 	(* accesseur *)
 	let method_list = 
@@ -107,7 +107,7 @@ let make_wrapper ~callback cl_list =
     in
     let class_decl = List.rev_append methods class_decl in
     let proxy_decl = [] in
-    let proxy_decl = List.rev_append(MlMethod.make_callback (List.filter (fun m -> ( Method.have_callback cl.cc_public_methods && Method.is_callback m) || Ident.is_callback cl.cc_ident )   cl.cc_public_methods)) proxy_decl in
+    let proxy_decl = List.rev_append(MlMethod.make_callback (List.filter (fun m -> ( Method.have_callback cl.cc_methods && Method.is_callback m) || Ident.is_callback cl.cc_ident )   cl.cc_public_methods)) proxy_decl in
     
     (* initializer :  proxy si 'callback' *)
     let class_decl = 
@@ -184,7 +184,7 @@ let make_wrapper ~callback cl_list =
     class_name,abstract,class_body 
   
   in
-  List.map make (List.filter (fun cl -> (not callback) || cl.cc_callback || (Method.have_callback cl.cc_public_methods) ) cl_list)
+  List.map make (List.filter (fun cl -> (not callback) || cl.cc_callback || (Method.have_callback cl.cc_methods) ) cl_list)
 
 
 

@@ -88,7 +88,7 @@ let make_class ~callback cl_list =
     if not callback then 
       List.concat (List.map make_cl  cl_list) 
     else
-      List.concat (List.map make_cl (List.filter (fun cl -> cl.cc_callback || (Method.have_callback cl.cc_public_methods) ) cl_list)) in
+      List.concat (List.map make_cl (List.filter (fun cl -> cl.cc_callback || (Method.have_callback cl.cc_methods) ) cl_list)) in
   P4helper.str_items init_funs
 
 let make_class_sig ~callback cl_list = 
@@ -140,5 +140,5 @@ let make_class_sig ~callback cl_list =
     if not callback then 
       List.concat (List.map make_cl  cl_list) 
     else
-      List.concat (List.map make_cl (List.filter (fun cl -> cl.cc_callback || (Method.have_callback cl.cc_public_methods) ) cl_list)) in
+      List.concat (List.map make_cl (List.filter (fun cl -> cl.cc_callback || (Method.have_callback cl.cc_methods) ) cl_list)) in
   P4helper.sig_items init_funs

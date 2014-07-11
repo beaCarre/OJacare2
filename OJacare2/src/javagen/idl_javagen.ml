@@ -6,7 +6,7 @@ open Ident
 
 
 let create_stub_files file =
-  List.iter (fun clazz -> if (clazz.cc_callback || (Method.have_callback clazz.cc_public_methods)) && not(is_interface clazz.cc_ident) then
+  List.iter (fun clazz -> if (clazz.cc_callback || (Method.have_callback clazz.cc_methods)) && not(is_interface clazz.cc_ident) then
       begin
 	JavaClass.create_stub_file clazz ;
 	JavaInterface.create_stub_file clazz

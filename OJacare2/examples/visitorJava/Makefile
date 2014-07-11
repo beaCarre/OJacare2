@@ -1,36 +1,98 @@
+# generic minimal Makefile for O'Jacare
 
-#HOME
-#JAVA_PATH=/usr/lib/jvm/java-7-oracle
-#ARI :
-#JAVA_PATH=/usr/lib/jvm/jdk1.7.0_07
-#IRILL :
-JAVA_PATH=/usr/lib/jvm/jdk1.7.0_55
+# Adjust to your O'Jacare installation
 
-LIB=/home/beatrice/.opam/4.01.0+ocamljava/lib/ojacare/
+LIBDIR = /home/beatrice/.opam/4.01.0+ocamljava/lib/ojacare/
+
+### Specific to your application
+
+ MAIN      = formule main_visiteur
+ IDL       = visiteur
+ MLINCDIRS = 
+ MODULES   = 
+ LIBRARIES = javalib ojhelpers
+ PACK     = fr/upmc/infop6/mlo
+ CLASSES = Formule Visiteur VisiteurTS
+ CBCLASSES   = 
+
+### include $(LIBDIR)/Makefile.generic
+
+
+######### Adjust to your installation #########
+
+JAVA_PATH =/usr/lib/jvm/jdk1.7.0_55
+
+OCAMLC      = ocamlfind ocamlc
+OCAMLOPT    = ocamlfind ocamlopt
+OCAMLDEP    = ocamldep 
+
+OJACARE = ojacare
+OCAMLJAVA = ocamljava -java-extensions -I $(LIBDIR)
+OJACAREDIR  = $(shell ocamlfind printconf destdir)/ojacare
+
+
+#########  #########
 
 JAVA=$(JAVA_PATH)/bin/java
 JAVAC=$(JAVA_PATH)/bin/javac
-OCAMLJAVA=ocamljava -java-extensions -I $(LIB)
 
-CP=-cp $(JAVA_PATH)/lib/ct.sym -cp fr/upmc/infop6/mlo -I $(LIB)
+JAVA_CLASSES=$(addprefix $(PACK)/, $(addsuffix .class,$(CLASSES)))
+JAVA_SOURCES=$(addprefix $(PACK)/, $(addsuffix .java,$(CLASSES)))
 
-default: clean compile run
+JAVA_CB_CLASSES= \
+  $(addprefix callback/$(PACK)/CB_, $(addsuffix .class,$(CBCLASSES))) \
+  $(addprefix callback/$(PACK)/ICB_, $(addsuffix .class,$(CBCLASSES)))
+JAVA_CB_SOURCES= \
+  $(addprefix callback/$(PACK)/CB_, $(addsuffix .java,$(CBCLASSES))) \
+  $(addprefix callback/$(PACK)/ICB_, $(addsuffix .java,$(CBCLASSES)))
 
-compile:
-	$(JAVAC) fr/upmc/infop6/mlo/Formule.java
-	$(JAVAC) fr/upmc/infop6/mlo/Visiteur.java
-	$(JAVAC) fr/upmc/infop6/mlo/VisiteurTS.java
 
-	$(OCAMLJAVA) $(CP) -c visiteur.mli
-	$(OCAMLJAVA) $(CP) -c visiteur.ml
-	$(OCAMLJAVA) $(CP) -c formule.ml
-	$(OCAMLJAVA) $(CP) -c main_visiteur.ml
-	$(OCAMLJAVA) javalib.cmja ojhelpers.cmja visiteur.cmj formule.cmj main_visiteur.cmj
+INCLUDES  = $(PACKAGES) $(addprefix -I , $(MLINCDIRS))
+LINK_OPTS = -linkpkg $(addprefix -ccopt -L, $(CLIBDIRS)) \
+	    $(addprefix -cclib -l, $(CLIBS))
+
+CP := -annot -cp $(JAVA_PATH)/lib/ct.sym -cp $(PACK)
+ifneq ($(CBCLASSES),)
+  CP += -cp callback/$(PACK)
+endif
+
+
+#########  #########
+
+compile: camlprog.jar
+
+$(IDL).ml $(IDL).mli $(JAVA_CB_SOURCES): $(IDL).idl
+	$(OJACARE) $<
+
+%.cmi: %.mli
+	$(OCAMLJAVA) $(CP) $(INCLUDES) -c $<
+
+%.cmj: %.ml 
+	$(OCAMLJAVA) $(CP) $(INCLUDES) -c $<
+
+$(IDL).cmj: $(IDL).cmi $(JAVA_CLASSES) $(JAVA_CB_CLASSES)
+$(MAIN:%.ml=%.cmj): $(IDL).cmi
+
+$(JAVA_CLASSES): $(JAVA_SOURCES)
+	$(JAVAC) $^
+
+$(JAVA_CB_CLASSES): $(JAVA_CB_SOURCES)
+	$(JAVAC) $^
+
+camlprog.jar: $(IDL).cmj $(MAIN:%=%.cmj)
+	$(OCAMLJAVA) $(LIBRARIES:=.cmja) $^
 
 run:
 	$(JAVA) -cp camlprog.jar:. pack.ocamljavaMain
 
 clean:
-	rm -rf camlprog.jar *.cm* *.jo fr/upmc/infop6/mlo/*.class *.annot callback
+	rm -rf camlprog.jar *.cm* *.jo $(PACK)/*.class callback *.annot $(IDL).ml $(IDL).mli
+
 
 .PHONY: default compile run clean
+
+
+.depend: $(wildcard *.mli) $(wildcard *.ml)
+	$(OCAMLDEP) $(INCLUDES) $^ > .depend
+
+include .depend

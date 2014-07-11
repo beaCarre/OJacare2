@@ -1,5 +1,6 @@
 package fr.upmc.infop6.mlo;
 
+
 [callback] interface Formule {
   void accepte(Visiteur v);
 }
