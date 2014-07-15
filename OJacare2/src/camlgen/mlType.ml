@@ -73,7 +73,7 @@ let array_unwrap_of_type typ =
   | Cdouble -> "unwrap_double_array"
   | Ccallback _ -> "_callback"
   | Cobject Ctop -> "unwrap_jObject_array"
-  | Cobject Cstring -> "unwrap_reference_array"
+  | Cobject Cstring -> "unwrap_string_array"
   | Cobject (Cname id) -> "unwrap_"^(Ident.get_class_java_name id)^"_array"
   | Cobject (Cjavaarray t)
   | Cobject (Carray t) -> "TODO 2 dim"
@@ -117,7 +117,7 @@ let rec ml_signature_of_type typ =
   match typ with
   | Cvoid -> <:ctyp< unit >>
   | Cboolean -> <:ctyp< bool >>
-  | Cchar -> <:ctyp< int >>
+  | Cchar -> <:ctyp< char >>
   | Cbyte -> <:ctyp< int >>
   | Cshort -> <:ctyp< int >>
   | Cint -> <:ctyp< int32 >>

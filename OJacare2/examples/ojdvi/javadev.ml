@@ -70,7 +70,7 @@ let get_image g col =
 	      and p = ref 0 in
 	      for i = 0 to h - 1 do
 		for j = 0 to w - 1 do
-OjArray.set dst  (i*w+j) (Int32.of_int table.(Char.code gmap.[!p]));
+OjArray.set dst  (i*w+j) table.(Char.code gmap.[!p]);
 		  incr p
 		done
 	      done ;
@@ -215,7 +215,7 @@ let convert_event evt =
     mouse_y = evt#get_mouse_y ();
     button = evt#get_button ();
     keypressed = evt#get_keypressed (); 
-    key = char_of_int (evt#get_key ());
+    key = evt#get_key ();
   } 
 
 let wait_next_event kinds =

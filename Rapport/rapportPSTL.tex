@@ -461,6 +461,9 @@ exceptions du côté OCaml :
 exception Java_exception of java'lang'Throwable java_instance
 \end{OCamlEx}
 
+Il est aussi possible de créer une instance d'interface java depuis 
+OCaml grâce à la fonction \emph{Java.proxy}, 
+
 \newpage
 Voici un exemple d'utilisation du module Java \cite{module Java} d'OCaml, voué à être compilé avec \emph{OCaml-Java} :
 \begin{OCamlEx}

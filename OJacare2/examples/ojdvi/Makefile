@@ -1,47 +1,68 @@
-PACK=mypack
-IDL=jGraphics
-MAIN=export.ml javadev.ml main.ml
+# generic minimal Makefile for O'Jacare
 
-# Pour ne pas compiler les modules spécifique à X11
-DISTRIB_MODULES  = table pkfont search font glyph devfont dvi driver \
+# Adjust to your O'Jacare installation
+
+LIBDIR = /home/beatrice/.opam/4.01.0+ocamljava/lib/ojacare/
+
+### Specific to your application
+
+ MAIN      = export javadev main
+ IDL       = jGraphics
+ MLINCDIRS = mldvi-1.0
+ DISTRIB_MODULES = table pkfont search font glyph devfont dvi driver \
 	     units dviview
+ LIBRARIES = javalib ojhelpers unix
+ PACK     = mypack
+ CLASSES = GrControler MlDvi GrView CamlEvent DviFrame
+ CBCLASSES   = 
 
-DISTRIB_REP=mldvi-1.0
-DISTRIB_CMJ_OBJS = $(addprefix $(DISTRIB_REP)/, $(addsuffix .cmj, $(DISTRIB_MODULES)))
+### include $(LIBDIR)/Makefile.generic
 
-LIBRARIES = unix
 
-CBCLASSES = 
-CLASSES=GrControler MlDvi GrView CamlEvent DviFrame
+######### Adjust to your installation #########
+
+JAVA_PATH =/usr/lib/jvm/jdk1.7.0_55
+
+OCAMLC      = ocamlfind ocamlc
+OCAMLOPT    = ocamlfind ocamlopt
+OCAMLDEP    = ocamldep 
+
+OJACARE = ojacare
+OCAMLJAVA = ocamljava -java-extensions -I $(LIBDIR)
+OJACAREDIR  = $(shell ocamlfind printconf destdir)/ojacare
+
+
+#########  #########
+
+JAVA=$(JAVA_PATH)/bin/java
+JAVAC=$(JAVA_PATH)/bin/javac
 
 JAVA_CLASSES=$(addprefix $(PACK)/, $(addsuffix .class,$(CLASSES)))
 JAVA_SOURCES=$(addprefix $(PACK)/, $(addsuffix .java,$(CLASSES)))
 
-JAVA_CB_CLASSES=$(addprefix callback/$(PACK)/, $(addsuffix .class,$(CBCLASSES)))
-JAVA_CB_SOURCES=$(addprefix callback/$(PACK)/, $(addsuffix .java,$(CBCLASSES)))
-INCLUDES=-I $(DISTRIB_REP)
+JAVA_CB_CLASSES= \
+  $(addprefix callback/$(PACK)/CB_, $(addsuffix .class,$(CBCLASSES))) \
+  $(addprefix callback/$(PACK)/ICB_, $(addsuffix .class,$(CBCLASSES)))
+JAVA_CB_SOURCES= \
+  $(addprefix callback/$(PACK)/CB_, $(addsuffix .java,$(CBCLASSES))) \
+  $(addprefix callback/$(PACK)/ICB_, $(addsuffix .java,$(CBCLASSES)))
 
-#HOME
-#JAVA_PATH=/usr/lib/jvm/java-7-oracle
-#ARI :
-#JAVA_PATH=/usr/lib/jvm/jdk1.7.0_07
-#IRILL :
-JAVA_PATH=/usr/lib/jvm/jdk1.7.0_55
 
-JAVA=$(JAVA_PATH)/bin/java
-JAVAC=$(JAVA_PATH)/bin/javac
-OCAMLJAVA=ocamljava -java-extensions javalib.cmja
-OCAMLDEP=ocamldep
+INCLUDES  = $(PACKAGES) $(addprefix -I , $(MLINCDIRS))
+DISTRIB_CMJ_OBJS = $(addprefix $(MLINCDIRS)/, $(addsuffix .cmj, $(DISTRIB_MODULES)))
 
-ifeq ($(CBCLASSES),)
-  CP=-annot -cp $(JAVA_PATH)/lib/ct.sym -cp $(PACK)
-else
-  CP=-annot -cp $(JAVA_PATH)/lib/ct.sym -cp $(PACK) -cp callback/$(PACK)
+CP := -annot -cp $(JAVA_PATH)/lib/ct.sym -cp $(PACK)
+ifneq ($(CBCLASSES),)
+  CP += -cp callback/$(PACK)
 endif
 
-default: clean compile run
+
+#########  #########
 
 compile: camlprog.jar
+
+$(IDL).ml $(IDL).mli $(JAVA_CB_SOURCES): $(IDL).idl
+	$(OJACARE) $<
 
 %.cmi: %.mli
 	$(OCAMLJAVA) $(CP) $(INCLUDES) -c $<
@@ -49,27 +70,29 @@ compile: camlprog.jar
 %.cmj: %.ml 
 	$(OCAMLJAVA) $(CP) $(INCLUDES) -c $<
 
-$(IDL).cmj: $(IDL).cmi
+$(IDL).cmj: $(IDL).cmi $(JAVA_CLASSES) $(JAVA_CB_CLASSES)
 $(MAIN:%.ml=%.cmj): $(IDL).cmi
 
-$(IDL).cmj: $(JAVA_CLASSES) $(JAVA_CB_CLASSES)
-
 $(JAVA_CLASSES): $(JAVA_SOURCES)
-	$(JAVAC) $(JAVA_SOURCES)
+	$(JAVAC) $^
 
-camlprog.jar: $(IDL).cmj $(DISTRIB_CMJ_OBJS) $(MAIN:%.ml=%.cmj)
+$(JAVA_CB_CLASSES): $(JAVA_CB_SOURCES)
+	$(JAVAC) $^
+
+camlprog.jar: $(IDL).cmj  $(DISTRIB_CMJ_OBJS) $(MAIN:%=%.cmj)
 	$(OCAMLJAVA) $(LIBRARIES:=.cmja) $^
 
 run:
 	$(JAVA) -cp camlprog.jar:. pack.ocamljavaMain
 
 clean:
-	rm -f camlprog.jar *.cm* *.jo $(PACK)/*.class *.annot $(DISTRIB_REP)/*.cm* $(DISTRIB_REP)/*.jo
-
-.PHONY: default compile run clean
+	rm -rf camlprog.jar *.cm* *.jo $(PACK)/*.class callback *.annot $(IDL).ml $(IDL).mli $(MLINCDIRS)/*.cm* $(MLINCDIRS)/*.jo
 
 
-.depend: *.mli *.ml $(DISTRIB_REP)/*.ml $(DISTRIB_REP)/*.mli
+.PHONY: compile run clean
+
+
+.depend: $(wildcard *.mli) $(wildcard *.ml) $(MLINCDIRS)/*.ml $(MLINCDIRS)/*.mli
 	$(OCAMLDEP) $(INCLUDES) $^ > .depend
 
 include .depend
