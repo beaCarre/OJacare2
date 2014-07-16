@@ -9,7 +9,7 @@ MLINCDIRS = $(SUBDIRS)
 COMMON_MODULES = filesystem utilities
 PARSER_MODULES = loc syntax_error lexer parser idl_parser
 CHECK_MODULES = modifiers annot error ident env_idl env_ident type init method field content def idl_check
-CAMLGEN_MODULES = p4helper mlType mlGen mlMethod mlInit mlClass idl_camlgen  
+CAMLGEN_MODULES = p4helper mlType mlGen mlMethod mlInit mlClass idl_camlgen
 JAVAGEN_MODULES = javaType javaArgs javaInit javaMethod javaInterface javaClass idl_javagen
 
 COMMON_CMO_OBJS  = $(addprefix common/, $(addsuffix .cmo, $(COMMON_MODULES)))
@@ -34,12 +34,12 @@ opt: srcopt $(EXEC).opt
 # Source
 .PHONY: src srcbyte srcopt
 src: srcbyte srcopt
-srcbyte: 
-	$(foreach dir,$(SUBDIRS),$(MAKE) -C $(dir) byte;) 
-srcopt: 
-	$(MAKE) -C ojHelpers 
+srcbyte:
+	$(foreach dir,$(SUBDIRS),$(MAKE) -C $(dir) byte;)
+srcopt:
+	$(MAKE) -C ojHelpers
 	$(foreach dir,$(SUBDIRS),$(MAKE) -C $(dir) opt;)
-clean:: 
+clean::
 	$(MAKE) -C ojHelpers clean
 	$(foreach dir,$(SUBDIRS),$(MAKE) -C $(dir) clean;)
 
@@ -47,17 +47,24 @@ clean::
 $(EXEC): $(COMMON_CMO_OBJS) $(PARSER_CMO_OBJS) $(CHECK_CMO_OBJS) $(JAVAGEN_CMO_OBJS) $(CAMLGEN_CMO_OBJS) main/ojacare.cmo
 	$(OCAMLC) -o $@ -I +camlp4 dynlink.cma camlp4lib.cma unix.cma $^
 $(EXEC).opt: $(COMMON_CMX_OBJS) $(PARSER_CMX_OBJS) $(CHECK_CMX_OBJS) $(JAVAGEN_CMX_OBJS) $(CAMLGEN_CMX_OBJS) main/ojacare.cmx
-	$(OCAMLOPT) -o $@ -I +camlp4 dynlink.cmxa camlp4lib.cmxa unix.cmxa $^ 
-partialclean:: 
+	$(OCAMLOPT) -o $@ -I +camlp4 dynlink.cmxa camlp4lib.cmxa unix.cmxa $^
+partialclean::
 	rm -f ojacare ojacare.opt
 	rm -f main/*.cm[xoi] main/*.[so] main/*~ main/*.annot
 
 install:
 	test -d $(BINDIR) || mkdir -p $(BINDIR)
-	test -d $(LIBDIR)/ojacare || mkdir -p $(LIBDIR)/ojacare
-	cp ojacare $(BINDIR) 
+	cp ojacare $(BINDIR)
 	$(MAKE) -C ojHelpers install
-	cp main/Makefile.include $(LIBDIR)/ojacare
+	cp ../Makefile.config Makefile.ojacare $(LIBDIR)/ojacare
+
+uninstall:
+	-rm -f $(BINDIR)/ojacare
+	${MAKE} -C ojHelpers uninstall
+
+reinstall:
+	${MAKE} uninstall
+	${MAKE} install
 
 # Règles générales
 .SUFFIXES: .ml .mli .cmo .cmi .cmx
@@ -66,7 +73,7 @@ install:
 .ml.cmo:
 	$(OCAMLC) -c $(INCLUDES) $<
 .ml.cmx:
-	$(OCAMLOPT) -c $(INCLUDES) $< 
+	$(OCAMLOPT) -c $(INCLUDES) $<
 clean:: partialclean
 	rm -f *.cm[iox] *.[so] *~ *.annot
 realclean:: clean

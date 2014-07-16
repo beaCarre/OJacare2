@@ -1,72 +1,19 @@
-jGraphics.cmi :
-export.cmo :
-export.cmx :
-export.cmj :
-javadev.cmo : jGraphics.cmi mldvi-1.0/glyph.cmi
-javadev.cmx : jGraphics.cmx mldvi-1.0/glyph.cmx
-javadev.cmj : jGraphics.cmj mldvi-1.0/glyph.cmj
-jGraphics.cmo : jGraphics.cmi
-jGraphics.cmx : jGraphics.cmi
-jGraphics.cmj : jGraphics.cmi
+jGraphics.cmi : /home/henry/.opam/4.01.0+ocamljava/lib/ojacare/ojArray.cmi
+jGraphics.cmo : /home/henry/.opam/4.01.0+ocamljava/lib/ojacare/ojArray.cmi \
+    jGraphics.cmi
+jGraphics.cmx : /home/henry/.opam/4.01.0+ocamljava/lib/ojacare/ojArray.cmi \
+    jGraphics.cmi
+jGraphics.cmj : /home/henry/.opam/4.01.0+ocamljava/lib/ojacare/ojArray.cmi \
+    jGraphics.cmi
+javadev.cmo : /home/henry/.opam/4.01.0+ocamljava/lib/ojacare/ojArray.cmi \
+    jGraphics.cmi mldvi-1.0/glyph.cmi
+javadev.cmx : /home/henry/.opam/4.01.0+ocamljava/lib/ojacare/ojArray.cmi \
+    jGraphics.cmx mldvi-1.0/glyph.cmx
+javadev.cmj : /home/henry/.opam/4.01.0+ocamljava/lib/ojacare/ojArray.cmi \
+    jGraphics.cmj mldvi-1.0/glyph.cmj
 main.cmo : javadev.cmo jGraphics.cmi mldvi-1.0/dviview.cmi
 main.cmx : javadev.cmx jGraphics.cmx mldvi-1.0/dviview.cmx
 main.cmj : javadev.cmj jGraphics.cmj mldvi-1.0/dviview.cmj
-mldvi-1.0/devfont.cmo : mldvi-1.0/table.cmi mldvi-1.0/glyph.cmi \
-    mldvi-1.0/font.cmi mldvi-1.0/devfont.cmi
-mldvi-1.0/devfont.cmx : mldvi-1.0/table.cmx mldvi-1.0/glyph.cmx \
-    mldvi-1.0/font.cmx mldvi-1.0/devfont.cmi
-mldvi-1.0/devfont.cmj : mldvi-1.0/table.cmj mldvi-1.0/glyph.cmj \
-    mldvi-1.0/font.cmj mldvi-1.0/devfont.cmi
-mldvi-1.0/driver.cmo : mldvi-1.0/table.cmi mldvi-1.0/glyph.cmi \
-    mldvi-1.0/dvi.cmi mldvi-1.0/devfont.cmi mldvi-1.0/driver.cmi
-mldvi-1.0/driver.cmx : mldvi-1.0/table.cmx mldvi-1.0/glyph.cmx \
-    mldvi-1.0/dvi.cmx mldvi-1.0/devfont.cmx mldvi-1.0/driver.cmi
-mldvi-1.0/driver.cmj : mldvi-1.0/table.cmj mldvi-1.0/glyph.cmj \
-    mldvi-1.0/dvi.cmj mldvi-1.0/devfont.cmj mldvi-1.0/driver.cmi
-mldvi-1.0/dvi.cmo : mldvi-1.0/dvi.cmi
-mldvi-1.0/dvi.cmx : mldvi-1.0/dvi.cmi
-mldvi-1.0/dvi.cmj : mldvi-1.0/dvi.cmi
-mldvi-1.0/dviview.cmo : mldvi-1.0/units.cmi mldvi-1.0/glyph.cmi \
-    mldvi-1.0/dvi.cmi mldvi-1.0/driver.cmi mldvi-1.0/dviview.cmi
-mldvi-1.0/dviview.cmx : mldvi-1.0/units.cmx mldvi-1.0/glyph.cmx \
-    mldvi-1.0/dvi.cmx mldvi-1.0/driver.cmx mldvi-1.0/dviview.cmi
-mldvi-1.0/dviview.cmj : mldvi-1.0/units.cmj mldvi-1.0/glyph.cmj \
-    mldvi-1.0/dvi.cmj mldvi-1.0/driver.cmj mldvi-1.0/dviview.cmi
-mldvi-1.0/font.cmo : mldvi-1.0/table.cmi mldvi-1.0/search.cmi \
-    mldvi-1.0/pkfont.cmi mldvi-1.0/font.cmi
-mldvi-1.0/font.cmx : mldvi-1.0/table.cmx mldvi-1.0/search.cmx \
-    mldvi-1.0/pkfont.cmx mldvi-1.0/font.cmi
-mldvi-1.0/font.cmj : mldvi-1.0/table.cmj mldvi-1.0/search.cmj \
-    mldvi-1.0/pkfont.cmj mldvi-1.0/font.cmi
-mldvi-1.0/glyph.cmo : mldvi-1.0/font.cmi mldvi-1.0/glyph.cmi
-mldvi-1.0/glyph.cmx : mldvi-1.0/font.cmx mldvi-1.0/glyph.cmi
-mldvi-1.0/glyph.cmj : mldvi-1.0/font.cmj mldvi-1.0/glyph.cmi
-mldvi-1.0/grdev.cmo : mldvi-1.0/glyph.cmi mldvi-1.0/grdev.cmi
-mldvi-1.0/grdev.cmx : mldvi-1.0/glyph.cmx mldvi-1.0/grdev.cmi
-mldvi-1.0/grdev.cmj : mldvi-1.0/glyph.cmj mldvi-1.0/grdev.cmi
-mldvi-1.0/main.cmo : mldvi-1.0/grdev.cmi mldvi-1.0/dviview.cmi
-mldvi-1.0/main.cmx : mldvi-1.0/grdev.cmx mldvi-1.0/dviview.cmx
-mldvi-1.0/main.cmj : mldvi-1.0/grdev.cmj mldvi-1.0/dviview.cmj
-mldvi-1.0/pkfont.cmo : mldvi-1.0/pkfont.cmi
-mldvi-1.0/pkfont.cmx : mldvi-1.0/pkfont.cmi
-mldvi-1.0/pkfont.cmj : mldvi-1.0/pkfont.cmi
-mldvi-1.0/search.cmo : mldvi-1.0/search.cmi
-mldvi-1.0/search.cmx : mldvi-1.0/search.cmi
-mldvi-1.0/search.cmj : mldvi-1.0/search.cmi
-mldvi-1.0/table.cmo : mldvi-1.0/table.cmi
-mldvi-1.0/table.cmx : mldvi-1.0/table.cmi
-mldvi-1.0/table.cmj : mldvi-1.0/table.cmi
-mldvi-1.0/units.cmo : mldvi-1.0/units.cmi
-mldvi-1.0/units.cmx : mldvi-1.0/units.cmi
-mldvi-1.0/units.cmj : mldvi-1.0/units.cmi
-mldvi-1.0/devfont.cmi : mldvi-1.0/table.cmi mldvi-1.0/glyph.cmi
-mldvi-1.0/driver.cmi : mldvi-1.0/glyph.cmi mldvi-1.0/dvi.cmi
-mldvi-1.0/dvi.cmi :
-mldvi-1.0/dviview.cmi : mldvi-1.0/glyph.cmi
-mldvi-1.0/font.cmi :
-mldvi-1.0/glyph.cmi : mldvi-1.0/font.cmi
-mldvi-1.0/grdev.cmi : mldvi-1.0/glyph.cmi
-mldvi-1.0/pkfont.cmi :
-mldvi-1.0/search.cmi :
-mldvi-1.0/table.cmi :
-mldvi-1.0/units.cmi :
+export.cmo :
+export.cmx :
+export.cmj :
