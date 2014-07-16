@@ -27,8 +27,14 @@ $(LIB).cmja: $(CMJ_OBJS)
 	$(OCAMLJAVA) $(CP) $(INCLUDES) -c $<
 
 install:
-	test -d $(LIBDIR) || mkdir -p $(LIBDIR)
-	cp ojhelpers.cmja ojhelpers.ja $(CMJ_OBJS) $(CMI_OBJS) $(MLI_OBJS) $(LIBDIR)
+	${OCAMLFIND} install ojacare META ojhelpers.cmja ojhelpers.ja $(CMJ_OBJS) $(CMI_OBJS) $(MLI_OBJS)
+
+uninstall:
+	${OCAMLFIND} remove ojacare
+
+reinstall:
+	${MAKE} uninstall
+	${MAKE} install
 
 clean::
 	rm -f *.cm[ij] *~ *.ja *.jo *.cmja 

@@ -2,39 +2,23 @@
 
 # Adjust to your O'Jacare installation
 
-LIBDIR = 
+include $(shell ocamlfind query ojacare)/Makefile.config
 
 ### Specific to your application
 
- MAIN      = 
- IDL       = 
- MLINCDIRS = 
- MODULES   = 
- LIBRARIES = 
- PACK     =
- CLASSES =
- CBCLASSES   = 
-
-
-
-
-######### Adjust to your installation #########
-
-JAVA_PATH =
-
-OCAMLC      = ocamlfind ocamlc
-OCAMLOPT    = ocamlfind ocamlopt
-OCAMLDEP    = ocamldep 
-
-OJACARE = ojacare
-OCAMLJAVA = ocamljava -java-extensions -I $(LIBDIR)
-OJACAREDIR  = $(shell ocamlfind printconf destdir)/ojacare
-
+# MAIN      =
+# IDL       =
+# MLINCDIRS =
+# MODULES   =
+# LIBRARIES =
+# PACK      =
+# CLASSES   =
+# CBCLASSES =
 
 #########  #########
 
-JAVA=$(JAVA_PATH)/bin/java
-JAVAC=$(JAVA_PATH)/bin/javac
+LIBRARIES += javalib ojhelpers
+MLINCDIRS += $(shell ocamlfind query ojacare)
 
 JAVA_CLASSES=$(addprefix $(PACK)/, $(addsuffix .class,$(CLASSES)))
 JAVA_SOURCES=$(addprefix $(PACK)/, $(addsuffix .java,$(CLASSES)))
@@ -51,7 +35,7 @@ INCLUDES  = $(PACKAGES) $(addprefix -I , $(MLINCDIRS))
 LINK_OPTS = -linkpkg $(addprefix -ccopt -L, $(CLIBDIRS)) \
 	    $(addprefix -cclib -l, $(CLIBS))
 
-CP := -annot -cp $(JAVA_PATH)/lib/ct.sym -cp $(PACK)
+CP := -cp $(PACK)
 ifneq ($(CBCLASSES),)
   CP += -cp callback/$(PACK)
 endif
@@ -67,7 +51,7 @@ $(IDL).ml $(IDL).mli $(JAVA_CB_SOURCES): $(IDL).idl
 %.cmi: %.mli
 	$(OCAMLJAVA) $(CP) $(INCLUDES) -c $<
 
-%.cmj: %.ml 
+%.cmj: %.ml
 	$(OCAMLJAVA) $(CP) $(INCLUDES) -c $<
 
 $(IDL).cmj: $(IDL).cmi $(JAVA_CLASSES) $(JAVA_CB_CLASSES)
@@ -79,18 +63,16 @@ $(JAVA_CLASSES): $(JAVA_SOURCES)
 $(JAVA_CB_CLASSES): $(JAVA_CB_SOURCES)
 	$(JAVAC) $^
 
-camlprog.jar: $(IDL).cmj $(MAIN:%=%.cmj)
-	$(OCAMLJAVA) $(LIBRARIES:=.cmja) $^
+camlprog.jar: $(IDL).cmj $(EXTRA_OBJS) $(MAIN:%=%.cmj)
+	$(OCAMLJAVA) $(INCLUDES) $(LIBRARIES:=.cmja) $^
 
 run:
-	$(JAVA) -cp camlprog.jar:. pack.ocamljavaMain
+	$(JAVA) -jar camlprog.jar ${EXTRA_ARGS}
 
-clean:
+clean::
 	rm -rf camlprog.jar *.cm* *.jo $(PACK)/*.class callback *.annot $(IDL).ml $(IDL).mli
 
-
 .PHONY: default compile run clean
-
 
 .depend: $(wildcard *.mli) $(wildcard *.ml)
 	$(OCAMLDEP) $(INCLUDES) $^ > .depend
