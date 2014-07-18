@@ -932,7 +932,7 @@ idées : nous avons repris la simplicité d'utilisation
 d'\emph{O'Jacaré} et l'efficacité de compilation d'\emph{OCaml-Java}.
 
 Nous avons adapté \emph{O'Jacaré} afin qu'il prenne pour cible
-\emph{OCaml-Java}.  \emph{O'Jacaré} 2 respecte le contrat dans la
+\emph{OCaml-Java}.  \emph{O'Jacaré 2} respecte le contrat dans la
 mesure où l'utilisateur n'a qu'à définir un IDL simple, pour pouvoir
 utiliser du code Java dans son programme OCaml.  De plus, la
 compilation se fait de manière sûre grâce à un outil qui assure des
@@ -943,7 +943,7 @@ de programmations différents ne peuvent communiquer que sur ce qu'ils
 ont en commun, mais il est certain que de futures applications
 profiteront de cette complémentarité entre les mondes Java et OCaml.
 
-Enfin, en ajoutant à \emph{O'Jacaré} 2 la possibilité d'assurer la
+Enfin, en ajoutant à \emph{O'Jacaré 2} la possibilité d'assurer la
 communication de Java vers OCaml, nous pourrons dire qu'il
 sera complet. Dans cette continuité, un stage à INRIA sera effectué afin de parfaire cette communication de Java vers OCaml.
 
@@ -958,10 +958,10 @@ sera complet. Dans cette continuité, un stage à INRIA sera effectué afin de p
 \section{Stage}
 
 \subsection{Gestion des tableaux}
-Les tableaux Java dans \emph{OCaml-Java} correspondent à une instance d'un type donné dans le tableau suivant (en colonne 2).
+Les tableaux Java dans \emph{OCaml-Java} correspondent à une instance d'un type donné par le tableau suivant (en colonne 2).
 
-Mais dans le but de faciliter leur manipulation, nous avons choisi d'encapsuler les tableaux, respectant ainsi le système de types d'O'Jacaré 2.
-Les tableaux Java peuvent être encapsulés dans des types abstraits, simplifiant leur usage grâce à un accesseur, un modifieur, une fonction rendant leur taille et un fonction permettant leur création (initialisé avec une valeur par défaut) :
+Mais dans le but de faciliter leur manipulation, nous avons choisi d'encapsuler les tableaux, respectant ainsi le système de types d'\emph{O'Jacaré 2}.
+Les tableaux Java peuvent donc être encapsulés dans des types abstraits(donnés en colonne 3), simplifiant leur usage grâce à un accesseur, un modifieur, une fonction donnant leur taille et une fonction permettant leur création (initialisés avec une valeur par défaut).
 \newline
 
 \begin{tabular}{|l|l|l|}
@@ -981,17 +981,19 @@ Les tableaux Java peuvent être encapsulés dans des types abstraits, simplifian
 \end{tabular}
 \newline
 
-Pour plus d'informations, le module \emph{OjArray} est détaillé en annexe dans la section \ref{5.5}.
+Pour plus d'informations sur la manipulation des tableaux avec \emph{O'Jacaré 2}, le module \emph{OjArray} est détaillé en annexe dans la section \ref{5.5}.
 
-\subsection{Gestion du callback}
-O'Jacaré permet de sous-classer des classes Java en OCaml et d'implémenter des interfaces Java en OCaml. 
-L'utilisateur devra ajouter un attribut \emph{callback} devant la définition de l'interface dans l'IDL, devant celle de la classe, ou devant la ou les méthodes voulant être redéfinies.
-Cela nécessite un mécanisme permettant à du code Java de revenir au monde OCaml :
+Pour les tableaux de référence, une fonction de création est générée pour chaque classe définie dans l'IDL.
+
+\subsection{Gestion du \emph{callback}}
+\emph{O'Jacaré 2} permet de sous-classer des classes Java en OCaml et d'implémenter des interfaces Java en OCaml. 
+L'utilisateur devra ajouter un attribut \emph{callback} devant la définition de l'interface ou classe dans l'IDL ou devant la ou les méthodes voulant être redéfinies.
+Cela nécessite un mécanisme de callback permettant à du code Java de revenir au monde OCaml :
 
 Pour le sous-classage d'une classe Java, le principe est de passer par une classe fille Java héritant de la classe Java en question, qui se charge de faire les appels à la bonne méthode (redéfinie ou non).
-Elle contient une référence sur une instance Java créée grâce à l'outil \emph{Java.proxy}, 
+Elle contient une référence sur une instance Java créée grâce à l'outil \emph{Java.proxy}, ayant les méthodes redéfinies par l'utilisateur.
 
-La nouvelle classe OCaml doit hériter d'une classe (souche) portant une référence sur cette classe fille, et l'utilisateur peut ainsi redéfinir des méthodes de la classe Java.
+La nouvelle classe OCaml (celle de l'utilisateur) doit hériter de la classe "souche" portant une référence sur cette classe fille, et l'utilisateur peut ainsi redéfinir des méthodes de la classe Java.
 L'utilisateur peut rendre toute la classe callback et ne redéfinir qu'une ou plusieurs de ses méthodes, mais il peut aussi, pour éviter de générer du code inutile, de ne rendre callback que la ou les méthodes désirées.
 
 Voici le schéma de compilation de la génération pour une classe ainsi définie dans l'IDL, et pour un sous classage ainsi implémenté en OCaml:
@@ -1017,9 +1019,12 @@ class userClass ()  =
 \end{OCamlEx}
 
 \end{multicols}
+Ici, nous avons un exemple de méthode m1 redéfinie qui fait un appel à super de celle-ci.
+En rouge(gros pointillés espacés) puis vert(gros pointillés serrés), nous avons le chemin d'un appel à m1 depuis Java.
+En vert nous avons le chemin depuis OCaml.
 \begin{figure}[h!]
   \centering
-  \includegraphics[scale=0.7]{schemaCBClass.pdf}
+  \includegraphics[scale=0.8]{schemaCBClassAppelSuper.pdf}
 \end{figure}
 
 Pour l'implémentation d'une interface Java en OCaml, le schéma est simple, la souche contient une référence sur l'instance Java 
