@@ -17,7 +17,7 @@ all: mldvi-1.0 camlprog.jar
 include $(shell ocamlfind query ojacare)/Makefile.ojacare
 
 mldvi-1.0.tar.gz:
-	wget http://www.pps.=univ-paris-diderot.fr/~miquel/soft/mldvi-1.0.tar.gz
+	wget http://www.pps.univ-paris-diderot.fr/~miquel/soft/mldvi-1.0.tar.gz
 
 mldvi-1.0: mldvi-1.0.tar.gz
 	tar xf $^
@@ -25,3 +25,4 @@ mldvi-1.0: mldvi-1.0.tar.gz
 clean::
 	rm -rf mldvi-1.0
 
+.depend: $(wildcard mldvi-1.0/*.mli) $(wildcard mldvi-1.0/*.ml)

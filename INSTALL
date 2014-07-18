@@ -4,8 +4,8 @@
 PREREQUISITES (INSTALLATION)
 
 * The OCaml-java comiler from Xavier Clerc 
-  (2.0-early-access11 or newer recommended)
-  URL : http://ocamljava.x9c.fr/preview/
+  (2.0-alpha-1 or newer recommended)
+  URL : http://www.ocamljava.org/installation
 
 * The ocamlfind tool findlib
   URL : http://projects.camlcity.org/projects/findlib.html

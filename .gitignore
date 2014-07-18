@@ -18,3 +18,8 @@ src/ojacare
 src/parser/lexer.ml
 src/parser/parser.ml
 src/parser/parser.mli
+*.aux
+*.log
+*.out
+*.toc
+*.class

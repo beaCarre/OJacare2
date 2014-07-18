@@ -1,0 +1,18 @@
+TODO - O'Jacare 2
+-----------------
+
+- Implémenter un mécanisme d'import dans les fichiers .idl.
+
+- Code engendré : Remplacer les multiples classes utilisateurs par un
+   constructeur avec des variants
+
+- réintegrer le générateur de fichier IDL, par introspection Java.
+
+- Makefile générique : problème de dépendence
+
+- warning lorsque deux classes ont le meme nom ...
+
+- warning lorsque deux constructeurs de deux classes différentes ont
+   le meme nom ...
+
+- 

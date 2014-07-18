@@ -178,7 +178,7 @@ de réduire l'étude à leur l'intersection.
 Deux travaux ont déjà été réalisés pour l’interopérabilité entre
 OCaml et Java à travers leur modèle object respectif :
 \begin{itemize}
-\item \emph{O’Jacaré}\cite{O'Jacaré} conserve les runtimes des deux langages (GC,
+\item \emph{O’Jacaré}\cite{O'Jacare} conserve les runtimes des deux langages (GC,
 Exceptions, ...) et les fait communiquer par l'interface \camljava \cite{camljava},
 avec l'aide de classes encapsulantes générées par O'Jacaré.
 
@@ -258,7 +258,7 @@ section \ref{2.1}.
 
 \subsubsection{Génération de code}
 La génération de code se fait à partir d'un IDL, dont la grammaire
-(BNF\footnote{Backus-Naur Form}) est définie en annexe dans la section \ref{4.1}.
+(BNF\footnote{Backus-Naur Form}) est définie en annexe dans la section \ref{5.1}.
 Dans cet IDL, nous pouvons définir des déclarations qui sont à
 l'intersection de ce qui est accessible dans les modèles objet de
 chaque langage. 
@@ -463,8 +463,8 @@ exception Java_exception of java'lang'Throwable java_instance
 
 Il est aussi possible de créer une instance d'interface java depuis 
 OCaml grâce à la fonction \emph{Java.proxy}, 
+TODO
 
-\newpage
 Voici un exemple d'utilisation du module Java \cite{module Java} d'OCaml, voué à être compilé avec \emph{OCaml-Java} :
 \begin{OCamlEx}
 let color = JavaString.of_string "bleu"
@@ -643,7 +643,7 @@ fonctions de conversion utiles aux schémas de compilation manipulant ceux-ci, c
 \end{tabular}
 
 
-\subsubsection{schémas de compilation d'O'Jacaré 2}
+\subsubsection{Schémas de compilation d'O'Jacaré 2}
 
 \noindent
 Nous considérons un environnement contenant les  variables suivantes, initialisées à leur valeur par défaut: 
@@ -662,7 +662,6 @@ $\Delta$ = [] : les interfaces qu'\textbf{implemente} la classe courante.
 
 \ 
 \newline
-\textbf{class}
 
 Le type "top" manipulé est le type d'une instance de Ocaml-Java de la classe Objet Java :
 \begin{OCamlEx}
@@ -899,9 +898,6 @@ class point _p0 _p1 =
 
 
 
-
-
-
 \section{Application}
 
 En développant ce projet, une application concrète m'est venue à l'esprit : un mini-projet de gestion de base de données implémenté en OCaml au cours de mes études manquait d'une interface graphique. Or, la bibliothèque graphique \emph{swing} offre un composant permettant d'afficher un tableau (JTable), très simple d'utilisation.
@@ -921,7 +917,7 @@ La structure de ce programme est la suivante :
   \includegraphics{exempleDB.pdf}
 \end{figure}
 
-Le détail du code est en annexe dans la section \ref{4.4}
+Le détail du code est en annexe dans la section \ref{5.4}
 
 
 \newpage
@@ -958,24 +954,80 @@ sera complet. Dans cette continuité, un stage à INRIA sera effectué afin de p
 
 
 
+\newpage
+\section{Stage}
 
+\subsection{Gestion des tableaux}
+Les tableaux Java dans \emph{OCaml-Java} correspondent à une instance d'un type donné dans le tableau suivant (en colonne 2).
 
+Mais dans le but de faciliter leur manipulation, nous avons choisi d'encapsuler les tableaux, respectant ainsi le système de types d'O'Jacaré 2.
+Les tableaux Java peuvent être encapsulés dans des types abstraits, simplifiant leur usage grâce à un accesseur, un modifieur, une fonction rendant leur taille et un fonction permettant leur création (initialisé avec une valeur par défaut) :
+\newline
 
+\begin{tabular}{|l|l|l|}
+  \hline
+  \emph{Java type} & \emph{OCaml type dans OCaml-Java} & \emph{OCaml type}\\ 
+  \hline
+  boolean[] & bool JavaBooleanArray.t & bool OjArray.t \\
+  byte[] & int JavaByteArray.t & int OjArray.t \\
+  char[] & int JavaCharArray   & char OjArray.t \\
+  double[] & float JavaDoubleArray & float OjArray.t \\
+  float[] & float JavaFloatArray & float OjArray.t \\
+  int[] & int32 JavaIntArray & int OjArray.t \\
+  long[] & int64 JavaLongArray & int OjArray.t \\
+  short[] & int JavaShortArray & int OjArray.t \\
+  pack.Obj[] & pack'Obj java\_instance JavaReferenceArray & jObj OjArray.t \\
+  \hline
+\end{tabular}
+\newline
 
+Pour plus d'informations, le module \emph{OjArray} est détaillé en annexe dans la section \ref{5.5}.
 
+\subsection{Gestion du callback}
+O'Jacaré permet de sous-classer des classes Java en OCaml et d'implémenter des interfaces Java en OCaml. 
+L'utilisateur devra ajouter un attribut \emph{callback} devant la définition de l'interface dans l'IDL, devant celle de la classe, ou devant la ou les méthodes voulant être redéfinies.
+Cela nécessite un mécanisme permettant à du code Java de revenir au monde OCaml :
 
+Pour le sous-classage d'une classe Java, le principe est de passer par une classe fille Java héritant de la classe Java en question, qui se charge de faire les appels à la bonne méthode (redéfinie ou non).
+Elle contient une référence sur une instance Java créée grâce à l'outil \emph{Java.proxy}, 
 
+La nouvelle classe OCaml doit hériter d'une classe (souche) portant une référence sur cette classe fille, et l'utilisateur peut ainsi redéfinir des méthodes de la classe Java.
+L'utilisateur peut rendre toute la classe callback et ne redéfinir qu'une ou plusieurs de ses méthodes, mais il peut aussi, pour éviter de générer du code inutile, de ne rendre callback que la ou les méthodes désirées.
 
+Voici le schéma de compilation de la génération pour une classe ainsi définie dans l'IDL, et pour un sous classage ainsi implémenté en OCaml:
+\begin{multicols}{2}
+\begin{idlEx}
+ class Class {
 
+   [name class] <init> ();
 
+   [callback] int m1 ();
+   int m2 ();
+   int m3 ();
+ }
+\end{idlEx}
 
+\begin{OCamlEx}
+class userClass ()  =
+  object
+    inherit _stub_class x y c as super
+    method m1() = (*redef...*);
+                  super#m1()
+  end
+\end{OCamlEx}
 
+\end{multicols}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.7]{schemaCBClass.pdf}
+\end{figure}
 
+Pour l'implémentation d'une interface Java en OCaml, le schéma est simple, la souche contient une référence sur l'instance Java 
 
-
-
-
-
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.7]{schemaCBIntSimple.pdf}
+\end{figure}
 
 
 
@@ -991,11 +1043,11 @@ sera complet. Dans cette continuité, un stage à INRIA sera effectué afin de p
   d'applications avec Objective Caml}, O'Reilly
 , 2000, (\url{http://www.oreilly.fr/catalogue/ocaml.html})
 
-\bibitem{O'Jacaré} HENRY G., \emph{O’Jacaré} \url{http://www.pps.univ-paris-diderot.fr/~henry/ojacare/}
+\bibitem{O'Jacare} HENRY G., \emph{O’Jacaré} \url{http://www.pps.univ-paris-diderot.fr/~henry/ojacare/}
 
 \bibitem{OCaml-Java} CLERC X.,\emph{OCaml-Java 2.0} \url{http://ocamljava.x9c.fr/preview/}
 
-\bibitem{O'Jacaré2} CHAILLOUX E., HENRY G., \emph{O’Jacaré, une interface objet
+\bibitem{O'Jacare2} CHAILLOUX E., HENRY G., \emph{O’Jacaré, une interface objet
   entre Objective Caml et Java}, 2004
 
 \bibitem{OCaml-Java2} CLERC X., \emph{OCaml-Java: Typing Java Accesses from OCaml
@@ -1050,7 +1102,7 @@ Functional Programming,
 \section{Annexe}
 
 
-\subsection{grammaire de l'IDL d'O'Jacaré}\label{4.1}
+\subsection{grammaire de l'IDL d'O'Jacaré et O'Jacaré 2}\label{5.1}
 
 \emph{Les symboles < et > encadrent des règles optionnelles,
 les terminaux sont en bleu, et les non-terminaux sont en italique.}
@@ -1085,7 +1137,6 @@ arg ::= <[ attributes ]> type <(*\name*)>
 attributes ::= 	attribute <, attribute>*
 attribute ::= name (*\ident*)
   	    | callback
-  	    | array
  
 type ::= basetype
        | object
@@ -1343,7 +1394,7 @@ class default_point () =
 \end{OCamlEx}
 
 \newpage
-\subsection{Exemple d'application : l'affichage d'une base de donnée}\label{4.4}
+\subsection{Exemple d'application : l'affichage d'une base de donnée}\label{5.4}
 
 FrameDB.java :
 \begin{javaEx}
@@ -1433,4 +1484,55 @@ open Jdb
 ignore(new frameDB "affichage DB" fields rows)
 \end{OCamlEx}
 
+\newpage
+\subsection{Module OjArray}\label{5.5}
+\begin{OCaml}
+(** type abstrait 'a t d'encapsulation des tableaux ocamljava *)
+type 'a t 
+
+(** type abstrait 'a t d'encapsulation des tableaux ocamljava *)
+val get: 'a t -> int -> 'a
+val set: 'a t -> int -> 'a -> unit
+val length: 'a t -> int
+
+(** Fonctions d'empaquetage des tableaux de reference ocamljava *)
+type refA = 
+| RefA : 'b java_reference_array -> refA
+
+val pack_reference_array: < .. > t -> refA
+
+(** Fonctions d'encapsulation des tableaux ocamljava *)
+val wrap_boolean_array: bool java_boolean_array -> bool t
+val wrap_char_array: int java_char_array -> char t
+val wrap_byte_array: int java_byte_array -> int t
+val wrap_double_array: float java_double_array -> float t
+val wrap_float_array: float java_float_array -> float t
+val wrap_int_array: int32 java_int_array -> int t
+val wrap_long_array: int64 java_long_array -> int t
+val wrap_short_array: int java_short_array -> int t
+val wrap_string_array: java'lang'String java_instance java_reference_array -> string t
+val wrap_reference_array: 'a java_reference_array -> ((< .. > as 'b) -> 'a) -> ('a -> 'b) -> 'b t
+
+(** Fonctions d'encapsulation des tableaux de type 'a t *)
+val unwrap_boolean_array: bool t -> bool java_boolean_array
+val unwrap_char_array: char t -> int java_char_array
+val unwrap_byte_array: int t -> int java_byte_array
+val unwrap_double_array: float t -> float java_double_array
+val unwrap_float_array: float t -> float java_float_array
+val unwrap_int_array: int t -> int32 java_int_array
+val unwrap_long_array: int t -> int64 java_long_array  
+val unwrap_short_array: int t -> int java_short_array
+val unwrap_string_array: string t -> java'lang'String java_instance java_reference_array
+
+(** Fonctions de creation de tableaux de type 'a t *)
+val _new_boolean_array: int -> bool t
+val _new_byte_array: int -> int t
+val _new_char_array: int -> char t
+val _new_double_array: int -> float t
+val _new_float_array: int -> float t
+val _new_int_array: int -> int t
+val _new_long_array: int -> int t
+val _new_short_array: int -> int t
+val _new_string_array: int -> string t
+\end{OCaml}
 \end{document}
