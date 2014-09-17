@@ -957,6 +957,12 @@ sera complet. Dans cette continuité, un stage à INRIA sera effectué afin de p
 \newpage
 \section{Stage}
 
+Il manquait au travail effectué jusque là deux notions essentielles pour en faire un outil intéressant à utiliser :
+\begin{itemize}
+\item la possibilité de partager des types tableaux
+\item permettre une communication de Java vers OCaml (\emph{callback})
+\end{itemize} 
+
 \subsection{Gestion des tableaux}
 Les tableaux Java dans \emph{OCaml-Java} correspondent à une instance d'un type donné par le tableau suivant (en colonne 2).
 
@@ -986,6 +992,7 @@ Pour plus d'informations sur la manipulation des tableaux avec \emph{O'Jacaré 2
 Pour les tableaux de référence, une fonction de création est générée pour chaque classe définie dans l'IDL.
 
 \subsection{Gestion du \emph{callback}}
+Cette fonctionalité est importante dans la mesure où 
 \emph{O'Jacaré 2} permet de sous-classer des classes Java en OCaml et d'implémenter des interfaces Java en OCaml. 
 L'utilisateur devra ajouter un attribut \emph{callback} devant la définition de l'interface ou classe dans l'IDL ou devant la ou les méthodes voulant être redéfinies.
 Cela nécessite un mécanisme de callback permettant à du code Java de revenir au monde OCaml :
@@ -1019,12 +1026,13 @@ class userClass ()  =
 \end{OCamlEx}
 
 \end{multicols}
-Ici, nous avons un exemple de méthode m1 redéfinie qui fait un appel à super de celle-ci.
-En rouge(gros pointillés espacés) puis vert(gros pointillés serrés), nous avons le chemin d'un appel à m1 depuis Java.
-En vert nous avons le chemin depuis OCaml.
+%% Ici, nous avons un exemple de méthode m1 redéfinie qui fait un appel à super de celle-ci.
+%% En rouge(gros pointillés espacés) puis vert(gros pointillés serrés), nous avons le chemin d'un appel à m1 depuis Java.
+%% En vert nous avons le chemin depuis OCaml.
+Ici, nous avons un exemple de méthode m1 de la classe \emph{Class} redéfinie côté OCaml dans la classe \emph{OCamlClass}.
 \begin{figure}[h!]
   \centering
-  \includegraphics[scale=0.8]{schemaCBClassAppelSuper.pdf}
+  \includegraphics[scale=0.8]{schemaCBClass.pdf}
 \end{figure}
 
 Pour l'implémentation d'une interface Java en OCaml, le schéma est simple, la souche contient une référence sur l'instance Java 
