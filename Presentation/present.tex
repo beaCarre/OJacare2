@@ -125,19 +125,20 @@ programme dans un autre langage.
 \item \textbf{Intérêt} :
 
 Tirer parti des spécificités de chaque langage.
-%
+% lib standard, GC, portabilité,
+% typage statique, paradigmes obj/imperatif/fonctionnel, 
 
 \item\textbf{Interopérabilité efficace} :
 
-Accès simple à l'autre langage (ici, manipuler un objet Java comme un
+Accès simple à l'autre langage (manipuler un objet Java comme un
 objet OCaml grâce à l'encapsulation).
+% pour faciliter l'emploi d'OCamljava
+% 
+Mais aussi TODO sous-classage
 
-
-\item \textbf{Objectif} : 
+\item \textbf{Travail} : 
   
-  Adapter deux travaux déjà développés : 
-
-\emph{O'Jacaré} (Grégoire Henry) et \emph{OCaml-Java} (Xavier Clerc)
+  Adapter (\emph{O'Jacaré} de Grégoire Henry) pour \emph{OCaml-Java} (Xavier Clerc)
 
 \end{itemize}
 \end{frame}
@@ -311,60 +312,46 @@ in
 \end{frame}
 
 
-\begin{frame}{Fusion des deux approches}
-
-\begin{tabular}{|c|c@{\,\vrule width 6pt\,}c|}
-  \hline
-   \cellcolor[gray]{0.6}\emph{O'Jacaré+}\camljava & \cellcolor[gray]{0.6}\emph{OCaml-Java}& \cellcolor[gray]{0.6} \emph{O'Jacaré+OCaml-Java}\\
-  \hline\hline
- \cellcolor[gray]{0.8} appels transparents & via module Java & \cellcolor[gray]{0.8}appels transparents\\
-\hline
-  2 runtimes &\cellcolor[gray]{0.8} 1 runtime&\cellcolor[gray]{0.8} 1 runtime \\
-\hline
-\end{tabular}
-
-\bigskip 
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[scale=1]{schema1.png}
-\end{figure}
-
-\end{frame}
 
 
 
-\begin{frame}{Adaptation d'Ojacaré : O'Jacaré 2}
+\begin{frame}{Système de type d'O'Jacaré 2}
 
-\begin{enumerate}
-\item Garder la même structure de capsule sauf l'introspection des
-  types dynamiques, qui se fait statiquement par OCaml-Java
-
-\item Adapter au module \emph{Java} de OCaml-Java
-
-\item Redéfinir la conversion des types
+Garder les types
 
 \begin{figure}\scalebox{0.8}{
 \centering
+
 \begin{tabular}{|c|l|l|l|}
  \hline
  \rowcolor[gray]{0.8}
 \emph{TYPE IDL} & \emph{type Java} &\emph{type OCaml manipulés} &
 \emph{type OCaml} \\ 
 \rowcolor[gray]{0.8}
-& (java\_type) & \emph{par OCaml-Java} (oj\_type t) & (ml\_type t)\\
+(idl\_type)& (java\_type) & \emph{par OCaml-Java} (oj\_type) & (ml\_type)\\
  \hline
+
 \emph{int} & int & int32 & int\\
+\emph{int[]} & int[] & int32 JavaIntArray & int OjArray.t\\
+
 \emph{long} & long & int64 & int\\
+\emph{long[]} & long[] & int64 JavaLongArray & int OjArray.t\\
+
 \emph{string} & java.lang.String & java'lang'String java\_instance & string\\
+\emph{string[]} & java.lang.String[] & java'lang'String java\_instance JavaStringArray & string OjArray.t\\
+
 \emph{pack/Obj} & pack.Obj & pack'Obj java\_instance & jObj\\
+\emph{pack/Obj[]} & pack.Obj[] & pack'Obj java\_instance JavaReferenceArray & jObj OjArray.t\\
+
  \hline
 \end{tabular}
 }
 \end{figure}
 
-\end{enumerate}
 \end{frame}
+
+
+
 
 
 
@@ -413,7 +400,7 @@ class point _p0 _p1 =
 Travail :
 \begin{itemize}
 \item S'approprier les outils et lire les articles associés
-\item Comprendre le système de types de OCaml-Java
+\item Prendre en main le système de types de OCaml-Java
 \item Ecrire O'Jacaré 2
 \end{itemize}
 
