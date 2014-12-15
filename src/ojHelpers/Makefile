@@ -37,10 +37,10 @@ reinstall:
 	${MAKE} install
 
 clean::
-	rm -f *.cm[ij] *~ *.ja *.jo *.cmja 
+	rm -f *.cm[ij] *~ *.ja *.jo *.cmja
 
 # Dépendances
-.depend: *.mli *.ml
+depend: *.mli *.ml
 	$(OCAMLDEP) *.mli *.ml > .depend
 
 -include .depend

@@ -25,10 +25,12 @@ opt: $(CMX_OBJS)
 	$(OCAMLOPT) -c $(INCLUDES) $< 
 clean::
 	rm -f *.cm[iox] *.[so] *~ *.annot
+.PHONY: realclean
 realclean::
 	echo -n > .depend
 
 # Dépendances
+.PHONY: depend
 depend:
 	$(OCAMLDEP) $(INCLUDE) *.mli *.ml > .depend
 

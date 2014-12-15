@@ -40,10 +40,12 @@ beforedepend:: parser.ml lexer.ml
 	$(OCAMLOPT) -c $(INCLUDES) $< 
 clean:: partialclean
 	rm -f *.cm[iox] *.[so] *~ *.annot
+.PHONY: realclean
 realclean::
 	echo -n > .depend
 
 # Dépendances
+.PHONY: depend
 depend: beforedepend
 	$(OCAMLDEP) $(INCLUDES) *.mli *.ml > .depend
 
