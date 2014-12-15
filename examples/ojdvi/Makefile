@@ -6,8 +6,10 @@ DISTRIB_MODULES := table pkfont search font glyph devfont dvi driver \
 	           units dviview
 LIBRARIES  := unix
 PACK       := mypack
-CLASSES    := GrControler MlDvi GrView CamlEvent DviFrame
+CLASSES    := $(addprefix ${PACK}/,GrControler MlDvi GrView CamlEvent DviFrame)
 CBCLASSES  :=
+
+EXTRA_JAR_CLASSES := ${CLASSES}
 
 EXTRA_OBJS := $(addprefix mldvi-1.0/,${DISTRIB_MODULES:=.cmj})
 EXTRA_ARGS :=

@@ -6,8 +6,9 @@ IDL       := p
 MLINCDIRS :=
 MODULES   :=
 LIBRARIES :=
-PACK      := mypack
-CLASSES   := Point Colored ColoredPoint Cloud
-CBCLASSES := ColoredPoint
+CLASSES   := mypack/Point mypack/Colored mypack/ColoredPoint mypack/Cloud
+CBCLASSES := mypack/ColoredPoint
+
+EXTRA_JAR_CLASSES := ${CLASSES}
 
 include $(shell ocamlfind query ojacare)/Makefile.ojacare

@@ -1,10 +1,10 @@
 visiteur.cmi :
-formule.cmo : visiteur.cmi
-formule.cmx : visiteur.cmx
-formule.cmj : visiteur.cmj
 main_visiteur.cmo : visiteur.cmi formule.cmo
 main_visiteur.cmx : visiteur.cmx formule.cmx
 main_visiteur.cmj : visiteur.cmj formule.cmj
+formule.cmo : visiteur.cmi
+formule.cmx : visiteur.cmx
+formule.cmj : visiteur.cmj
 visiteur.cmo : visiteur.cmi
 visiteur.cmx : visiteur.cmi
 visiteur.cmj : visiteur.cmi

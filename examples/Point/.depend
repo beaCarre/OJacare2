@@ -1,7 +1,7 @@
-p.cmi : /home/beatrice/.opam/4.01.0+ocamljava/lib/ojacare/ojArray.cmi
+p.cmi :
+p.cmo : p.cmi
+p.cmx : p.cmi
+p.cmj : p.cmi
 main_point.cmo : p.cmi
 main_point.cmx : p.cmx
 main_point.cmj : p.cmj
-p.cmo : /home/beatrice/.opam/4.01.0+ocamljava/lib/ojacare/ojArray.cmi p.cmi
-p.cmx : /home/beatrice/.opam/4.01.0+ocamljava/lib/ojacare/ojArray.cmi p.cmi
-p.cmj : /home/beatrice/.opam/4.01.0+ocamljava/lib/ojacare/ojArray.cmi p.cmi

@@ -17,28 +17,24 @@ include $(shell ocamlfind query ojacare)/Makefile.config
 
 #########  #########
 
-LIBRARIES += javalib ojhelpers
-MLINCDIRS += $(shell ocamlfind query ojacare)
+PACKAGES += -package ojacare
+LIBRARIES += javalib
 
-JAVA_CLASSES=$(addprefix $(PACK)/, $(addsuffix .class,$(CLASSES)))
-JAVA_SOURCES=$(addprefix $(PACK)/, $(addsuffix .java,$(CLASSES)))
+JAVA_CLASSES=$(addsuffix .class,$(CLASSES))
+JAVA_SOURCES=$(addsuffix .java,$(CLASSES))
 
 JAVA_CB_CLASSES= \
-  $(addprefix callback/$(PACK)/CB_, $(addsuffix .class,$(CBCLASSES))) \
-  $(addprefix callback/$(PACK)/ICB_, $(addsuffix .class,$(CBCLASSES)))
+   $(foreach c,$(CBCLASSES),callback/$(dir ${c})CB_$(notdir ${c}).class) \
+   $(foreach c,$(CBCLASSES),callback/$(dir ${c})ICB_$(notdir ${c}).class)
 JAVA_CB_SOURCES= \
-  $(addprefix callback/$(PACK)/CB_, $(addsuffix .java,$(CBCLASSES))) \
-  $(addprefix callback/$(PACK)/ICB_, $(addsuffix .java,$(CBCLASSES)))
-
+   $(foreach c,$(CBCLASSES),callback/$(dir ${c})CB_$(notdir ${c}).java) \
+   $(foreach c,$(CBCLASSES),callback/$(dir ${c})ICB_$(notdir ${c}).java)
 
 INCLUDES  = $(PACKAGES) $(addprefix -I , $(MLINCDIRS))
 LINK_OPTS = -linkpkg $(addprefix -ccopt -L, $(CLIBDIRS)) \
 	    $(addprefix -cclib -l, $(CLIBS))
 
-CP := -cp $(PACK)
-ifneq ($(CBCLASSES),)
-  CP += -cp callback/$(PACK)
-endif
+ADDITIONAL_CLASSES = $(addprefix -additional-class , $(addsuffix .class,$(EXTRA_JAR_CLASSES)) ${JAVA_CB_CLASSES})
 
 
 #########  #########
@@ -49,10 +45,10 @@ $(IDL).ml $(IDL).mli $(JAVA_CB_SOURCES): $(IDL).idl
 	$(OJACARE) $<
 
 %.cmi: %.mli
-	$(OCAMLJAVA) $(CP) $(INCLUDES) -c $<
+	$(OCAMLJAVA) $(INCLUDES) $(PACKAGES) -c $<
 
 %.cmj: %.ml
-	$(OCAMLJAVA) $(CP) $(INCLUDES) -c $<
+	$(OCAMLJAVA) $(INCLUDES) $(PACKAGES) -c $<
 
 $(IDL).cmj: $(IDL).cmi $(JAVA_CLASSES) $(JAVA_CB_CLASSES)
 $(MAIN:%.ml=%.cmj): $(IDL).cmi
@@ -64,7 +60,7 @@ $(JAVA_CB_CLASSES): $(JAVA_CB_SOURCES)
 	$(JAVAC) $^
 
 camlprog.jar: $(IDL).cmj $(EXTRA_OBJS) $(MAIN:%=%.cmj)
-	$(OCAMLJAVA) $(INCLUDES) $(LIBRARIES:=.cmja) $^
+	$(OCAMLJAVA) $(INCLUDES) -linkpkg ${ADDITIONAL_CLASSES} $(PACKAGES) $(LIBRARIES:=.cmja) $^
 
 run:
 	$(JAVA) -jar camlprog.jar ${EXTRA_ARGS}
@@ -74,7 +70,8 @@ clean::
 
 .PHONY: default compile run clean
 
+.SECONDARY: $(IDL).ml $(IDL).mli
 .depend: $(wildcard *.mli) $(wildcard *.ml)
 	$(OCAMLDEP) $(INCLUDES) $^ > .depend
 
-include .depend
+-include .depend
