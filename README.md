@@ -16,16 +16,16 @@ The implementation uses the OCaml-Java compiler.
 O'Jacare generates all needed wrapper classes and enables static 
 typechecking in both world.
 
-*Web-site:
+* Web-site:
     http://www.github.com/beaCarre/OJacare2
 
-*OCaml-Java:
+* OCaml-Java:
     http://www.ocamljava.org/
 
-*O'Caml: 
+* O'Caml: 
     http://caml.inria.fr/
 
-*Java:   
+* Java:   
     http://java.sun.com/
 
 
@@ -52,21 +52,27 @@ Examples
 ------------------------------------------------------------------------------
 See the directory examples/
 
-
 ------------------------------------------------------------------------------
 Documentation
 ------------------------------------------------------------------------------
-See directory doc/ or website for up-to-date documentation.
-(http://www.pps.jussieu.fr/~henry/ojacare/documentation.en.html)
+See website : http://www.pps.jussieu.fr/~henry/ojacare/documentation.en.html
+
 See directory Rapport/ for further informations.
 
-
-License: See file LICENSE
 -------------------------------------------------------------------------------
-Contact:
+Licence: 
+-------------------------------------------------------------------------------
+See file LICENSE
+
+-------------------------------------------------------------------------------
+Contacts:
+-------------------------------------------------------------------------------
 Beatrice.Carre@etu.upmc.fr
+
 Emmanuel.Chailloux@lip6.fr
+
 xclerc@ocamljava.org
+
 Gregoire.Henry@ocamlpro.com
 
 $Id: README,v 1.6 2014/07/18 09:32:16 beatrice Exp $
