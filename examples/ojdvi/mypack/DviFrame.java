@@ -18,8 +18,8 @@ public class DviFrame extends Frame {
 
     public static void main(MlDvi model) {
 	DviFrame frame = new DviFrame();
-	FileDialog fd = new FileDialog(frame,"au choix ...");
-	fd.show();
-	model.run(fd.getDirectory()+fd.getFile(), frame.view, frame.view); 
+	// FileDialog fd = new FileDialog(frame,"au choix ...");
+	// fd.show();
+	model.run("../../../ocaml-4.02-refman.dvi", frame.view, frame.view); 
     }
 }

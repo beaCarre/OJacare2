@@ -24,7 +24,6 @@ class mlDvi =
       View.set_vmargin !vmargin;
       View.set_geometry !geometry;
       View.main_loop filename 
-
   end
 
 let _ = mypack_jDviFrame__main (new mlDvi :> ml_dvi)

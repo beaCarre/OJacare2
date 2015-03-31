@@ -151,9 +151,9 @@ public class GrView extends java.awt.Canvas implements GrControler {
 	this.queue_start = 0;
 	this.queue_end = 0;
 
-	this.addKeyListener(new GrKeyListener());
-	this.addMouseMotionListener(new GrMouseMotionListener());
-	this.addMouseListener(new GrMouseListener());
+	this.addKeyListener(new GrKeyListener(this));
+	this.addMouseMotionListener(new GrMouseMotionListener(this));
+	this.addMouseListener(new GrMouseListener(this));
 
 	this.trackMouseMotionLock = new Object();	
 	this.trackMouseMotion = false;
@@ -161,7 +161,7 @@ public class GrView extends java.awt.Canvas implements GrControler {
 	 this.requestFocus();
     }
 
-    private void enqueue(CamlEvent evt) { // FIXME : modulo sur end et begin
+    public void enqueue(CamlEvent evt) { // FIXME : modulo sur end et begin
 	synchronized (this.queue) {
 	    if (this.queue_end - this.queue_start < NB) {
 		this.queue[this.queue_end % NB] = evt;
@@ -171,7 +171,7 @@ public class GrView extends java.awt.Canvas implements GrControler {
 	}
     };
 
-   private void enqueue(InputEvent evt) { // FIXME : modulo sur end et begin
+   public void enqueue(InputEvent evt) { // FIXME : modulo sur end et begin
 	enqueue(new CamlEvent(evt,this.cur_x,this.cur_y,this.button));
     }
 
@@ -251,40 +251,40 @@ public class GrView extends java.awt.Canvas implements GrControler {
     }
 
 
-    private class GrKeyListener implements KeyListener {
-	public void keyPressed(KeyEvent e) { e.consume();  }
-	public void keyReleased(KeyEvent e) { e.consume(); }
-	public void keyTyped(KeyEvent e) { e.consume(); enqueue(e); }
-    }
+    // public class GrKeyListener implements KeyListener {
+    // 	public void keyPressed(KeyEvent e) { e.consume();  }
+    // 	public void keyReleased(KeyEvent e) { e.consume(); }
+    // 	public void keyTyped(KeyEvent e) { e.consume(); enqueue(e); }
+    // }
 
-    private class GrMouseMotionListener implements MouseMotionListener {
-	public void mouseDragged(MouseEvent e) { 
-	    e.consume(); cur_x = e.getX(); cur_y = e.getY(); 
-	    synchronized(trackMouseMotionLock) {
-		if(trackMouseMotion) {
-		    trackMouseMotion = false;
-		    enqueue(e);
-		}
-	    }
-	}
-	public void mouseMoved(MouseEvent e)  { 
-	    e.consume(); cur_x = e.getX(); cur_y = e.getY(); 
-	    synchronized(trackMouseMotionLock) {
-		if(trackMouseMotion) {
-		    trackMouseMotion = false;
-		    enqueue(e);
-		}
-	    }
-	}
-    }
+    // public class GrMouseMotionListener implements MouseMotionListener {
+    // 	public void mouseDragged(MouseEvent e) { 
+    // 	    e.consume(); cur_x = e.getX(); cur_y = e.getY(); 
+    // 	    synchronized(trackMouseMotionLock) {
+    // 		if(trackMouseMotion) {
+    // 		    trackMouseMotion = false;
+    // 		    enqueue(e);
+    // 		}
+    // 	    }
+    // 	}
+    // 	public void mouseMoved(MouseEvent e)  { 
+    // 	    e.consume(); cur_x = e.getX(); cur_y = e.getY(); 
+    // 	    synchronized(trackMouseMotionLock) {
+    // 		if(trackMouseMotion) {
+    // 		    trackMouseMotion = false;
+    // 		    enqueue(e);
+    // 		}
+    // 	    }
+    // 	}
+    // }
 
-    private class GrMouseListener implements MouseListener {
-	public void mouseClicked(MouseEvent e) { e.consume(); }
-	public void mouseEntered(MouseEvent e) { e.consume(); }
-	public void mouseExited(MouseEvent e) { e.consume(); }
-	public void mousePressed(MouseEvent e) { e.consume(); button = true; enqueue(e); requestFocus(); }
-	public void mouseReleased(MouseEvent e) { e.consume(); button = false; enqueue(e); }
-    }
+    // public class GrMouseListener implements MouseListener {
+    // 	public void mouseClicked(MouseEvent e) { e.consume(); }
+    // 	public void mouseEntered(MouseEvent e) { e.consume(); }
+    // 	public void mouseExited(MouseEvent e) { e.consume(); }
+    // 	public void mousePressed(MouseEvent e) { e.consume(); button = true; enqueue(e); requestFocus(); }
+    // 	public void mouseReleased(MouseEvent e) { e.consume(); button = false; enqueue(e); }
+    // }
   
 
 }
