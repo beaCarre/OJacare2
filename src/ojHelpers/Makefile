@@ -3,7 +3,7 @@
 TOP= ../..
 include $(TOP)/Makefile.config
 
-OCAMLJAVA = ocamljava -java-extensions
+OCAMLJAVA = ocamljava -java-extensions -I +javalib
 
 MODULES =  ojArray
 
